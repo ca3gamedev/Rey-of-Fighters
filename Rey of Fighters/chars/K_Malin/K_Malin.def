@@ -1,0 +1,33 @@
+; Player information
+[Info]
+name ="Malin"        
+displayname ="Malin" 
+versiondate =05,05,2008    
+mugenversion =06,14,2003 
+author ="KoopaKoot"         
+pal.defaults =1      
+
+; Files for the player
+[Files]
+cmd     =malin.cmd
+cns     =malin.cns
+st      =malin.cns
+st1     =config.txt
+stcommon =common1.cns
+sprite  =MalinSpr.sff
+anim    =malin.air
+sound   = FFFFFFFFFF.snd
+pal1=MalinB.Act
+pal2=MalinD.Act
+pal3=MalinE.Act
+pal4=MalinA.Act
+pal5=MalinC.Act
+pal6=MalinF.Act
+pal7=MalinG.Act
+pal8=MalinH.Act
+pal9=MalinI.Act
+pal10=MalinJ.Act
+
+
+
+

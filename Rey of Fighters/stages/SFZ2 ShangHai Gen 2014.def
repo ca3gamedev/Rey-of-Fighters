@@ -1,0 +1,535 @@
+;; SFZ2 Gen (ShangHai) Stage MUGEN Edition
+
+[Info]
+	name         = "SFZ2 ShangHai Gen 2014"
+	displayname  = "Lane2014"
+	versiondate  = 12,31,2016
+	mugenversion = 1.1
+	author       = "WATER"
+
+[Camera]
+	startx=0
+	starty=0
+	boundleft= -280
+	boundright= 280
+	boundhigh= -350
+	boundlow=0
+	verticalfollow=1
+	tension=100;50
+	floortension=150
+
+	;;--- * v1.1 (zoom) *---
+	;;cuthigh=30
+	cutlow=10
+	;;---
+	overdrawhigh=5
+	overdrawlow=5
+	;;---
+	tensionhigh=85 ;;t_hi
+	tensionlow=25
+	startzoom=1
+	zoomout=0.85 ;;c_zo
+	zoomin=1 ;;c_zi
+	;;--- * v1.1 (zoom) *---
+
+[PlayerInfo]
+	p1startx=-73
+	p1starty=0
+	p1startz=0
+	p1facing=1
+	p2startx=73
+	p2starty=0
+	p2startz=0
+	p2facing=-1
+	leftbound=-1000
+	rightbound=1000
+	topbound=0
+	botbound=0
+
+[Scaling]
+	topz=0
+	botz=50
+	topscale=1
+	botscale=1.2
+
+[Bound]
+	screenleft=15
+	screenright=15
+
+[StageInfo]
+	zoffset=215
+	autoturn=1
+	resetBG=0
+
+[Shadow]
+	color=0,0,0
+	intensity=196
+	reflect=0
+	yscale=0.05
+	fade.range=-100,0
+[Reflection]
+	intensity=0
+
+[Music]
+	bgmusic   = sound/SFZ2 ShangHai Gen 2014.mp3
+	bgvolume  = 150
+
+
+
+;--------------
+[BGdef]
+	spr       = SFZ2 ShangHai Gen 2014.sff
+	debugbg   = 0
+
+
+;--------------
+;--------------
+
+
+;---
+;---
+[bg 0]
+	type=normal
+	spriteno=4,1
+	start=-60,180
+	tile=0,0
+	mask=0
+	delta=    0.25,0.25
+	zoomdelta=0.25
+
+
+;---
+;---
+
+;--- top-line 1/3
+[bg 0]
+	type=normal
+	spriteno=8,101
+	start=-10,35
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.2625,0.2625
+	zoomdelta=0.2625
+
+
+;--- wall 1/5
+[bg 0]
+	type=normal
+	spriteno=4,25
+	start=-200,0
+;;	tile=2,0
+;;	tilespacing=83,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.275,0
+	zoomdelta=0.275
+
+;; tilespacing=W,H
+;; ikemen / winMugen ‚Å‚Í "W"="H" ‚É‚È‚é‚½‚ßˆÈ‰º’Ç‰Á
+
+[bg 0] ; [.ikemen]
+	type=normal
+	spriteno=4,25
+	start=83,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.275,0
+	zoomdelta=0.275
+
+
+;--- floor 1/2
+[bg 0]
+	type=normal
+	spriteno=7,102
+	start=-60,182
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.295,0.295
+	zoomdelta=0.295
+
+
+;--- top-line 2/3
+[bg 0]
+	type=normal
+	spriteno=8,102
+	start=-75,30
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.3125,0.3125
+	zoomdelta=0.3125
+
+
+;--- wall 2/5
+[bg 0]
+	type=normal
+	spriteno=4,24
+	start=-210,0
+;;	tile=2,0
+;;	tilespacing=104,0 ;; 102,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.325,0
+	zoomdelta=0.325
+
+[bg 0] ; [.ikemen]
+	type=normal
+	spriteno=4,24
+	start=94,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.325,0
+	zoomdelta=0.325
+
+
+;--- top-line 3/3
+[bg 0]
+	type=normal
+	spriteno=8,103
+	start=-30,20
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.45,0.45
+	zoomdelta=0.45
+
+
+;--- floor 2/2
+[bg 0]
+	type=normal
+	spriteno=7,101
+	start=-60,183
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.3375,0.3375
+	zoomdelta=0.3375
+
+
+;--- wall 3/5
+[bg 0]
+	type=normal
+	spriteno=4,23
+	start=-226,0
+;;	tile=2,0
+;;	tilespacing=137,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.4125,0
+	zoomdelta=0.4125
+
+[bg 0] ; [.ikemen]
+	type=normal
+	spriteno=4,23
+	start=111,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.4125,0
+	zoomdelta=0.4125
+
+
+;--- wall 4/5
+[bg 0]
+	type=normal
+	spriteno=4,22
+	start=-245,0
+;;	tile=2,0
+;;	tilespacing=176,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.5125,0
+	zoomdelta=0.5125
+
+[bg 0] ; [.ikemen]
+	type=normal
+	spriteno=4,22
+	start=131,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.5125,0
+	zoomdelta=0.5125
+
+
+;--- wall 5/5
+[bg 0]
+	type=normal
+	spriteno=4,21
+	start=-268,0
+;;	tile=2,0
+;;	tilespacing=224,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.625,0
+	zoomdelta=0.625
+
+[bg 0] ; [.ikemen]
+	type=normal
+	spriteno=4,21
+	start=156,0
+	tile=0,1
+	tilespacing=0,0
+	mask=1
+	delta=    0.625,0
+	zoomdelta=0.625
+
+
+;--- wall
+[bg 0]
+	type=normal
+	spriteno=6,103
+	start=-180,50
+	tile=2,0
+	tilespacing=246,0
+	mask=1
+	delta=    0.6725,0.6725
+	zoomdelta=0.6725
+
+
+
+;---
+;--- wall-left-box-far
+[bg 0]
+	type=normal
+	spriteno=6,104
+	start=-119,185
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.375,0.375
+	zoomdelta=0.375
+
+;--- wall-left-box
+[bg 0]
+	type=normal
+	spriteno=6,102
+	start=-148,186
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.5,0.5
+	zoomdelta=0.5
+
+;--- wall-left-door
+[bg 0]
+	type=normal
+	spriteno=6,101
+	start=-190,196
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.7,0.7
+	zoomdelta=0.7
+
+
+;---
+;--- wall-right-door-far
+[bg 0]
+	type=normal
+	spriteno=6,204
+	start=4,185
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.375,0.375
+	zoomdelta=0.375
+
+;--- wall-right-door
+[bg 0]
+	type=normal
+	spriteno=6,205
+	start=27,186
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.485,0.485
+	zoomdelta=0.485
+
+;--- wall-right-box
+[bg 0]
+	type=normal
+	spriteno=6,202
+	start=65,189
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.65,0.65
+	zoomdelta=0.65
+
+;--- wall-right-bow
+[bg 0]
+	type=normal
+	spriteno=6,201
+	start=74,188
+	tile=0,0
+	tilespacing=0,0
+	mask=1
+	delta=    0.7,0.7
+	zoomdelta=0.7
+
+
+
+
+
+;---
+;--- wall-left-f
+[bg 0]
+	type=normal
+	spriteno=2,1
+	start=-392,190
+	tile=0,0
+	mask=1
+	delta=    0.75,0.75
+	zoomdelta=0.75
+
+
+;--- wall-left-f-light
+[bg 0]
+	id=20
+	type=normal
+	spriteno=2,21
+	start=-392,190
+	tile=0,0
+	mask=1
+	delta=    0.75,0.75
+	zoomdelta=0.75
+
+
+;--- wall-right-f
+[bg 0]
+	type=normal
+	spriteno=3,1
+	start=392,190
+	tile=0,0
+	mask=1
+	delta=    0.75,0.75
+	zoomdelta=0.75
+
+
+;--- wall-top-f
+[bg 0]
+	type=normal
+	spriteno=2,11
+	start=-400,-181
+	tile=2,0
+	mask=1
+	delta=    0.75,0.75
+	zoomdelta=0.75
+[bg 0]
+	type=normal
+	spriteno=2,11
+	start=0,-101
+	tile=3,0
+	mask=1
+	delta=    0.75,0.75
+	zoomdelta=0.75
+
+
+
+
+
+;---
+;---
+;;--- floor
+[bg 0]
+	type=parallax
+	spriteno=8,1 ;;[720x60]
+	start=-35,191
+	mask=1
+	tile=0,0
+	tilespacing=0,0
+	delta=    0.75,0.75
+	zoomdelta=0.75
+	yscalestart=100
+	yscaledelta=1.1
+	width=720,960
+;;v2;	xscale=0.75,1.00
+
+
+;--- floor-light
+[bg 0]
+	id=20
+	type=parallax
+	spriteno=8,21 ;;[180x60]
+	start=-305,191
+	mask=1
+	tile=0,0
+	tilespacing=0,0
+	delta=    0.75,0.75
+	zoomdelta=0.75
+	yscalestart=100
+	yscaledelta=1.1
+	width=180,240
+
+
+
+
+;---------------
+; anim-off
+;---------------
+[bgctrldef 20]
+looptime=20
+ctrlid=20
+;---
+[bgctrl 0]
+	type=visible
+	time=0
+	value=0
+[bgctrl 0]
+	type=visible
+	time=10
+	value=1
+
+;---
+[bgctrldef 21]
+looptime=800
+ctrlid=20
+;---
+[bgctrl 0]
+	type=visible
+	time=60,400
+	value=0
+[bgctrl 0]
+	type=visible
+	time=460,800
+	value=1
+
+
+
+
+
+
+
+;---
+;--- floor-obj-01
+[bg 0]
+	type=normal
+	spriteno=8,31
+	start=-166,207
+	tile=0,0
+	mask=1
+	delta=    0.915,0.915
+	zoomdelta=0.75
+
+
+
+
+
+
+
+
+
+
+
+
+;[EOF]

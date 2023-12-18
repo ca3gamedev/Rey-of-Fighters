@@ -1,0 +1,1283 @@
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;パワーゲージ管理ヘルパー
+[Statedef 8000]
+type = A
+ctrl = 0
+anim = 9999
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 10
+
+[State 8000, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+flag2 = Invisible
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power < 1000
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4000) = 0
+anim = 4000
+ID = 4000
+bindtime = -1
+removetime = -1
+pos = 15,215
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power < 1000
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4100) = 0
+anim = 4100
+ID = 4100
+bindtime = -1
+removetime = -1
+pos = -109,215
+postype = Right
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4000)
+trigger1 = RoundState != 2
+trigger2 = Root,Power >= 1000
+ID = 4000
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4100)
+trigger1 = RoundState != 2
+trigger2 = Root,Power >= 1000
+ID = 4100
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [1000,2000)
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4001) = 0
+anim = 4001
+ID = 4001
+bindtime = -1
+removetime = -1
+pos = 15,215
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [1000,2000)
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4101) = 0
+anim = 4101
+ID = 4101
+bindtime = -1
+removetime = -1
+pos = -109,215
+postype = Right
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4001)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [1000,2000)
+ID = 4001
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4101)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [1000,2000)
+ID = 4101
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [2000,3000)
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4002) = 0
+anim = 4002
+ID = 4002
+bindtime = -1
+removetime = -1
+pos = 15,215
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [2000,3000)
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4102) = 0
+anim = 4102
+ID = 4102
+bindtime = -1
+removetime = -1
+pos = -109,215
+postype = Right
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4002)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [2000,3000)
+ID = 4002
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4102)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [2000,3000)
+ID = 4102
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [3000,4000)
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4003) = 0
+anim = 4003
+ID = 4003
+bindtime = -1
+removetime = -1
+pos = 15,215
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [3000,4000)
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4103) = 0
+anim = 4103
+ID = 4103
+bindtime = -1
+removetime = -1
+pos = -109,215
+postype = Right
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4003)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [3000,4000)
+ID = 4003
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4103)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [3000,4000)
+ID = 4103
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [4000,5000)
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4004) = 0
+anim = 4004
+ID = 4004
+bindtime = -1
+removetime = -1
+pos = 15,215
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [4000,5000)
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4104) = 0
+anim = 4104
+ID = 4104
+bindtime = -1
+removetime = -1
+pos = -109,215
+postype = Right
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4004)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [4000,5000)
+ID = 4004
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4104)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [4000,5000)
+ID = 4104
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power >= 5000
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4005) = 0
+anim = 4005
+ID = 4005
+bindtime = -1
+removetime = -1
+pos = 15,215
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power >= 5000
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4105) = 0
+anim = 4105
+ID = 4105
+bindtime = -1
+removetime = -1
+pos = -109,215
+postype = Right
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4005)
+trigger1 = RoundState != 2
+trigger2 = Root,Power < 5000
+ID = 4005
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4105)
+trigger1 = RoundState != 2
+trigger2 = Root,Power < 5000
+ID = 4105
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power < 1000
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4050) = 0
+anim = 4050
+ID = 4050
+bindtime = -1
+removetime = -1
+pos = 34,225
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power < 1000
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4150) = 0
+anim = 4050
+ID = 4150
+bindtime = -1
+removetime = -1
+pos = -34,225
+postype = Right
+facing = -1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4050)
+trigger1 = RoundState != 2
+trigger2 = Root,Power >= 1000
+ID = 4050
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4150)
+trigger1 = RoundState != 2
+trigger2 = Root,Power >= 1000
+ID = 4150
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4050
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4150
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [1000,2000)
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4051) = 0
+anim = 4051
+ID = 4051
+bindtime = -1
+removetime = -1
+pos = 34,225
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [1000,2000)
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4151) = 0
+anim = 4051
+ID = 4151
+bindtime = -1
+removetime = -1
+pos = -34,225
+postype = Right
+facing = -1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4051)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [1000,2000)
+ID = 4051
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4151)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [1000,2000)
+ID = 4151
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4051
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4151
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [2000,3000)
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4052) = 0
+anim = 4052
+ID = 4052
+bindtime = -1
+removetime = -1
+pos = 34,225
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [2000,3000)
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4152) = 0
+anim = 4052
+ID = 4152
+bindtime = -1
+removetime = -1
+pos = -34,225
+postype = Right
+facing = -1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4052)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [2000,3000)
+ID = 4052
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4152)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [2000,3000)
+ID = 4152
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4052
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4152
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [3000,4000)
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4053) = 0
+anim = 4053
+ID = 4053
+bindtime = -1
+removetime = -1
+pos = 34,225
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [3000,4000)
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4153) = 0
+anim = 4053
+ID = 4153
+bindtime = -1
+removetime = -1
+pos = -34,225
+postype = Right
+facing = -1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4053)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [3000,4000)
+ID = 4053
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4153)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [3000,4000)
+ID = 4153
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4053
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4153
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [4000,5000)
+triggerall = TeamSide = 1
+trigger1 = NumExplod(4054) = 0
+anim = 4054
+ID = 4054
+bindtime = -1
+removetime = -1
+pos = 34,225
+postype = Left
+facing = 1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+triggerall = RoundState = 2
+triggerall = Root,Power = [4000,5000)
+triggerall = TeamSide = 2
+trigger1 = NumExplod(4154) = 0
+anim = 4054
+ID = 4154
+bindtime = -1
+removetime = -1
+pos = -34,225
+postype = Right
+facing = -1
+ownpal = 1
+ontop = 1
+supermovetime = 2147483647
+pausemovetime = 2147483647
+ignorehitpause = 1
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4054)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [4000,5000)
+ID = 4054
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+triggerall = NumExplod(4154)
+trigger1 = RoundState != 2
+trigger2 = Root,Power != [4000,5000)
+ID = 4154
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4054
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 4154
+scale = IfElse(Root,Power%1000 = 0,0,(Root,Power%1000)/1000.0),1
+
+[State 8000, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState != 2
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;Ｇ・ワンドヘルパー
+[Statedef 9000]
+type = S
+physics = N
+movetype = A
+ctrl = 0
+anim = 1301
+velset = 0,0
+sprpriority = 5
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = 1
+var(11) = Root,var(11)
+
+[State -2, ParentVarSet]
+type = ParentVarSet
+triggerall = !var(11)
+trigger1 = NumHelper(9001)
+trigger1 = Helper(9001),MoveHit
+var(9) = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 9000, Helper]
+type = Helper
+triggerall = NumHelper(9001) = 0
+trigger1 = Time = 0
+ID = 9001
+helpertype = Normal
+name = "Wand_Attack"
+pos = 0,0
+postype = P1
+stateno = 9001
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+
+[State 9000, BindtoRoot]
+type = BindtoRoot
+trigger1 = 1
+pos = 30,-50
+facing = 1
+
+[State 9000, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+flag2 = NoAutoTurn
+
+[State 9000, HitBy]
+type = HitBy
+trigger1 = 1
+value = SCA,AP
+time = 1 
+
+[State 9000, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,AP
+stateno = 9002
+ignorehitpause = 1
+
+[State 9000, End]
+type = ChangeState
+trigger1 = Root,MoveType = H
+trigger2 = Time > 10
+trigger2 = !NumHelper(9001)
+trigger3 = NumHelper(9001)
+trigger3 = Helper(9001),MoveContact
+trigger4 = GetHitVar(damage) > 0
+value = 9002
+ignorehitpause = 1
+persistent = 0
+
+[State 9000, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+trigger2 = Root,MoveType = H
+trigger3 = Root,StateNo != [1300,1400)
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------
+[Statedef 9001]
+movetype = A
+physics = N
+anim = 9001
+velset = 0,0
+
+[State -2, VarSet]
+type = VarSet
+triggerall = !var(10)
+trigger1 = P2MoveType = A
+var(10) = 1
+
+[State -2, VarAdd]
+type = VarAdd
+trigger1 = var(10)
+var(10) = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = var(10) > 10
+trigger1 = P2MoveType != A && ProjHit = 0
+var(10) = 0
+
+[State -2, PowerAdd]
+type = PowerAdd
+trigger1 = MoveContact = 1
+value = 128
+ignorehitpause = 1
+
+[State 9001, DestroySelf]
+type = DestroySelf
+trigger1 = Time >= 33
+trigger2 = MoveContact = 1
+trigger3 = Root,StateNo != 1300
+ignorehitpause = 1
+
+[State 9001, BindtoRoot]
+type = BindtoRoot
+trigger1 = 1
+pos = 30,-50
+facing = 1
+
+[State 9001, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+flag2 = NoAutoTurn
+
+[State 9001, HitDef1]
+type = HitDef
+triggerall = !Root,var(9)
+trigger1 = Time = 0
+attr = S,SA
+hitflag = MAF
+guardflag = M
+animtype = Back
+priority = 7,Hit
+damage = Ceil((Ceil((14+Root,var(5))*0.5**(Root,var(6)))-1)*(100-Random%11)*10/113),Ceil((Ceil((1+Root,var(5))*0.5**(Root,var(6)))-1)*(100-Random%11)*10/113)
+pausetime = 0,4
+guard.pausetime = 0,2
+sparkno = S7003
+guard.sparkno = S7102
+sparkxy = -20,-40
+hitsound = S5,6
+guard.sound = S6,1
+ground.slidetime = 20
+ground.hittime = 20
+guard.ctrltime = 18
+air.hittime = 60
+ground.velocity = -4,-7.5
+guard.velocity = -13.75
+air.velocity = -4,-7.5
+yaccel = .55
+ground.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+fall = 1
+fall.recover = 0
+fall.recovertime = 52+11+Ceil((-EnemyNear,Pos Y)/10)
+getpower = 0,0
+givepower = 15,15
+ID = 1300
+
+;-------------------------------------------------------------------------
+[Statedef 9002]
+type = S
+physics = N
+movetype = A
+ctrl = 0
+anim = 1305
+velset = 0,0
+sprpriority = 7
+
+[State 9002, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+
+[State 9002, Projectile1]
+type = Projectile
+trigger1 = GetHitVar(damage) > 0
+attr = S,SP
+hitflag = MAFDP
+guardflag = -1
+animtype = Hard
+ground.type = High
+priority = 7,Hit
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 20,0
+hitsound = -1
+guard.sound = -1
+offset = 0,0
+velocity = 0
+projID = 9003
+projanim = 9003
+projhitanim = -1
+projremove = 1
+projremovetime = 5
+projhits = 99999
+projpriority = 7
+numhits = 0
+getpower = 0,0
+givepower = 0,0
+
+[State 9002, Projectile2]
+type = Projectile
+trigger1 = GetHitVar(damage) > 0
+attr = S,SP
+hitflag = MAF
+guardflag = M
+animtype = Diagup
+ground.type = High
+projID = 9002
+projanim = 1302
+projhitanim = 1303
+projremove = -1
+velocity = 12
+projpriority = 7
+projedgebound = 50
+projstagebound = 50
+offset = 50,50
+postype = P1
+damage = Ceil((Ceil((20+var(5))*0.5**(var(6)))-1)*(100-Random%11)*10/113),Ceil((Ceil((2+var(5))*0.5**(var(6)))-1)*(100-Random%11)*10/113)
+pausetime = 0,3
+guard.pausetime = 0,1
+sparkno = S7003
+guard.sparkno = S7102
+sparkxy = 5,-60
+hitsound = S5,4
+guardsound = S6,1
+ground.slidetime = 20
+ground.hittime = 20
+guard.ctrltime = 18
+air.hittime = 60
+ground.velocity = -7,-9
+guard.velocity = -10.35
+air.velocity = -7,-9
+fall = 1
+fall.recover = 0
+yaccel = .55
+getpower = 0,0
+givepower = 15,15
+
+[State 9002, ReversalDef]
+type = ReversalDef
+trigger1 = GetHitVar(damage) > 0
+trigger2 = Root,NumProjID(9002)
+trigger3 = Root,NumProjID(9003)
+reversal.attr = SCA,AP
+pausetime = 0,0
+sparkno = -1
+sparkxy = 0,0
+p2stateno = 9003
+
+[State 9002, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------
+[Statedef 9003]
+physics = N
+ctrl = 0
+
+[State 9003, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 9999
+
+[State 9003, DestroySelf]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+[State 9003, SelfState]
+type = SelfState
+trigger1 = !IsHelper
+value = 0
+ctrl = 1
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;Ｇ・クレイス攻撃判定ヘルパー
+[Statedef 9100]
+type = S
+physics = N
+movetype = A
+ctrl = 0
+anim = 9100
+velset = 0,0
+sprpriority = 5
+
+[State -2, VarSet]
+type = VarSet
+triggerall = !var(10)
+trigger1 = P2MoveType = A
+var(10) = 1
+
+[State -2, VarAdd]
+type = VarAdd
+trigger1 = var(10)
+var(10) = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = var(10) > 10
+trigger1 = P2MoveType != A && ProjHit = 0
+var(10) = 0
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = 1
+var(11) = Root,var(11)
+
+[State 9100, BindtoRoot]
+type = BindtoRoot
+trigger1 = Root,MoveType != H
+pos = 0,0
+facing = 1
+
+[State 9100, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+flag2 = NoAutoTurn
+
+[State 9100, HitDef1]
+type = HitDef
+triggerall = !Root,var(9)
+trigger1 = Time = 0
+attr = A,HA
+hitflag = MAF
+guardflag = M
+animtype = Back
+priority = 7,Hit
+damage = Ceil((Ceil((25+Root,var(5))*0.5**(Root,var(6)))-1)*(100-Random%11)*10/113),Ceil((Ceil((2+Root,var(5))*0.5**(Root,var(6)))-1)*(100-Random%11)*10/113)
+pausetime = 0,0
+guard.pausetime = 0,0
+sparkno = S7002
+guard.sparkno = S7102
+sparkxy = -20,-40
+hitsound = S5,13
+guard.sound = S6,1
+ground.slidetime = 20
+ground.hittime = 20
+guard.ctrltime = 16
+air.hittime = 60
+ground.velocity = -4,-7.5
+guard.velocity = -13.75
+air.velocity = -5.25,-7.55
+yaccel = .55
+ground.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+fall = 1
+fall.recovertime = 52+Ceil((-EnemyNear,Pos Y)/10)
+getpower = 0,0
+givepower = 15,15
+ID = 2001
+NoChainID = 260,2001
+
+[State 9100, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+trigger2 = MoveContact = 1
+ignorehitpause = 1
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;Ｇ・クレイス飛び道具消去ヘルパー
+[Statedef 9200]
+type = S
+physics = N
+movetype = A
+ctrl = 0
+anim = 9200
+velset = 0,0
+sprpriority = 5
+
+[State -2, AttackDist]
+type = AttackDist
+trigger1 = 1
+value = 0
+
+[State 9200, BindtoRoot]
+type = BindtoRoot
+trigger1 = 1
+pos = 0,0
+facing = 1
+
+[State 9200, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+flag2 = NoAutoTurn
+
+[State 9200, HitBy]
+type = HitBy
+trigger1 = 1
+value = SCA,AP
+time = 1 
+
+[State 9200, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,AP
+stateno = 9201
+ignorehitpause = 1
+
+[State 9200, DestroySelf]
+type = DestroySelf
+trigger1 = AnimTime = 0
+trigger2 = MoveContact = 1
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------
+[Statedef 9201]
+type = S
+movetype = I
+physics = N
+anim = 9200
+velset = 0,0
+
+[State 9201, ChangeState]
+type = ChangeState
+trigger1 = !IsHelper
+value = 0
+ctrl = 1
+
+[State 9201, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+ignorehitpause = 1
+
+[State 9201, HitBy]
+type = HitBy
+trigger1 = 1
+value = SCA,AP
+time = 1
+ignorehitpause = 1
+
+[State 9201, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,AP
+slot = 1
+stateno = 9201
+time = -1
+ignorehitpause = 1
+
+[State 9201, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State 9201, DestroySelf]
+type = DestroySelf
+trigger1 = Root,StateNo = 2000
+trigger1 = Root,AnimElem = 8, = 1
+trigger2 = Root,StateNo != 2000
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;画面フラッシュヘルパー
+[Statedef 12000]
+type    = A
+movetype= I
+physics = N
+anim = 9999
+
+[State 12000, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = S0,9
+
+[State 12000, Envcolor]
+type = Envcolor
+trigger1 = Time < 10
+trigger1 = Timemod = 2,0
+value = 255,255,255
+time = 2
+under = 1
+ignorehitpause = 1
+
+[State 12000, Envcolor]
+type = Envcolor
+trigger1 = Time < 10
+trigger1 = Timemod = 2,1
+value = 255,0,0
+time = 2
+under = 1
+ignorehitpause = 1
+
+[State 12000, Envcolor]
+type = Envcolor
+trigger1 = Time = 10
+ignorehitpause = 1
+value = 255,255,255
+time = 1
+under = 1
+
+[State 12000, DestroySelf]
+type = DestroySelf
+trigger1 = RoundState != [2,4]
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;AI起動用ヘルパー
+[Statedef 20000]
+anim = 9999
+ctrl = 0
+
+[State 20000, SelfState]
+type = SelfState
+trigger1 = !IsHelper
+value = 0
+
+[State 20000, VarSet]
+type = VarSet
+trigger1 = Command = "up" && Root,Command = "up"
+trigger2 = Command = "down" && Root,Command = "down"
+trigger3 = Command = "back" && Root,Command = "back"
+trigger4 = Command = "fwd" && Root,Command = "fwd"
+trigger5 = Command = "a" && Root,Command = "a"
+trigger6 = Command = "b" && Root,Command = "b"
+trigger7 = Command = "c" && Root,Command = "c"
+trigger8 = Command = "x" && Root,Command = "x"
+trigger9 = Command = "y" && Root,Command = "y"
+trigger10 = Command = "z" && Root,Command = "z"
+trigger11 = Command = "start" && Root,Command = "start"
+var(59) = -1
+
+[State 20000, DestroySelf]
+Type = DestroySelf
+triggerall = IsHelper
+trigger1 = Root,var(59) || var(59) = -1
+trigger2 = Command = "up" && Root,Command = "up"
+trigger3 = Command = "down" && Root,Command = "down"
+trigger4 = Command = "back" && Root,Command = "back"
+trigger5 = Command = "fwd" && Root,Command = "fwd"
+trigger6 = Command = "a" && Root,Command = "a"
+trigger7 = Command = "b" && Root,Command = "b"
+trigger8 = Command = "c" && Root,Command = "c"
+trigger9 = Command = "x" && Root,Command = "x"
+trigger10 = Command = "y" && Root,Command = "y"
+trigger11 = Command = "z" && Root,Command = "z"
+trigger12 = Command = "start" && Root,Command = "start"
+
+[State 20000, VarSet]
+type = VarSet
+triggerall = var(59) != -1
+trigger1 = Root,Command = "up"
+trigger2 = Root,Command = "down"
+trigger3 = Root,Command = "back"
+trigger4 = Root,Command = "fwd"
+trigger5 = Root,Command = "a"
+trigger6 = Root,Command = "b"
+trigger7 = Root,Command = "c"
+trigger8 = Root,Command = "x"
+trigger9 = Root,Command = "y"
+trigger10 = Root,Command = "z"
+trigger11 = Root,Command = "start"
+var(59) = 1
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;ガードヘルパー
+[Statedef 30000]
+type = S
+physics = N
+movetype = I
+anim = 9999
+ctrl = 0
+
+[State 30000, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+pos = -60,0
+facing = 1
+
+[State -2, VarSet]
+type = VarSet
+triggerall = RoundState = 2
+trigger1 = !var(50)
+trigger2 = Enemy(0),MoveType = I && !InGuardDist
+var(50) = Enemy(0),NumHelper
+ignorehitpause = 1
+
+[State -2, VarSet]
+type = VarSet
+triggerall = NumEnemy > 1
+triggerall = RoundState = 2
+trigger1 = !var(51)
+trigger2 = Enemy(1),MoveType = I && !InGuardDist
+var(51) = Enemy(1),NumHelper
+ignorehitpause = 1
+
+[State -2, ParentVarSet]
+type = ParentVarSet
+trigger1 = NumEnemy = 1
+trigger1 = Enemy(0),NumHelper - var(50) > 0
+trigger1 = Enemy(0),MoveType = A || (Enemy(0),MoveType != A && InGuardDist)
+trigger2 = NumEnemy = 2
+trigger2 = Enemy(0),NumHelper - var(50) > 0
+trigger2 = Enemy(0),MoveType = A || (Enemy(0),MoveType != A && InGuardDist)
+trigger3 = NumEnemy = 2
+trigger3 = Enemy(1),NumHelper - var(51) > 0
+trigger3 = Enemy(1),MoveType = A || (Enemy(1),MoveType != A && InGuardDist)
+var(56) = 1
+ignorehitpause = 1
+
+[State -2, ParentVarSet]
+type = ParentVarSet
+trigger1 = NumEnemy = 1
+trigger1 = !(Enemy(0),NumHelper - var(50) > 0 && (Enemy(0),MoveType = A || (Enemy(0),MoveType != A && InGuardDist)))
+trigger2 = NumEnemy = 2
+trigger2 = !(Enemy(0),NumHelper - var(50) > 0 && (Enemy(0),MoveType = A || (Enemy(0),MoveType != A && InGuardDist)))
+trigger2 = !(Enemy(1),NumHelper - var(51) > 0 && (Enemy(1),MoveType = A || (Enemy(1),MoveType != A && InGuardDist)))
+var(56) = 0
+ignorehitpause = 1
+
+[State 30000, DestroySelf]
+type = DestroySelf
+trigger1 = !Root,var(59)
+
+

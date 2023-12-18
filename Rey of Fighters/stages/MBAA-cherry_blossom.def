@@ -1,0 +1,1273 @@
+[Info]
+name    = "MBAA cherry blossom"
+;ç˜â‘„áóê
+Editor: xWagnerPlaguesx
+
+[Camera]
+startx =0
+starty =0
+boundleft  = -73
+boundright = 75
+boundhigh  = -116
+boundlow   = 0
+boundlow = 0
+verticalfollow = .5
+tension = 50
+tensionhigh = 90
+tensionlow = -20
+floortension = 0
+tension = 60
+startzoom = 1
+zoomin = 1
+zoomout = .71
+
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1
+
+
+[Bound]
+screenleft  =15
+screenright =15
+
+
+[StageInfo]
+zoffset  = 210
+autoturn = 1
+resetBG  = 0
+Hires    = 1
+
+[Shadow]
+color   = 123,123,123
+yscale  = .2
+reflect = 0
+
+[Music]
+bgmusic     = sound/MBAA cherry blossom.mp3
+bgvolume    = 150
+
+[BGdef]
+spr         = MBAA cherry blossom.sff
+debugbg     = 0
+
+
+
+[BG 5]
+type = normal
+spriteno = 0,5
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 0,6
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 7]
+type = normal
+spriteno = 0,7
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 8]
+type = normal
+spriteno = 0,8
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 9]
+type = normal
+spriteno = 0,9
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 11]
+type = normal
+spriteno = 0,11
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+
+
+
+
+
+
+[BG 0]
+type = normal
+spriteno =0,0
+start = -439,40
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 1]
+type = normal
+spriteno = 0,1
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 2]
+type = normal
+spriteno = 0,2
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 3]
+type = normal
+spriteno = 0,3
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 4]
+type = normal
+spriteno = 0,4
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 10]
+type = normal
+spriteno = 0,10
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+
+
+
+[BG 12]
+type = normal
+spriteno = 0,12
+delta = 2,2
+start = -439,40
+trans = add
+mask = 1
+
+
+
+
+[Begin Action 21]
+1, 0, 0, 0, 7
+1, 1, 0, 0, 7
+1, 2, 0, 0, 7
+1, 3, 0, 0, 7
+1, 4, 0, 0, 7
+1, 5, 0, 0, 7
+1, 6, 0, 0, 7
+1, 7, 0, 0, 7
+1, 8, 0, 0, 7
+
+[Begin Action 22]
+2, 0, 0, 0, 7
+2, 1, 0, 0, 7
+2, 2, 0, 0, 7
+2, 3, 0, 0, 7
+2, 4, 0, 0, 7
+2, 5, 0, 0, 7
+2, 6, 0, 0, 7
+2, 7, 0, 0, 7
+2, 8, 0, 0, 7
+
+[Begin Action 23]
+3, 0, 0, 0, 7
+3, 1, 0, 0, 7
+3, 2, 0, 0, 7
+3, 3, 0, 0, 7
+3, 4, 0, 0, 7
+3, 5, 0, 0, 7
+3, 6, 0, 0, 7
+3, 7, 0, 0, 7
+3, 8, 0, 0, 7
+
+[Begin Action 24]
+4, 0, 0, 0, 7
+4, 1, 0, 0, 7
+4, 2, 0, 0, 7
+4, 3, 0, 0, 7
+4, 4, 0, 0, 7
+4, 5, 0, 0, 7
+4, 6, 0, 0, 7
+4, 7, 0, 0, 7
+4, 8, 0, 0, 7
+
+[BG 20]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 20
+Start    = -510,-680
+Delta    = 2,2
+Tile        = 1,1
+Tilespacing = 550,550
+Mask     = 1
+[BGCtrlDef 20]
+CtrlID = 20
+looptime = 790
+[BGCtrl 20]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 20]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.4
+
+
+[BG 21]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 21
+Start    = -530,-600
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 21]
+CtrlID = 21
+LoopTime = 850
+[BGCtrl 21]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 21]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.6
+
+
+
+[BG 22]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 22
+Start    = -485,-280
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 22]
+CtrlID = 22
+LoopTime = 850
+[BGCtrl 22]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 22]
+Type = velset
+Time = 0
+X = -0.2
+Y = 1.8
+
+
+[BG 23]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 23
+Start    = -515,-460
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 23]
+CtrlID = 23
+LoopTime = 800
+[BGCtrl 23]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 23]
+Type = velset
+Time = 0
+X = 0.1
+Y = 2.6
+
+
+
+[BG 24]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 24
+Start    = -510,-370
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 24]
+CtrlID = 24
+LoopTime = 880
+[BGCtrl 24]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 24]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.9
+
+
+
+[BG 25]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 25
+Start    = -480,-520
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 25]
+CtrlID = 25
+LoopTime = 830
+[BGCtrl 25]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 25]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.3
+
+
+[BG 26]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 26
+Start    = -455,-330
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 26]
+CtrlID = 26
+LoopTime = 910
+[BGCtrl 26]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 26]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.7
+
+
+[BG 27]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 27
+Start    = -545,-530
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 27]
+CtrlID = 27
+LoopTime = 860
+[BGCtrl 27]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 27]
+Type = velset
+Time = 0
+X = -0.1
+Y = 1.7
+
+
+[BG 28]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 28
+Start    = -430,-620
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 28]
+CtrlID = 28
+LoopTime = 900
+[BGCtrl 28]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 28]
+Type = velset
+Time = 0
+X = 0.1
+Y = 2.4
+
+
+[BG 29]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 29
+Start    = -515,-570
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 29]
+CtrlID = 29
+LoopTime = 980
+[BGCtrl 29]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 29]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.0
+
+
+
+
+[BG 30]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 30
+Start    = -455,-680
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 30]
+CtrlID = 30
+LoopTime = 1020
+[BGCtrl 30]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 30]
+Type = velset
+Time = 0
+X = 0.1
+Y = 3.0
+
+
+
+[BG 31]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 31
+Start    = -530,-480
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 31]
+CtrlID = 31
+LoopTime = 950
+[BGCtrl 31]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 31]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.2
+
+
+
+
+[BG 32]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 32
+Start    = -485,-530
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 32]
+CtrlID = 32
+LoopTime = 830
+[BGCtrl 32]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 32]
+Type = velset
+Time = 0
+X = -0.2
+Y = 2.5
+
+
+[BG 33]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 33
+Start    = -515,-610
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 33]
+CtrlID = 33
+LoopTime = 820
+[BGCtrl 33]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 33]
+Type = velset
+Time = 0
+X = 0.1
+Y = 1.9
+
+
+
+[BG 34]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 34
+Start    = -510,-620
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 34]
+CtrlID = 34
+LoopTime = 900
+[BGCtrl 34]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 34]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.9
+
+
+
+[BG 35]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 35
+Start    = -480,-770
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 35]
+CtrlID = 35
+LoopTime = 850
+[BGCtrl 35]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 35]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.5
+
+
+[BG 36]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 36
+Start    = -455,-580
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 36]
+CtrlID = 36
+LoopTime = 930
+[BGCtrl 36]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 36]
+Type = velset
+Time = 0
+X = 0.2
+Y = 1.7
+
+
+[BG 37]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 27
+Start    = -545,-780
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 37]
+CtrlID = 37
+LoopTime = 840
+[BGCtrl 37]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 37]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.8
+
+
+[BG 38]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 38
+Start    = -430,-770
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 38]
+CtrlID = 38
+LoopTime = 940
+[BGCtrl 38]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 38]
+Type = velset
+Time = 0
+X = 0.1
+Y = 2.6
+
+
+[BG 39]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 39
+Start    = -515,-820
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 39]
+CtrlID = 39
+LoopTime = 970
+[BGCtrl 39]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 39]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[BG 40]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 40
+Start    = -260,-620
+Delta    = 2,2
+Tile        = 1,1
+Tilespacing = 550,550
+Mask     = 1
+[BGCtrlDef 40]
+CtrlID = 40
+looptime = 790
+[BGCtrl 40]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 40]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.8
+
+
+[BG 41]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 41
+Start    = -280,-630
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 41]
+CtrlID = 41
+LoopTime = 850
+[BGCtrl 41]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 41]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.3
+
+
+
+[BG 42]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 42
+Start    = -245,-220
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 42]
+CtrlID = 42
+LoopTime = 850
+[BGCtrl 42]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 42]
+Type = velset
+Time = 0
+X = -0.2
+Y = 1.9
+
+
+[BG 43]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 43
+Start    = -265,-500
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 43]
+CtrlID = 43
+LoopTime = 800
+[BGCtrl 43]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 43]
+Type = velset
+Time = 0
+X = 0.1
+Y = 1.7
+
+
+
+[BG 44]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 44
+Start    = -260,-720
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 44]
+CtrlID = 44
+LoopTime = 880
+[BGCtrl 44]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 44]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.9
+
+
+
+[BG 45]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 45
+Start    = -240,-600
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 45]
+CtrlID = 45
+LoopTime = 830
+[BGCtrl 45]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 45]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.3
+
+
+[BG 46]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 46
+Start    = -215,-350
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 46]
+CtrlID = 46
+LoopTime = 910
+[BGCtrl 46]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 46]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.6
+
+
+[BG 47]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 47
+Start    = -300,-630
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 47]
+CtrlID = 47
+LoopTime = 860
+[BGCtrl 47]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 47]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.1
+
+
+[BG 48]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 48
+Start    = -180,-820
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 48]
+CtrlID = 48
+LoopTime = 900
+[BGCtrl 48]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 48]
+Type = velset
+Time = 0
+X = 0.1
+Y = 2.3
+
+
+[BG 49]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 49
+Start    = -275,-570
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 49]
+CtrlID = 49
+LoopTime = 980
+[BGCtrl 49]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 49]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.7
+
+
+
+
+[BG 50]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 50
+Start    = -205,-650
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 50]
+CtrlID = 50
+LoopTime = 1020
+[BGCtrl 50]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 50]
+Type = velset
+Time = 0
+X = 0.1
+Y = 3.0
+
+
+
+[BG 51]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 51
+Start    = -270,-472
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 51]
+CtrlID = 51
+LoopTime = 950
+[BGCtrl 51]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 51]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.1
+
+
+
+
+[BG 52]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 52
+Start    = -225,-590
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 52]
+CtrlID = 52
+LoopTime = 830
+[BGCtrl 52]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 52]
+Type = velset
+Time = 0
+X = -0.2
+Y = 2.5
+
+
+[BG 53]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 53
+Start    = -265,-690
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 53]
+CtrlID = 53
+LoopTime = 820
+[BGCtrl 53]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 53]
+Type = velset
+Time = 0
+X = 0.1
+Y = 1.9
+
+
+
+[BG 54]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 54
+Start    = -255,-640
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 54]
+CtrlID = 54
+LoopTime = 900
+[BGCtrl 54]
+Type = PosSet
+X = 0
+y = 0
+Time = 0
+[BGCtrl 54]
+Type = velset
+Time = 0
+X = -0.1
+Y = 1.8
+
+
+
+[BG 55]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 55
+Start    = -230,-890
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 55]
+CtrlID = 55
+LoopTime = 850
+[BGCtrl 55]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 55]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.2
+
+
+[BG 56]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 23
+ID       = 56
+Start    = -205,-640
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 56]
+CtrlID = 56
+LoopTime = 930
+[BGCtrl 56]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 56]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.6
+
+
+[BG 57]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 24
+ID       = 57
+Start    = -295,-720
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 57]
+CtrlID = 57
+LoopTime = 840
+[BGCtrl 57]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 57]
+Type = velset
+Time = 0
+X = -0.1
+Y = 2.4
+
+
+[BG 58]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 21
+ID       = 58
+Start    = -165,-880
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 58]
+CtrlID = 58
+LoopTime = 940
+[BGCtrl 58]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 58]
+Type = velset
+Time = 0
+X = 0.1
+Y = 2.1
+
+
+[BG 59]
+Type     = Anim
+LayerNo  = 1
+ActionNo = 22
+ID       = 59
+Start    = -275,-950
+Delta    = 2,2
+Mask     = 1
+Tile        = 1,1
+Tilespacing = 550,550
+[BGCtrlDef 59]
+CtrlID = 59
+LoopTime = 970
+[BGCtrl 59]
+Type = PosSet
+X = 0
+Y = 0
+Time = 0
+[BGCtrl 59]
+Type = velset
+Time = 0
+X = 0.2
+Y = 2.2
+
+
+
+
+
+
+

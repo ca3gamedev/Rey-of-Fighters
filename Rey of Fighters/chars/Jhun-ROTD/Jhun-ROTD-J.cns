@@ -1,0 +1,2041 @@
+;==============================================================================
+;-| 狙鷲陣 / 猟虎陣 動作 |-----------------------------------------------------
+;==============================================================================
+
+;var(6)  = 追加コマンド入力判定
+;var(7)  = コンビネーション ヒット判定
+;var(8)  = 勝利ポーズ／イントロ分岐判定
+;var(9)  = ジャンプ関連 
+;var(24) = 壁激突音／地すべり音関連
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・始動 |-------------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1500]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 1500
+sprpriority = 3
+
+[State 1500, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 3 || AnimElem = 4
+x = 8
+
+[State 1500, ChangeState] ;狙鷲陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・構え ニュートラル |-----------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1505]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1505
+sprpriority = 3
+
+[State 1505, ChangeState] ;狙鷲陣・反転へ
+type = ChangeState
+trigger1 = (enemynear,Pos X - Pos X) * facing < 0
+value = 1590
+
+[State 1505, ChangeState] ;狙鷲陣・解除へ
+type = ChangeState
+trigger1 = command = "b"
+value = 1510
+
+[State 1505, ChangeState] ;狙鷲陣・前進へ
+type = ChangeState
+trigger1 = command = "holdfwd"
+value = 1515
+
+[State 1505, ChangeState] ;狙鷲陣・後退へ
+type = ChangeState
+trigger1 = command = "holdback"
+value = 1520
+
+[State 1505, ChangeState] ;狙鷲陣・切り替え動作へ
+type = ChangeState
+trigger1 = command = "DD"
+value = 1545
+
+[State 1505, ChangeState] ;狙鷲陣・切り替え攻撃へ
+type = ChangeState
+trigger1 = command = "x"
+value = 1550
+
+[State 1505, ChangeState] ;狙鷲陣・鷲爪脚・上段へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "y"
+value = 1555
+
+[State 1505, ChangeState] ;狙鷲陣・鷲爪脚・下段へ
+type = ChangeState
+trigger1 = command = "y"
+value = 1560
+
+[State 1505, ChangeState] ;狙鷲陣・空砂塵へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "a"
+value = 1580
+
+[State 1505, ChangeState] ;狙鷲陣・大極破へ
+type = ChangeState
+trigger1 = command = "a"
+value = 1565
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・解除 |-------------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1510]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1510
+sprpriority = 3
+
+[State 1510, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・構え 前進 |--------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1515]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1515
+sprpriority = 3
+
+[State 1515, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 1.75
+
+[State 1515, ChangeState] ;狙鷲陣・解除へ
+type = ChangeState
+trigger1 = command = "b"
+value = 1510
+
+[State 1515, ChangeState] ;狙鷲陣・ニュートラルへ
+type = ChangeState
+trigger1 = command != "holdfwd"
+value = 1505
+
+[State 1515, ChangeState] ;狙鷲陣・フロントステップへ
+type = ChangeState
+trigger1 = command = "FF"
+value = 1525
+
+[State 1515, ChangeState] ;狙鷲陣・切り替え攻撃へ
+type = ChangeState
+trigger1 = command = "x"
+value = 1550
+
+[State 1515, ChangeState] ;狙鷲陣・鷲爪脚・上段へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "y"
+value = 1555
+
+[State 1515, ChangeState] ;狙鷲陣・鷲爪脚・下段へ
+type = ChangeState
+trigger1 = command = "y"
+value = 1560
+
+[State 1515, ChangeState] ;狙鷲陣・空砂塵へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "a"
+value = 1580
+
+[State 1515, ChangeState] ;狙鷲陣・大極破へ
+type = ChangeState
+trigger1 = command = "a"
+value = 1565
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・構え 後退 |--------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1520]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1515
+sprpriority = 3
+
+[State 1520, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = -1.75
+
+[State 1520, ChangeState] ;狙鷲陣・解除へ
+type = ChangeState
+trigger1 = command = "b"
+value = 1510
+
+[State 1520, ChangeState] ;狙鷲陣・ニュートラルへ
+type = ChangeState
+trigger1 = command != "holdback"
+value = 1505
+
+[State 1520, ChangeState] ;狙鷲陣・バックステップへ
+type = ChangeState
+trigger1 = command = "BB"
+value = 1535
+
+[State 1520, ChangeState] ;狙鷲陣・切り替え攻撃へ
+type = ChangeState
+trigger1 = command = "x"
+value = 1550
+
+[State 1520, ChangeState] ;狙鷲陣・鷲爪脚・上段へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "y"
+value = 1555
+
+[State 1520, ChangeState] ;狙鷲陣・鷲爪脚・下段へ
+type = ChangeState
+trigger1 = command = "y"
+value = 1560
+
+[State 1520, ChangeState] ;狙鷲陣・満月斬へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "a"
+value = 1580
+
+[State 1520, ChangeState] ;狙鷲陣・孤鷹破へ
+type = ChangeState
+trigger1 = command = "holdback" && command = "a"
+value = 1570
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・構え フロントステップ |--------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1525]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1525
+sprpriority = 3
+
+[State 1525, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 63,0
+channel = 0
+
+[State 1525, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 6.25
+y = -2.25
+
+[State 1525, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 4,>= 0
+y = .36
+
+[State 1525, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 5,>= 4
+x = -.36
+
+[State 1525, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 4
+StateType = A
+physics = N
+
+[State 1525, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 1530
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・構え フロントステップ 着地 |---------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1530]
+type = S
+movetype = I
+physics = S
+anim = 1530
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 1530, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 0,1
+
+[State 1530, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1530, Changestate] ;狙鷲陣・構え ニュートラルへ
+type = Changestate
+trigger1 = Animtime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・構え バックステップ |----------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1535]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1525
+sprpriority = 3
+
+[State 1535, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 63,0
+channel = 0
+
+[State 1535, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = -6.25
+y = -2.25
+
+[State 1535, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 4,>= 0
+y = .36
+
+[State 1535, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 5,>= 4
+x = .36
+
+[State 1535, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 4
+StateType = A
+physics = N
+
+[State 1535, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 1540
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・構え バックステップ 着地 |-----------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1540]
+type = S
+movetype = I
+physics = S
+anim = 1530
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 1540, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 0,1
+
+[State 1540, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1540, Changestate] ;狙鷲陣・構え ニュートラルへ
+type = Changestate
+trigger1 = Animtime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・切り替え動作 |-----------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1545]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 1545
+sprpriority = 3
+
+[State 1545, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 50,0
+channel = 0
+
+[State 1545, ChangeState] ;猟虎陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・切り替え攻撃 |-----------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1550]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1550
+sprpriority = 3
+
+[State 1550, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 55,0
+channel = 0
+
+[State 1550, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 3,4
+
+[State 1550, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 2 || AnimElem = 3 || AnimElem = 4
+x = 8
+
+[State 1550, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = S, SA
+animtype = Hard
+damage = 65, 10
+guardflag = MA
+hitflag = MAF
+pausetime = 12, 12
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -20, -75
+hitsound = S4, 3
+guardsound = S2,0
+ground.type = Hight
+guard.slidetime = 6
+ground.hittime  = 15
+ground.velocity = -3.25, -4.5 
+air.velocity = -3.25 -4.5
+fall = 1
+fall.recover = 0
+
+[State 1550, ChangeState] ;猟虎陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・鷲爪脚・上段 |-----------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1555]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1555
+sprpriority = 3
+
+[State 1555, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 5,2
+value = 55,2
+channel = 0
+
+[State 1555, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 5,2
+value = 63,1
+
+[State 1555, Explod]
+type = Explod
+trigger1 = AnimElem = 6,2
+anim = 25550
+ID = 25550
+pos = 0,0
+postype = p1
+ownpal = 1
+bindtime = 1
+removetime = -2
+sprpriority = 4
+persistent = 0
+removeongethit = 1
+ignorehitpause = 1
+
+[State 1555, Projectile]
+type = Projectile
+trigger1 = AnimElem = 6,2
+projanim = 25555
+Projhitanim = 90000
+Projremanim = 90000
+projcancelanim = 90000
+projremovetime = 4
+projshadow = -1
+offset = 0, 0
+projpriority = 1
+projsprpriority = 4
+velocity = 0
+attr = S, SP
+damage = 55,10
+animtype = Up
+hitflag = MA
+guardflag = MA
+pausetime = 12,12
+sparkno = S90000
+guard.sparkno = S90000
+sparkxy = 15, 0
+hitsound = S4, 4
+guardsound = S2,0
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 20
+guard.ctrltime = 26
+ground.velocity = -1.5, 8    
+guard.velocity = -5.5      
+airguard.velocity = -4.5, -2  
+air.type = Low                 
+air.velocity = -1.5, 8      
+ProjID = 1500
+fall = 1
+fall.recover = 0
+fall.envshake.time = 14
+fall.envshake.freq = 180
+fall.envshake.ampl = 4
+
+[State 1555, ChangeState] ;狙鷲陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・鷲爪脚・下段 |-----------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1560]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1560
+sprpriority = 3
+
+[State 1560, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 6,2
+value = 63,2
+channel = 0
+
+[State 1560, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 6,2
+value = 62,2
+
+[State 1560, Explod]
+type = Explod
+trigger1 = AnimElem = 7,2
+anim = 25600
+ID = 25600
+pos = 0,0
+postype = p1
+ownpal = 1
+bindtime = 1
+removetime = -2
+sprpriority = 4
+persistent = 0
+removeongethit = 1
+ignorehitpause = 1
+
+[State 1560, Projectile]
+type = Projectile
+trigger1 = AnimElem = 7,2
+projanim = 25605
+Projhitanim = 90000
+Projremanim = 90000
+projcancelanim = 90000
+projremovetime = 8
+projshadow = -1
+offset = 0, 0
+projpriority = 1
+projsprpriority = 4
+velocity = 0
+attr = S, SP
+damage = 45,10
+animtype = Hard
+hitflag = MA
+guardflag = MA
+pausetime = 8,8
+sparkno = S90000
+guard.sparkno = S90000
+sparkxy = 15, 0
+hitsound = S80, IfElse (Random <= 500, 0, 1)
+guardsound = S2,0
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 20
+guard.ctrltime = 26
+ground.velocity = -5.5
+guard.velocity = -5.5
+air.velocity = -4, -5.5
+airguard.velocity = -2.5,-2.5    
+ProjID = 1500
+
+[State 1560, ChangeState] ;狙鷲陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・大極破 |-----------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1565]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1565
+sprpriority = 3
+
+[State 1565, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 63,3
+channel = 0
+
+[State 1565, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 3,4
+
+[State 1565, HitDef]
+type = HitDef
+trigger1 = time = 0
+attr = S, SA
+animtype  = Hard
+damage    = 60,10
+guardflag = MA      
+hitflag = MAF
+pausetime = 12,12
+sparkno = S6003
+guard.sparkno = S6011   
+sparkxy = -20,-65
+hitsound = S4, 4
+guardsound = S2,0
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 20
+ground.velocity = -5.5
+air.velocity = -2.5,-4
+fall = 0
+p2facing = 1          
+P2stateno = 1566
+
+[State 1565, ChangeState] ;狙鷲陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1505
+
+;---------------------------------------------------------------------------
+;狙鷲陣・大極破 Hit1 2P
+[Statedef 1566]
+type    = S
+movetype = H
+physics = S
+ctrl = 0
+velset = 0,0
+
+[State 1566, ChangeAnim2]
+type = ChangeAnim2
+trigger1 = time = 0
+value = 1566
+
+[State 1566, ChangeState]
+type = ChangeState
+trigger1 = Time = 12
+value = 1567
+
+;---------------------------------------------------------------------------
+;狙鷲陣・大極破 Hit2 2P
+[Statedef 1567]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 0
+
+[State 1567, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 1567
+
+[State 1567, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 1567, VelSet]
+type = VelSet
+trigger1 = Animelem = 1
+y = -5.5
+x = -5.5
+
+[State 1567, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 1,>= 0
+y = .56
+
+[State 1567, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 24
+value = 1568
+
+;---------------------------------------------------------------------------
+;狙鷲陣・大極破 Hit3 2P
+[Statedef 1568]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 0
+
+[State 1568, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 1568
+
+[State 1568, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 1568, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1568, VelSet]
+type = VelSet
+trigger1 = Animelem = 1
+x = -4.5
+
+[State 1568, VelSet]
+type = VelSet
+trigger1 = Animelem = 11
+x = 0
+
+[State 1568, VelMul]
+type = VelMul
+trigger1 = Animelem = 1,>= 0
+x = .93
+
+[State 1568, SelfState]
+type = SelfState
+trigger1= !alive
+trigger1 = AnimTime = 0
+value = 5150
+
+[State 1568, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1569
+
+;---------------------------------------------------------------------------
+;狙鷲陣・大極破 Hit4 2P
+[Statedef 1569]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 0
+
+[State 1569, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 1569, ChangeAnim]
+type = ChangeAnim
+Trigger1 = Time = 0
+value = 5120
+
+[State 1569, SelfState]
+type = SelfState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・狐鷲破 バックステップ |--------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1570]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1570
+sprpriority = 3
+
+[State 1570, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 63,0
+
+[State 1570, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = -6.25
+y = -2.25
+
+[State 1570, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 4,>= 0
+y = .36
+
+[State 1570, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 5,>= 4
+x = .36
+
+[State 1570, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 4
+StateType = A
+physics = N
+
+[State 1570, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 1575
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・狐鷲破 バックステップ 着地 |---------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1575]
+type = S
+movetype = A
+physics = N
+anim = 1575
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 1575, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 50,3
+channel = 0
+
+[State 1575, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 3,4
+
+[State 1575, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1575, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 13.5
+
+[State 1575, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 1575, VelMul]
+type = VelMul
+trigger1 = Animelem = 2,>= 0
+x = .94
+
+[State 1575, HitDef]
+type = HitDef
+trigger1 = time = 0
+attr = S, SA
+animtype  = Hard
+damage    = 75,10
+guardflag = MA      
+hitflag = MAF
+pausetime = 12,12
+sparkno = S6003
+guard.sparkno = S6011   
+sparkxy = -20,-65
+hitsound = S4, 4
+guardsound = S2,0
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 20
+ground.velocity = -5.5
+air.velocity = -2.5,-4
+fall = 0
+p2facing = 1          
+P2stateno = 1566
+
+[State 1575, Changestate] ;狙鷲陣・構え ニュートラルへ
+type = Changestate
+trigger1 = Animtime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・満月斬 |-----------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1580]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1580
+sprpriority = 3
+
+[State 1580, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 60,0
+channel = 0
+
+[State 1580, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 5
+value = 60,1
+
+[State 1580, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 2 || AnimElem = 3 || AnimElem = 4 || AnimElem = 5
+x = 8
+
+[State 1580, VelSet]
+type = VelSet
+trigger1 = AnimElem = 5
+x = 3
+y = -3.75
+
+[State 1580, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 5,>= 0
+y = .42
+
+[State 1580, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 5
+StateType = A
+physics = N
+
+[State 1580, HitDef]
+type = HitDef 
+trigger1 = AnimElem = 6 || AnimElem = 7 || AnimElem = 8 || AnimElem = 9 || AnimElem = 10
+attr = S, SA                     
+damage = 15,10                  
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                    
+priority = 3, Hit                
+pausetime = 2, 2               
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -25, -65            
+hitsound = S4, 2
+guardsound = S2, 0              
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4          
+airguard.velocity = -1.9,-.8    
+air.type = High                  
+air.velocity = -4.0,-4.0           
+air.hittime = 12            
+air.fall = 1
+fall.recover = 0
+
+[State 1580, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 1585
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・満月斬 着地 |------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1585]
+type = S
+movetype = A
+physics = N
+anim = 1585
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 1585, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1585, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = S, SA
+animtype = Hard
+damage = 15, 10
+guardflag = MA
+hitflag = MAF
+pausetime = 12, 12
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -20, -65
+hitsound = S4, 3
+guardsound = S2,0
+ground.type = Hight
+guard.slidetime = 6
+ground.hittime  = 15
+ground.velocity = -3.25, -4.5 
+air.velocity = -3.25 -4.5
+fall = 1
+fall.recover = 0
+
+[State 1585, Changestate] ;猟虎陣・構え ニュートラルへ
+type = Changestate
+trigger1 = Animtime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 狙鷲陣・構え 反転 |--------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1590]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1590
+sprpriority = 3
+
+[State 1590, Turn]
+type = Turn
+trigger1 = AnimTime = 0
+
+[State 1590, ChangeState] ;狙鷲陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = Animtime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・始動 |-------------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1600]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 1600
+sprpriority = 3
+
+[State 1600, ChangeState] ;猟虎陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・構え ニュートラル |-----------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1605]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1605
+sprpriority = 3
+
+[State 1605, ChangeState] ;猟虎陣・反転へ
+type = ChangeState
+trigger1 = (enemynear,Pos X - Pos X) * facing < 0
+value = 1695
+
+[State 1605, ChangeState] ;猟虎陣・解除へ
+type = ChangeState
+trigger1 = command = "b"
+value = 1610
+
+[State 1605, ChangeState] ;猟虎陣・構え 前進へ
+type = ChangeState
+trigger1 = command = "holdfwd"
+value = 1615
+
+[State 1605, ChangeState] ;猟虎陣・構え 後退へ
+type = ChangeState
+trigger1 = command = "holdback"
+value = 1620
+
+[State 1605, ChangeState] ;猟虎陣・切り替え動作へ
+type = ChangeState
+trigger1 = command = "DD"
+value = 1645
+
+[State 1605, ChangeState] ;猟虎陣・切り替え攻撃へ
+type = ChangeState
+trigger1 = command = "x"
+value = 1650
+
+[State 1605, ChangeState] ;猟虎陣・飛虎撃へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "y"
+value = 1660
+
+[State 1605, ChangeState] ;猟虎陣・襲虎撃へ
+type = ChangeState
+trigger1 = command = "holddown" && command = "y"
+value = 1675
+
+[State 1605, ChangeState] ;猟虎陣・猛虎撃へ
+type = ChangeState
+trigger1 = command = "y"
+value = 1670
+
+[State 1605, ChangeState] ;猟虎陣・空砂塵へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "a"
+value = 1685
+
+[State 1605, ChangeState] ;猟虎陣・虎烈爪へ
+type = ChangeState
+trigger1 = command = "a"
+value = 1680
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・解除 |-------------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1610]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1610
+sprpriority = 3
+
+[State 1610, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・構え 前進 |--------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1615]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1615
+sprpriority = 3
+
+[State 1615, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = 1.75
+
+[State 1615, ChangeState] ;猟虎陣・解除へ
+type = ChangeState
+trigger1 = command = "b"
+value = 1610
+
+[State 1615, ChangeState] ;猟虎陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = command != "holdfwd"
+value = 1605
+
+[State 1615, ChangeState] ;猟虎陣・構え フロントステップへ
+type = ChangeState
+trigger1 = command = "FF"
+value = 1625
+
+[State 1615, ChangeState] ;猟虎陣・切り替え攻撃へ
+type = ChangeState
+trigger1 = command = "x"
+value = 1650
+
+[State 1615, ChangeState] ;猟虎陣・飛虎撃へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "y"
+value = 1660
+
+[State 1615, ChangeState] ;猟虎陣・襲虎撃へ
+type = ChangeState
+trigger1 = command = "holddown" && command = "y"
+value = 1675
+
+[State 1615, ChangeState] ;猟虎陣・猛虎撃へ
+type = ChangeState
+trigger1 = command = "y"
+value = 1670
+
+[State 1615, ChangeState] ;猟虎陣・空砂塵へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "a"
+value = 1685
+
+[State 1615, ChangeState] ;猟虎陣・虎烈爪へ
+type = ChangeState
+trigger1 = command = "a"
+value = 1680
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・構え 後退 |--------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1620]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1615
+sprpriority = 3
+
+[State 1620, VelSet]
+type = VelSet
+trigger1 = time = 0
+x = -1.75
+
+[State 1620, ChangeState] ;猟虎陣・解除へ
+type = ChangeState
+trigger1 = command = "b"
+value = 1610
+
+[State 1620, ChangeState] ;猟虎陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = command != "holdback"
+value = 1605
+
+[State 1620, ChangeState] ;猟虎陣・構え バックステップへ
+type = ChangeState
+trigger1 = command = "BB"
+value = 1635
+
+[State 1620, ChangeState] ;猟虎陣・切り替え攻撃へ
+type = ChangeState
+trigger1 = command = "x"
+value = 1650
+
+[State 1620, ChangeState] ;猟虎陣・飛虎撃へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "y"
+value = 1660
+
+[State 1620, ChangeState] ;猟虎陣・襲虎撃へ
+type = ChangeState
+trigger1 = command = "holddown" && command = "y"
+value = 1675
+
+[State 1620, ChangeState] ;猟虎陣・猛虎撃へ
+type = ChangeState
+trigger1 = command = "y"
+value = 1670
+
+[State 1620, ChangeState] ;猟虎陣・空砂塵へ
+type = ChangeState
+trigger1 = command = "holdup" && command = "a"
+value = 1685
+
+[State 1620, ChangeState] ;猟虎陣・虎烈爪へ
+type = ChangeState
+trigger1 = command = "a"
+value = 1680
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・構え フロントステップ |--------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1625]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1625
+sprpriority = 3
+
+[State 1625, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 63,0
+channel = 0
+
+[State 1625, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 6.25
+y = -2.25
+
+[State 1625, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 4,>= 0
+y = .36
+
+[State 1625, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 5,>= 4
+x = -.36
+
+[State 1625, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 4
+StateType = A
+physics = N
+
+[State 1625, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 1630
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・構え フロントステップ 着地 |---------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1630]
+type = S
+movetype = I
+physics = S
+anim = 1630
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 1630, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 0,1
+
+[State 1630, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1630, Changestate] ;猟虎陣・構え ニュートラルへ
+type = Changestate
+trigger1 = Animtime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・構え バックステップ |----------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1635]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1625
+sprpriority = 3
+
+[State 1635, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 63,0
+channel = 0
+
+[State 1635, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = -6.25
+y = -2.25
+
+[State 1635, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 4,>= 0
+y = .36
+
+[State 1635, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 5,>= 4
+x = .36
+
+[State 1635, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 4
+StateType = A
+physics = N
+
+[State 1635, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 1640
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・構え バックステップ 着地 |-----------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1640]
+type = S
+movetype = I
+physics = S
+anim = 1630
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 1640, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 0,1
+
+[State 1640, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1640, Changestate] ;猟虎陣・構え ニュートラルへ
+type = Changestate
+trigger1 = Animtime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・切り替え動作 |-----------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1645]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 1645
+sprpriority = 3
+
+[State 1645, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 50,0
+channel = 0
+
+[State 1645, ChangeState] ;狙鷲陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・切り替え攻撃 バックステップ |--------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1650]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1650
+sprpriority = 3
+
+[State 1650, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2,2
+value = 55,1
+channel = 0
+
+[State 1650, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2,2
+value = 63,4
+
+[State 1650, VelSet]
+type = VelSet
+trigger1 = AnimElem = 3
+x = -3.75
+y = -4.5
+
+[State 1650, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 3,>= 0
+y = .42
+
+[State 1650, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 3
+StateType = A
+physics = N
+
+[State 1650, HitDef]
+type = HitDef
+trigger1 = time = 0
+attr = A, SA
+animtype = Up
+damage = 65, 10
+guardflag = MA
+hitflag = MAF
+pausetime = 14, 14
+sparkno = S6003                    
+guard.sparkno = S6011              
+sparkxy = -25, -65             
+hitsound = S4, 4  
+guardsound = S2, 0        
+ground.type = Low           
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -1.5, 8          
+airguard.velocity = -4.5, -2  
+air.type = Low                 
+air.velocity = -1.5, 8        
+air.hittime = 12           
+fall = 1
+fall.recover = 0
+fall.envshake.time = 14
+fall.envshake.freq = 180
+fall.envshake.ampl = 4
+
+[State 1650, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 1655
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・切り替え動作 バックステップ 着地 |---------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1655]
+type = S
+movetype = I
+physics = S
+anim = 1655
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 1655, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 0,1
+
+[State 1655, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1655, Changestate] ;狙鷲陣・構え ニュートラルへ
+type = Changestate
+trigger1 = Animtime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・飛虎撃 |-----------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1660]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1660
+sprpriority = 3
+
+[State 1660, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 6
+value = 63,5
+channel = 0
+
+[State 1660, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 5
+value = 63,6
+
+[State 1660, VelSet]
+type = VelSet
+trigger1 = AnimElem = 5
+x = 5.5
+y = -4
+
+[State 1660, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 5,>= 0
+y = .48
+
+[State 1660, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 5
+StateType = A
+physics = N
+
+[State 1660, HitDef]
+type = HitDef
+trigger1 = time = 0
+attr = A, SA
+animtype = Up
+damage = 55, 10
+guardflag = MA
+hitflag = MAF
+pausetime = 14, 14
+sparkno = S6003                    
+guard.sparkno = S6011              
+sparkxy = -25, -35             
+hitsound = S4, 4  
+guardsound = S2, 0        
+ground.type = Low           
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -1.5, 8          
+airguard.velocity = -4.5, -2  
+air.type = Low                 
+air.velocity = -1.5, 8        
+air.hittime = 12           
+fall = 1
+fall.recover = 0
+fall.envshake.time = 14
+fall.envshake.freq = 180
+fall.envshake.ampl = 4
+
+[State 1660, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 1665
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・飛虎撃 着地 |------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1665]
+type = S
+movetype = A
+physics = N
+anim = 1665
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 1665, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 0,1
+
+[State 1665, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1665, Changestate] ;猟虎陣・構え ニュートラルへ
+type = Changestate
+trigger1 = Animtime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・猛虎撃 |-----------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1670]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 1670
+sprpriority = 3
+
+[State 1670, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 5
+value = 63,7
+channel = 0
+
+[State 1670, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 5
+value = 3,4
+
+[State 1670, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = S, SA
+animtype = Hard
+damage = 45, 10
+guardflag = L
+hitflag = MAF
+pausetime = 12, 12
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -20, -10
+hitsound = S4, 3
+guardsound = S2,0
+ground.type = High
+guard.slidetime = 6
+ground.hittime  = 15
+ground.velocity = -0.25, -8 
+air.velocity = -0.25, -8
+fall = 1
+fall.recover = 0
+
+[State 1670, ChangeState] ;猟虎陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・襲虎撃 |-----------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1675]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 1675
+sprpriority = 3
+
+[State 1675, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 5
+value = 63,7
+channel = 0
+
+[State 1675, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 5
+value = 3,6
+
+[State 1675, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 5
+value = 63,8
+
+[State 1675, VelSet]
+type = VelSet
+trigger1 = AnimElem = 5
+x = 12
+
+[State 1675, VelSet]
+type = VelSet
+trigger1 = AnimElem = 9,3
+x = 0
+
+[State 1675, VelMul]
+type = VelMul
+trigger1 = Animelem = 5,>= 0
+x = .88
+
+[State 1675, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = C, SA
+damage    = 45,10
+animtype  = Medium
+hitflag = MAFD
+guardflag = L
+pausetime = 12,12
+sparkno = S6002                    
+guard.sparkno = S6010              
+sparkxy = -15, -10   
+hitsound = S4, 3
+guardsound = S2,0
+ground.type = Low
+ground.slidetime = 12
+ground.hittime  = 20
+ground.velocity = -5
+air.velocity = -2,-3
+down.velocity = -5,0
+down.hittime = 20
+
+[State 1675, ChangeState] ;猟虎陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・虎烈爪 |-----------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1680]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 1680
+sprpriority = 3
+
+[State 1680, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 55,2
+channel = 0
+
+[State 1680, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 63,9
+
+[State 1680, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = -7.5
+
+[State 1680, VelSet]
+type = VelSet
+trigger1 = AnimElem = 8
+x = 0
+
+[State 1680, VelMul]
+type = VelMul
+trigger1 = Animelem = 2,>= 0
+x = .88
+
+[State 1680, HitDef]
+type = HitDef
+trigger1 = Time = 0
+attr = A, SA
+animtype = Hard
+damage = 55, 10
+guardflag = MA
+hitflag = MAF
+pausetime = 12, 12
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -20, -65
+hitsound = S4, 3
+guardsound = S2,0
+ground.type = Hight
+guard.slidetime = 6
+ground.hittime  = 15
+ground.velocity = -3.25, -4.5 
+air.velocity = -3.25 -4.5
+fall = 1
+fall.recover = 0
+
+[State 1680, ChangeState] ;猟虎陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1605
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・空砂塵 |-----------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1685]
+type    = S
+movetype= A
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1685
+sprpriority = 3
+
+[State 1685, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 62,0
+channel = 0
+
+[State 1685, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 62,1
+
+[State 1685, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4 || AnimElem = 7
+value = 62,2
+
+[State 1685, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 2 || AnimElem = 3 || AnimElem = 4
+x = 8
+
+[State 1685, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 1.75
+y = -7.75
+
+[State 1685, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 4,>= 0
+y = .42
+
+[State 1685, VelMul]
+type = VelMul
+trigger1 = Animelem = 9,>= 0
+x = .92
+
+[State 1685, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 4
+StateType = A
+physics = N
+
+[State 1685, HitDef]
+type = HitDef
+trigger1 = AnimElem = 5
+attr = A, SA
+animtype = Hard
+damage = 30, 10
+guardflag = MA
+hitflag = MAF
+pausetime = 8, 8
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -25, -70
+hitsound = S4, 3
+guardsound = S2,0
+ground.type = High
+guard.slidetime = 6
+ground.hittime  = 15
+ground.velocity = -3, -6.5
+air.velocity = -3, -6.5
+fall = 1
+fall.recover = 0
+
+[State 1685, HitDef]
+type = HitDef
+trigger1 = AnimElem = 8
+attr = A, SA
+animtype = Hard
+damage = 30, 10
+guardflag = MA
+hitflag = MAF
+pausetime = 12, 12
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -25, -70
+hitsound = S4, 3
+guardsound = S2,0
+ground.type = High
+guard.slidetime = 6
+ground.hittime  = 15
+ground.velocity = -3, -5.5
+air.velocity = -3, -5.5
+fall = 1
+fall.recover = 0
+
+[State 1685, ChangeState]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 1690
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・空砂塵 着地 |------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1690]
+type = S
+movetype = A
+physics = N
+anim = 1690
+ctrl = 0
+velset = 0,0
+sprpriority = 3
+
+[State 1690, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 0,1
+
+[State 1690, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 1690, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 1
+x = 8
+
+[State 1690, Changestate] ;狙鷲陣・構え ニュートラルへ
+type = Changestate
+trigger1 = Animtime = 0
+value = 1505
+
+;------------------------------------------------------------------------------
+;-| 猟虎陣・構え 反転 |--------------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 1695]
+type    = S
+movetype= I
+physics = N
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 1695
+sprpriority = 3
+
+[State 1695, Turn]
+type = Turn
+trigger1 = AnimTime = 0
+
+[State 1695, ChangeState] ;猟虎陣・構え ニュートラルへ
+type = ChangeState
+trigger1 = Animtime = 0
+value = 1605

@@ -1,0 +1,317 @@
+; Definition of Power generation room SvC stage
+; *** denotes values you should change/check for each stage.
+; The term "background" is used to mean both backgrounds and foregrounds.
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "SVC-Power-Generation-room"
+
+;--------------------------------------------------------
+[Camera]
+ ;Camera starting position: Usually 0 for both
+startx = 0
+starty = 0
+
+ ;Left and right bound of camera
+ ;You may want to fiddle a bit with these values to make sure the
+ ;background doesn't move too far or too little
+ ;***
+boundleft = -216
+boundright = 216
+
+ ;High and low bound of camera
+ ;High is a negative number. Make is more negative if you want to
+ ;camera to be able to move higher.
+ ;Low should usually be 0.
+ ;If omitted, defaults to -25 and 0 respectively
+ ;***
+boundhigh = -16
+boundlow = 0
+
+ ;This is how much the camera will move vertically towards the
+ ;highest player. Valid values are from 0 to 1. A value of 0 will mean
+ ;the camera does not move up at all. A value of 1 will makes the camera
+ ;follow the highest player.
+ ;Typically .2 for normal-sized backgrounds. You may need to pull this
+ ;value up for taller backgrounds.
+verticalfollow = .15
+
+ ;Minimum vertical distance the highest player has to be from the floor,
+ ;before the camera starts to move up to follow him. For extremely
+ ;tall stages, a floor tension of about 20-30 coupled with a
+ ;vertical-follow of .8 allows the camera to follow the action.
+floortension = 0
+
+ ;Horizontal distance player is from edge before camera starts to move
+ ;left or right. Typically 50 or 60.
+tension = 50
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -80          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 12            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 12
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 20    ;Dist from left of screen that player can move to
+screenright = 20   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;Z offset for drawing
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;It's the position where the players stand at.
+ ;Up - smaller, Down - larger
+ ;***
+zoffset = 220
+
+zoffsetlink = 4
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background be reset between
+ ;rounds.
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+ ;This controls the darkness of the shadow. Valid values range
+ ;from 0 (lightest) to 256 (darkest). Defaults to 128 if omitted.
+intensity = 0
+
+ ;This is the shadow color given in r,g,b. Valid values for each
+ ;range from 0 (lightest) to 255 (darkest).
+ ;Defaults to 0,0,0 if omitted.
+ ;intensity and color's effects add up to give the final shadow
+ ;result.
+color = 128,128,128
+
+ ;This is the scale factor of the shadow. Use a big scale factor
+ ;to make the shadow longer. You can use a NEGATIVE scale factor
+ ;to make the shadow fall INTO the screen.
+ ;Defaults to 0.4 if omitted.
+yscale = -.17
+
+ ;This parameter lets you set the range over which the shadow is
+ ;visible. The first value is the high level, and the second is
+ ;the middle level. Both represent y-coordinates of the player.
+ ;A shadow is invisible if the player is above the high level,
+ ;and fully visible if below the middle level. The shadow is
+ ;faded in between the two levels. This gives an effect of the
+ ;shadow fading away as the player gets farther away from the
+ ;ground. If omitted, defaults to no level effects (shadow is
+ ;always fully visible).
+fade.range = -400,-100
+
+;--------------------------------------------------------
+[Reflection]
+ ;Intensity of reflection (from 0 to 256). Set to 0 to have no
+ ;reflection. Defaults to 0.
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+
+bgmusic   = sound/SVC-Power-Generation-room.mp3
+
+bgvolume  = 150
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+ 
+spr       = SVC-Power-Generation-room.sff
+
+debugbg   = 0
+
+;----------
+
+[BG Background]
+type  = anim
+actionno = 1
+layerno = 0                
+start = 0, 0
+delta = .4837962,.5
+mask  = 0
+id = 2
+
+[BG Floor]
+type  = anim
+actionno = 0
+layerno = 0                
+start = 0, 0
+delta = 1,1
+mask  = 1
+id = 4
+
+[BG text]
+type  = anim
+actionno = 6
+layerno = 1                
+start = 0, -130
+delta = 0,0
+mask  = 1
+id = 6
+
+[BG Black1]
+type  = anim
+actionno = 7
+layerno = 1                
+start = 0, -130
+delta = 0,0
+mask  = 1
+id = 7
+
+[BG Black2]
+type  = anim
+actionno = 8
+layerno = 1                
+start = 0, -130
+delta = 0,0
+mask  = 1
+id = 8
+
+[Begin action 0]
+0,0, 0,0, 7
+0,1, 0,0, 7
+0,2, 0,0, 7
+0,3, 0,0, 7
+0,4, 0,0, 7
+0,5, 0,0, 7
+0,6, 0,0, 7
+0,7, 0,0, 7
+
+[Begin action 1]
+1,0, 0,0, 7
+1,1, 0,0, 7
+1,2, 0,0, 7
+1,3, 0,0, 7
+1,4, 0,0, 7
+1,5, 0,0, 7
+1,6, 0,0, 7
+1,7, 0,0, 7
+
+[Begin action 6]
+-1,-1, 0,0, 24
+3,0, 0,0, 7
+3,1, 0,0, 4
+3,2, 0,0, 4
+3,3, 0,0, 4
+3,4, 0,0, 4
+3,5, 0,0, 60
+3,6, 0,0, 1
+3,7, 0,0, 3
+3,8, 0,0, 1
+3,9, 0,0, 3
+3,10, 0,0, 1
+3,11, 0,0, 3
+3,12, 0,0, 1
+3,13, 0,0, 3
+3,14, 0,0, 1
+3,15, 0,0, 7
+3,16, 0,0, 1
+-1,-1, 0,0, -1
+
+[Begin action 7]
+2,0, 0,-120, 15
+2,0, 0,-128, 1
+2,0, 0,-136, 1
+2,0, 0,-144, 1
+2,0, 0,-152, 1
+2,0, 0,-160, 1
+2,0, 0,-168, 1
+2,0, 0,-176, 1
+2,0, 0,-184, 133
+2,0, 0,-192, 1
+2,0, 0,-200, 1
+2,0, 0,-208, 1
+2,0, 0,-216, 1
+2,0, 0,-224, 1
+2,0, 0,-232, 1
+2,0, 0,-240, 1
+-1,-1, 0,0, -1
+
+[Begin action 8]
+2,0, 0,120, 15
+2,0, 0,128, 1
+2,0, 0,136, 1
+2,0, 0,144, 1
+2,0, 0,152, 1
+2,0, 0,160, 1
+2,0, 0,168, 1
+2,0, 0,176, 1
+2,0, 0,184, 133
+2,0, 0,192, 1
+2,0, 0,200, 1
+2,0, 0,208, 1
+2,0, 0,216, 1
+2,0, 0,224, 1
+2,0, 0,232, 1
+2,0, 0,240, 1
+-1,-1, 0,0, -1
+
+[BGCtrl]
+type = PosSet
+y = 130
+time = 0,1
+
+[BGCtrl]
+type = PosSet
+y = 65
+time = 0,1
+ctrlID = 2
+
+[BGCtrl]
+type = PosAdd
+y = -1
+time = 35,164
+
+[BGCtrl]
+type = PosAdd
+y = 1
+time = 35,164
+ctrlID = 6, 7, 8
+
+[BGCtrl]
+type = PosAdd
+y = 0.5
+time = 35,163
+ctrlID = 2
+
+[BGCtrl]
+type = Posset
+y = 0
+time = 163,164
+ctrlID = 2

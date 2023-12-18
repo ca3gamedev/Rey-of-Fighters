@@ -1,0 +1,115 @@
+﻿;----------------------------------------------------------------------------------
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;□                                                                              □
+;□                               Original_Zero-UM                               □
+;□                                                                              □
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;----------------------------------------------------------------------------------
+Var(0)    = PalNo
+Var(1)    = High Jump
+Var(2)    = High Jump
+Var(3)    = Hakura Messei Han,Damage
+Var(4)    = Super Cancel Mode
+Var(5)    = CV
+Var(6)    = WinKo
+Var(7)    = StateNo(4100),Spark X
+Var(8)    = StateNo(4100),Spark Y
+Var(9)    = Striker Style
+Var(10)   = Super Cancel
+Var(11)   = Super Cancel PalFX
+Var(12)   = Super Cancel PalFX
+Var(13)   = KOF2002UM Win Animated
+Var(14)   = Power
+Var(15)   = Power Bar DisPlay
+Var(16)   = CMD Control
+Var(17)   = Target,Life
+Var(18)   = Target,Life
+Var(19)   = Target,Power
+Var(20)   = Target,Power
+Var(21)   = AI
+Var(22)   = StateNo[160,161]
+Var(23)   = StateNo[160,161]
+Var(24)   = Target,Life
+Var(25)   = Target,Power
+Var(26)   = StateNo[150,153],Time
+Var(27)   = StateNo[150,153],Life
+Var(28)   = 
+Var(29)   =
+Var(30)   =
+Var(31)   =
+Var(32)   =
+Var(33)   =
+Var(34)   =
+Var(35)   =
+Var(36)   =
+Var(37)   = EnemyNear(0)
+Var(38)   = EnemyNear(1)
+Var(39)   =
+Var(40)   =
+Var(41)   =
+Var(42)   =
+Var(43)   =
+Var(44)   =
+Var(45)   =
+Var(46)   =
+Var(47)   =
+Var(48)   =
+Var(49)   =
+Var(50)   =
+Var(51)   =
+Var(52)   =
+Var(53)   =
+Var(54)   =
+Var(55)   =
+Var(56)   =
+Var(57)   =
+Var(58)   =
+Var(59)   = AI
+;----------------------------------------------------------------------------------
+Fvar(0)   =
+Fvar(1)   = StateNo(4100),TargetBind
+Fvar(2)   = StateNo(4100),TargetBind
+Fvar(3)   = StateNo(4200),TargetBind X
+Fvar(4)   = StateNo(4200),TargetBind Y
+Fvar(5)   =
+Fvar(6)   =
+Fvar(7)   =
+Fvar(8)   =
+Fvar(9)   = 
+Fvar(10)  = Self,Data.Attack
+Fvar(11)  = Enemy,Data.Defence
+Fvar(12)  = 
+Fvar(13)  = 
+Fvar(14)  = 
+Fvar(15)  =
+Fvar(16)  =
+Fvar(17)  =
+Fvar(18)  =
+Fvar(19)  =
+Fvar(20)  =
+Fvar(21)  =
+Fvar(22)  =
+Fvar(23)  =
+Fvar(24)  =
+Fvar(25)  =
+Fvar(26)  =
+Fvar(27)  =
+Fvar(28)  =
+Fvar(29)  =
+Fvar(30)  =
+Fvar(31)  =
+Fvar(32)  =
+Fvar(33)  =
+Fvar(34)  =
+Fvar(35)  =
+Fvar(36)  =
+Fvar(37)  =
+Fvar(38)  =
+Fvar(39)  =
+;----------------------------------------------------------------------------------
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;□                                                                              □
+;□                               Original_Zero-UM                               □
+;□                                                                              □
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;----------------------------------------------------------------------------------

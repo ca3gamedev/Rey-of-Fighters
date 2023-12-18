@@ -1,0 +1,1746 @@
+
+;---------------------------------------------------------------------------
+[Statedef 15000]
+type    = S
+movetype= I
+physics = N
+ctrl = 0
+anim = 0
+ID = 15000
+;==============================================================================
+;AI用スイッチ
+
+[State -3, 当て身投げ頻度設定]
+type = varset
+triggerall = root,var(59)
+trigger1 = root,var(57) > 4
+var(30) = 3  ; ←ここを0~10の範囲で変更してください
+             ; AILVが高いほど頻度が上がります
+
+[State -3, 挑発設定]
+type = varset
+trigger1 = root,var(59)
+var(33) = 1  ;←ここを0~3の範囲で変更する
+             ; 0は挑発無し
+             ; 1は勝ち挑発のみ　2は戦闘中挑発のみ
+             ; 3は両方有
+             ; 戦闘中挑発はLV9以下限定
+
+[State -3, 画面下ゲージ表示]
+type = varset
+trigger1 = 1
+var(34) = 1 ;←ここを0にすると画面下のゲージ消去
+
+[State -3, ナイトメア時ボス補正スイッチ]
+type = varset
+trigger1 = root,var(1) = 3
+var(31) = 0  ; 0 - 補正無し
+             ; 1 - 攻撃力補正有・防御力補正無し
+             ; 2 - 攻撃力補正無し・防御力補正有
+             ; 3 - 攻撃・防御補正有
+
+[State -3, ナイトメア時地面オーラ演出スイッチ]
+type = varset
+trigger1 = root,var(1) = 3
+var(32) = 1  ;ここを0にするとナイトメアのオーラ演出がなくなります。
+
+[State -3, ナイトメア時永久コンボ設定]
+type = varset
+trigger1 = root,var(57) > 9 ;AILV10以上限定
+trigger1 = root,var(1) = 3
+var(35) = 0  ; 0 - OFF
+             ; 1 - ON
+
+;==============================================================================
+;ここから下はいじらないでね
+;連続技アレコレ
+
+[State -3, コンボ用カウント・MAX発動]
+type = varadd
+triggerall = root,var(59)
+trigger1 = root,var(20)
+var(48) = 1
+
+[State -3, 判定リセット]
+type = varset
+triggerall = root,var(59)
+trigger1 = !root,var(20)
+trigger2 = EnemyNear(root,var(55)),Ctrl
+var(48) = 0
+
+[State -3, コンボ用カウント・裏雲隠し]
+type = varadd
+triggerall = root,var(59)
+trigger1 = root,var(58) = 11
+trigger1 = root,ctrl ||(root,stateno = [18,19])||root,stateno = 100
+var(47) = 1
+
+[State -3, 判定リセット]
+type = varset
+triggerall = root,var(59)
+trigger1 = !root,var(58)
+trigger2 = EnemyNear(root,var(55)),Ctrl
+var(47) = 0
+
+[State -3, コンボ用カウント・CVS上段投げ]
+type = varadd
+triggerall = root,var(59)
+trigger1 = root,var(58) = 18
+trigger1 = root,statetype = A
+trigger1 = root,ctrl ||(root,stateno = [120,140])
+var(46) = 1
+
+[State -3, コンボ用カウント・ダブル疾風拳相手攻撃硬直判定]
+type = varset
+triggerall = root,var(59)
+trigger1 = root,var(58) = 27
+var(46) = EnemyNear(root,var(55)),gethitvar(hittime)
+
+[State -3, コンボ用カウント・KOF烈風拳追撃]
+type = varadd
+triggerall = root,var(59)
+trigger1 = root,var(58) = 29
+trigger1 = root,ctrl ||(root,stateno = [18,20]) || root,stateno = 100
+var(46) = 1
+
+[State -3, 判定リセット]
+type = varset
+triggerall = root,var(59)
+trigger1 = !root,var(58)
+trigger2 = EnemyNear(root,var(55)),Ctrl
+var(46) = 0
+
+[State -3, コンボ用カウント・10~12P飛翔日輪斬]
+type = varadd
+triggerall = root,var(59)
+triggerall = root,var(58) = 22
+triggerall = root,statetype != A
+triggerall = root,stateno = [1270,1271]
+trigger1 = EnemyNear(root,var(55)),StateType != L
+trigger1 = EnemyNear(root,var(55)),StateType != A
+trigger1 = EnemyNear(root,var(55)),StateNo != [120,159]
+trigger1 = EnemyNear(root,var(55)),MoveType = H
+var(45) = 1
+
+[State -3, 判定リセット]
+type = varset
+triggerall = root,var(59)
+trigger1 = !root,var(58)
+trigger2 = EnemyNear(root,var(55)),Ctrl
+var(45) = 0
+
+[State -3, 下段当て身打ち後チョイ待機]
+Type = VarSet
+trigger1 = root,var(59)
+trigger1 = root,var(58) = 7 || root,var(58) = 23 || root,var(58) = 25
+trigger1 = root,ctrl ||(root,stateno = [18,19])||root,stateno = 100 ||root,stateno = 103
+var(0) = var(0)+1
+
+[State -3, リセット]
+Type = VarSet
+trigger1 = root,var(58) != 7 && root,var(58) != 23 && root,var(58) != 25
+trigger2 = root,movetype = H
+trigger3 = statetype = A
+trigger4 = EnemyNear(root,var(55)),Ctrl
+trigger5 = root,stateno = 1080 && root,time = 1
+var(0) = 0
+
+[State -3, 12P裏雲隠しカウント]
+Type = VarSet
+trigger1 = root,var(59)
+trigger1 = root,stateno = 1311 && root,time = 1
+var(44) = var(44)+1
+
+[State -3, リセット]
+Type = VarSet
+trigger1 = root,stateno = [1000,1300]
+trigger2 = root,stateno = [1350,4999]
+trigger3 = EnemyNear(root,var(55)),statetype = L
+trigger4 = EnemyNear(root,var(55)),statetype = A
+var(44) = 0
+
+[State -3, 12Pお手玉カウント]
+Type = VarSet
+trigger1 = root,var(59)
+trigger1 = root,var(58) = [25,27]
+var(43) = 1
+
+[State -3, レイジングわっしょいカウント]
+Type = VarSet
+triggerall = root,var(59)
+trigger1 = root,stateno = 3001 && root,time = 1
+trigger2 = root,stateno = 3010 && root,time = 1
+trigger3 = root,stateno = 3020 && root,time = 1
+trigger4 = root,stateno = 3030 && root,time = 1
+var(42) = var(42)+1
+
+[State -3, リセット]
+Type = VarSet
+trigger1 = EnemyNear(root,var(55)),Ctrl
+trigger2 = EnemyNear(root,var(55)),MoveType != H
+var(42) = 0
+
+;==============================================================================
+
+[State -3, AI用ランダムvar]
+type = varrandom
+trigger1 = root,var(59)
+v=40
+range = 0,999
+
+;==============================================================================
+;反撃用
+
+[State -3, ガード硬直計算]
+Type = Varadd
+triggerall = root,var(59)
+triggerall = root,var(57) >= 7 && roundstate = 2
+trigger1 = (root,stateno = [120,159])
+var(49) = 1
+
+[State -3, コントロール可能判定]
+type = varset
+trigger1 = var(49) > 0
+trigger1 = root,ctrl ||(root,stateno = [18,19])||root,stateno = 100
+var(49) = 0
+
+[State -3, 反撃フラグセット]
+Type = VarSet
+triggerall = root,var(59)
+triggerall = root,var(57) >= 9 && roundstate = 2
+triggerall = !var(50)
+trigger1 = !root,ctrl
+trigger1 = (root,stateno = [140,159])||(root,stateno = [700,701])||(root,stateno = [5100,5120])|| root,stateno = 750
+var(50) = 3+ (root,var(57) - 9) * 2
+
+[State -3, ガード判定]
+type = varadd
+triggerall = root,var(57) > 8
+trigger1 = var(50) > 0
+trigger1 = root,ctrl ||(root,stateno = [18,19])||root,stateno = 100
+var(50) = -1
+
+;==============================================================================
+;画面端距離計算
+
+[State -3, 前方画面端]
+Type = VarSet
+trigger1 = roundstate = 2
+trigger1 = numhelper(30000+root,ID) = 1
+trigger1 = numhelper(30010+root,ID) = 1
+var(51) = floor(ifelse(teamside = 1,facing*(helper(30000+(facing=-1)*10+root,ID),pos x-root,pos x), -(-facing*(helper(30000+(facing=1)*10+root,ID),pos x-root,pos x))))
+
+[State -3, 後方画面端]
+Type = VarSet
+trigger1 = roundstate = 2
+trigger1 = numhelper(30000+root,ID) = 1
+trigger1 = numhelper(30010+root,ID) = 1
+var(52) = floor(ifelse(teamside = 1,-facing*(helper(30000+(facing=1)*10+root,ID),pos x-root,pos x), -(facing*(helper(30000+(facing=-1)*10+root,ID),pos x-root,pos x))))
+
+;==============================================================================
+;カウンターモード発動
+
+[State -3,カウンターモード発動]
+Type = VarSet
+triggerall = root,var(59)
+triggerall = root,var(57) > 8
+triggerall = root,var(53) <= 1
+triggerall = root,ctrl ||(root,stateno = [18,19])||root,stateno = 100
+triggerall = !var(1) && !var(2)
+triggerall = var(30) > 4
+trigger1 = root,var(57) > 9
+trigger1 = root,life <= root,lifemax * 0.5
+trigger2 = root,life <= root,lifemax * 0.35
+var(2) = 350 + var(30)*20
+
+[State -3,休憩中]
+Type = VarSet
+triggerall = root,var(59)
+triggerall = root,var(57) > 8
+triggerall = !var(1)
+trigger1 = root,stateno = 1501 || root,stateno = 1506
+trigger2 = root,stateno = 1521 || root,stateno = 1531
+trigger3 = root,stateno = 1541 || root,stateno = 1551
+trigger4 = root,stateno = 4101 || root,stateno = 4201
+trigger5 = var(2) = [1,5]
+var(1) = 340 - var(30)*20
+
+[State -3,カウンターモード解除]
+Type = VarSet
+triggerall = root,var(59)
+triggerall = root,var(57) > 8
+triggerall = var(2) > 0
+trigger1 = root,stateno = 1501 || root,stateno = 1506
+trigger2 = root,stateno = 1521 || root,stateno = 1531
+trigger3 = root,stateno = 1541 || root,stateno = 1551
+trigger4 = root,stateno = 4101 || root,stateno = 4201
+trigger5 = root,var(53) > 1
+var(2) = 0
+
+[State -3,]
+type = VarAdd
+triggerall = root,var(59)
+triggerall = var(1) >= 1
+trigger1 = root,ctrl ||(root,stateno = [18,19])||root,stateno = 100
+trigger2 = root,movetype = H
+trigger3 = root,StateType = L
+trigger4 = (root,stateno = [120,159])||(root,stateno = [5000,5999])
+trigger5 = (root,stateno = [200,799])
+var(1) = -1
+
+[State -3,]
+type = VarAdd
+triggerall = root,var(59)
+trigger1 = root,ctrl ||(root,stateno = [18,19])||root,stateno = 100
+trigger1 = var(2) >= 1
+var(2) = -1
+
+[State -2, デバッグ表示]
+type = DisplayToClipboard
+trigger1 = 1
+text = "var(1)=%d,var(2)=%d,var(43)=%d,Front=%d,Back=%d"
+params = var(1),var(2),var(43),var(51),var(52)
+ignorehitpause = 1
+
+;==============================================================================
+;めくり対応ヘルパー
+
+[State 15000]
+type = AssertSpecial
+Trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+[State 15000]
+type = nothitby
+Trigger1 = 1
+value = SCA
+
+[State 15000]
+type = selfstate
+trigger1 = !ishelper
+value = 0
+
+[State 15000]
+type = PlayerPush
+Trigger1 = 1
+value = 0
+
+[State 15000]
+type = VelAdd
+Trigger1 = 1
+y = 0.0
+
+[State 15000]
+type = BindToRoot
+Trigger1 = 1
+facing = 1
+pos = -45,999
+
+;---------------------------------------------------------------------------
+;AI起動ヘルパー
+[Statedef 10000]
+anim=0
+ctrl=0
+
+[State 10000,間違いで本体が来たら立ちへ移行]
+type=selfstate
+trigger1=!ishelper
+value=0
+
+[State 10000,プレイヤー判定]
+type=varset
+trigger1=command="up"&&root,command="up"
+trigger2=command="down"&&root,command="down"
+trigger3=command="back"&&root,command="back"
+trigger4=command="fwd"&&root,command="fwd"
+trigger5=command="a"&&root,command="a"
+trigger6=command="b"&&root,command="b"
+trigger7=command="c"&&root,command="c"
+trigger8=command="x"&&root,command="x"
+trigger9=command="y"&&root,command="y"
+trigger10=command="z"&&root,command="z"
+trigger11=command="start"&&root,command="start"
+trigger12=(root,power=root,powermax)*(enemynear,power=enemynear,powermax)
+trigger13=!numenemy
+var(59)=-1
+
+[State 10000,立ったら消失]
+Type = DestroySelf
+triggerAll = isHelper
+Trigger1 = root,var(59)||var(59)=-1
+trigger2=command="up"&&root,command="up"
+trigger3=command="down"&&root,command="down"
+trigger4=command="back"&&root,command="back"
+trigger5=command="fwd"&&root,command="fwd"
+trigger6=command="a"&&root,command="a"
+trigger7=command="b"&&root,command="b"
+trigger8=command="c"&&root,command="c"
+trigger9=command="x"&&root,command="x"
+trigger10=command="y"&&root,command="y"
+trigger11=command="z"&&root,command="z"
+trigger12=command="start"&&root,command="start"
+
+[State 10000,ﾌﾗｸﾞON]
+type=varset
+triggerall=var(59)!=-1
+trigger1=root,command="up"
+trigger2=root,command="down"
+trigger3=root,command="back"
+trigger4=root,command="fwd"
+trigger5=root,command="a"
+trigger6=root,command="b"
+trigger7=root,command="c"
+trigger8=root,command="x"
+trigger9=root,command="y"
+trigger10=root,command="z"
+trigger11=root,command="start"
+var(59)=1
+
+;---------------------------------------------------------------------------
+;画面端検出ヘルパー
+[Statedef 30000]
+type=A
+movetype=I
+physics=N
+ctrl=0
+anim=0
+sprpriority=0
+velset=10, 0;速度。projectileのものと同じにする
+
+[State 9741, Safety];一応
+type=selfstate
+trigger1=!ishelper
+value=0
+
+[State -2];常時完全無敵
+type=Nothitby
+trigger1=1
+value=SCA
+
+
+[State 30000];画面にとらわれない
+type=ScreenBound
+trigger1=1
+value=0
+movecamera=0,0
+
+[State 30000];判定用飛び道具射出
+type=Projectile
+trigger1=time=0
+projID=30001
+projanim=0
+velocity=10, 0;へルパーの初期速度と同じに
+projpriority=4
+projsprpriority=2
+projstagebound=0;0がオススメ
+projedgebound=99999
+offset=0, ifelse(teamside = 1, -450, -820)
+postype=P1
+supermovetime=99999
+pausemovetime=99999
+projremovetime=-1
+
+[State -2];不可視化＆影消し。
+type=assertspecial
+trigger1=1
+flag=noshadow
+flag2=invisible
+ignorehitpause=1
+
+[State -2];飛び道具が消えたら停止。
+type=velset
+trigger1=!(root,numprojID(30001))
+x=0
+y=0
+
+;---------------------------------------------------------------------------
+;当身用疑似学習・厨忍氏の説明書を参考にしています
+
+[State -3]
+Type = VarSet
+triggerall = !root,var(53)
+triggerall = var(50) < 40
+Trigger1 = 1
+var(var(50))=EnemyNear(root,var(55)),stateno
+IgNoreHitPause = 1
+
+[State -3]
+Type = VarSet
+triggerall = var(50) < 40
+triggerall = !root,var(53)
+Triggerall = EnemyNear(root,var(55)),stateno!=var(0) || var(50) <= 0
+Triggerall = EnemyNear(root,var(55)),stateno!=var(2) || var(50) <= 2
+Triggerall = EnemyNear(root,var(55)),stateno!=var(4) || var(50) <= 4
+Triggerall = EnemyNear(root,var(55)),stateno!=var(6) || var(50) <= 6
+Triggerall = EnemyNear(root,var(55)),stateno!=var(8) || var(50) <= 8
+Triggerall = EnemyNear(root,var(55)),stateno!=var(10)|| var(50) <= 10
+Triggerall = EnemyNear(root,var(55)),stateno!=var(12)|| var(50) <= 12
+Triggerall = EnemyNear(root,var(55)),stateno!=var(14)|| var(50) <= 14
+Triggerall = EnemyNear(root,var(55)),stateno!=var(16)|| var(50) <= 16
+Triggerall = EnemyNear(root,var(55)),stateno!=var(18)|| var(50) <= 18
+Triggerall = EnemyNear(root,var(55)),stateno!=var(20)|| var(50) <= 20
+Triggerall = EnemyNear(root,var(55)),stateno!=var(22)|| var(50) <= 22
+Triggerall = EnemyNear(root,var(55)),stateno!=var(24)|| var(50) <= 24
+Triggerall = EnemyNear(root,var(55)),stateno!=var(26)|| var(50) <= 26
+Triggerall = EnemyNear(root,var(55)),stateno!=var(28)|| var(50) <= 28
+Triggerall = EnemyNear(root,var(55)),stateno!=var(30)|| var(50) <= 30
+Triggerall = EnemyNear(root,var(55)),stateno!=var(32)|| var(50) <= 32
+Triggerall = EnemyNear(root,var(55)),stateno!=var(34)|| var(50) <= 34
+Triggerall = EnemyNear(root,var(55)),stateno!=var(36)|| var(50) <= 36
+Triggerall = EnemyNear(root,var(55)),stateno!=var(38)|| var(50) <= 38
+triggerall = EnemyNear(root,var(55)),HitDefAttr = SCA, NA, SA, HA
+triggerall = !(Enemy,HitDefAttr = SCA, AP)
+triggerall = !Enemy,numproj
+triggerall = EnemyNear(root,var(55)),movetype = A
+triggerall = !var(var(50)+1)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+var(var(50)+1)=EnemyNear(root,var(55)),time-1
+
+[State -3,1]
+Type = VarSet
+Triggerall = fvar(0)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(0)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(0)=root,P2Dist x
+
+[State -3,2]
+Type = VarSet
+Triggerall = fvar(2)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(2)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(2)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,3]
+Type = VarSet
+Triggerall = fvar(4)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(4)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(4)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,4]
+Type = VarSet
+Triggerall = fvar(6)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(6)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(6)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,5]
+Type = VarSet
+Triggerall = fvar(8)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(8)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(8)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,6]
+Type = VarSet
+Triggerall = fvar(10)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(10)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(10)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,7]
+Type = VarSet
+Triggerall = fvar(12)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(12)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(12)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,8]
+Type = VarSet
+Triggerall = fvar(14)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(14)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(14)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,9]
+Type = VarSet
+Triggerall = fvar(16)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(16)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(16)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,10]
+Type = VarSet
+Triggerall = fvar(18)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(18)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(18)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,11]
+Type = VarSet
+Triggerall = fvar(20)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(20)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(20)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,12]
+Type = VarSet
+Triggerall = fvar(22)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(22)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(22)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,13]
+Type = VarSet
+Triggerall = fvar(24)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(24)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(24)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,14]
+Type = VarSet
+Triggerall = fvar(26)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(26)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(26)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,15]
+Type = VarSet
+Triggerall = fvar(28)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(28)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(28)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,16]
+Type = VarSet
+Triggerall = fvar(30)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(30)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(30)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,17]
+Type = VarSet
+Triggerall = fvar(32)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(32)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(32)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,18]
+Type = VarSet
+Triggerall = fvar(34)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(34)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(34)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,19]
+Type = VarSet
+Triggerall = fvar(36)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(36)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(36)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,20]
+Type = VarSet
+Triggerall = fvar(38)<root,P2Dist x
+Triggerall = EnemyNear(root,var(55)),stateno=var(38)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(38)=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3,1]
+Type = VarSet
+Triggerall = fvar(1)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(1)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(1)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,2]
+Type = VarSet
+Triggerall = fvar(3)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(3)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(3)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,3]
+Type = VarSet
+Triggerall = fvar(5)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(5)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(5)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,4]
+Type = VarSet
+Triggerall = fvar(7)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(7)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(7)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,5]
+Type = VarSet
+Triggerall = fvar(9)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(9)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(9)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,6]
+Type = VarSet
+Triggerall = fvar(11)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(11)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(11)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,7]
+Type = VarSet
+Triggerall = fvar(13)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(13)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(13)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,8]
+Type = VarSet
+Triggerall = fvar(15)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(15)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(15)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,9]
+Type = VarSet
+Triggerall = fvar(17)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(17)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(17)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,10]
+Type = VarSet
+Triggerall = fvar(19)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(19)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(19)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,11]
+Type = VarSet
+Triggerall = fvar(21)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(21)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(21)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,12]
+Type = VarSet
+Triggerall = fvar(23)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(23)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(23)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,13]
+Type = VarSet
+Triggerall = fvar(25)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(25)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(25)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,14]
+Type = VarSet
+Triggerall = fvar(27)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(27)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(27)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,15]
+Type = VarSet
+Triggerall = fvar(29)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(29)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(29)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,16]
+Type = VarSet
+Triggerall = fvar(31)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(31)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(31)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,17]
+Type = VarSet
+Triggerall = fvar(33)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(33)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(33)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,18]
+Type = VarSet
+Triggerall = fvar(35)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(35)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(35)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,19]
+Type = VarSet
+Triggerall = fvar(37)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(37)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(37)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3,20]
+Type = VarSet
+Triggerall = fvar(39)<root,P2Dist y
+Triggerall = EnemyNear(root,var(55)),stateno=var(39)
+Trigger1 = root,stateno = 150 || root,stateno = 152 || root,stateno = 154
+Trigger1 = root,time = 1
+trigger2 = EnemyNear(root,var(55)),movecontact = 1
+trigger2 = EnemyNear(root,var(55)),hitcount = 1
+fvar(39)=root,P2Dist y
+IgNoreHitPause = 1
+
+[State -3, 当身用学習。相手ｘ距離]
+Type = VarSet
+Trigger1 = var(50) < 40
+Trigger1 = var(var(50)+1)
+fvar(var(50))=root,P2Dist x
+IgNoreHitPause = 1
+
+[State -3, 当身用学習。相手ｙ距離]
+Type = VarSet
+Trigger1 = var(50) < 40
+Trigger1 = var(var(50)+1)
+fvar(var(50)+1)=root,P2Dist y
+IgNoreHitPause = 1
+
+
+[State -3]
+Type = VarAdd
+Trigger1 = var(var(50)+1)
+var(50) = 2
+IgNoreHitPause = 1
+
+[State -3, 各種攻撃で割り込み]
+Type = VarSet
+triggerall = root,var(59)
+triggerall = root,var(57) > 9 && roundstate = 2
+trigger1 = EnemyNear(root,var(55)),stateno = var(0)
+trigger1 = var(1) - EnemyNear(root,var(55)),Time = [4,8]
+trigger1 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(0)
+trigger2 = EnemyNear(root,var(55)),stateno = var(2)
+trigger2 = var(3) - EnemyNear(root,var(55)),Time = [4,8]
+trigger2 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(2)
+trigger3 = EnemyNear(root,var(55)),stateno = var(4)
+trigger3 = var(5) - EnemyNear(root,var(55)),Time = [4,8]
+trigger3 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(4)
+trigger4 = EnemyNear(root,var(55)),stateno = var(6)
+trigger4 = var(7) - EnemyNear(root,var(55)),Time = [4,8]
+trigger4 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(6)
+trigger5 = EnemyNear(root,var(55)),stateno = var(8)
+trigger5 = var(9) - EnemyNear(root,var(55)),Time = [4,8]
+trigger5 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(8)
+trigger6 = EnemyNear(root,var(55)),stateno = var(10)
+trigger6 = var(11)- EnemyNear(root,var(55)),Time = [4,8]
+trigger6 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(10)
+trigger7 = EnemyNear(root,var(55)),stateno = var(12)
+trigger7 = var(13)- EnemyNear(root,var(55)),Time = [4,8]
+trigger7 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(12)
+trigger8 = EnemyNear(root,var(55)),stateno = var(14)
+trigger8 = var(15)- EnemyNear(root,var(55)),Time = [4,8]
+trigger8 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(14)
+trigger9 = EnemyNear(root,var(55)),stateno = var(16)
+trigger9 = var(17)- EnemyNear(root,var(55)),Time = [4,8]
+trigger9 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(16)
+trigger10= EnemyNear(root,var(55)),stateno = var(18)
+trigger10= var(19)- EnemyNear(root,var(55)),Time = [4,8]
+trigger10= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(18)
+trigger11= EnemyNear(root,var(55)),stateno = var(20)
+trigger11= var(21)- EnemyNear(root,var(55)),Time = [4,8]
+trigger11= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(20)
+trigger12= EnemyNear(root,var(55)),stateno = var(22)
+trigger12= var(23)- EnemyNear(root,var(55)),Time = [4,8]
+trigger12= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(22)
+trigger13= EnemyNear(root,var(55)),stateno = var(24)
+trigger13= var(25)- EnemyNear(root,var(55)),Time = [4,8]
+trigger13= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(24)
+trigger14= EnemyNear(root,var(55)),stateno = var(26)
+trigger14= var(27)- EnemyNear(root,var(55)),Time = [4,8]
+trigger14= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(26)
+trigger15= EnemyNear(root,var(55)),stateno = var(28)
+trigger15= var(29)- EnemyNear(root,var(55)),Time = [4,8]
+trigger15= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(28)
+trigger16= EnemyNear(root,var(55)),stateno = var(30)
+trigger16= var(31)- EnemyNear(root,var(55)),Time = [4,8]
+trigger16= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(30)
+trigger17= EnemyNear(root,var(55)),stateno = var(32)
+trigger17= var(33)- EnemyNear(root,var(55)),Time = [4,8]
+trigger17= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(32)
+trigger18= EnemyNear(root,var(55)),stateno = var(34)
+trigger18= var(35)- EnemyNear(root,var(55)),Time = [4,8]
+trigger18= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(34)
+trigger19= EnemyNear(root,var(55)),stateno = var(36)
+trigger19= var(37)- EnemyNear(root,var(55)),Time = [4,8]
+trigger19= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(36)
+trigger20= EnemyNear(root,var(55)),stateno = var(38)
+trigger20= var(39)- EnemyNear(root,var(55)),Time = [4,8]
+trigger20= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(38)
+var(53) = 3
+
+[State -3,]
+type = VarAdd
+triggerall = root,var(59)
+trigger1 = var(53) >= 1
+var(53) = -1
+
+[State -3, 相手空中当身発生フラグ]
+Type = VarSet
+triggerall = root,var(59)
+triggerall = root,var(57) > 5 && roundstate = 2
+trigger1 = EnemyNear(root,var(55)),stateno = var(0)
+trigger1 = var(1) - EnemyNear(root,var(55)),Time = [1,10]
+trigger1 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(0)
+trigger1 = abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(1)) <= 20
+trigger2 = EnemyNear(root,var(55)),stateno = var(2)
+trigger2 = var(3) - EnemyNear(root,var(55)),Time = [1,10]
+trigger2 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(2)
+trigger2 = abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(3)) <= 20
+trigger3 = EnemyNear(root,var(55)),stateno = var(4)
+trigger3 = var(5) - EnemyNear(root,var(55)),Time = [1,10]
+trigger3 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(4)
+trigger3 = abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(5)) <= 20
+trigger4 = EnemyNear(root,var(55)),stateno = var(6)
+trigger4 = var(7) - EnemyNear(root,var(55)),Time = [1,10]
+trigger4 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(6)
+trigger4 = abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(7)) <= 20
+trigger5 = EnemyNear(root,var(55)),stateno = var(8)
+trigger5 = var(9) - EnemyNear(root,var(55)),Time = [1,10]
+trigger5 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(8)
+trigger5 = abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(9)) <= 20
+trigger6 = EnemyNear(root,var(55)),stateno = var(10)
+trigger6 = var(11)- EnemyNear(root,var(55)),Time = [1,10]
+trigger6 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(10)
+trigger6 = abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(11)) <= 20
+trigger7 = EnemyNear(root,var(55)),stateno = var(12)
+trigger7 = var(13)- EnemyNear(root,var(55)),Time = [1,10]
+trigger7 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(12)
+trigger7 = abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(13)) <= 20
+trigger8 = EnemyNear(root,var(55)),stateno = var(14)
+trigger8 = var(15)- EnemyNear(root,var(55)),Time = [1,10]
+trigger8 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(14)
+trigger8 = abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(15)) <= 20
+trigger9 = EnemyNear(root,var(55)),stateno = var(16)
+trigger9 = var(17)- EnemyNear(root,var(55)),Time = [1,10]
+trigger9 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(16)
+trigger9 = abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(17)) <= 20
+trigger10= EnemyNear(root,var(55)),stateno = var(18)
+trigger10= var(19)- EnemyNear(root,var(55)),Time = [1,10]
+trigger10= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(18)
+trigger10= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(19)) <= 20
+trigger11= EnemyNear(root,var(55)),stateno = var(20)
+trigger11= var(21)- EnemyNear(root,var(55)),Time = [1,10]
+trigger11= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(20)
+trigger11= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(21)) <= 20
+trigger12= EnemyNear(root,var(55)),stateno = var(22)
+trigger12= var(23)- EnemyNear(root,var(55)),Time = [1,10]
+trigger12= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(22)
+trigger12= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(23)) <= 20
+trigger13= EnemyNear(root,var(55)),stateno = var(24)
+trigger13= var(25)- EnemyNear(root,var(55)),Time = [1,10]
+trigger13= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(24)
+trigger13= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(25)) <= 20
+trigger14= EnemyNear(root,var(55)),stateno = var(26)
+trigger14= var(27)- EnemyNear(root,var(55)),Time = [1,10]
+trigger14= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(26)
+trigger14= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(27)) <= 20
+trigger15= EnemyNear(root,var(55)),stateno = var(28)
+trigger15= var(29)- EnemyNear(root,var(55)),Time = [1,10]
+trigger15= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(28)
+trigger15= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(29)) <= 20
+trigger16= EnemyNear(root,var(55)),stateno = var(30)
+trigger16= var(31)- EnemyNear(root,var(55)),Time = [1,10]
+trigger16= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(30)
+trigger16= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(31)) <= 20
+trigger17= EnemyNear(root,var(55)),stateno = var(32)
+trigger17= var(33)- EnemyNear(root,var(55)),Time = [1,10]
+trigger17= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(32)
+trigger17= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(33)) <= 20
+trigger18= EnemyNear(root,var(55)),stateno = var(34)
+trigger18= var(35)- EnemyNear(root,var(55)),Time = [1,10]
+trigger18= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(34)
+trigger18= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(35)) <= 20
+trigger19= EnemyNear(root,var(55)),stateno = var(36)
+trigger19= var(37)- EnemyNear(root,var(55)),Time = [1,10]
+trigger19= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(36)
+trigger19= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(37)) <= 20
+trigger20= EnemyNear(root,var(55)),stateno = var(38)
+trigger20= var(39)- EnemyNear(root,var(55)),Time = [1,10]
+trigger20= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 2 <= fvar(38)
+trigger20= abs(P2Dist y+(EnemyNear(root,var(55)),vel y+EnemyNear(root,var(55)),Const(movement.yaccel)*1.5)*2-fvar(39)) <= 20
+var(54) = 3
+
+[State -3,]
+type = VarAdd
+triggerall = root,var(59)
+trigger1 = var(54) >= 1
+var(54) = -1
+
+[State -3, 相手地上当身発生フラグ]
+Type = VarSet
+triggerall = root,var(59)
+triggerall = root,var(57) > 5 && roundstate = 2
+trigger1 = EnemyNear(root,var(55)),stateno = var(0)
+trigger1 = var(1) - EnemyNear(root,var(55)),Time = [1,10]
+trigger1 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(0)
+trigger2 = EnemyNear(root,var(55)),stateno = var(2)
+trigger2 = var(3) - EnemyNear(root,var(55)),Time = [1,10]
+trigger2 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(2)
+trigger3 = EnemyNear(root,var(55)),stateno = var(4)
+trigger3 = var(5) - EnemyNear(root,var(55)),Time = [1,10]
+trigger3 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(4)
+trigger4 = EnemyNear(root,var(55)),stateno = var(6)
+trigger4 = var(7) - EnemyNear(root,var(55)),Time = [1,10]
+trigger4 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(6)
+trigger5 = EnemyNear(root,var(55)),stateno = var(8)
+trigger5 = var(9) - EnemyNear(root,var(55)),Time = [1,10]
+trigger5 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(8)
+trigger6 = EnemyNear(root,var(55)),stateno = var(10)
+trigger6 = var(11)- EnemyNear(root,var(55)),Time = [1,10]
+trigger6 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(10)
+trigger7 = EnemyNear(root,var(55)),stateno = var(12)
+trigger7 = var(13)- EnemyNear(root,var(55)),Time = [1,10]
+trigger7 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(12)
+trigger8 = EnemyNear(root,var(55)),stateno = var(14)
+trigger8 = var(15)- EnemyNear(root,var(55)),Time = [1,10]
+trigger8 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(14)
+trigger9 = EnemyNear(root,var(55)),stateno = var(16)
+trigger9 = var(17)- EnemyNear(root,var(55)),Time = [1,10]
+trigger9 = P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(16)
+trigger10= EnemyNear(root,var(55)),stateno = var(18)
+trigger10= var(19)- EnemyNear(root,var(55)),Time = [1,10]
+trigger10= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(18)
+trigger11= EnemyNear(root,var(55)),stateno = var(20)
+trigger11= var(21)- EnemyNear(root,var(55)),Time = [1,10]
+trigger11= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(20)
+trigger12= EnemyNear(root,var(55)),stateno = var(22)
+trigger12= var(23)- EnemyNear(root,var(55)),Time = [1,10]
+trigger12= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(22)
+trigger13= EnemyNear(root,var(55)),stateno = var(24)
+trigger13= var(25)- EnemyNear(root,var(55)),Time = [1,10]
+trigger13= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(24)
+trigger14= EnemyNear(root,var(55)),stateno = var(26)
+trigger14= var(27)- EnemyNear(root,var(55)),Time = [1,10]
+trigger14= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(26)
+trigger15= EnemyNear(root,var(55)),stateno = var(28)
+trigger15= var(29)- EnemyNear(root,var(55)),Time = [1,10]
+trigger15= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(28)
+trigger16= EnemyNear(root,var(55)),stateno = var(30)
+trigger16= var(31)- EnemyNear(root,var(55)),Time = [1,10]
+trigger16= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(30)
+trigger17= EnemyNear(root,var(55)),stateno = var(32)
+trigger17= var(33)- EnemyNear(root,var(55)),Time = [1,10]
+trigger17= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(32)
+trigger18= EnemyNear(root,var(55)),stateno = var(34)
+trigger18= var(35)- EnemyNear(root,var(55)),Time = [1,10]
+trigger18= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(34)
+trigger19= EnemyNear(root,var(55)),stateno = var(36)
+trigger19= var(37)- EnemyNear(root,var(55)),Time = [1,10]
+trigger19= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(36)
+trigger20= EnemyNear(root,var(55)),stateno = var(38)
+trigger20= var(39)- EnemyNear(root,var(55)),Time = [1,10]
+trigger20= P2Dist x + facing*EnemyNear(root,var(55)),facing*EnemyNear(root,var(55)),vel x * 4 <= fvar(38)
+var(55) = 3
+
+[State -3,]
+type = VarAdd
+triggerall = root,var(59)
+trigger1 = var(55) >= 1
+var(55) = -1
+
+;上段当身用学習。失敗時ステート封印用
+[State -3, 1]
+Type = VarSet 
+triggerall = root,var(59) && roundstate = 2
+triggerall = !var(51)
+triggerall = NumEnemy = 1
+triggerall = (EnemyNear(root,var(55)),HitDefAttr = A, AA)||(EnemyNear(root,var(55)),HitDefAttr = SCA, SA, HA)
+triggerall = root,Prevstateno = 1500 || root,Prevstateno = 1505
+triggerall = !Enemy,numproj
+trigger1 = root,MoveType = H
+trigger1 = root,stateno != [120,159]
+trigger1 = EnemyNear(root,var(55)),MoveType = A
+var(51) = EnemyNear(root,var(55)),stateno 
+
+[State -3, 2]
+Type = VarSet 
+triggerall = root,var(30) && roundstate = 2 
+triggerall = var(51)
+triggerall = !var(52)
+triggerall = NumEnemy = 1
+triggerall = (EnemyNear(root,var(55)),HitDefAttr = A, AA)||(EnemyNear(root,var(55)),HitDefAttr = SCA, SA, HA)
+triggerall = root,Prevstateno = 1500 || root,Prevstateno = 1505
+triggerall = !Enemy,numproj
+trigger1 = root,MoveType = H
+trigger1 = root,stateno != [120,159]
+trigger1 = EnemyNear(root,var(55)),MoveType = A
+var(52) = EnemyNear(root,var(55)),stateno 
+
+;中段当身用学習。失敗時ステート封印用
+[State -3, 1]
+Type = VarSet 
+triggerall = root,var(59) && roundstate = 2
+triggerall = !var(56)
+triggerall = NumEnemy = 1
+triggerall = EnemyNear(root,var(55)),HitDefAttr = SC, NA
+triggerall = root,Prevstateno = 1520 || root,Prevstateno = 1530
+triggerall = !Enemy,numproj
+trigger1 = root,MoveType = H
+trigger1 = root,stateno != [120,159]
+trigger1 = EnemyNear(root,var(55)),MoveType = A
+var(56) = EnemyNear(root,var(55)),stateno 
+
+[State -3, 2]
+Type = VarSet 
+triggerall = root,var(30) && roundstate = 2 
+triggerall = var(56)
+triggerall = !var(57)
+triggerall = NumEnemy = 1
+triggerall = EnemyNear(root,var(55)),stateno != var(56)
+triggerall = EnemyNear(root,var(55)),HitDefAttr = SC, NA
+triggerall = root,Prevstateno = 1520 || root,Prevstateno = 1530
+triggerall = !Enemy,numproj
+trigger1 = root,MoveType = H
+trigger1 = root,stateno != [120,159]
+trigger1 = EnemyNear(root,var(55)),MoveType = A
+var(57) = EnemyNear(root,var(55)),stateno 
+
+[State -2, デバッグ表示]
+type = DisplayToClipboard
+trigger1 = 1
+text = "v50=%d,v51=%d,v54=%d,v55=%d"
+params = var(50),var(51),var(54),var(55)
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;左端
+[Statedef 30010]
+type=A
+movetype=I
+physics=N
+ctrl=0
+anim=0
+sprpriority=0
+velset=-10, 0
+
+[State 9741, Safety]
+type=selfstate
+trigger1=!ishelper
+value=0
+
+[State -2]
+type=Nothitby
+trigger1=1
+value=SCA
+
+
+[State 30010]
+type=ScreenBound
+trigger1=1
+value=0
+movecamera=0,0
+
+[State 30010]
+type=Projectile
+trigger1=time=0
+projID=30002
+projanim=9999
+velocity=-10, 0
+projpriority=4
+projsprpriority=2
+projstagebound=0
+projedgebound=99999
+offset=0, ifelse(teamside = 1, -540, -900)
+postype=P1
+supermovetime=99999
+pausemovetime=99999
+projremovetime=-1
+
+[State -2]
+type=assertspecial
+trigger1=1
+flag=noshadow
+flag2=invisible
+ignorehitpause=1
+
+[State -2]
+type=velset
+trigger1=!(root,numprojID(30002))
+x=0
+y=0
+
+;---------------------------------------------------------------------------
+;VSサイモン　フライング反撃
+[Statedef 10903]
+type = S
+movetype = I
+physics = S
+poweradd= 0
+ctrl = 0
+anim = 1500
+velset = 0,0
+sprpriority = 2
+
+[State 10903, イントロ]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 10903, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[state 10903, 地面固定]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 10903, フン！]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 200,0
+
+[State 10903, カウンター判定]
+type = ReversalDef
+triggerall = NumEnemy
+trigger1 = animelem = 1
+attr = S,ST
+reversal.attr = SCA, AA
+pausetime = 20,20
+sparkxy = 10,5
+sparkno = s7011
+hitsound = s1405,0
+p1stateno = 10904
+p2stateno = 10906
+p2facing = 1
+fall = 1
+numhits = 0
+
+[State 10903, ステート終了]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+;VSサイモン　フライング反撃2
+[Statedef 10904]
+type     = S
+movetype = A
+physics  = S
+juggle   = 0
+poweradd = 0
+ctrl     = 0
+velset   = 0,0
+anim     = 1506
+sprpriority = 5
+
+[State 10904, イントロ]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 10904, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noautoturn
+
+[State 10904, 物理的なキャラの幅]
+type = Width
+trigger1 = AnimElemtime(1) > 0 && AnimElemtime(3) < 0
+edge = 60,0
+
+[State 10904, 雑魚が！]
+type = PlaySnd
+trigger1 = AnimElem = 7
+value = 182,11
+
+[State 10904, ぶぉん]
+type = PlaySnd
+trigger1 = animelem = 8
+value = 420, 3
+
+[State 10904, 制裁ダメージ]
+type = Targetlifeadd
+trigger1 = var(1) != 3
+trigger1 = AnimElemtime(11) = 0
+trigger1 = p2movetype = H
+trigger1 = p2stateno = 10906
+value = Ceil(-((50*Const(data.attack)/100)*fvar(0)))
+persistant = 0
+kill = 0
+
+[State 10904, ナイトメアの場合は倍ダメージ]
+type = Targetlifeadd
+trigger1 = var(1) = 3
+trigger1 = AnimElemtime(11) = 0
+trigger1 = p2movetype = H
+trigger1 = p2stateno = 10906
+value = Ceil(-((100*Const(data.attack)/100)*fvar(0)))
+persistant = 0
+kill = 0
+
+;---------------------[相手制御]
+[State 10904, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(1) >= 0 && AnimElemtime(3) < 0
+pos = 27, -102
+
+[State 10904, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(3) >= 0 && AnimElemtime(4) < 0
+pos = 27, -97
+
+[State 10904, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(4) >= 0 && AnimElemtime(5) < 0
+pos = 27, -92
+
+[State 10904, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(5) >= 0 && AnimElemtime(6) < 0
+pos = 27, -89
+
+[State 10904, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(6) >= 0 && AnimElemtime(7) < 0
+pos = 27, -84
+
+[State 10904, 3]
+type = TargetBind
+Trigger1 = AnimElemtime(7) >= 0 && AnimElemtime(8) < 0
+pos = 17, -84
+
+;---------------------[エフェクト]
+;叩きつけエフェクト
+[State 10904, ヘルパーを出す]
+type = Helper
+trigger1 = AnimElemtime(7) = 0
+name = "hit"
+stateno = 4920
+ID = 4920
+helpertype = normal
+pos = 0,0
+postype = p2
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+
+;---------------------[ステート移行]
+[State 10904, ステート終了] 
+type = changeState
+trigger1 = time >= 65
+trigger2 = animelemtime(13) >= 0
+trigger2 = p2movetype = H
+trigger2 = p2stateno = 10906
+value = 10905
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;VSサイモン　フライング反撃その3
+[Statedef 10905]
+type = S
+movetype = I
+physics = S
+poweradd= 0
+ctrl = 0
+anim = 199
+velset = 0,0
+sprpriority = 1
+
+[State 10905, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 10905, フン！]
+type = PlaySnd
+Trigger1 = AnimElem = 6
+value = 195, 4
+channel = 0
+
+[State 10905, カモーン]
+type = PlaySnd
+Trigger1 = AnimElem = 11
+value = 195, 1
+channel = 0
+
+[State 10905, ステート終了]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+;VSサイモン　サイモン側の動き
+[Statedef 10906]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 0
+
+[State 10906, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 2100, ]
+type = SprPriority
+trigger1 = animelemtime(1) >= 0 && animelemtime(5) <0
+value = 0
+
+[State 2100, ]
+type = SprPriority
+trigger1 = animelemtime(5) = 0
+value = 6
+
+[State 2100, ]
+type = SprPriority
+trigger1 = animelemtime(8) = 4
+value = 1
+
+;---------------------[演出]
+[State 10906, 2];無敵の状態を作る
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 10906, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 1511
+
+[State 10906, Pos]
+type = Angleadd
+trigger1 = Pos Y <= -45
+trigger1 = animelemtime(8) >= 0
+value = 35
+
+[State 10906, Pos]
+type = AngleDraw
+trigger1 = Pos Y <= -45
+trigger1 = animelemtime(8) >= 0
+
+;---------------------[移動]
+[State 10906, 2]
+type = VelSet
+trigger1 = animelemtime(8) = 0
+x = -3.55
+y = -12
+
+[State 10906, 2]
+type = VelAdd
+trigger1 = animelemtime(8) >= 0
+y = .75
+
+;---------------------[向き]
+[State 10906, カメラ固定]
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+;---------------------[ステート移行]
+[State 10906, 3] 
+type = Changestate
+trigger1 = Vel Y > 0
+trigger1 = Pos Y >= -40
+trigger1 = animelemtime(7) >= 0
+value = 10907
+
+;---------------------------------------------------------------------------
+;VSサイモン　サイモン側の動き2
+[Statedef 10907]
+type    = L
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 1
+
+[State 10907, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 10907, カメラ固定]
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1
+
+[State 10907, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 1512
+
+[state 10907, Pos]
+type = posset
+trigger1 = time = 0
+y = 0
+
+;---------------------[弧月用]
+[state 10907, バウンド]
+type = velset
+trigger1 = AnimElem = 2
+x = -0.9
+y = -5.4
+
+[State 10907, 地面を揺らす]
+type = EnvShake
+trigger1 = Time = 0
+time = 20
+ampl = -8
+freq = 145
+phase = 95
+
+[State 10907, 移動]
+type = Veladd
+trigger1 = AnimElemtime(2) >= 0
+y = .33
+
+;---------------------[エフェクト]
+[State 10907, エフェクト表示]
+type = Explod
+trigger1 = animelem = 1
+anim = F61
+pos = 10, -10
+postype = p1
+sprpriority = 2
+bindtime = 1
+ownpal = 1
+removeongethit = 1
+supermovetime = 12
+
+[State 10907, 1]
+type = Changestate
+trigger1 = AnimElemtime(3) >= 0
+trigger1 = Pos Y >= 0
+trigger1 = Vel Y > 0
+value = 10908
+
+;---------------------------------------------------------------------------
+;VSサイモン　サイモン側の動き3
+[Statedef 10908]
+type    = L
+movetype= H
+physics = S
+velset = 0,0
+sprpriority = 1
+
+[State 10908, 無敵]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 10908, 1]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 1513
+
+[state 10908,]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 10908, エフェクト表示]
+type = Explod
+trigger1 = animelem = 1
+anim = F61
+pos = 0, 0
+postype = p1
+sprpriority = -3
+bindtime = 1
+ownpal = 1
+removeongethit = 1
+supermovetime = 12
+
+[State 10908, 1];ラウンド始まると同時に立たせる
+type = ChangeState
+trigger1 = RoundState = 2
+trigger2 = time >= 600 ;念のため時間経過でも立つように
+value = 10909
+
+;---------------------------------------------------------------------------
+;VSサイモン　サイモン側の動き4
+[Statedef 10909]
+type    = L
+movetype= I
+physics = S
+ctrl = 0
+anim = 5120
+
+[State 10909, 位置固定]
+type = VelSet
+trigger1 = Time = 0
+x = 0
+
+[state 10909, 位置固定]
+type = posset
+trigger1 = time = 0
+y = 0
+
+[State 10909, 無敵]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 10909, 4]
+type = HitFallSet
+trigger1 = AnimTime = 0
+value = 1
+
+[State 10909, ステートを返す];ここまでしないとサイモン側が再度フライングを行うんで・・・
+type = SelfState
+trigger1 = AnimTime = 0
+value = 0
+

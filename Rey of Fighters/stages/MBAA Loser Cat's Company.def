@@ -1,0 +1,323 @@
+[Info]
+name="MBAA Loser Cat's Company"
+Author = "Wargame"
+
+[Camera]
+
+startx = 0
+starty = 0
+boundleft  = -138
+boundright = 140
+boundhigh  = -185
+boundlow   = 0
+boundlow = 0
+verticalfollow = .5
+tension = 50
+
+[PlayerInfo]
+
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1
+
+[Bound]
+screenleft  =15
+screenright =15
+
+[StageInfo]
+zoffset = 218
+autoturn = 1
+resetBG = 1
+Hires= 1
+
+[Shadow]
+color = 123,123,123
+yscale = .2
+
+[Music]
+bgmusic    = sound/MBAA Loser Cat's Company.mp3
+bgvolume   = 155
+
+[BGdef]
+spr        = stages/MBAA Loser Cat's Company.sff
+
+
+
+[BG 5]
+type = normal
+spriteno = 0,5
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 0,6
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 7]
+type = normal
+spriteno = 0,7
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 8]
+type = normal
+spriteno = 0,8
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 9]
+type = normal
+spriteno = 0,9
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 11]
+type = normal
+spriteno = 0,11
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 0]
+type = normal
+spriteno =0,0
+layerno = 0
+start = -439,40
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 1]
+type = normal
+spriteno = 0,1
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 2]
+type = normal
+spriteno = 0,2
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 3]
+type = normal
+spriteno = 0,3
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 4]
+type = normal
+spriteno = 0,4
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 10]
+type = normal
+spriteno = 0,10
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 15]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 15
+ID       = 15
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[BG 16]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 16
+ID       = 16
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[BG 17]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 17
+ID       = 17
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[BG 18]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 18
+ID       = 18
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[BG 19]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 19
+ID       = 19
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[BG 20]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 20
+ID       = 20
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[BG 21]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 21
+ID       = 21
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[BG 22]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 22
+ID       = 22
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[Begin Action 15]
+1, 0, 0, 0, 6, , A
+1, 1, 0, 0, 6, , A
+1, 2, 0, 0, 6, , A
+1, 3, 0, 0, 6, , A
+1, 4, 0, 0, 6, , A
+1, 5, 0, 0, 6, , A
+1, 6, 0, 0, 6, , A
+1, 7, 0, 0, 6, , A
+1, 8, 0, 0, 6, , A
+1, 9, 0, 0, 6, , A
+1, 10, 0, 0, 6, , A
+
+[Begin Action 16]
+2, 0, 0, 0, 6, , A
+2, 1, 0, 0, 6, , A
+2, 2, 0, 0, 6, , A
+2, 3, 0, 0, 6, , A
+2, 4, 0, 0, 6, , A
+2, 5, 0, 0, 6, , A
+2, 6, 0, 0, 6, , A
+2, 7, 0, 0, 6, , A
+2, 8, 0, 0, 6, , A
+2, 9, 0, 0, 6, , A
+2, 10, 0, 0, 6, , A
+
+[Begin Action 17]
+3, 0, 0, 0, 6, , A
+3, 1, 0, 0, 6, , A
+3, 2, 0, 0, 6, , A
+3, 3, 0, 0, 6, , A
+3, 4, 0, 0, 6, , A
+3, 5, 0, 0, 6, , A
+3, 6, 0, 0, 6, , A
+3, 7, 0, 0, 6, , A
+3, 8, 0, 0, 6, , A
+3, 9, 0, 0, 6, , A
+
+[Begin Action 18]
+4, 0, 0, 0, 7, , A
+4, 1, 0, 0, 7, , A
+4, 2, 0, 0, 7, , A
+4, 3, 0, 0, 7, , A
+4, 4, 0, 0, 7, , A
+4, 5, 0, 0, 7, , A
+22, 5, 0, 0, 16, , A
+
+[Begin Action 19]
+5, 0, 0, 0, 8, , A
+5, 1, 0, 0, 8, , A
+5, 2, 0, 0, 8, , A
+5, 3, 0, 0, 8, , A
+22, 5, 0, 0, 16, , A
+
+[Begin Action 20]
+6, 0, 0, 0, 12
+6, 1, 0, 0, 12
+6, 2, 0, 0, 12
+6, 3, 0, 0, 12
+6, 4, 0, 0, 12
+6, 2, 27, 3, 12
+6, 3, 27, 0, 12
+6, 4, 27, -2, 12
+6, 2, 54, 2, 12
+6, 3, 54, -4, 12
+6, 4, 54, -9, 12
+6, 11, 11, 0, 12
+6, 12, 11, 0, 12
+6, 13, 11, 0, 12
+6, 11, -13, -5, 12
+6, 12, -13, -4, 12
+6, 13, -13, -2, 12
+6, 11, -37, -2, 12
+6, 12, -37, 0, 12
+6, 13, -37, 2, 12
+6, 14, 0, 0, 12
+6, 15, 0, 0, 12
+
+[Begin Action 21]
+7, 0, 0, 0, 9
+7, 1, 0, 0, 9
+7, 2, 0, 0, 12
+7, 1, 0, 0, 9
+7, 0, 0, 0, 3
+
+[Begin Action 22]
+8, 1, 0, 0, 8
+8, 2, 0, 0, 45
+8, 3, 0, 0, 150
+8, 2, 0, 0, 9
+8, 1, 0, 0, 9
+8, 0, 0, 0, 400

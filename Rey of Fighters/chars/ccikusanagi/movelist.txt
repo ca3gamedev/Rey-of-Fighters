@@ -1,0 +1,148 @@
+CC Iron KUSANAGI
+By David Demianoff aka Ironmugen
+
+MOVELIST:
+========
+
+
+Basic movements:
+---------------
+
+X = Weak punch
+Y = strong punch
+A = weak kick
+B = strong kick
+
+A+X (C) = Roll forward (hold back to roll back)
+B+Y (Z) = Knock down attack
+A+X+Y = Build up the power gauge.
+
+Start = Taunt
+
+(Close) Forward/Back + Y = Hatsugane
+(Close) Forward/Back + B = Issetsu Seoi Nage
+
+Special attacks:
+---------------
+
+Forward + A = Geshiki: Goufu You
+
+2nd hit is overhead if not canceled into.
+If this move has been canceled into, it becomes faster and cancelable.
+
+
+Down Forward + B = 88 Shiki
+
+Hits low.
+
+
+(in air) Down + Y = Geshiki: Naraku Otoshi
+
+Overhead attack.
+
+
+Forward + X = 115 Shiki: Dokugami
+
+Can be canceled.
+If it has been canceled from Geshiki: Goufu You, the move will be faster.
+The timings of the fast version are taken from KOF96.
+
+
+Deadly attacks:
+--------------
+
+QCF + X/Y = 108 Shiki: Yamibarai
+
+A ground fireball.
+
+
+DPF + X/Y = 108 Shiki: Oniyaki
+
+As an autoguard before the 1st hit
+X version hits twice on a counter.
+
+
+DPB + A/B = 101 Shiki: Oboroguruma
+
+X version does a single air kick, Y version does a triple kick (last hit knocks down the ennemy hardly)
+
+
+QCF + A/B, A/B = 75 Shiki Kai
+
+The A version (start) cannot be juggled after, while the B version can.
+
+
+HCB + A/B = 212 Shiki: Kototsuki You
+
+Even if the 1st hit is blocked, Kusanagi will try to throw his opponent.
+If the 1st hit connect and the opponent is in air, the throw does not sometime hits the opponent.
+The running frame is from SVC: Chaos.
+
+
+QCB + X/Y = 910 Shiki: Nue Tsumi
+
+The 1st frames of the move has a counter-autoguard - low level (Geshiki: Ryuu Iri)
+The frames before the movehit has also a counter-autoguard - mid/high level (Geshiki: Tora Fuse)
+
+
+
+Desperation moves:
+-----------------
+
+QCB, HCF + X/Y = Ura 108 Shiki: Orochi nagi
+
+You can hold X/Y to delaye.
+If delayed with the X button, during the charge Kusanagi will not be hit by any low attacks.
+If delayed with the Y button, during the charge Kusanagi will not be hit by any high/medium attacks.
+This move has 3 levels, longer you delaye, and more the move will be powerfull.
+
+
+Forward, HCF + X/Y = 96 Shiki
+
+The last hit knocks up the opponent and allow you to juggle.
+This move has been taken from KOF96 's debug sprite viewer.
+
+
+QCF, QCF + X/Y = 182 Shiki
+
+You can hold X/Y to delaye.
+This move has 3 levels, longer you delaye, and more the move will be powerfull.
+
+
+* All moves here require power bar at 1 or more.
+
+
+Super Desperation moves:
+-----------------------
+
+QCF, HCB + X/Y = Kin 1211 Shiki: Yaotome
+
+Nothing in particular to note. Has no follow-up.
+Iori 's classic DM. I have added it since Kusanagi does it in the KOFZ comic.
+
+
+QCF, QCF, QCF, QCF + X+Y = San Shingi no Ni
+
+Do during the Yaotome explosion.
+It's Iori 's sacred sword (against Orochi) in KOF97 ending or in SVC/KOF2003.
+
+
+* The Yaotome requires power bar at 2 or more.
+* The San Shingi no Ni requires the power bar at 1 (Yaotome + this = 3)
+
+
+Hyper desperation move:
+----------------------
+
+QCF, QCF + X+Y = Saishuu Kessen Ougi Reishiki
+
+The flame explosion can negate projectiles.
+
+
+Forward, HCF + X+Y = Teio Shukumyoken
+
+This hyper projectile can negate normal projectiles.
+Chonshyu/Chonrei 's DM projectile. I added it because they have something related... in UG.
+
+
+* All moves here require power bar at 3.

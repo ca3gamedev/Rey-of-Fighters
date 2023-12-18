@@ -1,0 +1,42 @@
+;===============================================================================
+;Informacion Basica Del Char
+[Info]
+Name         = "Elisabeth Blanctorche"
+DisplayName  = "Elisabeth B."
+VersionDate  = 03/11/2019
+MugenVersion = 1.1
+Author       = "Fervicante (Edit by Vergil Kusanagi [Ariel Gonzalez Ordaz])"
+;Codigos Base by Jin & Zelgadis; Edit by Vergil Kusanagi
+;Sprites XIII (Stand & Various Attacks) by ???
+;Sprites XIII Revie Souhaiter, Revie Prier &&  Revie Geler by Vergil Kusanagi
+;Sprites Portraits by MetalWarrior
+Pal.Defaults = 4,1,2,3,5,6
+;Localcoord   = 320
+;Localcoord   = 427,240
+;===============================================================================
+;Archivos Del Char
+[Files]
+sprite	= Elisabeth Blanctorche-KOFM.sff
+anim	= Elisabeth Blanctorche-KOFM.air
+sound	= Elisabeth Blanctorche-KOFM.snd
+cmd	= Elisabeth Blanctorche-KOFM.cmd
+cns	= Elisabeth Blanctorche-KOFM.cns
+stcommon	= common1.cns
+st	= Elisabeth Blanctorche-KOFM.cns
+st1 	= Elisabeth Blanctorche-KOFM-N.cns
+st2	= Elisabeth Blanctorche-KOFM-S.cns
+st3	= Elisabeth Blanctorche-KOFM-H.cns
+st4	= Elisabeth Blanctorche-KOFM-2-3.cns
+;Paletas Del Char (Made by John 7)
+pal1	= Paletas\Elisabeth Blanctorche-KOFM-01.act
+pal2	= Paletas\Elisabeth Blanctorche-KOFM-02.act
+pal3	= Paletas\Elisabeth Blanctorche-KOFM-03.act
+pal4	= Paletas\Elisabeth Blanctorche-KOFM-04.act
+pal5	= Paletas\Elisabeth Blanctorche-KOFM-05.act
+pal6	= Paletas\Elisabeth Blanctorche-KOFM-06.act;Darkness Palette
+;===============================================================================
+;Opening Y Ending Del Char
+[Arcade]
+intro.storyboard	= History.def
+ending.storyboard	= 
+;===============================================================================

@@ -1,0 +1,33 @@
+[Info]
+Name         = "Wolfgang Krauser"
+DisplayName  = "Wolfgang Krauser"
+VersionDate  = 06,17,2009
+MugenVersion = 06,14,2003
+;Author       = "jin" 
+Author       = "Yu"
+Pal.Defaults = 1,2,3,4,5,6
+
+[Files]
+Cmd      = Wolfgang_Krauser.cmd
+Cns      = Wolfgang_Krauser.cns
+St       = Wolfgang_Krauser.cns
+St0      = Wolfgang_Krauser-N.cns
+St1      = Wolfgang_Krauser-S.cns
+St2      = Wolfgang_Krauser-H.cns
+St3      = Wolfgang_Krauser-2-3.cns
+St4      = AI_Helper.cns
+St5      = Config.cns
+StCommon = Common.cns
+Sprite   = Wolfgang_Krauser.sff
+Anim     = Wolfgang_Krauser.air
+Sound    = Wolfgang_Krauser.snd
+
+;---カラーパレット---
+
+Pal1 = Wolfgang_Krauser.act
+Pal2 = Wolfgang_Krauser.act
+Pal3 = Wolfgang_Krauser.act
+Pal4 = Wolfgang_Krauser.act
+Pal5 = Wolfgang_Krauser.act
+Pal6 = Wolfgang_Krauser.act
+

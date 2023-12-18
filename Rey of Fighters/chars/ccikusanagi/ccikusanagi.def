@@ -1,0 +1,41 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Kusanagi"
+displayname = "Evil Kusanagi"
+versiondate = 23,02,2004
+mugenversion = 04,01,2001
+author = "David Demianoff"
+pal.defaults = 4
+
+[Files]
+sprite = files\kusanagi.sff
+anim = coding\kusanagi.air
+sound = files\kusanagi.snd
+cmd = coding\kusanagi.cmd
+cns = coding\kusanagi.cns
+stcommon = common1.cns
+st = coding\kusanagi.cns
+st1 = coding\attacks.cns
+st2 = coding\specials.cns
+st3 = coding\hypers.cns
+st4 = coding\misc.cns
+pal1 = pals\kyo97-b.act
+pal2 = pals\kyo96-a.act
+pal3 = pals\kyo96-b.act
+pal4 = pals\iron.act
+pal5 = pals\kyo98-a.act
+pal6 = pals\kyo98-d.act
+pal7 = pals\kyo-1-a.act
+pal8 = pals\kyo-1-b.act
+pal9 = pals\kyo-2-a.act
+pal10 = pals\kyo-2-b.act
+pal11 = pals\kusanagi2k2-a.act
+pal12 = pals\kyocvs-b.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

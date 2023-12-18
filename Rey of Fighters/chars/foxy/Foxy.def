@@ -1,0 +1,35 @@
+;=====================================================================
+;  DEF File For "Foxy"                                  Made By M.M.R.
+;                                       Ver. 1.0           2002.Apr.27
+;=====================================================================
+; Player Information
+[Info]
+name    ="Foxy"
+displayname ="Foxy"
+versiondate =04,27,2002
+mugenversion =04,14,2001
+author ="RANDY"
+pal.defaults=1,2,3,4,5
+
+; Files for the Player
+[Files]
+cmd     =Foxy.cmd
+cns     =Foxy-N.cns
+st      =Foxy-N.cns
+stcommon =common1.cns
+sprite  =Foxy.sff
+anim    =Foxy.air
+sound   =Foxy.snd
+pal1=pals/Foxy01.act
+pal2=pals/Foxy02.act
+pal3=pals/Foxy03.act
+pal4=pals/Foxy04.act
+pal5=pals/Foxy05.act
+pal6=pals/Foxy06.act
+pal7=pals/Foxy07.act
+st1=Foxy-S.cns
+st2=Foxy-H.cns
+st3=
+[Arcade]
+intro.storyboard=
+ending.storyboard=

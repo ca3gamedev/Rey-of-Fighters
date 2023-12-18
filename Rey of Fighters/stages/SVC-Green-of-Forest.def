@@ -1,0 +1,222 @@
+;==============================
+;	MUGEN OMEGA STAGE
+;==============================
+
+;--------------------------------------------------------
+[Info]
+name = "water"
+displayname = "SVC-Green-of-Forest"
+versiondate = 01,23,2011
+mugenversion = 1.0
+author = "Claudio Toxi"
+
+;--------------------------------------------------------
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -280
+boundright = 280
+boundhigh = -90
+boundlow = 0
+verticalfollow = 0
+floortension = 100
+tension = 50
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+;--------------------------------------------------------
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 212
+autoturn = 1
+resetBG = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 136
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+reflect = 1
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 128
+
+;--------------------------------------------------------
+[Music]
+bgmusic  = sound/SVC-Green-of-Forest.mp3
+bgvolume = 155
+
+;--------------------------------------------------------
+[BGdef]
+spr      = SVC-Green-of-Forest.sff
+debugbg  = 0
+
+[BG Forest]
+type = normal
+spriteno = 0,0
+layerno = 0
+start = 0,0
+delta = 0.5,1
+trans = none
+mask = 0
+tilespacing = 0,0
+
+[BG Waterfall]
+type = anim
+actionno = 1
+layerno = 0
+start = 0,0
+delta = 0.5,1
+trans = none
+mask = 1
+tilespacing = 0,0
+[Begin action 1]
+1,0,0,0,8,,
+1,1,0,0,8,,
+1,2,0,0,8,,
+1,3,0,0,8,,
+1,4,0,0,8,,
+1,5,0,0,8,,
+1,6,0,0,8,,
+1,7,0,0,8,,
+
+[BG Trees]
+type = normal
+spriteno = 10,0
+layerno = 0
+start = 0,0
+delta = 0.8,1
+trans = none
+mask = 1
+tilespacing = 0,0
+
+[BG Water]
+type = anim
+actionno = 11
+layerno = 0
+start = 0,0
+delta = 0.8,1
+trans = none
+mask = 1
+tilespacing = 0,0
+[Begin action 11]
+11,0,0,0,8,,
+11,1,0,0,8,,
+11,2,0,0,8,,
+11,3,0,0,8,,
+11,4,0,0,8,,
+11,5,0,0,8,,
+11,6,0,0,8,,
+11,7,0,0,8,,
+
+[BG Leaf 1]
+type = anim
+actionno = 20
+layerno = 1
+start = -320,-100
+delta = 0.8,1
+mask = 1
+velocity = 0,0
+tilespacing = 0,0
+ID = 20
+[Begin action 20]
+20,0,0,0,4,H,
+20,1,0,0,4,H,
+20,2,0,0,4,H,
+20,3,0,0,4,H,
+20,4,0,0,4,H,
+20,5,0,0,4,H,
+20,6,0,0,4,H,
+20,7,0,0,4,H,
+
+[BGctrldef 1]
+CtrlID = 20
+looptime = 500
+
+[BGctrl 1]
+type = Velset
+time = 100
+x = 0.6
+y = 1.2
+
+[BGctrl 1]
+type = Velset
+time = 499
+x = 0
+y = 0
+
+[BGctrl 1]
+type = Posset
+time = 499
+x = 0
+y = 0
+
+[BG Leaf 2]
+type = anim
+actionno = 21
+layerno = 1
+start = 320,-100
+delta = 0.8,1
+mask = 1
+velocity = 0,0
+tilespacing = 0,0
+ID = 21
+[Begin action 21]
+20,0,0,0,4,,
+20,1,0,0,4,,
+20,2,0,0,4,,
+20,3,0,0,4,,
+20,4,0,0,4,,
+20,5,0,0,4,,
+20,6,0,0,4,,
+20,7,0,0,4,,
+
+[BGctrldef 1]
+CtrlID = 21
+looptime = 500
+
+[BGctrl 1]
+type = Velset
+time = 100
+x = -0.6
+y = 1.2
+
+[BGctrl 1]
+type = Velset
+time = 499
+x = 0
+y = 0
+
+[BGctrl 1]
+type = Posset
+time = 499
+x = 0
+y = 0

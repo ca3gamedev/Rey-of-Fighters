@@ -1,0 +1,276 @@
+[Info]
+name="MBAA No_Control_Red"
+;ŠJ•ú
+
+[Camera]
+startx =0
+starty =0
+boundleft  = -139
+boundright = 140
+boundhigh  = -185
+boundlow   = 0
+boundlow = 0
+verticalfollow = .5
+tension = 50
+
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1
+
+
+[Bound]
+screenleft  =15
+screenright =15
+
+
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 0
+Hires= 1
+
+[Shadow]
+color = 123,123,123
+yscale = .2
+reflect = 0
+
+[Music]
+bgmusic     = sound/MBAA No_Control_Red.mp3
+bgvolume    = 150
+
+[BGdef]
+spr         = MBAA No_Control_Red.sff
+debugbg     = 0
+
+
+[BG 5]
+type = normal
+spriteno = 0,5
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 0,6
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 7]
+type = normal
+spriteno = 0,7
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 8]
+type = normal
+spriteno = 0,8
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 9]
+type = normal
+spriteno = 0,9
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+[BG 11]
+type = normal
+spriteno = 0,11
+delta = 2,1.8
+start = -439,40
+trans = none
+mask = 1
+
+
+
+[BG 15]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 15
+ID       = 15
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[Begin Action 15]
+1, 0, 0, 0, 2
+1, 0, -1, 1, 2
+1, 0, 1, 0, 2
+1, 0, 0, -1, 2
+1, 0, -1, 1, 2
+1, 0, 1, -1, 2
+
+[BG 16]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 16
+ID       = 16
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[Begin Action 16]
+1, 1, 1, 0, 2
+1, 1, 0, -1, 2
+1, 1, -1, 1, 2
+1, 1, 1, -1, 2
+1, 1, 0, 0, 2
+1, 1, -1, 1, 2
+
+[BG 17]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 17
+ID       = 17
+Start    = 49,40
+Delta    = 2,2
+Mask     = 1
+
+[Begin Action 17]
+2, 1, -1, 1, 2
+2, 1, 1, -1, 2
+2, 1, 0, 0, 2
+2, 1, -1, 1, 2
+2, 1, 1, 0, 2
+2, 1, 0, -1, 2
+
+
+
+[BG 18]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 18
+ID       = 18
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[Begin Action 18]
+2, 0, 0, 0, 2
+2, 0, -1, 1, 2
+2, 0, 1, 0, 2
+2, 0, 0, -1, 2
+2, 0, -1, 1, 2
+2, 0, 1, -1, 2
+
+[BG 19]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 19
+ID       = 19
+Start    = -439,40
+Delta    = 2,2
+Mask     = 1
+
+[Begin Action 19]
+2, 1, 1, 0, 2
+2, 1, 0, -1, 2
+2, 1, -1, 1, 2
+2, 1, 1, -1, 2
+2, 1, 0, 0, 2
+2, 1, -1, 1, 2
+
+[BG 20]
+Type     = Anim
+LayerNo  = 0
+ActionNo = 20
+ID       = 20
+Start    = -939,40
+Delta    = 2,2
+Mask     = 1
+
+[Begin Action 20]
+1, 0, -1, 1, 2
+1, 0, 1, -1, 2
+1, 0, 0, 0, 2
+1, 0, -1, 1, 2
+1, 0, 1, 0, 2
+1, 0, 0, -1, 2
+
+
+
+
+
+[BG 0]
+type = normal
+spriteno =0,0
+start = -439,40
+delta = 2,2
+trans = none
+mask = 1
+
+[BG 1]
+type = normal
+spriteno = 0,1
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 2]
+type = normal
+spriteno = 0,2
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 3]
+type = normal
+spriteno = 0,3
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+[BG 4]
+type = normal
+spriteno = 0,4
+delta = 2,2
+start = -439,40
+trans = none
+mask = 1
+
+
+
+[BG 10]
+type = normal
+spriteno = 0,10
+delta = 2,1.8
+start = -439,40
+trans = add
+mask = 1
+
+
+
+
+
+
+

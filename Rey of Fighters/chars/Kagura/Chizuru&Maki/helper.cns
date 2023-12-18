@@ -1,0 +1,668 @@
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)弱攻撃エフェクト用ヘルパー
+[Statedef 7000]
+type = A
+ctrl = 0
+anim = 7000
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 1
+id = 7001
+name = "hit2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 1
+id = 7001
+name = "hit2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト2
+type = Helper
+trigger1 = time = 0
+id = 7002
+name = "hit3"
+sprpriority = 2
+pos = 10,6
+postype = p1
+stateno = 7002
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;----------------------------------------------------------------------------
+;(HELPER)弱攻撃エフェクト用ヘルパー2
+[Statedef 7001]
+type = A
+ctrl = 0
+anim = 7001
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = varRandom
+trigger1 = time = 0
+v = 1
+range = 0,10
+
+[state a]
+type = varadd
+trigger1 = 1
+v = 1
+value = 1
+
+
+;---------------------[速度]
+[state a]
+type = velset
+trigger1 = time = 0
+x = -10+(Random%200)/10
+y = -10+(Random%200)/10
+
+
+[state a]
+type = VelMul
+trigger1 = 1
+x = 0.95
+y = 0.95
+
+;---------------------[透過、拡縮]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[state a]
+type = angledraw
+trigger1 = 1
+scale = 1.0-var(1)*0.03,1.0-var(1)*0.03
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = var(1) >= 20;25
+
+;----------------------------------------------------------------------------
+;(HELPER)弱攻撃エフェクト用ヘルパー3
+[Statedef 7002]
+type = A
+ctrl = 0
+anim = 7002
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+;----------------------------------------------------------------------------
+;(HELPER)ガードエフェクト用ヘルパー
+[Statedef 7010]
+type = A
+ctrl = 0
+anim = 7010
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+;----------------------------------------------------------------------------
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)中攻撃エフェクト用ヘルパー
+[Statedef 7003]
+type = A
+ctrl = 0
+anim = 7003
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 3
+id = 7001
+name = "hit2"
+sprpriority = 2
+pos = 10,0
+postype = p1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 2
+id = 7001
+name = "hit2"
+sprpriority = 2
+pos = 10,0
+postype = p1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト2
+type = Helper
+trigger1 = time = 0
+id = 7002
+name = "hit3"
+sprpriority = 2
+pos = 10,0
+postype = p1
+stateno = 7002
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];出血
+type = Helper
+trigger1 = time = 0
+id = 7004
+name = "blood"
+sprpriority = 2
+pos = 10,-2
+postype = p1
+stateno = 7004
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[state a]
+type = angledraw
+trigger1 = 1
+scale = 0.4,0.6;0.7,1.0
+
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+;----------------------------------------------------------------------------
+;(HELPER)出血エフェクト用ヘルパー
+[Statedef 7004]
+type = A
+ctrl = 0
+anim = 7004
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 1
+id = 7005
+name = "blood2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7005
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 1
+id = 7006
+name = "blood2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7005
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 2
+id = 7007
+name = "blood2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7005
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;----------------------------------------------------------------------------
+;(HELPER)飛び散る血エフェクト用ヘルパー
+[Statedef 7005]
+type = A
+ctrl = 0
+anim = 7005
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+
+[state a]
+type = varRandom
+trigger1 = time = 0
+v = 1
+range = 0,10
+
+[state a]
+type = varadd
+trigger1 = 1
+v = 1
+value = 1
+
+
+;---------------------[速度]
+[state a]
+type = velset
+trigger1 = time = 0
+trigger1 = ishelper(7005)
+x = -4-(Random%20)/10
+y = -7+(Random%20)/10
+
+[state a]
+type = velset
+trigger1 = time = 0
+trigger1 = ishelper(7006)
+x = -4+(Random%80)/10
+y = -7+(Random%20)/10
+
+[state a]
+type = velset
+trigger1 = time = 0
+trigger1 = ishelper(7007)
+x = 4+(Random%20)/10
+y = -7+(Random%20)/10
+
+
+[state a]
+type = Veladd
+trigger1 = 1
+y = 0.45
+
+;---------------------[透過]
+[state a]
+type = angleadd
+trigger1 = 1
+value = 25
+
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 226,156
+
+[state a]
+type = angledraw
+trigger1 = 1
+scale = 1.0-var(1)*0.015,1.0-var(1)*0.015
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = var(1) >= 30
+
+;----------------------------------------------------------------------------
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)強攻撃エフェクト用ヘルパー
+[Statedef 7006]
+type = A
+ctrl = 0
+anim = 7003
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 2
+id = 7001
+name = "hit2"
+sprpriority = 2
+pos = 10,0
+postype = p1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 2
+id = 7001
+name = "hit2"
+sprpriority = 2
+pos = 10,0
+postype = p1
+stateno = 7001
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト2
+type = Helper
+trigger1 = time = 0
+id = 7002
+name = "hit3"
+sprpriority = 2
+pos = 10,0
+postype = p1
+stateno = 7002
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];出血
+type = Helper
+trigger1 = time = 0
+id = 7004
+name = "blood"
+sprpriority = 2
+pos = 10,-2
+postype = p1
+stateno = 7004
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+;----------------------------------------------------------------------------
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+;----------------------------------------------------------------------------
+;(HELPER)必殺ヒットエフェクト用ヘルパー
+[Statedef 7025]
+type = A
+ctrl = 0
+anim = 7006
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 4
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+;---------------------[ヘルパー]
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 2
+id = 7021
+name = "hit2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7021
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a];エフェクト1
+type = Helper
+trigger1 = time <= 2
+id = 7021
+name = "hit2"
+sprpriority = 2
+pos = 0,0
+postype = p1
+stateno = 7021
+helpertype = normal
+pausemovetime = 0
+keyctrl = 0 
+ownpal = 1
+
+[state a]
+type = varset
+trigger1 = time = 0
+v = 1
+value = 0
+
+[state a]
+type = varadd
+trigger1 = 1
+v = 1
+value = 1
+
+
+;---------------------[透過]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,floor(256-var(1)*0.1)
+
+[state a]
+type = angledraw
+trigger1 = 1
+scale = 1.0+var(1)*0.05,1.0+var(1)*0.05
+
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+
+;----------------------------------------------------------------------------
+;----------------------------------------------------------------------------
+;(HELPER)弱攻撃エフェクト用ヘルパー2
+[Statedef 7021]
+type = A
+ctrl = 0
+anim = 7007
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 3
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[state a]
+type = varRandom
+trigger1 = time = 0
+v = 1
+range = 2,10
+
+[state a]
+type = varadd
+trigger1 = 1
+v = 1
+value = 1
+
+
+;---------------------[速度]
+[state a]
+type = velset
+trigger1 = time = 0
+x = -10+(Random%200)/10
+y = -10+(Random%200)/10
+
+
+[state a]
+type = VelMul
+trigger1 = 1
+x = 0.95
+y = 0.95
+
+;---------------------[透過、拡縮]
+[state a]
+type = Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[state a]
+type = angledraw
+trigger1 = 1
+scale = 1.0-var(1)*0.03,1.0-var(1)*0.03
+
+;---------------------[]
+[state a]
+type = destroyself
+trigger1 = var(1) >= 25
+
+;[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+

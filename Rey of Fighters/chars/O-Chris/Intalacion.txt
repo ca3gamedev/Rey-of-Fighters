@@ -1,0 +1,11 @@
+03:59 p.m. 16/05/2009
+
+En el select.def abrir y colocar las siguientes lineas
+
+Chris\N-Chris.def,,order=1,music=,includestage=0;N-Chris
+Chris\O-Chris.def,,order=1,music=,includestage=0;O-Chris
+
+Saludos!! 
+
+
+...:::Le@n:::...

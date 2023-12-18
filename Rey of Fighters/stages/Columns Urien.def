@@ -1,0 +1,756 @@
+
+[Info]
+	name         = "Columns Urien"
+	displayname  = "Columns Urien"
+	versiondate  = 08,08,2014
+	mugenversion = 1.1
+        author       = "Charles2011"
+
+[Camera]
+	startx=0
+	starty=0
+	boundleft= -235
+	boundright= 235
+	boundhigh= -240
+	boundlow=0
+	verticalfollow=1
+	tension=50
+	floortension=150
+
+	;;--- * v1.1 (zoom) *---
+	;;cuthigh=30
+	cutlow=10
+	;;---
+	overdrawhigh=5
+	overdrawlow=5
+	;;---
+	tensionhigh=85 ;;t_hi
+	tensionlow=25
+	startzoom=1
+	zoomout=0.85 ;;c_zo
+	zoomin=1.25 ;;c_zi
+	;;--- * v1.1 (zoom) *---
+
+[PlayerInfo]
+	p1startx=-70
+	p1starty=0
+	p1startz=0
+	p1facing=1
+
+	p2startx=70
+	p2starty=0
+	p2startz=0
+	p2facing=-1
+
+	leftbound=-1000
+	rightbound=1000
+	topbound=0
+	botbound=0
+
+[Scaling]
+	topz=0
+	botz=50
+	topscale=1
+	botscale=1.2
+
+[Bound]
+	screenleft=15
+	screenright=15
+
+[StageInfo]
+	zoffset=215
+	autoturn=1
+	resetBG=0
+	localcoord=320,240
+
+
+[Shadow]
+	color=0,0,0
+	intensity=190
+;;	reflect=0;1
+	yscale=0.10
+	fade.range=-120,0
+;[Reflection]
+;	intensity=64
+
+
+[Music]
+	bgmusic    = sound/Columns Urien.mp3
+	bgvolume   = 155
+
+[BGdef]
+	spr        = Columns Urien.sff
+	debugbg    = 0
+
+;-------------------
+
+[bg 0] ; 
+	type=normal
+	spriteno=0,0
+        trans = add1
+	start=-13,170
+	delta=0.1,0.1 
+	tile=1,0
+	tilespacing=0,0
+	trans=none
+	mask=0
+	scalestart=0.75,0.5
+        zoomdelta= 0.1
+
+;---
+
+[bg 0] ; Temple
+	type=normal
+	spriteno=55,55
+	start=170,80
+	delta=.200857,0.1
+	mask=1
+	;---
+	scalestart=0.40,0.40
+        zoomdelta= 0.1
+
+;---
+
+[bg 1] ; 
+	type=normal
+	spriteno=222,222
+	start=-130, 158
+	delta=.190857,0.1
+	mask=1
+	;---
+	scalestart=0.50,0.50
+        zoomdelta= 0.1
+
+;---
+
+[bg 1] ; 
+	type=normal
+	spriteno=22,22
+	start=20, 158
+	delta=.190857,0.1
+	mask=1
+	;---
+	scalestart=0.50,0.50
+        zoomdelta= 0.1
+
+;---
+
+[bg 1] ; 
+	type=normal
+	spriteno=2222,2222
+	start=60, 158
+	delta=.190857,0.1
+	mask=1
+	;---
+	scalestart=0.50,0.50
+        zoomdelta= 0.1
+
+;---
+
+[BG 2]
+        type  = anim
+        actionno = 1111
+        start = 0, 148
+	delta=.220857,0.1
+	mask=1
+	;---
+	scalestart=0.45,0.45
+        zoomdelta= 0.1
+
+[Begin action 1111]
+11,111, 0,0, 9
+11,11, 0,0, 9
+
+;---
+
+[BG 2]
+        type  = anim
+        actionno = 33
+        start = -40, 147
+	delta=.220857,0.1
+	mask=1
+	;---
+	scalestart=0.75,0.75
+        zoomdelta= 0.1
+
+[Begin action 33]
+33,4, 0,0, 9
+33,5, 0,0, 9
+33,6, 0,0, 9
+33,7, 0,0, 9
+33,8, 0,0, 9
+33,1, 0,0, 9
+33,2, 0,0, 9
+33,3, 0,0, 9
+
+;================================
+
+[bg 0] ; Shadow 6.1 - Back 
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-73,174
+	delta=.220997,0.1
+	tile=1,0
+        tilespacing=144,0
+	mask=1
+	;---
+	scalestart=0.40,0.20
+        zoomdelta= 0.1
+
+[bg 0] ; Shadow 6 - Front
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-73,174
+	delta=.220997,0.1
+	tile=1,0
+        tilespacing=144,0
+	mask=1
+	;---
+	scalestart=0.40,0.20
+        zoomdelta= 0.1
+
+;---
+
+[bg 0] ; Column 6 
+	type=normal
+	spriteno=0,1
+	start=-60,154
+	delta=.220997,0.1
+	tile=1,0
+        tilespacing=329,0
+	mask=1
+	;---
+	scalestart=0.25,0.55
+        zoomdelta= 0.1
+
+;================================
+
+[bg 0] ; Shadow 1.1
+	type=normal
+	spriteno=5,5
+	start=-112,185
+	delta=.262997,0.2
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=0.62,0.65
+        zoomdelta= 0.2
+
+[bg 0] ; Shadow 
+	type=normal
+	spriteno=5,5
+	start=-112,185
+	delta=.262997,0.2
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=0.62,0.65
+        zoomdelta= 0.2
+
+[BG Woman 1]
+type=normal
+spriteno=14,0
+start = 60,84
+delta=.262997,0.2
+mask  = 1
+mask=1
+;---
+scalestart=0.55,0.55
+zoomdelta= 0.2
+
+[bg 0] ; Shadow 1.1
+	type=normal
+	spriteno=5,5
+	start=-97,186
+	delta=.262997,0.2
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=0.61,0.65
+        zoomdelta= 0.2
+
+[bg 0] ; Shadow 
+	type=normal
+	spriteno=5,5
+	start=-97,186
+	delta=.262997,0.2
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=0.61,0.65
+        zoomdelta= 0.2
+
+[BG Woman 2]
+type=normal
+spriteno=15,0
+start = 75,84
+delta=.262997,0.2
+mask  = 1
+mask=1
+;---
+scalestart=0.55,0.55
+zoomdelta= 0.2
+
+;================================
+
+[bg 0] ; Shadow 5.1 - Back
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-83,179
+	delta=.262997,0.2
+	tile=1,0
+        tilespacing=132,0
+	mask=1
+	;---
+	scalestart=0.47,0.15
+        zoomdelta= 0.2
+
+[bg 0] ; Shadow 5 - Front
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-83,179
+	delta=.262997,0.2
+	tile=1,0
+        tilespacing=132,0
+	mask=1
+	;---
+	scalestart=0.47,0.15
+        zoomdelta= 0.2
+
+;---
+
+[bg 0] ; Column 5 
+	type=normal
+	spriteno=0,11
+	start=-68,153
+	delta=.262997,0.2
+	tile=1,0
+        tilespacing=302,0
+	mask=1
+	;---
+	scalestart=0.30,0.60
+        zoomdelta= 0.2
+
+;================================
+
+[bg 0] ; Shadow 1.1
+	type=normal
+	spriteno=5,5
+	start=166,189
+	delta=.328997,0.3
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=0.70,0.65
+        zoomdelta= 0.3
+
+[bg 0] ; Shadow 
+	type=normal
+	spriteno=5,5
+	start=166,189
+	delta=.328997,0.3
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=0.70,0.65
+        zoomdelta= 0.3
+
+[BG ARABE 1 ]
+type=normal
+spriteno=111,0
+start = 110,64
+delta=.328997,0.3
+mask  = 1
+mask=1
+;---
+scalestart=0.75,0.75
+zoomdelta= 0.3
+
+;================================
+
+[bg 0] ; Shadow 4.1 - Back
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-93,176
+	delta=.328997,0.3
+	tile=1,0
+        tilespacing=154,0
+	mask=1
+	;---
+	scalestart=0.50,0.25
+        zoomdelta= 0.3
+
+[bg 0] ; Shadow 4 - Front
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-93,176
+	delta=.328997,0.3
+	tile=1,0
+        tilespacing=154,0
+	mask=1
+	;---
+	scalestart=0.50,0.25
+        zoomdelta= 0.3
+
+;---
+
+[bg 0] ; Column 4 
+	type=normal
+	spriteno=77,88
+	start=-79,153
+	delta=.328997,0.3
+	tile=1,0
+        tilespacing=299,0
+	mask=1
+	;---
+	scalestart=0.35,0.65
+        zoomdelta= 0.3
+
+;================================
+
+[bg 0] ; Shadow 1.1
+	type=normal
+	spriteno=5,5
+	start=107,192
+	delta=.39997,0.4
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=1.67,0.65
+        zoomdelta= 0.4
+
+[bg 0] ; Shadow 
+	type=normal
+	spriteno=5,5
+	start=107,192
+	delta=.39997,0.4
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=1.67,0.65
+        zoomdelta= 0.4
+
+[BG ARABE 2]
+type  = anim
+actionno=12
+start = 50,53
+delta=.39997,0.4
+mask  = 1
+mask=1
+;---
+scalestart=0.75,0.75
+zoomdelta= 0.4
+
+[Begin action 12]
+12,0,0,0,8
+12,1,0,0,8
+12,2,0,0,8
+12,3,0,0,8
+12,4,0,0,8
+12,5,0,0,8
+
+[BG ARABE 3]
+type  = anim
+actionno=13
+start = 50,53
+delta=.39997,0.4
+mask  = 1
+;---
+scalestart=0.75,0.75
+zoomdelta= 0.4
+
+[Begin action 13]
+13,0,0,0,8
+13,1,0,0,8
+13,2,0,0,8
+13,3,0,0,8
+13,4,0,0,8
+
+;================================
+
+[bg 0] ; Shadow 1.1
+	type=normal
+	spriteno=5,5
+	start=17,191
+	delta=.39997,0.4
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=3.0,0.65
+        zoomdelta= 0.4
+
+[bg 0] ; Shadow 
+	type=normal
+	spriteno=5,5
+	start=17,191
+	delta=.39997,0.4
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=3.0,0.65
+        zoomdelta= 0.4
+
+[BG ARABE 4]
+type  = anim
+actionno=16
+start = 40,53
+delta=.39997,0.4
+mask  = 1
+;---
+scalestart=0.75,0.75
+zoomdelta= 0.4
+
+[Begin action 16]
+16,0,0,0,13
+16,1,0,0,13
+16,2,0,0,13
+
+[BG ARABE 5]
+type  = anim
+actionno=18
+start = 16,49
+delta=.39997,0.4
+mask  = 1
+;---
+scalestart=0.75,0.75
+zoomdelta= 0.4
+
+[Begin action 18]
+18,0,0,0,13
+18,1,0,0,13
+18,2,0,0,13
+18,3,0,0,13
+18,4,0,0,13
+
+;================================
+
+[bg 0] ; Shadow 3.1 - Back
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-109,178
+	delta=.39997,0.4
+	tile=1,0
+        tilespacing=144,0
+	mask=1
+	;---
+	scalestart=0.60,0.27
+        zoomdelta= 0.4
+
+[bg 0] ; Shadow 3 - Front
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-109,178
+	delta=.39997,0.4
+	tile=1,0
+        tilespacing=144,0
+	mask=1
+	;---
+	scalestart=0.60,0.27
+        zoomdelta= 0.4
+
+;---
+
+[bg 0] ; Column 3 
+	type=normal
+	spriteno=0,11
+	start=-91,153
+	delta=.39997,0.4
+	tile=1,0
+        tilespacing=303,0
+	mask=1
+	;---
+	scalestart=0.40,0.70
+        zoomdelta= 0.4
+
+;================================
+
+[bg 0] ; Shadow 1.1
+	type=normal
+	spriteno=5,5
+	start=-215,197
+	delta=.576057,0.5
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=4.0,0.65
+        zoomdelta= 0.5
+
+[bg 0] ; Shadow 
+	type=normal
+	spriteno=5,5
+	start=-215,197
+	delta=.576057,0.5
+	tile=0,0
+        tilespacing=0,0
+        trans = sub
+	mask=0
+	;---
+	scalestart=4.0,0.65
+        zoomdelta= 0.5
+
+[BG ARABE 6]
+type=normal
+spriteno=19,2
+start = -160,57
+delta=.576057,0.5
+mask  = 1
+;---
+scalestart=0.75,0.75
+zoomdelta= 0.5
+
+[BG ARABE 7]
+type  = anim
+actionno=20
+start = -185,61
+delta=.576057,0.5
+mask  = 1
+;---
+scalestart=0.75,0.75
+zoomdelta= 0.5
+
+[Begin action 20]
+220,0,0,0,120
+220,1,0,0,10
+220,2,0,0,200
+
+[BG ARABE 8]
+type  = anim
+actionno =21
+start = -215,60
+delta=.576057,0.5
+mask  = 1
+;---
+scalestart=0.75,0.75
+zoomdelta= 0.5
+
+[Begin action 21]
+21,0,0,0,60
+21,1,0,0,10
+21,2,0,0,100
+
+;================================
+
+[bg 0] ; Shadow 2.1 - Back 
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-141,166
+	delta=.576057,0.5
+	tile=1,0
+        tilespacing=160,0
+	mask=1
+	;---
+	scalestart=0.75,0.57
+        zoomdelta= 0.5
+
+[bg 0] ; Shadow 2 - Front
+	type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-141,166
+	delta=.576057,0.5
+	tile=1,0
+        tilespacing=160,0
+	mask=1
+	;---
+	scalestart=0.75,0.57
+        zoomdelta= 0.5
+
+;---
+
+[bg 0] ; Column 2 
+	type=normal
+	spriteno=0,1
+	start=-121,156
+	delta=.576057,0.5
+	tile=1,0
+        tilespacing=304,0
+	mask=1
+	;---
+	scalestart=0.53,0.75
+        zoomdelta= 0.5
+
+;================================
+
+[bg 0] ; Shadow 1.1 - Back 
+        type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-227,173
+	delta=0.9,0.75
+	tile=1,0
+        tilespacing=100,0
+	mask=1
+	;---
+	scalestart=1.40,0.68
+
+[bg 0] ; Shadow 1 - Front
+        type=normal
+	spriteno=-0,12
+        trans = sub
+	start=-227,173
+	delta=0.9,0.75
+	tile=1,0
+        tilespacing=100,0
+	mask=1
+	;---
+	scalestart=1.40,0.68
+
+;---
+
+[bg 0] ; Column 
+	type=normal
+	spriteno=0,1
+	start=-180,163
+	delta=0.9,0.75
+	tile=1,0
+        tilespacing=270,0
+	mask=1
+	;---
+	scalestart=0.85,0.85
+
+;================================
+
+;--- floor
+[bg 0]
+	type=parallax
+	spriteno=20,1 
+	start=0,179
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+	delta=0.9,0.75
+;op;	width=1000,2000
+	width=750,1500
+	yscalestart=150
+	yscaledelta=1.1

@@ -1,0 +1,37 @@
+;====================================================
+; Definition file for K9999
+;====================================================
+
+; Player information
+[Info]
+name = "K9999"
+displayname = "K9999-KOF02UM"
+versiondate = 04,14,2001
+mugenversion = 04,14,2001
+author = "yajirushi"
+pal.defaults =
+
+; Files for the player
+[Files]
+cmd      = k999902um.cmd
+cns      = k999902um.cns
+st       = k999902um.cns
+st1      = k999902um2.cns
+st2      = helper.cns
+st3      = option.st
+stcommon = common1.cns
+sprite   = k999902um.sff
+anim     = k999902um.air
+sound    = snd/k999902um.snd
+pal1     = pal/k9999_01.act;Ａカラー
+pal2     = pal/k9999_02.act;Ｂカラー（赤パンツ）
+pal3     = pal/k9999_04.act;テーマ紫
+pal4     = pal/k9999_05.act;Ｃカラー(青シャツ＋色黒)
+pal5     = pal/k9999_03.act;テーマ黄緑(黒シャツ＋色白)
+pal6     = pal/k9999_06.act;Tetsuo
+
+
+; Arcade mode
+[Arcade]
+intro.storyboard =
+ending.storyboard =

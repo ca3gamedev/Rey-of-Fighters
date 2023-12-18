@@ -1,0 +1,51 @@
+State List Griffon AKOF
+
+195 - Taunt
+
+Normals
+--------------------------
+
+200 - LP
+210 - HP
+230 - LK
+240 - MK
+290 - HK
+
+400 - C. LP
+410 - C. HP
+250 - -> + C. HP
+430 - C. LK
+440 - C. HK
+251 - -> + C. HK
+
+600 - A. LP
+610 - A. HP
+630 - A. LK
+640 - A. HK
+
+700 - Roll Forward
+701 - Roll Backwards
+
+Specials
+--------------------------
+
+1000 - L. Poseidon Wave
+1006 - H. Poseidon Wave (Skips Dashback)
+1100 - Justice Hurricane
+1200 - L. Olympus Over
+1201 - H. Olympus Over (Skips Dashback)
+1400 - Hercules Throw (Wall-bounce Throw)
+1500 - Icarus Attack (Air-To-Air Throw)
+1600 - Active Tupon (Somersault Throw)
+
+Supers
+--------------------------
+
+2100 - Lvl 1. Daedalus Attack
+2300 - Lvl 2. Daedalus Attack
+
+2025 - Lvl 1. Big Fall Griffon
+2200 - Lvl 2. Big Fall Griffon
+
+
+

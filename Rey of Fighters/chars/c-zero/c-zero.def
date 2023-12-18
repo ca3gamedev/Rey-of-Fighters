@@ -1,0 +1,32 @@
+;KOF
+[info]
+name		="Cloned Zero"
+displayname	="C-Zero"
+versiondate	=07,08,2011
+mugenversion	=14,04,2002
+author		="Men'sClub"
+pal.defaults	=7
+
+[files]
+sprite		=c-zero.sff
+anim		=c-zero.air
+sound		=c-zero.snd
+cmd		=state/c-zero.cmd
+cns		=c-zero.cns
+stcommon	=state/kofcommon.cns
+st		=state/c-zero.st
+st1		=state/N.st
+st2		=state/S.st
+st3		=state/H.st
+st4		=state/helper.st
+st5		=state/-2.st
+
+pal1	=pal/01.act
+pal2	=pal/02.act
+pal3	=pal/03.act
+pal4	=pal/04.act
+
+pal7	=pal/01.act
+pal8	=pal/02.act
+pal9	=pal/03.act
+pal10	=pal/04.act

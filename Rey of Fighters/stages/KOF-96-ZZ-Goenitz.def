@@ -1,0 +1,989 @@
+﻿
+[Info]
+name = "KOF 98 Goenitz Stage"
+displayname = "KOF-96-ZZ-Goenitz"
+author = "Kaede Monthmore"
+;--------------------------------------------------------
+
+[Camera]
+startx = 0            
+starty = 0          
+boundleft = -183   
+boundright = 183    
+boundhigh = -70    
+boundlow = 0         
+verticalfollow = 0.2  
+tension = 60         
+floortension = 0     
+cuthigh = 0
+cutlow = 0
+startzoom = 1,0
+zoomout = 0.915
+zoomin = 1.000
+
+;--------------------------------------------------------
+
+[PlayerInfo]
+
+;--- Player 1 ---
+p1startx = -80        
+p1starty = 0          
+p1startz = 0       
+p1facing = 1         
+
+;--- Player 2 ---
+p2startx = 80         
+p2starty = 0         
+p2startz = 0        
+p2facing = -1       
+
+leftbound = -1000  
+rightbound = 1000   
+topbound = 0        
+botbound = 0   
+
+;--------------------------------------------------------
+
+[Scaling]
+topz = 0             
+botz = 50          
+topscale = 1         
+botscale = 1.2       
+
+;--------------------------------------------------------
+
+[Bound]
+screenleft = 15  
+screenright = 15     
+;--------------------------------------------------------
+
+[StageInfo]
+zoffset = 220        
+autoturn = 1          
+resetBG = 0        
+
+;--------------------------------------------------------
+
+[Shadow]
+intensity = 200       
+color = 0,0,0       
+yscale = 0.2          
+fade.range = -200,-50 
+
+;--------------------------------------------------------
+
+[Reflection]
+intensity = 0       
+
+;--------------------------------------------------------
+
+[Music]
+bgmusic   = sound/KOF-96-ZZ-Goenitz.mp3           
+bgvolume  = 150         
+
+;========================================================
+;--------------------------------------------------------
+[BGdef]
+ ;Filename of sprite data
+spr      = KOF-96-ZZ-Goenitz.sff
+
+debugbg  = 0
+
+
+;----------C?u
+[BG 0]
+type  = Normal
+SpriteNo = 0,8
+layerno = 0  
+start = 0,170
+delta = 0.1,1
+scalestart = .25, .25
+
+[BG 0]
+type  = Anim
+ActionNo = 0
+layerno = 0  
+start = 0,170
+delta = 0.1,1
+scalestart = .25, .25
+
+[Begin Action 0]
+0, 0,0,0,8
+0, 1,0,0,8
+0, 2,0,0,8
+0, 3,0,0,8
+0, 4,0,0,8
+0, 5,0,0,8
+0, 6,0,0,8
+0, 7,0,0,8
+
+
+;----------Mundo
+[BG 0]
+type  = Anim
+ActionNo = 1
+layerno = 0  
+start = 0, 180
+delta = .45,1
+tile  = 0, 0
+tilespacing = 0,0
+scalestart = .25, .25
+
+[Begin Action 1]
+1,0,0,0,8
+1,1,0,0,8
+1,2,0,0,8
+1,3,0,0,8
+
+[BG 0]
+type  = Anim
+ActionNo = 2
+layerno = 0  
+start = 0, 180
+delta = .45,1
+tile  = 0, 0
+tilespacing = 0,0
+scalestart = .25, .25
+
+[Begin Action 2]
+1,4,0,0,8
+1,5,0,0,8
+1,6,0,0,8
+1,7,0,0,8
+1,8,0,0,8
+1,9,0,0,8
+1,10,0,0,8
+
+[BG 0]
+type  = Anim
+ActionNo = 3
+layerno = 0  
+start = 0, 180
+delta = .45,1
+tile  = 0, 0
+tilespacing = 0,0
+scalestart = .25, .25
+
+[Begin Action 3]
+1,11,0,0,10
+1,12,0,0,10
+1,13,0,0,10
+1,14,0,0,10
+1,15,0,0,10
+1,16,0,0,10
+1,17,0,0,10
+
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 22
+layerno = 0
+delta = 1,1
+scalestart = .25, .25
+id = 22
+
+[BGCtrlDef]
+LoopTime = 6000
+CtrlID = 22
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 170
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 1200
+x = 2.6
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 23
+layerno = 0
+delta = 1,1
+id = 23
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 6000
+CtrlID = 23
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 170
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 2300
+x = 2.5
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 24
+layerno = 0
+delta = 1,1
+id = 24
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 6000
+CtrlID = 24
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 170
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 4000
+x = 2.4
+
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 20
+layerno = 0
+delta = 1,1
+id = 20
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 2100
+CtrlID = 20
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 87
+
+[BGCtrl 1]
+type = VelSet
+Time = 680
+x = 4
+y = -.2
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 14
+layerno = 0
+delta = 1,1
+id = 14
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 1700
+CtrlID = 14
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 80
+
+[BGCtrl 1]
+type = VelSet
+Time = 250
+x = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 3.2
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 19
+layerno = 0
+delta = 1,1
+id = 19
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 820
+CtrlID = 19
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 95
+
+[BGCtrl 1]
+type = VelSet
+Time = 440
+x = 3.2
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 15
+layerno = 0
+delta = 1,1
+id = 15
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 1100
+CtrlID = 15
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 140
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 310
+x = 3.3
+
+[BGCtrl 1]
+type = SinY
+value =  2,40
+
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 11
+layerno = 0
+delta = 1,1
+id = 11
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 1300
+CtrlID = 11
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 80
+
+[BGCtrl 1]
+type = VelSet
+Time = 480
+x = 4.2
+y = -0.3
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 21
+layerno = 0
+delta = 1,1
+id = 21
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 1300
+CtrlID = 21
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 95
+
+[BGCtrl 1]
+type = VelSet
+Time = 940
+x = 2.5
+
+
+;----------
+[BG 0]
+Type        = Normal
+SpriteNo    = 2,0
+layerno = 0
+start = 0, 240
+Mask = 1
+Delta = 1,1
+Tile = 0,0
+TileSpacing = 0,0
+scalestart = .25, .25
+
+[BG 0]
+type  = Anim
+ActionNo = 4
+layerno = 0  
+start = 0, 240
+delta = 1,1
+tile  = 0, 0
+tilespacing = 0,0
+scalestart = .25, .25
+
+[Begin Action 4]
+2,1,0,0,5
+2,2,0,0,5
+2,3,0,0,5
+2,4,0,0,5
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 17
+layerno = 0
+delta = 1,1
+id = 17
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 700
+CtrlID = 17
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 185
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 0
+y = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 260
+x = 4.6
+y = -0.4
+
+
+;Cabeca de Athena
+[BG 0]
+type  = Anim
+ActionNo = 8
+layerno = 0
+delta = 1,1
+id = 8
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = -1
+CtrlID = 8
+
+[BGCtrl 1]
+type = PosSet
+Time =0
+x = -210
+y = 210
+
+[BGCtrl 1]
+type = Enable
+Time = 0
+value = 1
+
+[BGCtrl 1]
+type = Anim
+Time = 400
+value =  7
+
+[BGCtrl 1]
+type = VelSet
+Time = 400
+x = 4
+y = 0
+
+[BGCtrl 1]
+type = PosSet
+Time = 940
+x = -450
+y = 210
+
+[BGCtrl 1]
+type = Anim
+Time = 940
+value = 8
+
+[BGCtrl 1]
+type = VelSet
+Time = 940
+x = 0
+y = 0
+
+;Mano de Athena
+[BG 0]
+type  = Anim
+ActionNo = 9
+layerno = 0
+delta = 1,1
+id = 9
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = -1
+CtrlID = 9
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -2400
+y = 1145
+
+[BGCtrl 1]
+type = Anim
+Time = 2247
+value =  10
+
+[BGCtrl 1]
+type = VelSet
+Time = 2247
+x = 3
+y = 0
+
+[BGCtrl 1]
+type = PosSet
+Time = 2247
+x = -400
+y = 145
+
+[BGCtrl 1]
+type = PosSet
+Time = 2300
+x = -240
+y = 145
+
+[BGCtrl 1]
+type = Anim
+Time = 2300
+value =  9
+
+[BGCtrl 1]
+type = VelSet
+Time = 2300
+x = 0.01
+y = 0
+
+[BGCtrl 1]
+type = Anim
+Time = 3000
+value =  10
+
+[BGCtrl 1]
+type = VelSet
+Time = 3000
+x = 3
+y = 0
+
+[BGCtrl 1]
+type = PosSet
+Time = 3547
+x = -400
+y = 145
+
+[BGCtrl 1]
+type = Anim
+Time = 3547
+value = 25
+
+[BGCtrl 1]
+type = VelSet
+Time = 3600
+x = 0
+y = 0
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 16
+layerno = 0
+delta = 1,1
+id = 16
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 400
+CtrlID = 16
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 200
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 0
+y = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 100
+x = 4.6
+y = -0.4
+
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 12
+layerno = 1
+delta = 1,1
+id = 12
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 1900
+CtrlID = 12
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 220
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 200
+x = 3.2
+
+[BGCtrl 1]
+type = SinY
+value =  2,8
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 13
+layerno = 1
+delta = 1,1
+id = 13
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 1900
+CtrlID = 13
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 220
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 520
+x = 3.2
+
+[BGCtrl 1]
+type = SinY
+value =  2,8
+
+
+;�`�`�`�`�`�`�`�`�`�`�`�`�`
+[BG 0]
+type  = Anim
+ActionNo = 18
+layerno = 1
+delta = 1,1
+id = 18
+scalestart = .25, .25
+
+[BGCtrlDef]
+LoopTime = 1600
+CtrlID = 18
+
+[BGCtrl 1]
+type = PosSet
+Time = 0
+x = -400
+y = 170
+
+[BGCtrl 1]
+type = VelSet
+Time = 0
+x = 0
+y = 0
+
+[BGCtrl 1]
+type = VelSet
+Time = 390
+x = 3.1
+y = 1.6
+
+[BGCtrl 1]
+type = Velset
+time = 420
+y = 0
+
+[BGCtrl 1]
+type = SinY
+value =  3,50
+
+
+
+;----------
+
+[BG 0]
+type  = Anim
+ActionNo = 5
+layerno = 1
+start = 130,240
+delta = 1.2,1
+scalestart = .25, .25
+
+[Begin Action 5]
+3, 0,0,0,6
+3, 1,0,0,6
+3, 2,0,0,6
+3, 3,0,0,6
+3, 4,0,0,6
+3, 5,0,0,6
+3, 6,0,0,6
+
+[BG 0]
+type  = Anim
+ActionNo = 6
+layerno = 1
+start = -120,240
+delta = 1.2,1
+scalestart = .25, .25
+
+[Begin Action 6]
+3, 7,0,0,6
+3, 8,0,0,6
+3, 9,0,0,6
+3, 10,0,0,6
+3, 11,0,0,6
+3, 12,0,0,6
+3, 13,0,0,6
+
+
+[BG 0]
+Type        = Normal
+SpriteNo    = 3,14
+layerno = 1
+start = 430, 240
+Mask = 1
+Delta = 1.2,1
+Tile = 0,0
+TileSpacing = 0,0
+scalestart = .25, .25
+
+[BG 0]
+Type        = Normal
+SpriteNo    = 3,15
+layerno = 1
+start = -430, 240
+Mask = 1
+Delta = 1.2,1
+Tile = 0,0
+TileSpacing = 0,0
+scalestart = .25, .25
+
+
+
+;----------
+
+
+[Begin Action 7]
+4, 0,0,0,6
+4, 1,0,0,6
+4, 2,0,0,6
+4, 3,0,0,6
+4, 4,0,0,6
+4, 5,0,0,6
+4, 6,0,0,6
+
+[Begin Action 8]
+4, 7,0,0,6
+4, 8,0,0,6
+4, 9,0,0,6
+4, 10,0,0,6
+4, 9,0,0,6
+4, 8,0,0,6
+
+[Begin Action 9]
+4, 11,0,0,6
+4, 12,0,0,6
+4, 13,0,0,6
+
+[Begin Action 10]
+4, 14,0,0,6
+4, 15,0,0,6
+4, 16,0,0,6
+4, 17,0,0,6
+
+[Begin Action 11]
+4, 18,0,0,6
+4, 19,0,0,6
+4, 20,0,0,6
+4, 21,0,0,6
+4, 22,0,0,6
+4, 23,0,0,6
+4, 24,0,0,6
+4, 25,0,0,6
+
+[Begin Action 12]
+4, 26,0,0,4
+4, 27,0,0,4
+4, 28,0,0,4
+4, 29,0,0,4
+4, 30,0,0,4
+4, 31,0,0,4
+4, 32,0,0,4
+4, 33,0,0,4
+4, 34,0,0,4
+4, 35,0,0,4
+4, 36,0,0,4
+4, 37,0,0,4
+4, 38,0,0,4
+
+[Begin Action 13]
+4, 39,0,0,4
+4, 40,0,0,4
+4, 41,0,0,4
+4, 42,0,0,4
+4, 43,0,0,4
+4, 44,0,0,4
+4, 45,0,0,4
+4, 46,0,0,4
+4, 47,0,0,4
+4, 48,0,0,4
+4, 49,0,0,4
+4, 50,0,0,4
+4, 51,0,0,4
+
+[Begin Action 14]
+4, 52,0,0,6
+4, 53,0,0,6
+4, 54,0,0,6
+4, 55,0,0,6
+4, 56,0,0,6
+4, 57,0,0,6
+4, 58,0,0,6
+4, 59,0,0,6
+
+[Begin Action 15]
+4, 60,0,0,6
+4, 61,0,0,6
+4, 62,0,0,6
+4, 63,0,0,6
+4, 64,0,0,6
+4, 65,0,0,6
+
+[Begin Action 16]
+4, 66,0,0,6
+4, 67,0,0,6
+4, 68,0,0,6
+4, 69,0,0,6
+4, 70,0,0,6
+4, 71,0,0,6
+
+[Begin Action 17]
+4, 72,0,0,6
+4, 73,0,0,6
+4, 74,0,0,6
+
+[Begin Action 18]
+4, 75,0,0,7
+4, 76,0,0,7
+4, 77,0,0,7
+4, 78,0,0,7
+
+[Begin Action 19]
+4, 79,0,0,5
+4, 80,0,0,5
+4, 81,0,0,5
+4, 82,0,0,5
+4, 83,0,0,5
+4, 84,0,0,5
+4, 85,0,0,5
+4, 86,0,0,5
+
+[Begin Action 20]
+4, 87,0,0,6
+4, 88,0,0,6
+4, 89,0,0,6
+4, 90,0,0,6
+4, 91,0,0,6
+4, 92,0,0,6
+4, 93,0,0,6
+4, 94,0,0,6
+
+[Begin Action 21]
+4, 95,0,0,6
+4, 96,0,0,6
+4, 97,0,0,6
+4, 98,0,0,6
+4, 99,0,0,6
+4, 100,0,0,6
+
+[Begin Action 22]
+4, 101,0,0,6
+4, 102,0,0,6
+4, 103,0,0,6
+4, 104,0,0,6
+4, 105,0,0,6
+4, 106,0,0,6
+4, 107,0,0,6
+4, 108,0,0,6
+
+[Begin Action 23]
+4, 109,0,0,6
+4, 110,0,0,6
+4, 111,0,0,6
+4, 112,0,0,6
+4, 113,0,0,6
+4, 114,0,0,6
+4, 115,0,0,6
+4, 116,0,0,6
+
+[Begin Action 24]
+4, 117,0,0,6
+4, 118,0,0,6
+4, 119,0,0,6
+4, 120,0,0,6
+4, 121,0,0,6
+4, 122,0,0,6
+4, 123,0,0,6
+4, 124,0,0,6
+
+[Begin Action 25]
+-1,-1, 0,0, -1

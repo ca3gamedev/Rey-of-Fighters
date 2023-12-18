@@ -1,0 +1,40 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Lin"
+displayname = "Lin"
+versiondate = 04,14,2002
+mugenversion = 04,14,2002
+author = "Ahuron"
+pal.defaults = 7,2,4,3
+
+[Files]
+sprite = Lin.sff
+anim = Lin.air
+sound = Lin.snd
+cmd = duagi-AI\Lin.cmd
+cns = duagi-AI\Lin.cns
+stcommon = common1.cns
+st = duagi-AI\Lin.cns
+st2 = duagi-AI\Lin2.cns
+st3 = helper.cns
+st4 = duagi-AI\Lin-AI.cns
+pal1 = Lin.act
+pal2 = Lin2.act
+pal3 = Lin3.act
+pal4 = Lin4.act
+pal5 = Lin5.act
+pal6 = Lin6.act
+pal7 = Lin.act
+pal8 = Lin2.act
+pal9 = Lin3.act
+pal10 = Lin4.act
+pal11 = Lin5.act
+pal12 = Lin6.act
+
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 

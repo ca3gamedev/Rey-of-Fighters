@@ -1,0 +1,676 @@
+
+[Statedef -2]
+
+;[State -2, デバッグ]
+;Type = AppendToClipboard
+;Trigger1 = 1
+;Text = "(6)=%d,(5)=%d,(1)=%d,SPX=%d,P2Back=%d\n"
+;Params = var(6),var(5),(var(1)),Floor(ScreenPos X),(EnemyNear,BackEdgeBodyDist)
+;IgnoreHitPause = 1
+
+;[State -2, デバック]
+;type = AppendToClipboard
+;trigger1 = 1
+;text =  "P2BDX:%f,P2BDY:%f,P2VX%f,BACK%d,FRONT%d,\n"
+;params = P2BodyDist X, P2BodyDist Y, EnemyNear,vel x, backedgebodydist, frontedgebodydist
+;IgnoreHitPause = 1
+
+[State -2, 初期ゲージセット]
+type = PowerSet
+triggerall = RoundState = 0
+trigger1 = RoundsExisted = 0 
+value = 3000
+persistent = 0
+
+[State -2, チームイントロ]
+type = ChangeState            
+value = 190                    
+triggerall = RoundsExisted = 0 
+triggerall = TeamMode = Turns  
+trigger1 = StateNo = 5900    
+
+[State -2, 特殊イントロ]
+type = ChangeState
+triggerall = RoundState = 0
+triggerall = NumEnemy
+triggerall = EnemyNear,RoundsExisted <= 0
+triggerall = Time = 0
+Trigger1 = Enemy,Name = "Rugal" 
+Trigger2 = Enemy,Name = "rugal94" 
+Trigger3 = Enemy,Name = "Omega_Rugal'95" 
+Trigger4 = Enemy,Name = "Rugal2nd" 
+Trigger5 = Enemy,Name = "Goenitz" 
+Trigger6 = Enemy,Name = "Goenitz96" 
+Trigger7 = Enemy,Name = "Goenitz_UM" 
+Trigger8 = Enemy,Name = "OROCHI" 
+Trigger9 = Enemy,Name = "Krizalid"
+Trigger10 = Enemy,Name = "Zero"
+Trigger11 = Enemy,Name = "Original Zero"
+Trigger12 = Enemy,Name = "Igniz" 
+Trigger13 = Enemy,Name = "Mukai" 
+Trigger14 = Enemy,Name = "Magaki" 
+Trigger15 = Enemy,Name = "Ash" 
+Trigger16 = Enemy,Name = "Yagami Iori" 
+Trigger17 = Enemy,Name = "Iori Yagami"
+Trigger18 = Enemy,Name = "Iori" 
+Trigger19 = Enemy,Name = "Terry Bogard" 
+Trigger20 = Enemy,Name = "Terry" 
+Trigger21 = Enemy,Name = "Ryo Sakazaki" 
+Trigger22 = Enemy,Name = "K'" 
+Trigger23 = Enemy,Name = "Kyo Kusanagi" 
+Trigger24 = Enemy,Name = "Kusanagi Kyo" 
+Trigger25 = Enemy,Name = "Kyo" 
+Trigger26 = Enemy,Name = "Kusanagi" 
+Trigger27 = Enemy,Name = "Saisyu Kusanagi" 
+Trigger28 = Enemy,Name = "Saishu Kusanagi" 
+Trigger29 = Enemy,Name = "Kusanagi Saisyu" 
+Trigger30 = Enemy,Name = "Kusanagi Saishu" 
+Trigger31 = Enemy,Name = "Saisyu" 
+Trigger32 = Enemy,Name = "Saishu" 
+value = 190
+
+[State -2, ライフバー消去]
+type = AssertSpecial
+trigger1 = RoundState != 2
+flag = NoBarDisplay
+
+[State -2, 空中ガード不可]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAirGuard
+ignorehitpause = 1
+
+[State -2, ジャグル制限解除]
+type = AssertSpecial
+trigger1 = 1
+flag = NoJuggleCheck
+ignorehitpause = 1
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = 1
+value = 1.0
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [888,999]
+value = 0.96
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [777,887]
+value = 0.92
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [666,776]
+value = 0.88
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [555,665]
+value = 0.84
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [444,554]
+value = 0.80
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [333,443]
+value = 0.68
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [222,332]
+value = 0.64
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [111,221]
+value = 0.52
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [10,110]
+value = 0.48
+
+[State -2, 防御力補正]
+type = DefenceMulSet
+trigger1 = Life = [1,9]
+value = 0.24
+
+[State -2, EnemyNear(Target代用)]
+type = VarSet
+trigger1 = NumEnemy = 1 || NumTarget = 1
+trigger2 = NumEnemy > 1 && NumTarget > 1
+trigger2 = EnemyNear(0),MoveType = H && EnemyNear(1),MoveType = H
+trigger2 = EnemyNear(0),Const(size.head.pos.y) >= EnemyNear(1),Const(size.head.pos.y) 
+trigger3 = NumEnemy > 1
+trigger3 = EnemyNear(0),MoveType = H && EnemyNear(1),MoveType != H
+var(2) = 0
+ignorehitpause = 1
+
+[State -2, EnemyNear(Target代用)]
+type = VarSet
+trigger1 = NumEnemy > 1 && NumTarget > 1
+trigger1 = EnemyNear(0),MoveType = H && EnemyNear(1),MoveType = H
+trigger1 = EnemyNear(0),Const(size.head.pos.y) < EnemyNear(1),Const(size.head.pos.y) 
+trigger2 = NumEnemy > 1
+trigger2 = EnemyNear(0),MoveType != H && EnemyNear(1),MoveType = H
+var(2) = 1
+ignorehitpause = 1
+
+[State -2, ＣＨ１]
+type = VarSet
+triggerall = var(10)
+trigger1 = (StateNo = [200,635]) 
+var(5) = 2
+ignorehitpause = 1
+
+[State -2, ＣＨ２]
+type = VarSet
+triggerall = var(10)
+trigger1 = ProjHitTime(1000) = 0
+trigger2 = ProjHitTime(1050) = 0
+trigger3 = ProjHitTime(1100) = 0
+trigger4 = ProjHitTime(1150) = 0
+trigger5 = ProjHitTime(9002) = 0
+trigger6 = ProjHitTime(9003) = 0
+trigger7 = (StateNo = [1000,2000))
+var(5) = 3
+ignorehitpause = 1
+
+[State -2, ＣＨ３]
+type = VarSet
+triggerall = var(10)
+trigger1 = (StateNo = [2000,3000))
+var(5) = 4
+ignorehitpause = 1
+
+[State -2, ＣＨダメージリセット]
+type = VarSet
+trigger1 = StateNo = [200,640]
+trigger1 = AnimTime = 0
+trigger2 = StateNo = [1000,3000]
+trigger2 = AnimTime = 0
+trigger3 = ProjHitTime(1000) = 1
+trigger4 = ProjHitTime(1050) = 1
+trigger5 = ProjHitTime(1100) = 1
+trigger6 = ProjHitTime(1150) = 1
+trigger7 = ProjHitTime(9002) = 1
+trigger8 = ProjHitTime(9003) = 1
+var(5) = 0
+
+[State -2, ダメージ補正]
+type = VarSet
+triggerall = MoveContact
+trigger1 = NumTarget(200) || NumTarget(205) || NumTarget(210) || NumTarget(215) || NumTarget(216) 
+trigger2 = NumTarget(220) || NumTarget(225) || NumTarget(226) || NumTarget(230) || NumTarget(235) 
+trigger3 = NumTarget(260) || NumTarget(265) || NumTarget(266) || NumTarget(270) || NumTarget(271) 
+trigger4 = NumTarget(272) || NumTarget(273) || NumTarget(400) || NumTarget(410) || NumTarget(420) 
+trigger5 = NumTarget(430) || NumTarget(600) || NumTarget(605) || NumTarget(610) || NumTarget(615) 
+trigger6 = NumTarget(620) || NumTarget(625) || NumTarget(630) || NumTarget(635) || NumTarget(1100) 
+trigger7 = NumTarget(1150) || NumTarget(1300) || NumTarget(2000) || NumTarget(2001) || NumTarget(2050) 
+trigger8 = NumTarget(2051) 
+trigger9 = ProjHitTime(1000) = 0
+trigger10 = ProjHitTime(1050) = 0
+trigger11 = ProjHitTime(1100) = 0
+trigger12 = ProjHitTime(1150) = 0
+trigger13 = ProjHitTime(9002) = 0
+trigger14 = NumHelper(9001)
+trigger14 = Helper(9001),MoveContact
+trigger15 = NumHelper(9100)
+trigger15 = Helper(9100),MoveContact
+var(6) = 1
+ignorehitpause = 1
+
+[State -2, ダメージ補正リセット]
+type = VarSet
+trigger1 = EnemyNear(var(58)),Life > 0 && EnemyNear(var(58)),Ctrl
+trigger2 = P2MoveType != H
+trigger3 = P2StateType = L
+trigger4 = P2StateNo = 5120
+var(6) = 0
+ignorehitpause = 1
+
+[State -2, Facing]
+type = VarSet
+trigger1 = 1
+var(8) = -(Facing)*(EnemyNear(var(58)),Facing)
+ignorehitpause = 1
+
+[State -2, 空中連続ヒット制限]
+type = VarSet
+triggerall = P2MoveType = H
+triggerall = !(NumTarget(260) || NumTarget(1100))
+triggerall = !(NumTarget(2000) || NumTarget(2001))
+trigger1 = P2Statetype = A
+trigger1 = MoveHit = 1 
+trigger2 = NumTarget(273) || NumTarget(430) || NumTarget(1150) || NumTarget(1300) 
+trigger2 = MoveHit = 1
+trigger3 = ProjHitTime(9002) = 0
+var(9) = 1
+ignorehitpause = 1
+
+[State -2, 空中連続ヒット制限リセット]
+type = VarSet
+trigger1 = EnemyNear(var(58)),Life > 0 && EnemyNear(var(58)),Ctrl
+trigger2 = var(11) = [1,2]
+trigger3 = P2MoveType != H
+trigger4 = P2StateType = L
+trigger5 = P2StateNo = 5120
+trigger6 = NumPartner
+trigger6 = !(P2StateType = A || P2StateType = L)
+trigger6 = Partner,NumTarget
+var(9) = 0
+ignorehitpause = 1
+
+[State -2, カウンターヒット判定]
+type = VarSet
+triggerall = !var(10)
+triggerall = !var(11)
+trigger1 = P2MoveType = A
+var(10) = 1
+ignorehitpause = 1
+
+[State -2, カウンターヒット判定]
+type = VarAdd
+trigger1 = var(10)
+var(10) = 1
+ignorehitpause = 1
+
+[State -2, カウンターヒット判定リセット]
+type = VarSet
+triggerall = var(10) > 10
+trigger1 = P2MoveType != A  && ProjHit = 0
+trigger2 = var(11)
+var(10) = 0
+ignorehitpause = 1
+
+[State -2,　カウンターヒットＯＮ]
+type = VarSet
+triggerall = !var(11)
+triggerall = var(10)
+triggerall = StateNo != [800,900)
+trigger1 = MoveHit = 1
+trigger2 = ProjHit = 1
+var(11) = 1
+ignorehitpause = 1
+
+[State -2, タイムカウント]
+type = VarAdd
+trigger1 = var(11)
+var(11) = 1
+ignorehitpause = 0
+
+[State -2, リセット]
+type = VarSet
+triggerall = var(11)
+trigger1 = var(11) > 40
+trigger2 = P2MoveType != H
+var(11) = 0
+ignorehitpause = 1
+
+[State -2,　Ｃｏｕｎｔｅｒ！！]
+type = Explod
+triggerall = TeamSide = 1
+triggerall = NumExplod(7650) = 0
+triggerall = P2MoveType = H
+triggerall = var(11)
+trigger1 = MoveHit = 1
+trigger1 = StateNo != [800,900)
+trigger2 = ProjHit = 1
+anim = 7650
+id = 7650
+pos = 17,60
+postype = Left
+bindtime = 28
+removetime = 28
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State -2, Ｃｏｕｎｔｅｒ！！]
+type = Explod
+triggerall = TeamSide = 2
+triggerall = NumExplod(7650) = 0
+triggerall = P2MoveType = H
+triggerall = var(11)
+trigger1 = MoveHit = 1
+trigger1 = StateNo != [800,1000)
+trigger2 = ProjHit = 1
+anim = 7650
+id = 7650
+pos = -136,60
+postype = Right
+bindtime = 28
+removetime = 28
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+
+[State -2, 空中敵ぶつかり判定]
+type = VarSet
+triggerall = StateType != A
+triggerall = EnemyNear(var(58)),StateType = A
+trigger1 = EnemyNear(var(58)),Vel Y >= 0
+trigger1 = P2BodyDist Y > -60
+var(13) = 1
+ignorehitpause = 1
+
+[State -2, 空中敵ぶつかり判定リセット]
+type = VarSet
+triggerall = var(13)
+trigger1 = EnemyNear(var(58)),StateType != A
+trigger2 = EnemyNear(var(58)),Vel Y < 0
+var(13) = 0
+ignorehitpause = 1
+
+[State -2, ＣＰ０]
+type = VelSet
+triggerall = !(EnemyNear(var(58)),StateType = A)
+triggerall = EnemyNear(var(58)),BackEdgeBodyDist <= 10
+triggerall = MoveContact = 1
+trigger1 = StateNo = 215 && NumTarget(215)
+trigger2 = StateNo = 225 && NumTarget(225)
+trigger3 = StateNo = 265 && NumTarget(265)
+trigger4 = StateNo = 270 && NumTarget(270)
+x = 0
+Ignorehitpause = 1
+
+[State -2, ＣＰ１]
+type = VelSet
+triggerall = !(EnemyNear(var(58)),StateType = A)
+triggerall = EnemyNear(var(58)),BackEdgeBodyDist <= 10
+triggerall = MoveContact = 1
+trigger1 = StateNo = 200 && NumTarget(200)
+trigger2 = StateNo = 205 && NumTarget(205)
+trigger3 = StateNo = 220 && NumTarget(220)
+trigger4 = StateNo = 225 && NumTarget(226)
+trigger5 = StateNo = 400 && NumTarget(400)
+trigger6 = StateNo = 420 && NumTarget(420)
+x = -5.75
+
+[State -2, ＣＰ２]
+type = VelSet
+triggerall = !(EnemyNear(var(58)),StateType = A)
+triggerall = EnemyNear(var(58)),BackEdgeBodyDist <= 10
+triggerall = MoveContact = 1
+trigger1 = StateNo = 210 && NumTarget(210)
+trigger2 = StateNo = 230 && NumTarget(230)
+trigger3 = StateNo = 260 && NumTarget(260)
+trigger4 = StateNo = 265 && NumTarget(266)
+trigger5 = StateNo = 265 && NumTarget(266)
+trigger6 = StateNo = 270 && (NumTarget(271) || NumTarget(272) || NumTarget(273))
+trigger7 = StateNo = 410 && NumTarget(410)
+trigger8 = StateNo = 430 && NumTarget(430)
+trigger9 = StateNo = 1100 && NumTarget(1100)
+trigger10 = StateNo = 3000 && NumTarget(3000) && MoveGuarded = 1
+x = -10.35
+
+[State -2, ＣＰ３]
+type = VelSet
+triggerall = !(EnemyNear(var(58)),StateType = A)
+triggerall = EnemyNear(var(58)),BackEdgeBodyDist <= 10
+triggerall = MoveContact = 1
+trigger1 = StateNo = 215 && NumTarget(216)
+trigger2 = StateNo = 235 && NumTarget(235)
+x = -13.75
+
+[State -2, 画面端制限]
+type = Width
+triggerall = !(EnemyNear(var(58)),StateType = A)
+trigger1 = EnemyNear(var(58)),BackEdgeBodyDist <= 5
+edge = 5,0
+
+[State -2, 相手起き上がり時無敵]
+type = NotHitBy
+trigger1 = P2StateNo = 5120
+trigger1 = EnemyNear(var(58)),AnimTime = -1
+value = SCA
+time = 4
+
+[State -2, 相手起き上がり時無敵]
+type = NotHitBy
+trigger1 = P2StateNo = 5120
+trigger1 = EnemyNear(var(58)),AnimTime = -1
+value = ,AT
+time = 13
+
+[State -2, 投げハメ防止用]
+type = NotHitBy
+trigger1 = (StateNo = [130,140)) || (StateNo = (140,160))
+time = 1
+value = ,AT
+ignorehitpause = 1
+
+[State -2, スロー処理]
+type = Pause
+trigger1 = (ProjHitTime(1000) = [1,5])
+trigger2 = (ProjHitTime(1050) = [1,5])
+trigger3 = (ProjHitTime(1100) = [1,5])
+trigger4 = (ProjHitTime(1150) = [1,5])
+trigger5 = NumHelper(9001)
+trigger5 = Helper(9001),MoveHit
+time = 1
+ignorehitpause = 1
+
+[State -2, 飛び道具ヒット]
+type = PowerAdd
+trigger1 = ProjContactTime(1000) = 0
+trigger2 = ProjContactTime(1050) = 0
+trigger3 = ProjContactTime(1100) = 0
+trigger4 = ProjContactTime(1150) = 0
+trigger5 = NumHelper(9001)
+trigger5 = Helper(9001),MoveContact
+value = 100
+ignorehitpause = 1
+
+[State -2, エフェクト消去]
+type = RemoveExplod
+triggerall = NumExplod(3001)
+trigger1 = StateNo != 3001
+ID = 3001
+
+[State -2, イントロ音楽停止]
+type = StopSnd
+trigger1 = StateNo != [190,200)
+channel = 1
+ignorehitpause = 1
+
+[State -2, 滑り音]
+type = PlaySnd
+triggerall = P2MoveType = H
+trigger1 = P2StateNo = 276
+value = S7,4
+channel = 29
+lowpriority = 1
+
+[State -2, ダッシュ音停止]
+type = StopSnd
+trigger1 = StateNo != 100
+channel = 30
+ignorehitpause = 1
+
+[State -2, ダメージボイス]
+type = PlaySnd
+triggerall = Life > 0
+triggerall = Random%2 = 1
+triggerall = StateNo != [120,154]
+triggerall = GetHitVar(damage) > 0
+trigger1 = Enemy(0),MoveHit = 1
+trigger1 = Enemy(0),HitDefAttr = SCA,NA,NP,NT
+trigger2 = NumEnemy = 2
+trigger2 = Enemy(1),MoveHit = 1
+trigger2 = Enemy(1),HitDefAttr = SCA,NA,NP,NT
+value = S3,0
+channel = 31
+lowpriority = 1
+ignorehitpause = 1
+
+[State -2, ダメージボイス]
+type = PlaySnd
+triggerall = Life > 0
+triggerall = GetHitVar(damage) > 0
+triggerall = StateNo != [120,154]
+triggerall = Random%2 = 1
+trigger1 = Enemy(0),HitDefAttr = SCA,SA,SP,ST,HA,HP,HT
+trigger2 = NumEnemy = 2
+trigger2 = Enemy(1),HitDefAttr = SCA,SA,SP,ST,HA,HP,HT
+value = S3,1
+channel = 31
+lowpriority = 1
+ignorehitpause = 1
+
+[State -2, パワーゲージ管理ヘルパー]
+type = Helper
+triggerall = RoundState > 0
+trigger1 = NumHelper(8000) = 0
+ID = 8000
+name = "PG"
+sprpriority = -1
+pos = -999,0
+postype = P1
+stateno = 8000
+helpertype = Normal
+pausemovetime = 2147483647
+supermovetime = 2147483647
+keyctrl = 0 
+ownpal = 1
+ignorehitpause = 1
+
+[State -2, 画面フラッシュヘルパー]
+type = Helper
+triggerall = WinKO > 0
+triggerall = P2Life = 0
+trigger1 = NumHelper(12000) = 0
+ID = 12000
+name = "Win Flash"
+postype = P1
+pos = 0,0
+facing = -1
+sprpriority = -1
+stateno = 12000
+helpertype = Normal
+keyctrl = 0
+ignorehitpause = 1
+ownpal = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+
+;【ガード用ヘルパー】----------------------------------------------------------------------------------
+
+[State -2, ガード補助ヘルパー]
+type = Helper
+triggerall = NumHelper(30000) = 0
+trigger1 = var(59) 
+helpertype = Normal
+name = "GuardAssist"
+ID = 30000
+pos = -60,0
+postype = P1
+facing = 1
+stateno = 30000
+keyctrl = 0
+ownpal = 1
+supermovetime = 999999999
+pausemovetime = 999999900
+ignorehitpause = 1
+
+[State -2, ガード補助]
+type = VarSet
+triggerall = !var(57)
+triggerall = NumHelper(30000)
+trigger1 = !InGuardDist && Helper(30000),InGuardDist
+trigger2 = EnemyNear(var(58)),MoveType = A && EnemyNear(var(58)),StateType = A && var(8) = -1 && (P2Dist X = (0,EnemyNear(var(58)),Const(size.attack.dist)])
+var(57) = 1
+ignorehitpause = 1
+
+[State -2, ガード補助]
+type = VarAdd
+trigger1 = var(57)
+var(57) = 1
+ignorehitpause = 1
+
+[State -2, ガード補助]
+type = VarSet
+triggerall = NumHelper(30000)
+triggerall = var(57)
+trigger1 = !(InGuardDist || Helper(30000),InGuardDist)
+trigger1 = !(EnemyNear(var(58)),MoveType = A && EnemyNear(var(58)),StateType = A && var(8) = -1 && (P2Dist X = (0,EnemyNear(var(58)),Const(size.attack.dist)]))
+trigger2 = var(57) > 60
+var(57) = 0
+ignorehitpause = 1
+
+;【敵生存確認】------------------------------------------------------------------------------------------
+
+;敵が1体
+
+[State -2, EnemyNear]
+type = VarSet
+triggerall = var(59) 
+trigger1 = NumEnemy = 1
+trigger2 = NumEnemy > 1
+trigger2 = EnemyNear(1),Life = 0
+var(58) = 0
+ignorehitpause = 1
+
+[State -2, EnemyNear]
+type = VarSet
+triggerall = var(59) 
+trigger1 = NumEnemy > 1
+trigger1 = EnemyNear(0),Life = 0
+var(58) = 1
+ignorehitpause = 1
+
+;敵が2体、パートナーがいる時
+
+[State -2, EnemyNear]
+type = VarSet
+triggerall = var(59) 
+triggerall = NumPartner > 0
+triggerall = Partner,Life > 0
+triggerall = NumEnemy > 1
+triggerall = EnemyNear(0),Life > 0 && EnemyNear(1),Life > 0
+trigger1 = !(Partner,MoveType = A && Partner,NumTarget && EnemyNear(0),MoveType = H && EnemyNear(1),MoveType != H && !((EnemyNear(0),StateNo = [5000,5300]) || (EnemyNear(0),StateNo = [120,160])) && EnemyNear(0),GetHitVar(hitshaketime) = 0)
+trigger1 = !(Partner,MoveType = H && EnemyNear(0),NumTarget && EnemyNear(0),MoveType = A && !((Partner,StateNo = [5000,5300]) || (Partner,StateNo = [120,160])) && Partner,GetHitVar(hitshaketime) = 0)
+var(58) = 0
+ignorehitpause = 1
+
+[State -2, EnemyNear]
+type = VarSet
+triggerall = var(59) 
+triggerall = NumPartner > 0
+triggerall = Partner,Life > 0
+triggerall = NumEnemy > 1
+triggerall = EnemyNear(0),Life > 0 && EnemyNear(1),Life > 0
+trigger1 = (Partner,MoveType = A && Partner,NumTarget && EnemyNear(0),MoveType = H && EnemyNear(1),MoveType != H && !((EnemyNear(0),StateNo = [5000,5300]) || (EnemyNear(0),StateNo = [120,160])) && EnemyNear(0),GetHitVar(hitshaketime) = 0)
+trigger2 = (Partner,MoveType = H && EnemyNear(0),NumTarget && EnemyNear(0),MoveType = A && !((Partner,StateNo = [5000,5300]) || (Partner,StateNo = [120,160])) && Partner,GetHitVar(hitshaketime) = 0)
+var(58) = 1
+ignorehitpause = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

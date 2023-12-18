@@ -1,0 +1,37 @@
+[Info]
+name ="Vanessa"
+displayname ="Vanessa"
+versiondate =06,2,2008
+mugenversion =06,14,2003
+author ="Raposo"
+pal.defaults =1,2
+
+; Files for the player
+[Files]
+cmd     =command.cmd
+cns     =constant.cns
+st      =constant.cns
+stcommon =common1.cns
+sprite  =sprite.sff
+anim    =animation.air
+sound   =sound.snd
+pal1=Default.act
+pal2=Nigga.act
+pal3=Blonde.act
+pal4=Another.act
+pal5=Blackpant.act
+pal6=Brown.act
+st1=KOF.cns
+st2=Overrides.cns
+st3=AI.cns
+st4=Helpers.cns
+;Normal Mode
+;pal7    = Nigga.act 
+;pal8    = Blue.act
+;pal9    = Black.act
+;pal10    = EX.act
+;pal11    = MotW.act
+;pal12    = Purple.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,341 @@
+;------------------------------------------------------------------
+; Ω Rugal 98's Stage         By Mr.X-file
+;------------------------------------------------------------------
+
+[Info]
+name = "KOF-98-Omega-Rugal-boss"
+
+[Camera]
+startx = 0
+starty = -0
+boundleft = -215
+boundright = 215
+boundhigh = -15
+boundlow = 0
+verticalfollow = .5
+floortension = 0
+tension = 50
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx       = -70        
+p1starty       = 0          
+p1startz       = 0         
+p1facing       = 1          
+p2startx       = 70         
+p2starty       = 0 
+p2startz       = 0 
+p2facing       = -1
+leftbound      = -1000      
+rightbound     = 1000      
+topbound       = 0           
+botbound       = 0    
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2     
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 215
+autoturn = 1
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+color = 50,50,50
+yscale = 0.3
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/KOF-98-Omega-Rugal-boss.mp3
+bgvolume = 160
+
+; Main background definition
+[BGdef]
+spr = stages/KOF-98-Omega-Rugal-boss.sff
+debugbg = 0             ;無画像部分残像    有[0] / 無[1]
+
+
+;=============================================================================
+
+;背景（海底）
+[BG 1]
+type  = anim
+layerno = 0
+actionno = 1
+start = -0,-15
+delta = .114, 1
+trans = none
+mask = 1
+
+[Begin action 1]
+1,0, 0,0, 7
+1,1, 0,0, 7
+1,2, 0,0, 7
+1,3, 0,0, 7
+
+;--------------------------------------------------------
+; 魚群
+[BG 2]
+type  = anim
+layerno = 0
+actionno = 2
+start = -0,-15
+ID = 2
+trans = none
+mask = 1
+
+[Begin action 2]
+2,0,0,0,2
+2,1,0,0,2
+2,2,0,0,2
+2,3,0,0,2
+
+[BGCtrlDef 2]
+looptime = 5000
+CtrlID = 2
+
+[BGCtrl 2.1]
+type = PosSet
+time = 1
+x = -450
+y = 110
+
+[BGCtrl 2.2]
+type = VelSet
+time = 1
+x = 1
+
+[BGCtrl 2.3]
+type = PosSet
+time = 2000
+x = 450
+y = 110
+
+[BGCtrl 2.4]
+type = VelSet
+time = 2500
+x = -1
+
+;-------------------
+; 海蛇
+[BG 3]
+type  = anim
+layerno = 0
+actionno = 3
+start = -0,-15
+ID = 3
+trans = none
+mask = 1
+
+[Begin action 3]
+3,0,0,0,5
+3,1,0,0,5
+3,2,0,0,5
+3,3,0,0,5
+
+[BGCtrlDef 3]
+looptime = 4000
+CtrlID = 3
+
+[BGCtrl 3.1]
+type = PosSet
+time = 1
+x = 450
+y = 120
+
+[BGCtrl 3.2]
+type = VelSet
+time = 1450
+x = -1.2
+y = -1.2
+
+
+;-------------------
+; 二匹の魚
+[BG 4]
+type  = anim
+layerno = 0
+actionno = 4
+start = -0,-15
+ID = 4
+trans = none
+mask = 1
+
+[Begin action 4]
+4,0,0,0,5
+4,1,0,0,5
+
+[BGCtrlDef 4]
+looptime = 2900
+CtrlID = 4
+
+[BGCtrl 4.1]
+type = PosSet
+time = 1
+x = 450
+y = 90
+
+[BGCtrl 4.2]
+type = VelSet
+time = 1450
+x = -1.2
+
+;-------------------
+; ブサイク
+[BG 5]
+type  = anim
+layerno = 0
+actionno = 5
+start = -0,-15
+ID = 5
+trans = none
+mask = 1
+
+[Begin action 5]
+5,0,0,0,5
+5,1,0,0,5
+5,2,0,0,5
+5,3,0,0,5
+
+[BGCtrlDef 5]
+looptime = 5000
+CtrlID = 5
+
+[BGCtrl 5.1]
+type = PosSet
+time = 1
+x = 450
+y = 100
+
+[BGCtrl 5.2]
+type = VelSet
+time = 1500
+x = -2
+
+;-------------------
+; 堤燈
+[BG 6]
+type  = anim
+layerno = 0
+actionno = 6
+start = -0,-15
+ID = 6
+trans = none
+mask = 1
+
+[Begin action 6]
+6,0,0,0,6
+6,1,0,0,6
+6,2,0,0,6
+6,3,0,0,6
+
+[BGCtrlDef 6]
+looptime = 5000
+CtrlID = 6
+
+[BGCtrl 6.1]
+type = PosSet
+time = 1
+x = -450
+y = 70
+
+[BGCtrl 6.2]
+type = VelSet
+time = 2000
+x = 1
+y = 0.1
+
+;-------------------
+; 鮫
+[BG 7]
+type  = anim
+layerno = 0
+actionno = 7
+start = -0,-15
+ID = 7
+trans = none
+mask = 1
+
+[Begin action 7]
+7,0,0,0,6
+7,1,0,0,6
+7,2,0,0,6
+7,3,0,0,6
+
+[BGCtrlDef 7]
+looptime = 6000
+CtrlID = 7
+
+[BGCtrl 7.1]
+type = PosSet
+time = 1
+x = -450
+y = 100
+
+[BGCtrl 7.2]
+type = VelSet
+time = 3000
+x = 2
+
+;--------------------------------------------------------
+;地面
+[BG 10]
+type  = anim
+layerno = 0
+actionno = 10
+start = -0,-15
+trans = none
+mask = 1
+
+[Begin action 10]
+10,0, 0,0, 8
+10,1, 0,0, 8
+10,2, 0,0, 8
+10,3, 0,0, 8
+10,4, 0,0, 8
+10,5, 0,0, 8
+10,6, 0,0, 8
+10,7, 0,0, 8
+
+;--------------------------------------------------------
+;背景のオブジェ（パイプ）
+[BG 20]
+type  = normal
+spriteno = 20, 0
+layerno = 1
+start = -0,-15
+trans = none
+mask = 1
+
+;------------------
+;背景のオブジェ（左下側）
+[BG 21]
+type  = normal
+spriteno = 21, 0
+layerno = 1
+start = -0,-15
+trans = none
+mask = 1
+
+;------------------
+;背景のオブジェ（右下側）
+[BG 22]
+type  = normal
+spriteno = 22, 0
+layerno = 1
+start = -0,-15
+trans = none
+mask = 1
+

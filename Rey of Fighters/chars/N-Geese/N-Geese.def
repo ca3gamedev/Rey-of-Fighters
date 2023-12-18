@@ -1,0 +1,33 @@
+[Info]
+Name         ="Geese"
+DisplayName  ="Geese"
+VersionDate  =03,09,2007
+MugenVersion =06,14,2003
+Author       ="jin"
+Pal.Defaults =1,2,3,4,5,6
+
+[Files]
+Cmd      =N-Geese.cmd
+Cns      =N-Geese.cns
+St       =N-Geese.cns
+St0      = N-Geese-N.cns
+StCommon =common1.cns
+Sprite   =N-Geese.sff
+Anim     =N-Geese.air
+Sound    =N-Geese.snd
+pal1=N-Geese01.act
+pal2=N-Geese02.act
+pal3=N-Geese03.act
+pal4=N-Geese04.act
+pal5=N-Geese05.act
+pal6=N-Geese06.act
+st1=N-Geese-S.cns
+st2=N-Geese-H.cns
+st3=N-Geese-2-3.cns
+
+;---カラーパレット---
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,108 @@
+KUSANAGI ~ the perfect clone :)
+King of fighters
+By David Demianoff aka Ironmugen
+
+
+
+release 3 - 07/11/2006
+
+
+
+ABOUT THE AIR FILES: There is 2 air files. 1 with transparency effects, and the other with no transparency effects...
+                     To switch them, edit the DEF file, and you'll notice kusanagi.air, add a 2 (kusanagi2.air) if you
+                     don't like transparencies.
+
+
+What's done?
+-----------
+
+* 1 Intro (has special quote against Kyo, Iori and K')
+* 3 win poses
+* Basics + requireds
+* All basic attacks
+* Forward + Wkick
+* Down+Forward + Skick
+* Down + Spunch (in air)
+* Down+Forward + Spunch
+* 5 specials
+* Mu Shiki 96
+* Serpent Wave
+* Maiden smasher
+* 2k Shiki
+* 2 throws
+* Mu Shiki
+* Teio Shukumyoken (Chonsyu/Chonrei 's big fire ball)
+* AI - level: MVS
+* Intro VS K9999 and another VS Billy, Chang and Choi
+* San Shingi no Ni
+
+
+Update:
+
+* Added the face-the-ground falling anim.
+* Added the collapse/cheeseKO anim.
+* Fixed some stuff on jumping sounds.
+* Fixed some stuff on recovery.
+
+
+Update (7 nov 06):
+
+* Zipped character support thing.
+* Linux bug fixed (slash in def file).
+* Added missing sound in Turn intro.
+* Fixed the facep2 on p2's custom state in HCB+Kick
+* Fixed (I hope) the AI taking over.
+* Fixed basic attacks stuff.
+
+
+WARNING:
+-------
+
+If he has random errors, please report them to me. Thanks
+
+
+
+Movelist:
+--------
+
+There is a detailed movelist called "movelist.txt", have all infos about the move 's tricks and priority.
+
+Forward + Wkick
+Down+Forward + Skick
+(jump) Down + Spunch
+Forward + Wpunch
+
+Ground fire = QCF + Punch
+Fire ball = DPF + Punch
+Triple kick = DPB + Kick
+Double Kick = QCF + Kick, Kick
+Wave smash = HCB + Kick
+Counter = QCB + Punch
+
+*Mu Shiki 96 = Forward, HCF + Punch
+*Serpent wave = QCB, HCF + Punch
+*182 Shiki = QCF, QCF + Punch
+*Maiden Smasher = QCF, HCB + Punch
+*San Shingi no Ni = QCF, QCF, QCF, QCF + Both Punch (during Yaotome 's explosion)
+*Mu Shiki = QCF, QCF + Both Punch
+*Shukumyoken = Forward, HCF + Both Punch
+
+Notes: Mu Shiki 96, Serpent wave and 2K Shiki require 1 power bar
+       Yaotome requires 2 power bar
+       Mu Shiki and Shukumyoken require 3 power bars
+
+
+Thanks:
+------
+
+Winane.
+
+The Dreamslayer (DS2) for the edits of the Yaotome attack 1.
+BaoJJ for the edits of the Yaotome attack 2.
+Walt "Oscar" Fast for the edits of the Kamijiri used for the Yaotome grab.
+Chloe, Dark Saviour (DS1) and Shindio.
+Sander (for random helps in the past + debug bios help etc...).
+Neogouki (his Joe made me like MUGEN)
+ShinShadowH for the host @ shinmugen.net , Chloe & Ruby for the host @ queens.ekzay.org and @ndroide for my TGT page host.
+Orochi KOF 97 for random helps on Iron Kyo (old one).
+Rumiko for the Iron Andy review that IN FACT helped me :O (I'm not joking).

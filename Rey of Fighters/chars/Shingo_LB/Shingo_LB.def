@@ -1,0 +1,65 @@
+;=============================================================================================;
+;Definition File for LB Shingo                                                                ;
+;By Vans.                                                                                     ;
+;=============================================================================================;
+; Player information
+
+[Info]
+name ="Shingo Yabuki"
+displayname ="Shingo"
+versiondate =21,01,2014
+mugenversion =1.0
+author ="Vans"
+pal.defaults =4,5,6,1,2,3,10,11,12,7,8,9
+
+; Files for the player
+[Files]
+ai=AI.ai
+cmd=command.cmd
+cns=constants.vns
+stcommon=common1.cns
+sprite=sprite.sff
+anim=animation.air
+sound=sound.snd
+st=Shingo.vns
+pal1=act001.act
+pal2=act002.act
+pal3=act003.act
+pal4=act004.act
+pal5=act005.act
+pal6=act006.act
+pal7=act007.act
+pal8=act008.act
+pal9=act009.act
+pal10=act010.act
+pal11=act011.act
+pal12=act012.act
+st1=config.txt
+st2=Shingo_LB.def
+st3=Yillion_system.cns
+st4=buffering.kofy
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
+
+;=================================================;
+;Mode Select                                                                                                        ;
+;=================================================;
+; Initialize (at the start of the round)
+[Statedef 5910]
+type = S
+;0 - 2002 Robert
+;1 - Classic Saga Robert
+;2 - Orochi Saga Robert
+;3 - NESTS Saga Robert
+;4 - New Saga Robert
+;5 - NGBC Robert
+;[State 190, Dipswitch]
+;type = Null
+;trigger1 = (var(10) := 0) 
+;persistent = 1
+[State 5900, SUPMAN] ;Mode check
+type = ChangeState
+trigger1 = !time 
+value = 5900

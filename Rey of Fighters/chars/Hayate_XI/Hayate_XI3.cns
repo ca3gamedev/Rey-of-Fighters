@@ -1,0 +1,2063 @@
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ブーメラン（Helper表示）
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;(HELPER)遠距離立ち弱パンチ・ブーメラン
+[Statedef 3200]
+type = S
+ctrl = 0
+anim = 3200
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 4
+value = 3201
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3201 && animtime = 0
+trigger2 = root,anim != 200
+
+;---------------------------------------------------------------------------
+;(HELPER)近距離立ち弱パンチ・ブーメラン
+[Statedef 3205]
+type = S
+ctrl = 0
+anim = 3205
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3206
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3206 && animtime = 0
+trigger2 = root,anim != 205
+
+;---------------------------------------------------------------------------
+;(HELPER)遠距離立ち強パンチ・ブーメラン
+[Statedef 3210]
+type = S
+ctrl = 0
+anim = 3210
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3211
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3211 && animtime = 0
+trigger2 = root,anim != 210
+
+;---------------------------------------------------------------------------
+;(HELPER)近距離立ち強パンチ・ブーメラン
+[Statedef 3215]
+type = S
+ctrl = 0
+anim = 3215
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3216
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3216 && animtime = 0
+trigger2 = root,anim != 215
+
+;---------------------------------------------------------------------------
+;(HELPER)遠距離立ち弱キック・ブーメラン
+[Statedef 3230]
+type = S
+ctrl = 0
+anim = 3230
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3231
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3231 && animtime = 0
+trigger2 = root,anim != 230
+
+
+;---------------------------------------------------------------------------
+;(HELPER)近距離立ち弱キック・ブーメラン
+[Statedef 3235]
+type = S
+ctrl = 0
+anim = 3235
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3236
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3236 && animtime = 0
+trigger2 = root,anim != 235
+
+;---------------------------------------------------------------------------
+;(HELPER)遠距離立ち強キック・ブーメラン
+[Statedef 3240]
+type = S
+ctrl = 0
+anim = 3240
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 6
+value = 3241
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3241 && animtime = 0
+trigger2 = root,anim != 240
+
+;---------------------------------------------------------------------------
+;(HELPER)近距離立ち強キック・ブーメラン
+[Statedef 3245]
+type = S
+ctrl = 0
+anim = 3245
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3246
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3246 && animtime = 0
+trigger2 = root,anim != 245
+
+;---------------------------------------------------------------------------
+;(HELPER)地上ふっとばし・ブーメラン
+[Statedef 3290]
+type = S
+ctrl = 0
+anim = 3215
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3216
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3216 && animtime = 0
+trigger2 = root,anim != 290
+
+
+;---------------------------------------------------------------------------
+;(HELPER)しゃがみ弱パンチ・ブーメラン
+[Statedef 3400]
+type = S
+ctrl = 0
+anim = 3400
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 4
+value = 3401
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3401 && animtime = 0
+trigger2 = root,anim != 400
+
+
+;---------------------------------------------------------------------------
+;(HELPER)しゃがみ強パンチ・ブーメラン
+[Statedef 3410]
+type = S
+ctrl = 0
+anim = 3410
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 6
+value = 3411
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3411 && animtime = 0
+trigger2 = root,anim != 410
+
+;---------------------------------------------------------------------------
+;(HELPER)しゃがみ弱キック・ブーメラン
+[Statedef 3430]
+type = S
+ctrl = 0
+anim = 3430
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 4
+value = 3431
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3431 && animtime = 0
+trigger2 = root,anim != 430
+
+;---------------------------------------------------------------------------
+;(HELPER)しゃがみ強キック・ブーメラン
+[Statedef 3440]
+type = S
+ctrl = 0
+anim = 3440
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 3
+value = 3441
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 3441 && animtime = 0
+trigger2 = root,anim != 440
+
+
+;---------------------------------------------------------------------------
+;(HELPER)ジャンプ弱パンチ・ブーメラン
+[Statedef 3600]
+type = S
+ctrl = 0
+anim = 3600
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3601
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+;trigger1 = anim = 3601 && animtime = 0
+trigger1 = root,anim != 600
+
+
+;---------------------------------------------------------------------------
+;(HELPER)ジャンプ強パンチ・ブーメラン
+[Statedef 3610]
+type = S
+ctrl = 0
+anim = 3610
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3601
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+;trigger1 = anim = 3601 && animtime = 0
+trigger1 = root,anim != 610
+
+;---------------------------------------------------------------------------
+;(HELPER)ジャンプ弱キック・ブーメラン
+[Statedef 3630]
+type = S
+ctrl = 0
+anim = 3630
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3601
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+;trigger1 = anim = 3601 && animtime = 0
+trigger1 = root,anim != 630
+
+;---------------------------------------------------------------------------
+;(HELPER)ジャンプ強キック・ブーメラン
+[Statedef 3640]
+type = S
+ctrl = 0
+anim = 3640
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3641
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+;trigger1 = anim = 3641 && animtime = 0
+trigger1 = root,anim != 640
+
+;---------------------------------------------------------------------------
+;(HELPER)ジャンプふっとばし・ブーメラン
+[Statedef 3690]
+type = S
+ctrl = 0
+anim = 3640
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 3641
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+;trigger1 = anim = 3641 && animtime = 0
+trigger1 = root,anim != 690
+
+
+;---------------------------------------------------------------------------
+;(HELPER)飛天昇王脚・ブーメラン
+[Statedef 1250]
+type = S
+ctrl = 0
+anim = 1250
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 2 && (root,anim = 1200 || root,anim = 1201)
+value = 1251
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5 &&  root,anim = 1201
+value = 1252
+
+[state a]
+type = changeanim
+trigger1 = (root,animelem = 5 || root,animelem = 7) && root,anim = 1200
+trigger2 = (root,animelem = 6 || root,animelem = 8) && root,anim = 1201
+value = 1253
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 6 && root,anim = 1200
+trigger2 = root,animelem = 7 && root,anim = 1201
+value = 1254
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 1 && root,anim = 1202
+value = 1255
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 1 && root,anim = 1203
+value = 1256
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 1256 && animtime = 0
+trigger2 = root,anim != [1200,1203]
+
+
+
+;---------------------------------------------------------------------------
+;(HELPER)飛鳥蹴り・ブーメラン
+[Statedef 1350]
+type = S
+ctrl = 0
+anim = 1350
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 1 && root,anim = 1301
+value = 1350
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 2 && root,anim = 1301
+trigger2 = root,animelem = 1 && root,anim = 1302
+value = 1351
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 3 && root,anim = 1301
+trigger2 = root,animelem = 2 && root,anim = 1302
+value = 1352
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 1 && root,anim = 1203
+value = 1256
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 1256 && animtime = 0
+trigger2 = root,anim != [1300,1302]
+
+;---------------------------------------------------------------------------
+;(HELPER)空中飛鳥蹴り・ブーメラン
+[Statedef 1450]
+type = S
+ctrl = 0
+anim = 1450
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 4
+value = 1451
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 1452
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 1 && root,anim = 1203
+value = 1256
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 1256 && animtime = 0
+trigger2 = root,anim != 1400
+
+;---------------------------------------------------------------------------
+;(HELPER)烈風殺・ブーメラン
+[Statedef 1550]
+type = S
+ctrl = 0
+anim = 1550
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 1 && root,anim = 1502
+value = 1555
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+;trigger1 = anim = 1256 && animtime = 0
+trigger1 = root,anim != [1500,1502]
+trigger2 = root,anim = 1501
+
+;---------------------------------------------------------------------------
+;(HELPER)烈風殺・ブーメラン2
+[Statedef 1551]
+type = S
+ctrl = 0
+anim = 1551
+velset = 0,0
+movetype = I
+physics = S
+sprpriority = 2
+
+;---------------------[ポジションの固定]
+[state a]
+type = bindtoroot
+trigger1 = 1
+facing = 1
+pos = 0,0
+
+;---------------------[不可視]
+[state a]
+type = AssertSpecial
+trigger1 = root,var(3) != 0
+flag = invisible
+
+;---------------------[アニメーション変更]
+[state a]
+type = changeanim
+trigger1 = root,animelem = 5
+value = 1552
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 10
+value = 1553
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 14
+value = 1554
+
+[state a]
+type = changeanim
+trigger1 = root,animelem = 1 && root,anim = 1502
+value = 1555
+
+;---------------------[消滅]
+[state a]
+type = destroyself
+trigger1 = anim = 1502 && animtime = 0
+trigger2 = root,anim != [1500,1502]
+
+
+
+
+
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ブーメラン（Explod表示）
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+; Stand
+[Statedef 0]
+type = S
+physics = S
+sprpriority = 0
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = numexplod(3000) = 0
+trigger1 = numexplod(3005) = 0
+anim = 3000
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = anim = 5
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = anim = 5
+trigger1 = numexplod(3005) = 0
+anim = 3005
+id = 3005
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+supermove = 0
+under = 0
+;---------------------[]
+
+[State 0, 1]
+type = ChangeAnim
+trigger1 = Anim != 0 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0 ;Turn anim over
+value = 0
+
+[State 0, 2]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 0, 3] ;Stop moving if low velocity or 4 ticks pass
+type = VelSet
+trigger1 = abs(vel x) < 2
+trigger2 = Time = 4
+x = 0
+
+[State 0, 4] ;Are you dead?
+type = ChangeState
+trigger1 = !alive
+value = 5050
+
+
+;---------------------------------------------------------------------------
+; Stand to Crouch
+[Statedef 10]
+type    = C
+physics = C
+anim = 10
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+anim = 3010
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+;---------------------[]
+
+[State 10, 1]
+type = VelMul
+trigger1 = Time = 0
+x = .75
+
+[State 10, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+
+;---------------------------------------------------------------------------
+; Crouching
+[Statedef 11]
+type    = C
+physics = C
+anim = 11
+sprpriority = 0
+
+[State 11, 1] ;Change from turning animation
+type = ChangeAnim
+trigger1 = Anim = 6 && AnimTime = 0
+value = 11
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = numexplod(3000) = 0
+trigger1 = numexplod(3005) = 0
+anim = 3011
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = anim = 6
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = anim = 6
+trigger1 = numexplod(3005) = 0
+anim = 3006
+id = 3005
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+supermove = 0
+under = 0
+;---------------------[]
+
+;---------------------------------------------------------------------------
+; Crouch to Stand
+[Statedef 12]
+type    = S
+physics = S
+anim = 12
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+anim = 3012
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+;---------------------[]
+
+[State 12, 1]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+
+
+;---------------------------------------------------------------------------
+; Walk
+[Statedef 20]
+type    = S
+physics = S
+sprpriority = 0
+
+[State 20, 1]
+type = VelSet
+trigger1 = command = "holdfwd"
+x = const(velocity.walk.fwd.x)
+
+[State 20, 2]
+type = VelSet
+trigger1 = command = "holdback"
+x = const(velocity.walk.back.x)
+
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+triggerall = vel x > 0
+trigger1 = Anim != 20 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+ID = 3000
+
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+triggerall = vel x < 0
+trigger1 = Anim != 21 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+ID = 3000
+
+[State 20, 3]
+type = ChangeAnim
+triggerall = vel x > 0
+trigger1 = Anim != 20 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 20
+
+[State 20, 4]
+type = ChangeAnim
+triggerall = vel x < 0
+trigger1 = Anim != 21 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 21
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = numexplod(3000) = 0
+trigger1 = anim = 20
+anim = 3020
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = numexplod(3000) = 0
+trigger1 = anim = 21
+anim = 3021
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+;---------------------[]
+
+
+;---------------------------------------------------------------------------
+; Jump Start
+[Statedef 40]
+type    = S
+physics = S
+anim = 40
+ctrl = 0
+sprpriority = 1
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+anim = 3040
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+;---------------------[]
+
+[State 40, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+
+[State 40, 2]
+type = VarSet
+trigger1 = command = "holdfwd"
+sysvar(1) = 1
+
+[State 40, 3]
+type = VarSet
+trigger1 = command = "holdback"
+sysvar(1) = -1
+
+[State 40, 4]
+type = VelSet
+trigger1 = AnimTime = 0
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
+y = const(velocity.jump.y)
+
+[State 40, 5]
+type = VelSet
+trigger1 = AnimTime = 0
+trigger1 = prevstateno = 100 ;RUN_FWD
+trigger1 = sysvar(1) = 1
+x = const(velocity.runjump.fwd.x)
+
+[State 40, 6]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 50
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Jump Up
+[Statedef 50]
+type    = A
+physics = A
+
+[State 50, 1]
+type = VarSet
+trigger1 = Time = 0
+sysvar(1) = 0
+
+[State 50, 2]
+type = ChangeAnim
+trigger1 = Time = 0
+value = ifelse((vel x)=0, 41, ifelse((vel x)>0, 42, 43))
+
+[State 50, 3]
+type = ChangeAnim
+trigger1 = Vel y > -2
+trigger1 = SelfAnimExist(anim + 3)
+persistent = 0
+value = Anim + 3
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 41
+anim = 3041
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 42
+anim = 3042
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 43
+anim = 3043
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+;---------------------[]
+
+;---------------------------------------------------------------------------
+; Jump Land
+[Statedef 52]
+type    = S
+physics = S
+ctrl = 0
+anim = 47
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+anim = 3047
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+;---------------------[]
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 3]
+type = CtrlSet
+trigger1 = Time = 3
+value = 1
+
+[State 52, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; GUARD (start)
+[Statedef 120]
+type = U    ;Leave state type unchanged
+physics = U ;Leave physics unchanged
+
+[State 120, 1]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 120 + (statetype = C) + (statetype = A)*2
+
+[State 120, 2]
+type = StateTypeSet
+trigger1 = Time = 0 && statetype = S
+physics = S
+
+[State 120, 3]
+type = StateTypeSet
+trigger1 = Time = 0 && statetype = C
+physics = C
+
+[State 120, 4]
+type = StateTypeSet
+trigger1 = Time = 0 && statetype = A
+physics = A
+
+[State 120, Hi to Lo]
+type = StateTypeSet
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+
+[State 120, Lo to Hi]
+type = StateTypeSet
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 120
+anim = 3120
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 121
+anim = 3121
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 122
+anim = 3122
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+;---------------------[]
+
+
+
+[State 120, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 130 + (statetype = C) + (statetype = A)*2
+
+[State 120, Stop Guarding]
+type = ChangeState
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+
+;---------------------------------------------------------------------------
+; STAND GUARD (guarding)
+[Statedef 130]
+type    = S
+physics = S
+
+[State 130, 1]
+type = ChangeAnim
+trigger1 = Anim != 130
+value = 130
+
+[State 130, Hi to Lo]
+type = ChangeState
+trigger1 = command = "holddown"
+value = 131
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 130
+anim = 3130
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+
+[State 130, Stop Guarding]
+type = ChangeState
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+
+;---------------------------------------------------------------------------
+; CROUCH GUARD (guarding)
+[Statedef 131]
+type    = C
+physics = C
+
+[State 131, 1]
+type = ChangeAnim
+trigger1 = Anim != 131
+value = 131
+
+[State 131, Lo to Hi]
+type = ChangeState
+trigger1 = command != "holddown"
+value = 130
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 131
+anim = 3131
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State 131, Stop Guarding]
+type = ChangeState
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+
+;---------------------------------------------------------------------------
+; AIR GUARD (guarding)
+[Statedef 132]
+type    = A
+physics = N
+
+[State 132, 1]
+type = ChangeAnim
+trigger1 = Anim != 132
+value = 132
+
+[State 132, 2]
+type = VelAdd
+trigger1 = 1
+y = Const(movement.yaccel)
+
+[State 132, 3]
+type = VarSet
+trigger1 = 1
+sysvar(0) = (pos y >= 0) && (vel y > 0)
+
+[State 132, 4]
+type = VelSet
+trigger1 = sysvar(0)
+y = 0
+
+[State 132, 5]
+type = PosSet
+trigger1 = sysvar(0)
+y = 0
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 132
+anim = 3132
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State 132, 6]
+type = ChangeState
+trigger1 = sysvar(0)
+trigger1 = command = "holdback"
+trigger1 = inguarddist
+value = 130
+
+[State 132, 7]
+type = ChangeState
+trigger1 = sysvar(0)
+value = 52
+
+[State 132, Stop Guarding]
+type = ChangeState
+trigger1 = command != "holdback"
+trigger2 = !inguarddist
+value = 140
+
+;---------------------------------------------------------------------------
+; GUARD (end)
+[Statedef 140]
+type = U    ;Leave state type unchanged
+physics = U ;Leave physics unchanged
+ctrl = 1
+
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State 140, 1]
+type = ChangeAnim
+trigger1 = Time = 0
+value = 140 + (statetype = C) + (statetype = A)*2
+
+[State 140, 2]
+type = StateTypeSet
+trigger1 = Time = 0 && statetype = S
+physics = S
+
+[State 140, 3]
+type = StateTypeSet
+trigger1 = Time = 0 && statetype = C
+physics = C
+
+[State 140, 4]
+type = StateTypeSet
+trigger1 = Time = 0 && statetype = A
+physics = A
+
+[State 140, Hi to Lo]
+type = StateTypeSet
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+
+[State 140, Lo to Hi]
+type = StateTypeSet
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+
+;[State 140, 5] ;Implemented within engine
+;type = ChangeState
+;trigger1 = AnimTime = 0
+;value = (statetype = C)*11 + (statetype = A)*51
+
+;---------------------------------------------------------------------------
+; SGUARDHIT (shaking)
+[Statedef 150]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+
+[State 150, 1]
+type = ChangeAnim
+trigger1 = 1
+value = 150
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 150
+anim = 3150
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State 150, 2]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 151 + 2*(command = "holddown")
+
+[State 150, Hi to Lo]
+type = StateTypeSet
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+
+[State 150, Lo to Hi]
+type = StateTypeSet
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+
+[State 150, 3]
+type = ForceFeedback
+trigger1 = time = 0
+waveform = square
+time = 3
+
+;---------------------------------------------------------------------------
+; SGUARDHIT2 (knocked back)
+[Statedef 151]
+type    = S
+movetype= H
+physics = S
+anim = 150
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 150
+anim = 3150
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State 151, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+
+[State 151, 2]
+type = VelSet
+trigger1 = Time = GetHitVar(slidetime)
+trigger2 = HitOver
+x = 0
+
+[State 151, 3]
+type = CtrlSet
+trigger1 = Time = GetHitVar(ctrltime)
+value = 1
+
+[State 151, Hi to Lo]
+type = StateTypeSet
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+
+[State 151, Lo to Hi]
+type = StateTypeSet
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+
+[State 151, 4]
+type = ChangeState
+trigger1 = HitOver
+value = 130
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; CGUARDHIT (shaking)
+[Statedef 152]
+type    = C
+movetype= H
+physics = N
+velset = 0,0
+
+[State 152, 1]
+type = ChangeAnim
+trigger1 = 1
+value = 151
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 151
+anim = 3151
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State 152, 3]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 151 + 2*(command = "holddown")
+
+[State 152, Hi to Lo]
+type = StateTypeSet
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+
+[State 152, Lo to Hi]
+type = StateTypeSet
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+
+[State 152, 4]
+type = ForceFeedback
+trigger1 = time = 0
+waveform = square
+time = 4
+
+;---------------------------------------------------------------------------
+; CGUARDHIT2 (knocked back)
+[Statedef 153]
+type    = C
+movetype= H
+physics = C
+anim = 151
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 151
+anim = 3151
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State 153, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+
+[State 153, 2]
+type = VelSet
+trigger1 = Time = GetHitVar(slidetime)
+trigger2 = HitOver
+x = 0
+
+[State 153, 3]
+type = CtrlSet
+trigger1 = Time = GetHitVar(ctrltime)
+value = 1
+
+[State 153, Hi to Lo]
+type = StateTypeSet
+trigger1 = statetype = S && command = "holddown"
+statetype = C
+physics = C
+
+[State 153, Lo to Hi]
+type = StateTypeSet
+trigger1 = statetype = C && command != "holddown"
+statetype = S
+physics = S
+
+[State 153, 4]
+type = ChangeState
+trigger1 = HitOver
+value = 131
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; AGUARDHIT (shaking)
+[Statedef 154]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 154, 1]
+type = ChangeAnim
+trigger1 = 1
+value = 152
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 152
+anim = 3152
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+[State 154, 2]
+type = ChangeState
+trigger1 = HitShakeOver
+value = 155 ;AGUARDHIT2
+
+[State 154, 3]
+type = ForceFeedback
+trigger1 = time = 0
+waveform = square
+time = 4
+
+;---------------------------------------------------------------------------
+; AGUARDHIT2 (knocked away)
+[Statedef 155]
+type    = A
+movetype= H
+physics = N
+anim = 152
+
+;---------------------[ブーメランのエフェクト]
+[State removeexplod];前のステートのブーメラン消去
+type = removeexplod
+trigger1 = time = 0
+ID = 3000
+
+[State explod];ブーメラン
+type = Explod
+triggerall = var(3) = 0
+trigger1 = time = 0
+trigger1 = anim = 152
+anim = 3152
+id = 3000
+sprpriority = 2
+postype = p1
+pos = 0,0
+bindtime = -1
+removetime = -1
+supermove = 0
+under = 0
+
+
+[State 155, 1]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 155, 2]
+type = VelAdd
+trigger1 = 1
+y = Const(movement.yaccel)
+
+[State 155, 3]
+type = CtrlSet
+trigger1 = Time = GetHitVar(ctrltime)
+value = 1
+
+[State 155, 4]
+type = VarSet
+trigger1 = 1
+sysvar(0) = (pos y >= 0) && (vel y > 0)
+
+[State 155, 5]
+type = VelSet
+trigger1 = sysvar(0)
+y = 0
+
+[State 155, 6]
+type = PosSet
+trigger1 = sysvar(0)
+y = 0
+
+[State 155, 6]
+type = ChangeState
+trigger1 = sysvar(0)
+trigger1 = command = "holdback"
+trigger1 = inguarddist
+value = 130
+
+[State 155, 7]
+type = ChangeState
+trigger1 = sysvar(0)
+value = 52

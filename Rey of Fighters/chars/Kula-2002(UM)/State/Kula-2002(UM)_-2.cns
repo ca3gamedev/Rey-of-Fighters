@@ -1,0 +1,1992 @@
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+[Statedef -2]
+
+[State -2]
+type = Null;PowerSet
+trigger1 = RoundState = 1
+value = 5000
+
+[State -2]
+type = Null;LifeSet
+trigger1 = RoundState = 1
+trigger1 = Var(49) = 0
+value = 1050
+
+[State -2]
+type = Null;LifeSet
+trigger1 = RoundState = 1
+trigger1 = Var(49) = [1,2]
+value = 1200
+
+[State -2]
+type = NotHitBy
+trigger1 = StateNo = [120,159]
+value = ,NT,ST,HT
+time = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = Var(49) = 0
+trigger1 = Var(30) = 24
+v = 10
+value = power
+
+[State -2]
+type = VarSet
+trigger1 = Var(49) = 1
+trigger1 = Var(30) = 48
+v = 10
+value = power
+
+[State -2]
+type = PowerSet
+trigger1 = Var(49) != 2
+trigger1 = Var(30) > 0
+value = var(10)
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+triggerall = NumTarget >= 1
+triggerall = (Target,BackEdgeBodyDist <= 0) || (Target,FrontEdgeBodyDist <= 0)
+triggerall = Target,MoveType = H
+triggerall = Target,Vel Y = 0
+triggerall = Statetype != A
+triggerall = ProjContact = 0, < 32
+trigger1 = Target,Statetype = S
+trigger2 = Target,Statetype = C
+fvar(6) = ifelse(target,backedgebodydist <= 0,target,vel X,-target,vel X)
+ignorehitpause = 0
+
+[State -2]
+type = VarSet
+triggerall = NumTarget >= 1
+triggerall = Fvar(6) = 0
+triggerall = (Target,BackEdgeBodyDist <= 0) || (Target,FrontEdgeBodyDist <= 0)
+triggerall = Target,GetHitVar(HitShakeTime) = 0
+triggerall = Target,GetHitVar(YVel) = 0
+triggerall = ProjContact = 0, < 32
+trigger1 = Target,StateNo = 5000
+trigger2 = Target,StateNo = 5010
+trigger3 = Target,StateNo = 150
+trigger4 = Target,StateNo = 152
+fvar(6) = ifelse(facing = -1 && (target,backedgebodydist <= 0 || target,frontedgebodydist <= 0),target,gethitvar(XVel),-target,gethitvar(XVel))
+ignorehitpause = 0
+
+[State -2]
+type = PosAdd
+triggerall = NumTarget >= 1
+triggerall = StateType != A
+triggerall = !NumExplod(1150) && !NumExplod(1155) && !NumHelper(2000) && !NumHelper(2100) && !NumHelper(2200)
+trigger1 = FVar(6) != 0
+x = fvar(6)
+
+[State -2]
+type = VarSet
+trigger1 = NumTarget = 0
+trigger2 = Target,HitShakeOver
+fvar(6) = 0
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = TargetFacing
+triggerall = Target,Anim = [5,6]
+triggerall = MoveHit = 1
+trigger1 = Target,StateNo = 226
+trigger2 = Target,StateNo = 1050
+trigger3 = Target,StateNo = 1055
+trigger4 = Target,StateNo = 1190
+trigger5 = Target,StateNo = 1250
+trigger6 = Target,StateNo = 1255
+trigger7 = Target,StateNo = 1260
+trigger8 = Target,StateNo = 1390
+trigger9 = Target,StateNo = 3505
+trigger10 = Target,StateNo = 3905
+trigger11 = Target,StateNo = 5000
+trigger12 = Target,StateNo = 5010
+trigger13 = Target,StateNo = [5020,5021]
+trigger14 = Target,StateNo = 5070
+trigger15 = Target,StateNo = 6100
+trigger16 = Target,StateNo = 6110
+trigger17 = Target,StateNo = 6150
+trigger18 = Target,StateNo = 6160
+trigger19 = Target,StateNo = 6200
+trigger20 = Target,StateNo = 6210
+trigger21 = Target,StateNo = 6250
+trigger22 = Target,StateNo = 6300
+value = 1
+ignorehitpause = 1
+
+[State -2]
+type = TargetFacing
+triggerall = Target,Anim = [5,6]
+triggerall = ProjHit = 1
+trigger1 = Target,StateNo = 226
+trigger2 = Target,StateNo = 1050
+trigger3 = Target,StateNo = 1055
+trigger4 = Target,StateNo = 1190
+trigger5 = Target,StateNo = 1250
+trigger6 = Target,StateNo = 1255
+trigger7 = Target,StateNo = 1260
+trigger8 = Target,StateNo = 1390
+trigger9 = Target,StateNo = 3505
+trigger10 = Target,StateNo = 3905
+trigger11 = Target,StateNo = 5000
+trigger12 = Target,StateNo = 5010
+trigger13 = Target,StateNo = [5020,5021]
+trigger14 = Target,StateNo = 5070
+trigger15 = Target,StateNo = 6100
+trigger16 = Target,StateNo = 6110
+trigger17 = Target,StateNo = 6150
+trigger18 = Target,StateNo = 6160
+trigger19 = Target,StateNo = 6200
+trigger20 = Target,StateNo = 6210
+trigger21 = Target,StateNo = 6250
+trigger22 = Target,StateNo = 6300
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = PalFX
+triggerall = Var(30) = 0
+trigger1 = MoveType != H
+trigger2 = StateNo = 5100
+trigger3 = StateNo = 5102
+time = 1
+add = 0,0,0
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(13) >= 30
+var(13) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 24
+trigger2 = StateNo = 109
+var(13) = Time
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+triggerall = Var(59) = 1
+triggerall = MoveType = H
+trigger1 = PrevStateNo = [1000,1001]
+var(32) = 1
+
+[State -2]
+type = VarSet
+triggerall = Var(59) = 1
+triggerall = MoveType = H
+trigger1 = Anim = 1000
+var(32) = 1
+
+[State -2]
+type = VarSet
+triggerall = Var(59) = 1
+triggerall = MoveType = H
+trigger1 = PrevStateNo = 235
+var(32) = 2
+
+[State -2]
+type = VarSet
+triggerall = Var(59) = 1
+triggerall = MoveType = H
+trigger1 = Anim = 235
+var(32) = 2
+
+[State -2]
+type = VarSet
+triggerall = Var(59) = 1
+triggerall = MoveType = H
+trigger1 = PrevStateNo = [3000,3010]
+var(33) = 1
+
+[State -2]
+type = VarSet
+triggerall = Var(59) = 1
+triggerall = MoveType = H
+trigger1 = Anim = 3000
+var(33) = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+var(34) = 0
+
+[State -2]
+type = VarSet
+triggerall = Anim = 430
+triggerall = MoveType = H
+triggerall = Enemy,Vel Y > 0
+triggerall = P2BodyDist Y = [-40,0]
+trigger1 = P2BodyDist X = [0,55]
+var(34) = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+triggerall = StateNo != [120,159]
+triggerall = MoveType = H
+triggerall = Var(36) = 0
+triggerall = Enemy,HitDefAttr = SCA,AA,AP
+trigger1 = Anim = [120,159]
+var(36) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = StateNo != [120,159]
+triggerall = MoveType = H
+triggerall = Var(36) != 0 && Var(37) = 0
+triggerall = Enemy,HitDefAttr = SCA,AA,AP
+trigger1 = Anim = [120,159]
+var(37) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = StateNo != [120,159]
+triggerall = MoveType = H
+triggerall = Var(36) != 0 && Var(37) != 0 && Var(38) = 0
+triggerall = Enemy,HitDefAttr = SCA,AA,AP
+trigger1 = Anim = [120,159]
+var(38) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Enemy,StateNo = Var(36)
+trigger2 = !Alive
+var(36) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(37) = Var(36)
+trigger3 = Enemy,StateNo = Var(37)
+trigger3 = !Alive
+var(37) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(38) = Var(36)
+trigger2 = Var(38) = Var(37)
+trigger3 = Enemy,StateNo = Var(38)
+trigger3 = !Alive
+var(38) = 0
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+triggerall = Var(43) = 0
+trigger1 = StateType != A
+trigger1 = Enemy,HitDefAttr = SC,AT
+trigger1 = Enemy,StateNo != [0,999]
+var(43) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = Var(43) != 0 && Var(44) = 0
+trigger1 = StateType != A
+trigger1 = Enemy,HitDefAttr = SC,AT
+trigger1 = Enemy,StateNo != [0,999]
+var(44) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = Var(43) != 0 && Var(44) != 0 && Var(45) = 0
+trigger1 = StateType != A
+trigger1 = Enemy,HitDefAttr = SC,AT
+trigger1 = Enemy,StateNo != [0,999]
+var(45) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = Var(43) != 0 && Var(44) != 0 && Var(45) != 0 && Var(46) = 0
+trigger1 = StateType != A
+trigger1 = Enemy,HitDefAttr = SC,AT
+trigger1 = Enemy,StateNo != [0,999]
+var(46) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = Var(47) = 0
+trigger1 = StateType != A
+trigger1 = Enemy,HitDefAttr = A,AT
+trigger1 = Enemy,StateNo != [0,999]
+var(47) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = Var(47) != 0 && Var(48) = 0
+trigger1 = StateType != A
+trigger1 = Enemy,HitDefAttr = A,AT
+trigger1 = Enemy,StateNo != [0,999]
+var(48) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+var(43) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(44) = Var(43)
+var(44) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(45) = Var(43)
+trigger3 = Var(45) = Var(44)
+var(45) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(46) = Var(43)
+trigger3 = Var(46) = Var(44)
+trigger4 = Var(46) = Var(45)
+var(46) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+var(47) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(48) = Var(47)
+var(48) = 0
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = 1
+var(50) = Enemy,AnimTime
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = P2StateNo < 1000
+trigger1 = P2StateType != A
+;trigger1 = Enemy,HitDefAttr = SC,AA,AP
+;trigger1 = MoveType = H
+trigger1 = !Enemy,MoveContact
+var(51) = Enemy,Time
+
+[State -2]
+type = VarSet
+trigger1 = P2StateNo < 1000
+trigger1 = HitShakeOver = 1
+trigger1 = Enemy,MoveContact
+var(51) = 0
+
+[State -2]
+type = VarSet
+triggerall = Var(52) = 0
+triggerall = Var(51) >= 5
+triggerall = P2BodyDist X <= 65
+;trigger1 = Enemy,HitDefAttr = SC,AA,AP
+trigger1 = StateType != A
+trigger1 = MoveType = H
+trigger1 = Enemy,MoveContact = 1
+var(52) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = Var(52) != 0 && Var(53) = 0
+triggerall = Var(51) >= 5
+triggerall = P2BodyDist X <= 65
+;triggerall = Enemy,HitDefAttr = SC,AA,AP
+triggerall = StateType != A
+triggerall = MoveType = H
+trigger1 = Enemy,MoveContact = 1
+var(53) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = Var(52) != 0 && Var(53) != 0 && Var(54) = 0
+triggerall = Var(51) >= 5
+triggerall = P2BodyDist X <= 65
+;triggerall = Enemy,HitDefAttr = SC,AA,AP
+triggerall = StateType != A
+triggerall = MoveType = H
+trigger1 = Enemy,MoveContact = 1
+var(54) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = Var(52) != 0 && Var(53) != 0 && Var(54) != 0 && Var(55) = 0
+triggerall = Var(51) >= 5
+triggerall = P2BodyDist X <= 65
+;triggerall = Enemy,HitDefAttr = SC,AA,AP
+triggerall = StateType != A
+triggerall = MoveType = H
+trigger1 = Enemy,MoveContact = 1
+var(55) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+triggerall = Var(52) != 0 && Var(53) != 0 && Var(54) != 0 && Var(55) != 0 && Var(56) = 0
+triggerall = Var(51) >= 5
+triggerall = P2BodyDist X <= 65
+;triggerall = Enemy,HitDefAttr = SC,AA,AP
+triggerall = StateType != A
+triggerall = MoveType = H
+trigger1 = Enemy,MoveContact = 1
+var(56) = Enemy,StateNo
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(50) = Var(52)
+trigger2 = Var(51) < 5
+trigger2 = MoveType = H
+trigger2 = Enemy,MoveContact = 1
+var(52) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(53) = Var(52)
+trigger3 = Var(50) = Var(53)
+trigger3 = Var(51) < 5
+trigger3 = MoveType = H
+trigger3 = Enemy,MoveContact = 1
+var(53) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(54) = Var(53)
+trigger3 = Var(54) = Var(52)
+trigger4 = Var(50) = Var(54)
+trigger4 = Var(51) < 5
+trigger4 = MoveType = H
+trigger4 = Enemy,MoveContact = 1
+var(54) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(55) = Var(54)
+trigger3 = Var(55) = Var(53)
+trigger4 = Var(55) = Var(52)
+trigger5 = Var(50) = Var(55)
+trigger5 = Var(51) < 5
+trigger5 = MoveType = H
+trigger5 = Enemy,MoveContact = 1
+var(55) = 0
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 190
+trigger2 = Var(56) = Var(55)
+trigger3 = Var(56) = Var(54)
+trigger4 = Var(56) = Var(53)
+trigger5 = Var(56) = Var(52)
+trigger6 = Var(50) = Var(56)
+trigger6 = Var(51) < 5
+trigger6 = MoveType = H
+trigger6 = Enemy,MoveContact = 1
+var(56) = 0
+
+[State -2]
+type = VarAdd
+triggerall = Var(59) = 1
+triggerall = MoveType = H
+trigger1 = (PrevStateNo = [58,59]) || (PrevStateNo = [68,69])
+trigger1 = Anim = [40,41]
+var(57) = 1
+persistent = 0
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = Null;PowerAdd
+triggerall = Var(31) != 1
+triggerall = Time = 0
+trigger1 = StateNo = 150
+trigger2 = StateNo = 5000
+trigger3 = StateNo = 5020
+value = 15
+persistent = 0
+
+[State -2]
+type = PowerAdd
+triggerall = Var(49) != 2
+triggerall = Var(31) != 1
+trigger1 = MoveType = H
+trigger1 = Time = 0
+value = 15
+
+[State -2]
+type = PowerAdd
+triggerall = Var(49) = 2
+triggerall = Var(31) != 1
+trigger1 = MoveType = H
+trigger1 = Time = 0
+value = 30
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = Helper
+triggerall = NumHelper(1900) = 0
+trigger1 = ProjHit1050 = 1
+trigger2 = ProjHit1055 = 1
+trigger3 = ProjHit1360 = 1
+trigger3 = Var(49) = 2
+trigger4 = ProjHit3060 = 1
+trigger5 = ProjHit3515 = 1
+trigger6 = ProjHit3945 = 1
+trigger7 = ProjHit3986 = 1
+ID = 1900
+stateno = 1900
+ownpal = 1
+ignorehitpause = 1
+
+[State -2]
+type = Helper
+triggerall = NumHelper(1905) = 0
+trigger1 = StateNo = 3520 && P2StateNo = 6100
+ID = 1905
+stateno = 1905
+ownpal = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = Helper
+trigger1 = !NumHelper(8000+ID)
+trigger1 = !IsHelper
+helpertype = Normal
+name = "Edge of Stage Right"
+postype = P1
+stateno = 8000
+ID = 8000+ID
+pausemovetime = 0
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0
+ownpal = 1
+
+[State -2]
+type = Helper
+trigger1 = !NumHelper(8001+ID)
+trigger1 = !IsHelper
+helpertype = Normal
+name = "Edge of Stage Left"
+postype = P1
+stateno = 8001
+ID = 8001+ID
+pausemovetime = 0
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0
+ownpal = 1
+
+[State -2]
+type = VarSet
+trigger1 =(NumHelper(8000+ID) && NumHelper(8001+ID))
+trigger1 = TeamSide = 1
+var(4) = Floor(Abs(IfElse(Facing = 1,Helper(8000+ID),RootDist X+31,Helper(8001+ID),RootDist X-31)))
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 =(NumHelper(8000+ID) && NumHelper(8001+ID))
+trigger1 = TeamSide = 2
+var(4) = Floor(Abs(IfElse(Facing = 1,Helper(8001+ID),RootDist X-31,Helper(8000+ID),RootDist X+31)))
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 =(NumHelper(8000+ID) && NumHelper(8001+ID))
+trigger1 = TeamSide = 1
+var(5) = Floor(Abs(IfElse(Facing = 1,Helper(8001+ID),RootDist X-30,Helper(8000+ID),RootDist X+30)))
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 =(NumHelper(8000+ID) && NumHelper(8001+ID))
+trigger1 = TeamSide = 2
+var(5) = Floor(Abs(IfElse(Facing = 1,Helper(8000+ID),RootDist X+30,Helper(8001+ID),RootDist X-30)))
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = IsHelper(8000+Root,ID)
+trigger1 = StateNo != 8000
+value = 8000
+
+[State -2]
+type = ChangeState
+trigger1 = IsHelper
+trigger1 = IsHelper(8001+Root,ID)
+trigger1 = StateNo != 8001
+value = 8001
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = AssertSpecial
+triggerall = PrevStateNo = [120,152]
+trigger1 = StateNo = 5000 || StateNo = 5010
+trigger1 = StateType != A
+flag = NoKoSnd
+ignorehitpause = 1
+
+[State -2]
+type = ChangeState
+trigger1 = PrevStateNo = [120,152]
+trigger1 = !Alive
+value = 6010
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = Explod
+triggerall = Var(49) = 0
+trigger1 = Facing = 1
+trigger1 = NumExplod(7050) = 0
+anim = 7050
+ID = 7050
+bindtime = -1
+pos = 11,230
+postype = Left
+sprpriority = 999
+ownpal = 1
+scale = .5,.5
+ignorehitpause = 1
+
+[State -2]
+type = Explod
+triggerall = Var(49) = 0
+trigger1 = Facing = -1
+trigger1 = NumExplod(7050) = 0
+anim = 7050
+ID = 7050
+bindtime = -1
+pos = -57,230
+postype = Right
+sprpriority = 999
+ownpal = 1
+scale = .5,.5
+ignorehitpause = 1
+
+[State -2]
+type = Explod
+triggerall = Var(49) = 1
+trigger1 = Facing = 1
+trigger1 = NumExplod(7051) = 0
+anim = 7051
+ID = 7051
+bindtime = -1
+pos = 11,230
+postype = Left
+sprpriority = 999
+ownpal = 1
+scale = .5,.5
+ignorehitpause = 1
+
+[State -2]
+type = Explod
+triggerall = Var(49) = 1
+trigger1 = Facing = -1
+trigger1 = NumExplod(7051) = 0
+anim = 7051
+ID = 7051
+bindtime = -1
+pos = -74,230
+postype = Right
+sprpriority = 999
+ownpal = 1
+scale = .5,.5
+ignorehitpause = 1
+
+[State -2]
+type = Explod
+triggerall = Var(49) = 2
+trigger1 = Facing = 1
+trigger1 = NumExplod(7052) = 0
+anim = 7052
+ID = 7052
+bindtime = -1
+pos = 20,230
+postype = Left
+sprpriority = 999
+ownpal = 1
+scale = .5,.5
+ignorehitpause = 1
+
+[State -2]
+type = Explod
+triggerall = Var(49) = 2
+trigger1 = Facing = -1
+trigger1 = NumExplod(7052) = 0
+anim = 7052
+ID = 7052
+bindtime = -1
+pos = -47,230
+postype = Right
+sprpriority = 999
+ownpal = 1
+scale = .5,.5
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = Explod
+trigger1 = ProjHit1050 = 1
+persistent = 0
+anim = 4520
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded1050 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit1055 = 1
+persistent = 0
+anim = 4520
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded1055 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit1360 = 1
+persistent = 0
+anim = 4520
+bindtime = 1
+pos = 10,-70
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded1360 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-70
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit1365 = 1
+persistent = 0
+anim = 4520
+bindtime = 1
+pos = 10,-70
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded1365 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-70
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit1650 = 1
+persistent = 0
+anim = 4520
+bindtime = 1
+pos = 10,-70
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded1650 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-70
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3050 = 1
+persistent = 0
+anim = 4530
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded3050 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3060 = 1
+persistent = 0
+anim = 4530
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded3060 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3515 = 1
+persistent = 0
+anim = 4520
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded3515 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3590 = 1
+persistent = 0
+anim = 4520
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded3590 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3930 = 1
+persistent = 0
+anim = 4540
+bindtime = 1
+pos = -40,-85
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded3930 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = -40,-85
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3945 = 1
+persistent = 0
+anim = 4520
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded3945 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3950 = 1
+persistent = 0
+anim = 4520
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded3950 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 10,-55
+postype = P2
+sprpriority = 5
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3985 = 1
+persistent = 0
+anim = 3995
+bindtime = 1
+pos = 0,-35
+postype = P2
+sprpriority = 8
+ownpal = 1
+persistent = 0
+supermovetime = 999
+pausemovetime = 999
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded3985 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 0,-35
+postype = P2
+sprpriority = 8
+ownpal = 1
+persistent = 0
+supermovetime = 999
+pausemovetime = 999
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3986 = 1
+persistent = 0
+anim = 3995
+bindtime = 1
+pos = 0,-35
+postype = P2
+sprpriority = 8
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = ProjGuarded3986 = 1
+persistent = 0
+anim = 4620
+bindtime = 1
+pos = 0,-35
+postype = P2
+sprpriority = 8
+ownpal = 1
+persistent = 0
+
+[State -2]
+type = Explod
+trigger1 = P2StateNo = 1195
+anim = 1155
+ID = 1155
+pos = 0,-60
+sprpriority = -5
+ownpal = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = Explod
+trigger1 = ProjHit3950 = 1
+anim = 3960
+ID = 3960
+sprpriority = 5
+postype = P2
+pos = 0,-3
+bindtime = -1
+removeongethit = 1
+ignorehitpause = 0
+shadow = 10,10,10
+removetime = -1
+facing = -1
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3950 = 1
+anim = 3965
+ID = 3960
+sprpriority = 0
+postype = P2
+pos = 0,-3
+bindtime = -1
+removeongethit = 1
+ignorehitpause = 0
+shadow = 10,10,10
+removetime = -1
+facing = -1
+
+[State -2]
+type = RemoveExplod
+trigger1 = ProjHit3986 = 1
+ID = 3960
+ignorehitpause = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = ProjHit3986 = 1
+ID = 3965
+ignorehitpause = 1
+
+[State -2]
+type = Explod
+trigger1 = ProjHit3986 = 1
+anim = 3990
+ID = 3990
+sprpriority = 8
+postype = P2
+pos = 0,-3
+removeongethit = 1
+ignorehitpause = 0
+shadow = 10,10,10
+facing = -1
+
+[State -2]
+type = PlaySnd
+trigger1 = ProjHit3986 = 1
+value = 8,8
+ignorehitpause = 1
+persistent = 0
+
+[State -2]
+type = RemoveExplod
+trigger1 = ProjHit3985 = 1
+ID = 3987
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = NotHitBy
+trigger1 = Anim = 5
+value = ,NT,ST
+time = 10
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarRandom
+trigger1 = 1
+v = 20
+range = 0,2
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarAdd
+triggerall = Var(49) = 0
+triggerall = Var(30) > 0
+trigger1 = (GameTime%32) = 0
+v = 30
+value = -1
+ignorehitpause = 1
+
+[State -2]
+type = VarAdd
+triggerall = Var(49) != 0
+triggerall = Var(30) > 0
+trigger1 = (GameTime%16) = 0
+v = 30
+value = -1
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = Var(30) < 0
+v = 30
+value = 0
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = PalFX
+trigger1 = (GameTime%2) = 0
+trigger1 = Var(30) > 0
+time = 1
+add = 100,80,40
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = Helper
+trigger1 = NumHelper(2570) = 0
+ID = 2570
+name = "MAX"
+sprpriority = 1
+pos = 0,0
+postype = P1
+stateno = 2570
+helpertype = Normal
+pausemovetime = 99999999
+supermovetime = 99999999
+keyctrl = 0
+ownpal = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = EnvColor
+triggerall = !Win = 1 && Var(40) = 1
+triggerall = StateNo != [800,899]
+trigger1 = MoveHit = 1
+trigger2 = ProjHit = 1
+persistent = 0
+ignorehitpause = 1
+value = 255,255,255
+time = 1
+under = 1
+supermove = 1
+
+[State -2]
+type = Helper
+triggerall = Var(49) = 0
+triggerall = NumExplod(7000) = 0 && !Win = 1 && Var(40) = 1
+triggerall = StateNo != [800,899]
+trigger1 = MoveHit = 1
+trigger2 = ProjHit = 1
+name = "Counter"
+ID = 7000
+pos = 0,0
+postype = Left
+stateno = 7000
+helpertype = Normal
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+persistent = 0
+ignorehitpause = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State -2]
+type = Helper
+triggerall = Var(49) != 0
+triggerall = NumExplod(7005) = 0 && !Win = 1 && Var(40) = 1
+triggerall = StateNo != [800,899]
+trigger1 = MoveHit = 1
+trigger2 = ProjHit = 1
+name = "Counter"
+ID = 7005
+pos = 0,0
+postype = Left
+stateno = 7005
+helpertype = Normal
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+persistent = 0
+ignorehitpause = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[State -2]
+type = VarSet
+trigger1 = Enemy,MoveType != A
+v = 40
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+triggerall = Enemy,MoveType = A
+trigger1 = P2StateNo >= 1000
+v = 40
+value = 1
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = NumExplod(7000) = 1
+trigger2 = NumExplod(7005) = 1
+var(40) = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = Var(9) = 0
+trigger1 = Var(25) = 1
+trigger1 = StateNo = [200,699]
+trigger1 = EnemyNear,StateType = A
+v = 40
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = Enemy,MoveType != A
+trigger1 = Enemy,MoveType != H
+v = 41
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+triggerall = Enemy,MoveType = A
+trigger1 = P2StateNo >= 1000
+v = 41
+value = 1
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = P2StateNo = [0,199]
+trigger2 = P2StateNo = 5001 || P2StateNo = 5011
+trigger3 = P2StateNo = [5045,5046]
+trigger4 = P2StateNo = 5110
+trigger5 = P2StateNo = 5200
+trigger6 = Var(25) >= 1
+var(41) = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = Var(9) = 0
+trigger1 = Var(25) = 1
+trigger1 = StateNo = [200,699]
+trigger1 = EnemyNear,StateType = A
+v = 41
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = Enemy,MoveType != A
+v = 42
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = P2StateNo = [0,199]
+trigger2 = P2StateNo = 5001 || P2StateNo = 5011
+trigger3 = P2StateNo = [5045,5046]
+trigger4 = P2StateNo = 5110
+trigger5 = P2StateNo = 5200
+trigger6 = Var(25) >= 1
+var(42) = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = Var(9) = 0
+trigger1 = Var(25) = 1
+trigger1 = StateNo = [200,699]
+trigger1 = EnemyNear,StateType = A
+v = 42
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = ((P2StateNo = [200,219]) || (P2StateNo = [230,249]) || (P2StateNo = [400,439]) || (P2StateNo = [600,649]))
+trigger1 = MoveHit = 1
+trigger1 = P2StateType = A
+var(9) = 1
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = P2StateNo = [0,199]
+trigger2 = P2StateNo = 5001 || P2StateNo = 5011
+trigger3 = P2StateNo = [5045,5046]
+trigger4 = P2StateNo = 5110
+trigger5 = P2StateNo = 5200
+var(9) = 0
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = Explod
+trigger1 = NumExplod(120) = 0
+trigger1 = Anim = 120
+anim = 123
+ID = 120
+postype = P1
+pos = 0,0
+facing = 1
+removetime = -1
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = Anim != 120
+ID = 120
+
+[State -2]
+type = Explod
+triggerall = NumExplod(130) = 0
+trigger1 = Anim = 130
+trigger2 = Anim = 150
+anim = 133
+ID = 130
+postype = P1
+pos = 0,0
+facing = 1
+removetime = -1
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = Anim != 130 && Anim != 150
+ID = 130
+
+[State -2]
+type = Explod
+trigger1 = NumExplod(140) = 0
+trigger1 = Anim = 140
+anim = 143
+ID = 140
+postype = P1
+pos = 0,0
+facing = 1
+removetime = -1
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = Anim != 140
+ID = 140
+
+[State -2]
+type = Explod
+trigger1 = NumExplod(121) = 0
+trigger1 = Anim = 121
+anim = 124
+ID = 121
+postype = P1
+pos = 0,0
+facing = 1
+removetime = -1
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = Anim != 121
+ID = 121
+
+[State -2]
+type = Explod
+triggerall = NumExplod(131) = 0
+trigger1 = Anim = 131
+trigger2 = Anim = 151
+anim = 134
+ID = 131
+postype = P1
+pos = 0,0
+facing = 1
+removetime = -1
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = Anim != 131 && Anim != 151
+ID = 131
+
+[State -2]
+type = Explod
+trigger1 = NumExplod(141) = 0
+trigger1 = Anim = 141
+anim = 144
+ID = 141
+postype = P1
+pos = 0,0
+facing = 1
+removetime = -1
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = Anim != 141
+ID = 141
+
+[State -2]
+type = Explod
+trigger1 = NumExplod(122) = 0
+trigger1 = Anim = 122
+anim = 125
+ID = 122
+postype = P1
+pos = 0,0
+facing = 1
+removetime = -1
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = Anim != 122
+ID = 122
+
+[State -2]
+type = Explod
+triggerall = NumExplod(132) = 0
+trigger1 = Anim = 132
+trigger2 = Anim = 152
+anim = 135
+ID = 132
+postype = P1
+pos = 0,0
+facing = 1
+removetime = -1
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = Anim != 132 && Anim != 152
+ID = 132
+
+[State -2]
+type = Explod
+trigger1 = NumExplod(142) = 0
+trigger1 = Anim = 142
+anim = 145
+ID = 142
+postype = P1
+pos = 0,0
+facing = 1
+removetime = -1
+bindtime = -1
+sprpriority = 1
+ownpal = 1
+
+[State -2]
+type = RemoveExplod
+trigger1 = Anim != 142
+ID = 142
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = AfterImageTime
+trigger1 = MoveType = H
+time = 0
+
+[State -2]
+type = RemoveExplod
+trigger1 = StateNo != [205,206]
+ID = 206
+
+[State -2]
+type = RemoveExplod
+trigger1 = StateNo != 215
+ID = 216
+
+[State -2]
+type = RemoveExplod
+trigger1 = StateNo != 270
+ID = 275
+
+[State -2]
+type = RemoveExplod
+trigger1 = StateNo != 410
+ID = 411
+
+[State -2]
+type = RemoveExplod
+trigger1 = StateNo != 600
+ID = 601
+
+[State -2]
+type = RemoveExplod
+trigger1 = StateNo != 610
+ID = 611
+
+[State -2]
+type = RemoveExplod
+trigger1 = MoveType = H
+ID = 1000
+
+[State -2]
+type = RemoveExplod
+trigger1 = P2StateNo != 1195
+ID = 1155
+
+[State -2]
+type = RemoveExplod
+trigger1 = MoveType = H
+ID = 1270
+
+[State -2]
+type = RemoveExplod
+trigger1 = MoveType = H
+ID = 1310
+
+[State -2]
+type = RemoveExplod
+trigger1 = MoveType = H
+ID = 1355
+
+[State -2]
+type = RemoveExplod
+trigger1 = MoveType = H
+ID = 1605
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = StopSnd
+trigger1 = StateNo != 100 && StateNo != 187
+channel = 2
+
+[State -2]
+type = StopSnd
+trigger1 = StateNo != [197,199]
+channel = 3
+
+[State -2]
+type = StopSnd
+trigger1 = MoveType = H
+channel = 4
+
+[State -2]
+type = StopSnd
+trigger1 = (StateNo != [97,99])
+trigger1 = (StateNo != [102,104])
+trigger1 = (StateNo != [107,109])
+channel = 9
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = Var(6) = 0 && Facing = 1
+v = 6
+value = 1
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = Var(6) = 0 && Facing = -1
+v = 6
+value = 2
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = Time = 0 && (StateNo = 150 || StateNo = 152 || StateNo = 154)
+v = 15
+value = 1
+
+[State -2]
+type = VarSet
+trigger1 = Var(15)  = 1 && Time = 15
+v = 15
+value = 0
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = (StateNo != [1200,1210]) && (StateNo != 1300) && (StateNo != 1450) && (StateNo != 1461)
+v = 16
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = (StateNo = [1200,1210]) || (StateNo = 1300) || (StateNo = 1450) || (StateNo = 1461)
+v = 16
+value = 1
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = (StateNo != 3000) && (StateNo != 3500) && (StateNo != 3900)
+v = 17
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = Var(16) = 1
+v = 17
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = StateNo != 3000
+v = 18
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = StateNo = 3000
+v = 18
+value = 1
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = StateNo != 3500
+v = 19
+value = 0
+ignorehitpause = 1
+
+[State -2]
+type = VarSet
+trigger1 = Var(18) = 1
+v = 19
+value = 1
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = VarSet
+trigger1 = P2MoveType != H
+v = 35
+value = 0
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = AttackMulSet
+trigger1 = Var(25) = 0
+ignorehitpause = 1
+value = 1
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(25) = 1
+ignorehitpause = 1
+value = .95
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(25) = 2
+ignorehitpause = 1
+value = .9
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(25) = 3
+ignorehitpause = 1
+value = .85
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(25) = 4
+ignorehitpause = 1
+value = .8
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(25) = 5
+ignorehitpause = 1
+value = .75
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(25) = 6
+ignorehitpause = 1
+value = .7
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(25) = 7
+ignorehitpause = 1
+value = .65
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(25) = 8
+ignorehitpause = 1
+value = .6
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(25) = 9
+ignorehitpause = 1
+value = .55
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(26) = 0
+trigger1 = Var(25) = 10
+ignorehitpause = 1
+value = .5
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(26) = 1
+trigger1 = Var(25) >= 10
+ignorehitpause = 1
+value = .5
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(26) = 0
+trigger1 = Var(25) = 11
+ignorehitpause = 1
+value = .45
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(26) = 0
+trigger1 = Var(25) = 12
+ignorehitpause = 1
+value = .4
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(26) = 0
+trigger1 = Var(25) = 13
+ignorehitpause = 1
+value = .35
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(26) = 0
+trigger1 = Var(25) = 14
+ignorehitpause = 1
+value = .3
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(26) = 0
+trigger1 = Var(25) = 15
+ignorehitpause = 1
+value = .25
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = Var(26) = 0
+trigger1 = Var(25) >= 16
+ignorehitpause = 1
+value = .2
+
+[State -2]
+type = AttackMulSet
+triggerall = Var(49) = 2
+trigger1 = StateNo = [3000,3999]
+trigger1 = Var(25) >= 10
+ignorehitpause = 1
+value = .5
+
+[State -2]
+type = VarSet
+trigger1 = P2MoveType != H
+ignorehitpause = 1
+v = 25
+value = 0
+
+[State -2]
+type = VarAdd
+triggerall = Var(26) = 0
+triggerall = StateNo != 206
+triggerall = StateNo != 800
+trigger1 = ProjHit = 1,1
+trigger2 = MoveHit = 1
+persistent = 0
+v = 25
+value = 1
+
+[State -2]
+type = VarAdd
+triggerall = Var(26) = 1
+triggerall = StateNo != 800
+trigger1 = ProjHit = 1,1
+trigger2 = MoveHit = 1
+persistent = 0
+v = 25
+value = 0
+
+[State -2]
+type = VarSet
+triggerall = Var(49) = 2
+trigger1 = StateNo != [3000,3999]
+ignorehitpause = 1
+v = 26
+value = 0
+
+[State -2]
+type = VarSet
+triggerall = Var(49) = 2
+trigger1 = StateNo = [3000,3999]
+ignorehitpause = 1
+v = 26
+value = 1
+
+;---------------------------------------------------------------------------
+;
+[State -2]
+type = DisplayToClipboard
+trigger1 = 1
+text = "Var = %d Var = %d P2Dist X:%f, P2Dist Y:%f, Pos Y:%f"
+params = var(4), var(25), P2BodyDist X, P2BodyDist Y, Pos Y
+
+[State -2]
+type = AppendToClipBoard
+trigger1 = 1
+text = "\nby German"
+

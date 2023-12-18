@@ -1,0 +1,56 @@
+===============说明===============
+
+
+a = 轻腿
+b = 重腿
+c = 通常为y+b
+x = 轻拳
+y = 重拳
+z = 通常为x+a
+
+
+===============指令===============
+
+
+---------投技---------
+
+Ice Coffin          近敌→/←+b/y
+
+--------特殊技--------
+
+One Inch          →+x
+
+Sliding Kick          ↘+a
+
+Critical Ice          ↘+y
+
+--------必杀技--------
+
+Diamond Breath          ↓↘→+x/y
+
+Crow Bites          →↓↘+x/y
+
+Counter Shell          ↓↙←+x/y
+
+Ray Spin          ↓↙←+a/b
+
+  ┣Stand          →+a
+
+  ┗Sit          →+b
+
+-------超必杀技-------
+
+Diamond Edge          ↓↘→↓↘→+x/y
+
+(5~12P)La La          ↓↘→↓↘→+a/b
+
+-----MAX 超必杀技-----
+
+Freeze Execution          →↘↓↙←→↘↓↙←+xy
+
+(1~4P)La La          ↓↘→↓↘→+ab
+
+-----MAX2超必杀技-----
+
+MAX2          ↓↘→↓↘→+ab
+

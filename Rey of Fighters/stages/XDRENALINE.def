@@ -1,0 +1,1611 @@
+;--------------------------------------------------------
+[Info]
+;Name = "XX'XDRENALINE'XX"
+Name = "XDRENALINE"
+Author = "EXShadow"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundright = 190
+boundleft = -190
+boundhigh = -200
+boundlow = 0
+verticalfollow = .95
+floortension = 60
+tension = 90
+zoomout = 0.75
+tensionhigh = 100
+tensionlow = 100
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 202
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 80
+color = 0,0,0
+yscale = .4
+fade.range = -160,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic  = sound/XDRENALINE.mp3
+bgvolume = 150
+
+;--------------------------------------------------------Main background definition
+[BGdef]
+spr      = XDRENALINE.sff
+debugbg  = 0
+
+[BG Black]
+type  = normal
+spriteno = 0, 1
+delta = 0, 0
+zoomdelta = 0
+mask = 0
+layerno = 0
+
+
+;=============================City Night
+
+[BG Space]
+type  = normal
+spriteno = 60, 13
+delta = 1, 1
+mask = 1
+tile = 1,0
+velocity = -.2,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 12
+delta = 1, 1
+mask = 1
+tile = 1,0
+velocity = -.5,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 11
+delta = 1, 1
+mask = 1
+tile = 1,0
+velocity = -1,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 10
+delta = 1, 1
+mask = 1
+tile = 1,0
+tilespacing = 50,0
+velocity = -1.50,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 9
+delta = 1, 1
+mask = 1
+tile = 1,0
+tilespacing = 50,0
+velocity = -2,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 8
+delta = 1, 1
+mask = 1
+tile = 1,0
+tilespacing = 50,0
+velocity = -2.50,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 7
+delta = 1, 1
+mask = 1
+tile = 1,0
+tilespacing = 50,0
+velocity = -3,0
+layerno = 0
+ID = 5
+
+
+
+
+
+
+
+
+
+[BG Space]
+type  = normal
+spriteno = 60, 6
+delta = 1, 1
+mask = 1
+tile = 1,0
+tilespacing = 50,0
+velocity = -3.50,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 5
+delta = 1, 1
+mask = 1
+tile = 1,0
+tilespacing = 50,0
+velocity = -4.10,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 4
+delta = 1, 1
+mask = 1
+tile = 1,0
+tilespacing = 50,0
+velocity = -5.10,0
+layerno = 0
+ID = 5
+
+
+[BG Space]
+type  = normal
+spriteno = 60, 3
+delta = 1, 1
+mask = 1
+tile = 1,0
+velocity = -6.20,0
+layerno = 0
+ID = 5
+
+
+
+[BG Space]
+type  = normal
+spriteno = 60, 2
+delta = 1, 1
+mask = 1
+tile = 1,0
+tilespacing = 80,0
+velocity = -7.50,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 16
+start = 0,60
+delta = 1, 1
+mask = 1
+tile = 1,0
+tilespacing = 6000,0
+velocity = -13,0
+layerno = 0
+ID = 5
+
+[BG Space]
+type  = normal
+spriteno = 60, 1
+delta = 1, 1
+mask = 1
+tile = 1,0
+velocity = -14,0
+layerno = 0
+ID = 5
+
+[BG Moon]
+type  = normal
+spriteno = 60, 14
+delta = 1, 1
+mask = 1
+trans = add
+layerno = 0
+ID = 5
+
+
+;=============================Cave
+
+[BG Space]
+type  = normal
+spriteno = 20, 7
+start = 0,70
+delta = .40, 1
+mask = 1
+tile = 1,0
+velocity = -.5,0
+layerno = 0
+ID = 4
+
+[BG Space]
+type  = normal
+spriteno = 20, 6
+start = 0,70
+delta = .40, 1
+mask = 1
+tile = 1,0
+velocity = -1,0
+layerno = 0
+ID = 4
+
+[BG Space]
+type  = normal
+spriteno = 20, 5
+start = 0,70
+delta = .40, 1
+mask = 1
+tile = 1,0
+velocity = -3,0
+layerno = 0
+ID = 4
+
+[BG Space]
+type  = normal
+spriteno = 20, 4
+start = 0,70
+delta = .50, 1
+mask = 1
+tile = 1,0
+velocity = -3,0
+layerno = 0
+ID = 4
+
+[BG Space]
+type  = normal
+spriteno = 20, 3
+delta = .50, 1
+mask = 1
+tile = 1,0
+velocity = -6,0
+layerno = 0
+ID = 4
+
+[BG Space]
+type  = normal
+spriteno = 200, 0
+delta = .50, 1
+mask = 1
+tile = 1,0
+trans = add
+velocity = -6,0
+layerno = 0
+ID = 4
+
+[BG Space]
+type  = normal
+spriteno = 200, 1
+delta = .50, 1
+mask = 1
+tile = 1,0
+trans = add
+velocity = -6,0
+layerno = 0
+ID = 4
+
+[BG Space]
+type  = normal
+spriteno = 20, 2
+start = 0,70
+delta = .60, 1
+mask = 1
+tile = 1,0
+velocity = -6,0
+layerno = 0
+ID = 4
+
+[BG Space]
+type  = normal
+spriteno = 20, 1
+delta = .70, 1
+mask = 1
+tile = 1,0
+velocity = -11,0
+layerno = 0
+ID = 4
+
+;=============================City Evening
+[BG Space]
+type  = normal
+spriteno = 1, 6
+delta = .20, 1
+mask = 1
+layerno = 0
+ID = 3
+
+[BG Space]
+type  = normal
+spriteno = 1, 5
+delta = .25, 1
+mask = 1
+tile = 1,0
+velocity = -2,0
+layerno = 0
+sin.y = 10,1000
+ID = 3
+
+[BG Space]
+type  = normal
+spriteno = 1, 7
+start = 0,20
+delta = .35, 1
+mask = 1
+tile = 1,0
+velocity = -3,0
+layerno = 0
+sin.y = 10,1000
+ID = 3
+
+[BG Space]
+type  = normal
+spriteno = 1, 4
+delta = .45, 1
+mask = 1
+tile = 1,0
+velocity = -4,0
+layerno = 0
+sin.y = 10,1000
+ID = 3
+
+[BG Space]
+type  = normal
+spriteno = 2, 0
+delta = .50, 1
+mask = 1
+tile = 1,0
+velocity = -5,0
+layerno = 0
+sin.y = 15,1000
+ID = 3
+
+[BG Space]
+type  = normal
+spriteno = 2, 1
+delta = .50, 1
+mask = 1
+tile = 1,0
+trans = add
+velocity = -5,0
+layerno = 0
+sin.y = 15,1000
+ID = 3
+
+[BG Space]
+type  = normal
+spriteno = 2, 2
+delta = .50, 1
+mask = 1
+tile = 1,0
+trans = add
+velocity = -5,0
+layerno = 0
+sin.y = 15,1000
+ID = 3
+
+[BG Space]
+type  = normal
+spriteno = 1, 2
+delta = .60, 1
+mask = 1
+tile = 1,0
+velocity = -9,0
+layerno = 0
+sin.y = 20,1000
+ID = 3
+
+[BG Space]
+type  = normal
+spriteno = 1, 1
+delta = .70, 1
+mask = 1
+tile = 1,0
+velocity = -9,0
+layerno = 0
+sin.y = 25,1000
+ID = 3
+
+[BG Space]
+type  = normal
+spriteno = 4, 0
+delta = .70, 1
+mask = 1
+layerno = 0
+ID = 2
+
+[BG Space]
+type  = normal
+spriteno = 400, 1
+delta = .70, 1
+mask = 1
+trans = add
+layerno = 0
+ID = 2
+
+[BG Space]
+type  = normal
+spriteno = 400, 2
+delta = .70, 1
+mask = 1
+trans = add
+layerno = 0
+ID = 2
+
+
+
+
+[BG Space]
+type  = normal
+spriteno = 400, 3
+delta = .70, 1
+mask = 1
+layerno = 0
+ID = 6
+
+[BG Space]
+type  = normal
+spriteno = 400, 4
+delta = .70, 1
+mask = 1
+trans = add
+layerno = 0
+ID = 6
+
+[BG Space]
+type  = normal
+spriteno = 400, 5
+delta = .70, 1
+mask = 1
+trans = add
+layerno = 0
+ID = 6
+
+
+
+
+[BG Space]
+type  = anim
+actionno = 1
+spriteno = 70, 0
+delta = .80, 1
+mask = 1
+layerno = 0
+
+
+[BG FrontBack]
+type  = anim
+actionno = 2
+spriteno = 90, 0
+start = 0,-2
+delta = 1.25, 1
+mask = 1
+layerno = 0
+
+[BG Space]
+type  = parallax
+spriteno = 10, 1
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+
+
+
+
+
+
+[BG Space]
+type  = parallax
+spriteno = 80, 10
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 30
+
+[BG Space]
+type  = parallax
+spriteno = 80, 9
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 29
+
+[BG Space]
+type  = parallax
+spriteno = 80, 8
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 28
+
+[BG Space]
+type  = parallax
+spriteno = 80, 7
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 27
+
+[BG Space]
+type  = parallax
+spriteno = 80, 6
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 26
+
+[BG Space]
+type  = parallax
+spriteno = 80, 5
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 25
+
+[BG Space]
+type  = parallax
+spriteno = 80, 4
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 24
+
+[BG Space]
+type  = parallax
+spriteno = 80, 3
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 23
+
+[BG Space]
+type  = parallax
+spriteno = 80, 2
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 22
+
+[BG Space]
+type  = parallax
+spriteno = 80, 1
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 21
+
+[BG Space]
+type  = parallax
+spriteno = 80, 0
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[BG Space]
+type  = parallax
+spriteno = 30, 9
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 40
+
+[BG Space]
+type  = parallax
+spriteno = 30, 8
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 39
+
+[BG Space]
+type  = parallax
+spriteno = 30, 7
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 38
+
+[BG Space]
+type  = parallax
+spriteno = 30, 6
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 37
+
+[BG Space]
+type  = parallax
+spriteno = 30, 5
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 36
+
+[BG Space]
+type  = parallax
+spriteno = 30, 4
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 35
+
+[BG Space]
+type  = parallax
+spriteno = 30, 3
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 34
+
+[BG Space]
+type  = parallax
+spriteno = 30, 2
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 33
+
+[BG Space]
+type  = parallax
+spriteno = 30, 1
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 32
+
+[BG Space]
+type  = parallax
+spriteno = 30, 0
+delta = .83, 1
+mask = 1
+xscale = 1,1.50
+layerno = 0
+ID = 31
+
+
+
+
+[BG FrontX]
+type  = anim
+actionno = 2
+spriteno = 90, 0
+start = 0,13
+delta = 1.25, 1
+mask = 1
+layerno = 1
+
+
+
+[BG Front]
+type  = anim
+actionno = 2
+spriteno = 90, 0
+delta = 1.25, 1
+mask = 1
+layerno = 1
+
+[BG Speed]
+type  = anim
+actionno = 3
+spriteno = 95, 0
+delta = 2, 2
+tile = 1,0
+tilespacing = 776,0
+velocity = -26,0
+layerno = 1
+
+[BG Hue]
+type  = anim
+actionno = 7
+spriteno = 100, 0
+delta = 0, 1
+zoomdelta = 0
+layerno = 1
+
+[BG Hue002]
+type  = anim
+actionno = 5
+spriteno = 20, 8
+delta = 1, 1
+zoomdelta = 0
+tile = 1,0
+tilespacing = 6000,0
+velocity = -16,0
+layerno = 1
+
+[BG Rain]
+type  = anim
+actionno = 8
+spriteno = 20, 8
+delta = 0, 1
+tile = 1,1
+tilespacing = 589,341
+velocity = -14,11
+zoomdelta = 0
+layerno = 1
+
+[BG Hue003]
+type  = anim
+actionno = 6
+spriteno = 20, 8
+delta = 0, 1
+zoomdelta = 0
+layerno = 1
+
+[BG Flash]
+type  = anim
+actionno = 9
+spriteno = 100, 1
+delta = 0, 0
+zoomdelta = 0
+layerno = 1
+
+;--------------------------------------------------------BG Controllers
+[BGCtrldef Main]
+CtrlID = 1
+looptime = 30
+
+;-go up
+[BGCtrl 01]
+type = Velset
+time = 0
+Y = .3
+
+;-end
+[BGCtrl 02]
+type = Velset
+time = 3
+Y = 0
+
+;-go up
+[BGCtrl 01]
+type = Velset
+time = 3
+Y = -.3
+
+;-end
+[BGCtrl 02]
+type = Velset
+time = 6
+Y = 0
+
+[BGCtrldef Main]
+CtrlID = 2
+looptime = -1
+
+;-go up
+[BGCtrl 01]
+type = Velset
+time = 1
+X = 0
+
+;-end
+[BGCtrl 02]
+type = Velset
+time = 2010
+X = -16
+
+
+
+
+
+[BGCtrldef Main003]
+CtrlID = 3
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 0
+value = 1
+ctrlid = 3
+
+[BGCtrl 2]
+type = Visible
+time = 2060
+value = 0
+ctrlid = 3
+
+[BGCtrldef Main003]
+CtrlID = 4
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 0
+value = 0
+ctrlid = 4
+
+[BGCtrl 2]
+type = Visible
+time = 2060
+value = 1
+ctrlid = 4
+
+[BGCtrl 2]
+type = Visible
+time = 3050
+value = 0
+ctrlid = 4
+
+
+
+[BGCtrldef Wall]
+CtrlID = 5
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 0
+value = 0
+ctrlid = 5
+
+[BGCtrl 2]
+type = Visible
+time = 3050
+value = 1
+ctrlid = 5
+
+[BGCtrldef Wall002]
+CtrlID = 6
+looptime = -1
+
+;-go up
+[BGCtrl 01]
+type = Velset
+time = 1
+X = 0
+
+;-end
+[BGCtrl 02]
+type = Velset
+time = 2990
+X = -16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[BGCtrldef Main003]
+CtrlID = 20
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 20
+
+[BGCtrl 2]
+type = Visible
+time = 2070
+value = 0
+ctrlid = 20
+
+
+[BGCtrldef Main003]
+CtrlID = 21
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2070
+value = 1
+ctrlid = 21
+
+[BGCtrl 2]
+type = Visible
+time = 2074
+value = 0
+ctrlid = 21
+
+[BGCtrldef Main003]
+CtrlID = 22
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2074
+value = 1
+ctrlid = 22
+
+[BGCtrl 2]
+type = Visible
+time = 2078
+value = 0
+ctrlid = 22
+
+[BGCtrldef Main003]
+CtrlID = 23
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2078
+value = 1
+ctrlid = 23
+
+[BGCtrl 2]
+type = Visible
+time = 2082
+value = 0
+ctrlid = 23
+
+[BGCtrldef Main003]
+CtrlID = 24
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2082
+value = 1
+ctrlid = 24
+
+[BGCtrl 2]
+type = Visible
+time = 2086
+value = 0
+ctrlid = 24
+
+[BGCtrldef Main003]
+CtrlID = 25
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2086
+value = 1
+ctrlid = 25
+
+[BGCtrl 2]
+type = Visible
+time = 2090
+value = 0
+ctrlid = 25
+
+[BGCtrldef Main003]
+CtrlID = 26
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2090
+value = 1
+ctrlid = 26
+
+[BGCtrl 2]
+type = Visible
+time = 2094
+value = 0
+ctrlid = 26
+
+[BGCtrldef Main003]
+CtrlID = 27
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2094
+value = 1
+ctrlid = 27
+
+[BGCtrl 2]
+type = Visible
+time = 2098
+value = 0
+ctrlid = 27
+
+[BGCtrldef Main003]
+CtrlID = 28
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2098
+value = 1
+ctrlid = 28
+
+[BGCtrl 2]
+type = Visible
+time = 2102
+value = 0
+ctrlid = 28
+
+[BGCtrldef Main003]
+CtrlID = 29
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2102
+value = 1
+ctrlid = 29
+
+[BGCtrl 2]
+type = Visible
+time = 2106
+value = 0
+ctrlid = 29
+
+[BGCtrldef Main003]
+CtrlID = 30
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 2106
+value = 1
+ctrlid = 30
+
+[BGCtrl 2]
+type = Visible
+time = 3070
+value = 0
+ctrlid = 30
+
+
+
+
+
+
+
+
+[BGCtrldef Main003]
+CtrlID = 31
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 31
+
+[BGCtrl 1]
+type = Visible
+time = 3070
+value = 1
+ctrlid = 31
+
+[BGCtrl 2]
+type = Visible
+time = 3074
+value = 0
+ctrlid = 31
+
+[BGCtrldef Main003]
+CtrlID = 32
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 32
+
+[BGCtrl 1]
+type = Visible
+time = 3074
+value = 1
+ctrlid = 32
+
+[BGCtrl 2]
+type = Visible
+time = 3078
+value = 0
+ctrlid = 32
+
+[BGCtrldef Main003]
+CtrlID = 33
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 33
+
+[BGCtrl 1]
+type = Visible
+time = 3078
+value = 1
+ctrlid = 33
+
+[BGCtrl 2]
+type = Visible
+time = 3082
+value = 0
+ctrlid = 33
+
+[BGCtrldef Main003]
+CtrlID = 34
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 34
+
+[BGCtrl 1]
+type = Visible
+time = 3082
+value = 1
+ctrlid = 34
+
+[BGCtrl 2]
+type = Visible
+time = 3086
+value = 0
+ctrlid = 34
+
+[BGCtrldef Main003]
+CtrlID = 35
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 35
+
+[BGCtrl 1]
+type = Visible
+time = 3086
+value = 1
+ctrlid = 35
+
+[BGCtrl 2]
+type = Visible
+time = 3090
+value = 0
+ctrlid = 35
+
+[BGCtrldef Main003]
+CtrlID = 36
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 36
+
+[BGCtrl 1]
+type = Visible
+time = 3090
+value = 1
+ctrlid = 36
+
+[BGCtrl 2]
+type = Visible
+time = 3094
+value = 0
+ctrlid = 36
+
+[BGCtrldef Main003]
+CtrlID = 37
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 37
+
+[BGCtrl 1]
+type = Visible
+time = 3094
+value = 1
+ctrlid = 37
+
+[BGCtrl 2]
+type = Visible
+time = 3098
+value = 0
+ctrlid = 37
+
+[BGCtrldef Main003]
+CtrlID = 38
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 38
+
+[BGCtrl 1]
+type = Visible
+time = 3098
+value = 1
+ctrlid = 38
+
+[BGCtrl 2]
+type = Visible
+time = 3102
+value = 0
+ctrlid = 38
+
+[BGCtrldef Main003]
+CtrlID = 39
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 39
+
+[BGCtrl 1]
+type = Visible
+time = 3102
+value = 1
+ctrlid = 39
+
+[BGCtrl 2]
+type = Visible
+time = 3106
+value = 0
+ctrlid = 39
+
+[BGCtrldef Main003]
+CtrlID = 40
+looptime = -1
+
+[BGCtrl 1]
+type = Visible
+time = 1
+value = 0
+ctrlid = 40
+
+[BGCtrl 1]
+type = Visible
+time = 3106
+value = 1
+ctrlid = 40
+
+
+;--------------------------------------------------------Animations
+[Begin Action 1]
+70,0,0,0,2070
+70,1,0,0,4
+70,2,0,0,4
+70,3,0,0,4
+70,4,0,0,4
+70,5,0,0,4
+70,6,0,0,4
+70,7,0,0,4
+70,8,0,0,4
+70,9,0,0,4
+70,10,0,0,964
+700,1,0,0,4
+700,2,0,0,4
+700,3,0,0,4
+700,4,0,0,4
+700,5,0,0,4
+700,6,0,0,4
+700,7,0,0,4
+700,8,0,0,4
+700,9,0,0,4
+loopstart
+700,10,0,0,4
+
+[Begin Action 2]
+90,0,0,0,2070
+90,1,0,0,4
+90,2,0,0,4
+90,3,0,0,4
+90,4,0,0,4
+90,5,0,0,4
+90,6,0,0,4
+90,7,0,0,4
+90,8,0,0,4
+90,9,0,0,4
+90,10,0,0,964
+900,1,0,0,4
+900,2,0,0,4
+900,3,0,0,4
+900,4,0,0,4
+900,5,0,0,4
+900,6,0,0,4
+900,7,0,0,4
+900,8,0,0,4
+900,9,0,0,4
+loopstart
+900,10,0,0,4
+
+[Begin Action 3]
+95,0,0,0,2110, ,as156d256
+
+
+[Begin Action 4]
+20,5,0,0,2
+
+[Begin Action 5]
+0,1,0,0,2110
+20,8,0,0,2, ,as6d256
+20,8,0,0,2, ,as26d256
+20,8,0,0,2, ,as46d256
+20,8,0,0,2, ,as66d256
+20,8,0,0,2, ,as86d256
+20,8,0,0,2, ,as106d256
+20,8,0,0,2, ,as126d256
+20,8,0,0,2, ,as146d256
+20,8,0,0,2, ,as166d256
+20,8,0,0,2, ,as186d256
+20,8,0,0,2, ,as206d256
+20,8,0,0,2, ,as226d256
+20,8,0,0,2, ,as246d256
+20,8,0,0,924, ,as255d256
+20,8,0,0,2, ,as246d256
+20,8,0,0,2, ,as226d256
+20,8,0,0,2, ,as206d256
+20,8,0,0,2, ,as186d256
+20,8,0,0,2, ,as166d256
+20,8,0,0,2, ,as146d256
+20,8,0,0,2, ,as126d256
+20,8,0,0,2, ,as106d256
+20,8,0,0,2, ,as86d256
+20,8,0,0,2, ,as66d256
+20,8,0,0,2, ,as46d256
+20,8,0,0,2, ,as26d256
+20,8,0,0,2, ,as6d256
+loopstart
+0,1,0,0,1
+
+[Begin Action 6]
+0,1,0,0,3110
+60,15,0,0,2, ,as6d256
+60,15,0,0,2, ,as26d256
+60,15,0,0,2, ,as46d256
+60,15,0,0,2, ,as66d256
+60,15,0,0,2, ,as86d256
+60,15,0,0,2, ,as106d256
+60,15,0,0,2, ,as126d256
+60,15,0,0,2, ,as146d256
+60,15,0,0,2, ,as166d256
+60,15,0,0,2, ,as186d256
+60,15,0,0,2, ,as206d256
+60,15,0,0,2, ,as226d256
+60,15,0,0,2, ,as246d256
+loopstart
+60,15,0,0,2, ,a
+
+[Begin Action 7]
+100,0,0,0,2050, ,as166d256
+100,0,0,0,2, ,as146d256
+100,0,0,0,2, ,as126d256
+100,0,0,0,2, ,as106d256
+100,0,0,0,2, ,as86d256
+100,0,0,0,2, ,as66d256
+100,0,0,0,2, ,as46d256
+100,0,0,0,2, ,as26d256
+100,0,0,0,2, ,as6d256
+loopstart
+0,1,0,0,1
+
+[Begin Action 8]
+0,1,0,0,4050
+500,0,0,0,2, ,as6d256
+500,0,0,0,2, ,as16d246
+500,0,0,0,2, ,as26d236
+500,0,0,0,2, ,as36d226
+500,0,0,0,2, ,as46d216
+500,0,0,0,2, ,as56d206
+500,0,0,0,2, ,as66d206
+500,0,0,0,2, ,as76d206
+500,0,0,0,2, ,as86d206
+500,0,0,0,2, ,as96d206
+500,0,0,0,2, ,as106d206
+500,0,0,0,2, ,as116d206
+500,0,0,0,2, ,as126d206
+500,0,0,0,2, ,as136d206
+500,0,0,0,2, ,as146d206
+500,0,0,0,2, ,as156d206
+500,0,0,0,2, ,as166d206
+500,0,0,0,2, ,as176d206
+loopstart
+500,0,0,0,2, ,as186d206
+
+[Begin Action 9]
+0,1,0,0,3500
+loopstart
+100,1,0,0,5, ,as236d256
+100,1,0,0,3, ,as216d256
+100,1,0,0,3, ,as196d256
+100,1,0,0,3, ,as176d256
+100,1,0,0,3, ,as156d256
+100,1,0,0,3, ,as136d256
+100,1,0,0,3, ,as116d256
+100,1,0,0,3, ,as96d256
+100,1,0,0,3, ,as76d256
+100,1,0,0,3, ,as56d256
+100,1,0,0,3, ,as36d256
+100,1,0,0,3, ,as16d256
+100,1,0,0,3, ,as6d256
+0,1,0,0,100
+100,1,0,0,5, ,as236d256
+100,1,0,0,3, ,as216d256
+100,1,0,0,3, ,as196d256
+100,1,0,0,3, ,as176d256
+100,1,0,0,3, ,as156d256
+100,1,0,0,3, ,as136d256
+100,1,0,0,3, ,as116d256
+100,1,0,0,3, ,as96d256
+100,1,0,0,3, ,as76d256
+100,1,0,0,3, ,as56d256
+100,1,0,0,3, ,as36d256
+100,1,0,0,3, ,as16d256
+100,1,0,0,3, ,as6d256
+0,1,0,0,150
+100,1,0,0,5, ,as236d256
+100,1,0,0,3, ,as216d256
+100,1,0,0,3, ,as196d256
+100,1,0,0,3, ,as176d256
+100,1,0,0,3, ,as156d256
+100,1,0,0,3, ,as136d256
+100,1,0,0,3, ,as116d256
+100,1,0,0,3, ,as96d256
+100,1,0,0,3, ,as76d256
+100,1,0,0,3, ,as56d256
+100,1,0,0,3, ,as36d256
+100,1,0,0,3, ,as16d256
+100,1,0,0,3, ,as6d256
+0,1,0,0,75
+100,1,0,0,5, ,as236d256
+100,1,0,0,3, ,as216d256
+100,1,0,0,3, ,as196d256
+100,1,0,0,3, ,as176d256
+100,1,0,0,3, ,as156d256
+100,1,0,0,3, ,as136d256
+100,1,0,0,3, ,as116d256
+100,1,0,0,3, ,as96d256
+100,1,0,0,3, ,as76d256
+100,1,0,0,3, ,as56d256
+100,1,0,0,3, ,as36d256
+100,1,0,0,3, ,as16d256
+100,1,0,0,3, ,as6d256
+0,1,0,0,175
+100,1,0,0,5, ,as236d256
+100,1,0,0,3, ,as216d256
+100,1,0,0,3, ,as196d256
+100,1,0,0,3, ,as176d256
+100,1,0,0,3, ,as156d256
+100,1,0,0,3, ,as136d256
+100,1,0,0,3, ,as116d256
+100,1,0,0,3, ,as96d256
+100,1,0,0,3, ,as76d256
+100,1,0,0,3, ,as56d256
+100,1,0,0,3, ,as36d256
+100,1,0,0,3, ,as16d256
+100,1,0,0,3, ,as6d256
+0,1,0,0,25
+100,1,0,0,5, ,as236d256
+100,1,0,0,3, ,as216d256
+100,1,0,0,3, ,as196d256
+100,1,0,0,3, ,as176d256
+100,1,0,0,3, ,as156d256
+100,1,0,0,3, ,as136d256
+100,1,0,0,3, ,as116d256
+100,1,0,0,3, ,as96d256
+100,1,0,0,3, ,as76d256
+100,1,0,0,3, ,as56d256
+100,1,0,0,3, ,as36d256
+100,1,0,0,3, ,as16d256
+100,1,0,0,3, ,as6d256
+0,1,0,0,200
+

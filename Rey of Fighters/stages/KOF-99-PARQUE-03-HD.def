@@ -1,0 +1,164 @@
+[Info]
+name = "KOF-99-PARQUE-03-HD"
+displayname = "Garden - Rain"
+versiondate = 01,23,2011
+mugenversion = 1.0
+author = "Kaede Monthmore"
+originalauthor = "Claudio Toxi"
+
+;--------------------------------------------------------
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -210
+boundright = 210
+boundhigh = -90
+boundlow = 0
+verticalfollow = 0
+floortension = 100
+tension = 50
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+;--------------------------------------------------------
+[Scaling]
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 212
+autoturn = 1
+resetBG = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 136
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic  = sound/KOF-99-PARQUE-03-HD.mp3
+bgvolume = 155
+
+;--------------------------------------------------------
+[BGdef]
+spr      = KOF-99-PARQUE-03-HD.sff
+debugbg  = 0
+
+[BG Background A]
+type = anim
+actionno = 0
+layerno = 0
+start = -288,0
+delta = 0.8,1
+trans = none
+mask = 1
+tilespacing = 0,0
+scalestart = .25,.25
+
+[Begin action 0]
+0,0,0,0,3,,
+0,1,0,0,3,,
+0,2,0,0,3,,
+0,3,0,0,3,,
+0,4,0,0,3,,
+0,5,0,0,3,,
+0,6,0,0,3,,
+0,7,0,0,3,,
+
+[BG Background B]
+type = anim
+actionno = 1
+layerno = 0
+start = -20,0
+delta = 0.8,1
+trans = none
+mask = 1
+tilespacing = 0,0
+scalestart = .25,.25
+
+[Begin action 1]
+1,0,0,0,3,,
+1,1,0,0,3,,
+1,2,0,0,3,,
+1,3,0,0,3,,
+1,4,0,0,3,,
+1,5,0,0,3,,
+1,6,0,0,3,,
+1,7,0,0,3,,
+
+[BG Thunder]
+type = anim
+actionno = 5
+layerno = 0
+start = -180,0
+delta = 0.8,1
+trans = none
+mask = 1
+tilespacing = 0,0
+scalestart = .25,.25
+
+[Begin action 5]
+-1,-1,0,0,18,,
+5,0,0,0,3,,
+-1,-1,0,0,93,,
+5,0,0,0,3,,
+-1,-1,0,0,21,,
+5,1,0,0,3,,
+5,2,0,0,3,,
+5,3,0,0,3,,
+5,4,0,0,3,,
+-1,-1,0,0,18,,
+-1,-1,0,0,240,,
+
+[BG RainDrop]
+type = anim
+actionno = 10
+layerno = 1
+start = 0,2
+delta = 0.8,1
+;trans = add
+;dest = 75,255
+mask = 1
+tile = 1,0
+tilespacing = 128,0
+scalestart = .3,.3
+
+[Begin action 10]
+10,0, 0,0, 2, , AS90D256
+10,1, 0,0, 2, , AS90D256
+10,2, 0,0, 2, , AS90D256
+10,3, 0,0, 2, , AS90D256
+10,4, 0,0, 2, , AS90D256
+10,5, 0,0, 2, , AS90D256
+10,6, 0,0, 2, , AS90D256
+10,7, 0,0, 2, , AS90D256

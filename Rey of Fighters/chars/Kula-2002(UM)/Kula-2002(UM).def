@@ -1,0 +1,39 @@
+[Info]
+name ="Kula-2002(UM)"
+displayname ="Kula"
+versiondate =09,27,2015
+mugenversion =04,14,2001
+author="German"
+×÷Õß:Ð¡²ÝÝ®
+pal.defaults=1
+
+[Files]
+cmd      =Kula-2002(UM).cmd
+cns      =State/Kula-2002(UM).cns
+st       =State/Kula-2002(UM).cns
+stcommon =State/Common.cns
+sprite   =Other/Kula-2002(UM).sff
+anim     =Other/Kula-2002(UM).air
+sound    =Other/Kula-2002(UM).snd
+pal1=Act/1.act
+pal2=Act/2.act
+pal3=Act/3.act
+pal4=Act/4.act
+pal5=Act/5.act
+pal6=Act/6.act
+pal7=Act/7.act
+pal8=Act/8.act
+pal9=Act/9.act
+pal10=Act/10.act
+pal11=Act/11.act
+pal12=Act/12.act
+st1=State/Kula-2002(UM)_S.cns
+st2=State/Kula-2002(UM)_H.cns
+st3=State/Kula-2002(UM)_-2.cns
+st4=State/Kula-2002(UM)_-3.cns
+
+[Arcade]
+intro.storyboard  =
+ending.storyboard =
+
+£»

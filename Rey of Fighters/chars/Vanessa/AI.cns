@@ -1,0 +1,1983 @@
+;=============================================================================
+;Vanessa AI File
+;=============================================================================
+[Statedef 199991]
+type = S
+ctrl = 0
+anim = 1
+
+;==============================================================================
+;Leave Everything from here alone.
+;==============================================================================
+
+;=============================================================================
+;Projectile Detection
+;=============================================================================
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,var(38)>=parent,var(35)
+trigger1 = PlayerIDExist(parent,var(38))
+v = 35
+value = parent,var(38)
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = parent,var(37)>=parent,var(35)
+trigger1 = PlayerIDExist(parent,var(37))
+v = 35
+value = parent,var(37)
+
+;[State 0, ParentVarSet]
+;type = ParentVarSet
+;trigger1 = parent,var(34)>=parent,var(35)
+;trigger1 = PlayerIDExist(parent,var(34))
+;v = 35
+;value = parent,var(34)
+
+;[State 0, ParentVarSet]
+;type = ParentVarSet
+;trigger1 = parent,var(33)>=parent,var(35)
+;trigger1 = PlayerIDExist(parent,var(33))
+;v = 35
+;value = parent,var(33)
+;Quando a var(37) encontrar uma nova playerid, ela vai atualizar a var(35).
+;E assim forma o ciclo, a var(35) vai ser constantemente atualizada, e a var(37) vai sempre sair da var(35) e retornar a ela em 10 ticks.
+
+;=============================================================================
+;A.I. Special States
+;=============================================================================
+;Stand to Crouch
+;=============================================================================
+[Statedef 4010]
+type    = C
+physics = C
+anim = 10
+ctrl = 0
+velset = 0,0
+
+[State 10, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 10, 1]
+type = VelMul
+trigger1 = Time = 0
+x = .75
+
+[State 10, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 4011
+
+;=============================================================================
+; Crouching/Standart Counter Position
+;=============================================================================
+[Statedef 4011]
+type    = C
+physics = C
+;anim = 11
+sprpriority = 0
+ctrl = 0
+velset = 0,0
+
+[State 0, Turn]
+type = Turn
+trigger1 = facing = 1
+trigger1 = Enemy, pos x < pos x
+trigger2 = facing = -1
+trigger2 = Enemy, pos x > pos x
+
+[State 11, 1] ;Change from turning animation
+type = ChangeAnim
+trigger1 = Anim = 6 && AnimTime = 0
+value = 11
+
+[State 11, 1] ;Change from turning animation
+type = ChangeAnim
+trigger1 = Time = 0
+value = 10
+
+[State 11, 1] ;Change from turning animation
+type = ChangeAnim
+trigger1 = Anim = 10
+trigger1 = AnimTime = 0
+value = 11
+
+[State -1, CP]
+type = ChangeState
+value = Ifelse(p2bodydist X <= 20 && p2dist X >= -20, 3200,1300)
+triggerall = power >= 1000 || var(23) > 0
+triggerall = fvar(16) = 8
+trigger1 = statetype != A
+
+[State 11, 1] ;Change from turning animation
+type = ChangeState
+trigger1 = Time > 30
+value = 0
+
+;=============================================================================
+;Stand to Crouch
+;=============================================================================
+[Statedef 4013]
+type    = C
+physics = C
+anim = 10
+ctrl = 0
+velset = 0,0
+
+[State 10, 1]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[State 10, 1]
+type = VelMul
+trigger1 = Time = 0
+x = .75
+
+[State 10, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 4014
+
+;=============================================================================
+; Crouching/Standart Counter Position Ctrl
+;=============================================================================
+[Statedef 4014]
+type    = C
+physics = C
+;anim = 11
+sprpriority = 0
+ctrl = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = facing = 1
+trigger1 = Enemy, pos x < pos x
+trigger2 = facing = -1
+trigger2 = Enemy, pos x > pos x
+
+[State 11, 1] ;Change from turning animation
+type = ChangeAnim
+trigger1 = Anim = 6 && AnimTime = 0
+trigger2 = Time = 0
+value = 11
+
+[State 10, 2]
+type = ChangeState
+trigger1 = Time >= 30
+value = 4012
+
+;=============================================================================
+; Crouch to Stand
+;=============================================================================
+[Statedef 4012]
+type    = S
+physics = S
+anim = 12
+ctrl = 0
+
+[State 12, 1]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;========================================================================
+; Walk Forward A.I.
+;========================================================================
+[Statedef 4020]
+type    = S
+physics = S
+MoveType = I
+sprpriority = 0
+ctrl = 0
+
+[State 20, 2]
+type = VelSet
+trigger1 = 1
+x = const(velocity.walk.fwd.x)
+
+[State 20, 4]
+type = ChangeAnim
+triggerall = Anim != 20
+trigger1 = !Time
+value = 20
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = P2bodydist x < -20
+value = 0
+ctrl = 1
+
+;========================================================================
+; Walk Back A.I.
+;========================================================================
+[Statedef 4021]
+type    = S
+physics = S
+MoveType = I
+sprpriority = 0
+ctrl = 0
+
+[State 20, 2]
+type = VelSet
+trigger1 = 1
+x = const(velocity.walk.back.x)
+
+[State 20, 4]
+type = ChangeAnim
+triggerall = Anim != 21
+trigger1 = !Time
+value = 21
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = P2bodydist x < 0
+trigger2 = Facing = Enemy,Facing
+trigger3 = Time > 100
+fv = 17
+value = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = P2bodydist x < -20
+trigger2 = Facing = Enemy,Facing
+trigger3 = Time > 100
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Short Jumpf1
+[Statedef 4040]
+type = S
+physics = S
+anim = 40
+ctrl = 0
+velset = 0,0
+facep2 = 1
+sprpriority = 1
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 40, 9]
+type = VelSet
+trigger1 = AnimTime = 0
+x = 4.951171875
+y = -6.3525390625
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 4041
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Short Jumpf2
+[Statedef 4041]
+type = A
+physics = N
+anim = 52
+
+[State -3, land]
+type = PlaySnd
+trigger1 = !time
+value =  1,4
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 1101, pos]
+type = Veladd
+trigger1 = time > 0
+y = const(movement.yaccel)
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 40, 6]
+type = ChangeState
+trigger1 = time > 10 && Pos y >= 0
+value = 4052
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Short Jumpb1
+[Statedef 4042]
+type = S
+physics = S
+anim = 40
+ctrl = 0
+velset = 0,0
+facep2 = 1
+sprpriority = 1
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 40, 9]
+type = VelSet
+trigger1 = AnimTime = 0
+x = -4.951171875
+y = -6.3525390625
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 4043
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Short Jumpb2
+[Statedef 4043]
+type = A
+physics = N
+anim = 53
+
+[State -3, land]
+type = PlaySnd
+trigger1 = !time
+value =  1,4
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 1101, pos]
+type = Veladd
+trigger1 = time > 0
+y = const(movement.yaccel)
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 40, 6]
+type = ChangeState
+trigger1 = time > 10 && Pos y >= 0
+value = 4052
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Jump
+[Statedef 4044]
+type = S
+physics = S
+anim = 40
+ctrl = 0
+velset = 0,0
+facep2 = 1
+sprpriority = 1
+
+[State 40, 9]
+type = VelSet
+trigger1 = AnimTime = 0
+x = 0
+y = -8.63671875
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 4045
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Jump
+[Statedef 4045]
+type = A
+physics = N
+anim = 41
+
+[State -3, land]
+type = PlaySnd
+trigger1 = !time
+value = 1,5
+
+[State 1101, pos]
+type = Veladd
+trigger1 = time > 0
+y = const(movement.yaccel)
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+;=============================================
+;A.I
+;=============================================
+
+[State 40, 6]
+type = ChangeState
+trigger1 = time > 10 && Pos y >= 0
+value = 4052
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Jump
+[Statedef 4046]
+type = S
+physics = S
+anim = 40
+ctrl = 0
+velset = 0,0
+facep2 = 1
+sprpriority = 1
+
+[State 40, 9]
+type = VelSet
+trigger1 = AnimTime = 0
+x = 3.30078125
+y = -8.63671875
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 4047
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Jump
+[Statedef 4047]
+type = A
+physics = N
+anim = 42
+
+[State -3, land]
+type = PlaySnd
+trigger1 = !time
+value =  1,5
+
+[State 1101, pos]
+type = Veladd
+trigger1 = time > 0
+y = const(movement.yaccel)
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 40, 6]
+type = ChangeState
+trigger1 = time > 10 && Pos y >= 0
+value = 4052
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Jump
+[Statedef 4048]
+type = S
+physics = S
+anim = 40
+ctrl = 0
+velset = 0,0
+facep2 = 1
+sprpriority = 1
+
+[State 40, 9]
+type = VelSet
+trigger1 = AnimTime = 0
+x = -3.30078125
+y = -8.63671875
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 4049
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Jump
+[Statedef 4049]
+type = A
+physics = N
+anim = 43
+
+[State -3, land]
+type = PlaySnd
+trigger1 = !time
+value =  1,5
+
+[State 1101, pos]
+type = Veladd
+trigger1 = time > 0
+y = const(movement.yaccel)
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 40, 6]
+type = ChangeState
+trigger1 = time > 10 && Pos y >= 0
+value = 4052
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Jump
+[Statedef 4053]
+type = S
+physics = S
+anim = 40
+ctrl = 0
+velset = 0,0
+facep2 = 1
+sprpriority = 1
+
+[State 40, 9]
+type = VelSet
+trigger1 = AnimTime = 0
+x = 4.951171875
+y = -8.63671875
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 4054
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Jump
+[Statedef 4054]
+type = A
+physics = N
+anim = 42
+
+[State -3, land]
+type = PlaySnd
+trigger1 = !time
+value =  1,4
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State 1101, pos]
+type = Veladd
+trigger1 = time > 0
+y = const(movement.yaccel)
+
+[State 810, 1]
+type = AfterImage
+trigger1 = !time && var(2) && sysvar(1)
+time = 10
+length = 9
+framegap = 3
+palcontrast = 256,256,256
+paladd = 0,0,0
+palmul = 1,1,1
+
+;=========================================================================
+;A.I.
+;=========================================================================
+
+[State 40, 6]
+type = ChangeState
+trigger1 = time > 10 && Pos y >= 0
+value = 4052
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Jump Land
+[Statedef 4052]
+type    = S
+physics = N
+ctrl = 0
+anim = 47
+
+[State 52, 3]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+;[State 40, 1]
+;type = VarSet
+;trigger1 = !time
+;var(2) = 0
+
+[State -3, land]
+type = PlaySnd
+trigger1 = !time
+value = 1,3
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+x = 0
+
+[State 52, 1]
+type = VelSet
+trigger1 = Time = 0
+y = 0
+
+[State 52, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+;=============================================
+;A.I
+;=============================================
+
+[State 52, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; A.I. DASH_FWD
+[Statedef 4100]
+type    = S
+physics = S
+anim = 100
+ctrl = 0
+velset = 0
+sprpriority = 1
+
+[State -3, dash]
+type = PlaySnd
+trigger1 = time = 5
+value = 1,6
+loop = 1
+channel = 27
+
+[State 100, 1]
+type = VelSet
+trigger1 = time > 3
+x = const(velocity.run.fwd.x)
+
+[State 100, 2] ;Prevent run from canceling into walk
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 100, 3] ;Prevent from turning
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+;=============================================
+;A.I
+;=============================================
+[State 0, VarSet]
+type = VarSet
+trigger1 = Facing = Enemy,Facing
+trigger2 = P2dist X <= 40
+trigger3 = Time > 50
+fv = 17
+value = 0
+
+[State 510,3]
+type = ChangeState
+triggerall = Enemy, Alive
+trigger1 = P2dist X <= 40
+value = ifelse(random <= 500, 215,330)
+ctrl = 0
+
+[State -1, Guard]
+type=changestate
+value=700
+triggerall = Time > 3
+triggerall = EnemyNear,Alive
+triggerall= var(59)>=1 && numenemy
+triggerall= roundstate=2 && inguarddist
+triggerall = (stateno!=[120,155])
+triggerall = enemynear, movetype = A
+triggerall= statetype!=A
+trigger1 = !(enemynear,hitdefattr=SCA,AT)
+trigger1 = Random >= (EnemyNear,Time)*200
+trigger1 = P2BodyDist X <= 90 && P2BodyDist X >= -15
+
+[State -1, Guard]
+type=changestate
+value=4101
+triggerall = Time > 3
+triggerall = EnemyNear,Alive
+triggerall= var(59)>=1 && numenemy
+triggerall= roundstate=2 && inguarddist
+triggerall = (stateno!=[120,155])
+triggerall = enemynear, movetype = A
+triggerall= statetype!=A
+trigger1 = !(enemynear,hitdefattr=SCA,AT)
+trigger1 = EnemyNear,Time > Var(46)/2
+
+[State -1, Jump]
+type=changestate
+value=4040
+triggerall = Time > 3
+triggerall = EnemyNear,Alive
+triggerall= var(59)>=1 && numenemy
+triggerall= roundstate=2 && inguarddist
+triggerall = (stateno!=[120,155])
+triggerall = enemynear, movetype = A
+triggerall= statetype!=A
+trigger1 = (enemynear,hitdefattr=SCA,AT)
+trigger1 = EnemyNear,Time > Var(46)
+
+[State 510,3]
+type = ChangeState
+triggerall = Enemy, Alive
+trigger1 = Facing = Enemy,Facing
+trigger2 = P2dist X <= 40
+trigger3 = Time > 50
+value = 4101
+ctrl = 0
+
+;--------------------------------------------------------------------------
+[Statedef 4101]
+type    = S
+physics = S
+anim = 101
+ctrl = 0
+velset = 0
+sprpriority = 1
+
+[State 220,2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; A.I. DASH_FWD  Back
+[Statedef 4105]
+type    = S
+physics = n
+ctrl = 0
+anim = 105
+sprpriority = 1
+
+[State 105, 3]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4106
+
+;---------------------------------------------------------------------------
+[Statedef 4106]
+type    = s
+physics = S
+ctrl = 0
+anim = 106
+sprpriority = 1
+
+[State -3, land]
+type = PlaySnd
+trigger1 = time = 0
+value =  1,7
+
+[State 105, 1]
+type = VelSet
+trigger1 = !time
+x = const(velocity.run.back.x)
+y = const(velocity.run.back.y)
+
+;===============================================================================
+;Attention!
+;===============================================================================
+[State 105, VelAdd]
+type = VelMul
+trigger1 = time > 1
+x = .956718076 ;Change this number by whatever your VelMul should be.
+
+[State 105, VelAdd]
+type = VelAdd
+trigger1 = time > 0
+y = 0.21484375  ;Change this number by whatever your gravity should be.
+
+;===============================================================================
+;
+;===============================================================================
+[State 105, 3]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4107
+
+;---------------------------------------------------------------------------
+; RUN_BACK
+[Statedef 4107]
+type    = s
+physics = S
+ctrl = 0
+anim = 107
+sprpriority = 1
+velset = 0,0
+
+[State 106, 1]
+type = VelSet
+trigger1 = Time = 0
+x = 0
+y = 0
+
+[State 106, 2]
+type = PosSet
+trigger1 = Time = 0
+y = 0
+
+[State -3, land]
+type = PlaySnd
+trigger1 = time = 0
+value =  1,3
+
+[State 106, 4]
+type = ChangeState
+trigger1 = animtime = 0
+value = 0
+ctrl = 1
+
+;======================================
+;A.I Defensive Scripts
+;======================================
+;Turtling/WakeUp
+;======================================
+;A: C (-> Dash Puncher)
+;B: Crouch C (Dash Puncher/Puncher Vision)
+;C: Dash Puncher
+;D: Puncher Vision Forwward
+;_Puncher Vision Backward
+;E: Puncher Weaving -> Dash Puncher
+;F: Helion
+;G: Champion Puncher
+;H: Throw
+;I: Crazy Puncher
+;J: Jump D
+;L: Crouch D
+[Statedef 4199]
+type    = S
+physics = S
+anim = 1
+ctrl = 0
+velset = 0
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 999999999
+pos = 0,0
+
+[State 0, ParentVarSet]
+type = ParentVarSet
+trigger1 = 1
+fv = 20
+value = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Parent,Stateno = 0
+trigger1 = Parent,Ctrl
+value =  4200
+ctrl = 0
+
+[Statedef 4200]
+type    = S
+physics = S
+anim = 1
+ctrl = 0
+velset = 0
+sprpriority = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = facing = 1
+trigger1 = Enemy, pos x < pos x
+trigger2 = facing = -1
+trigger2 = Enemy, pos x > pos x
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+time = 999999999
+pos = 0,0
+
+[State 0, VarSet]
+type = ParentVarSet
+trigger1 = 1
+fv = 17
+value = ifelse(EnemyNear,Stateno >= 5100 && EnemyNear,Stateno <= 5210|| EnemyNear,STatetype = L, 6,0)
+
+[State 4200, Stance]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+trigger1 = Parent, fvar(17) != 1
+trigger1 = Parent, Var(44) <= 25
+trigger1 = Parent, Var(41) = 0 && Parent, InGuardDist = 0
+trigger2 = Parent, fvar(17) != 1
+trigger2 = Parent, Var(44) <= 15
+trigger2 = Parent, Var(41) = 1
+fv = 17
+value = 1
+
+[State 4200, Stance]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = Parent,Fvar(14)=0
+triggerall = P2Dist X <= 200
+triggerall = Random <= (Parent,Life)+ (EnemyNear, Life)+200
+triggerall = p2bodydist X >= 11
+trigger1 = Parent, fvar(17) != 5
+trigger1 = Parent, Var(44) > 31
+trigger1 = Parent, Var(41) = 0 && Parent, InGuardDist = 0
+trigger2 = Parent, fvar(17) != 5
+trigger2 = Parent, Var(44) <= 30
+trigger2 = Parent, Var(41) = 1
+trigger2 = Random = [ceil(EnemyNear,Stateno/3),800]
+fv = 17
+value = 5
+
+[State 4200, Stance]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = Parent,Fvar(14)=0
+triggerall = Parent, Prevstateno != 4101
+triggerall = Parent,Stateno != 4100
+triggerall = Parent, fvar(17) != 3
+triggerall = EnemyNear,NumProj = 0
+triggerall = Fvar(14) = 0
+triggerall = EnemyNear, Ctrl = 0
+triggerall = Parent, Var(41) = 0
+trigger1 = EnemyNear, Pos Y < 0
+trigger1 = Parent, Var(44) = [0,35]
+trigger2 = EnemyNear, Pos Y = 0
+trigger2 = EnemyNear, AnimTime < -8
+trigger2 = Parent, Var(44) = [0,35]
+fv = 17
+value = 3
+
+[State 4200, Stance]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = Parent,Fvar(14)=0
+trigger1 = Parent, fvar(17) != 2
+trigger1 = Parent, Var(44) < 21
+trigger1 = Parent, Var(41) = 1 && Parent, InGuardDist = 0
+trigger1 != EnemyNear, NumProj
+fv = 17
+value = 2
+
+[State 4200, Stance]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = Parent,Fvar(14)=0
+trigger1 = Parent, fvar(17) != 4
+trigger1 = Parent, Var(44) >= 21
+trigger1 = Parent, Var(41) = 1 && Parent, InGuardDist = 0
+fv = 17
+value = 4
+
+[State 4200, Stance]
+type = ParentVarSet
+triggerall = Parent,Fvar(17)!=6
+triggerall = Parent, fvar(17) != 6
+trigger1 = Parent, fvar(17) > 0
+trigger1 = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100) || (Parent,Movetype = A) || (Parent, Movetype = H)
+trigger1 = Parent,Time > 1
+fv = 17
+value = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = parent, Stateno = 210 && Parent,Movecontact
+trigger2 = parent, Stateno = 215 && Parent,Movecontact
+trigger3 = parent, Stateno = 310 && Parent,Movecontact
+trigger4 = parent, Stateno = 330 && Parent,Movecontact
+trigger5 = parent, Stateno = 340 && Parent,Movecontact
+trigger6 = parent, Stateno = 440 && Parent,Movecontact
+trigger7 = parent, Stateno = 1200 && Parent,MoveHit
+value = 4260
+ctrl = 0
+
+;[State 0, ChangeState]
+;type = ChangeState
+;trigger1 = enemynear, anim= 5110 || enemynear, anim= 5111 || enemynear, anim= 5112
+;trigger1 = enemynear, Time >= 4
+;trigger2 = enemynear, stateno = 5050
+;value = 4220
+
+;======================================
+;J
+;======================================
+[State 4200, J]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=6
+triggerall = (Parent,Stateno = 4041) || (Parent,Stateno = 4054);|| (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+trigger1 = 1
+fv = 10
+value = ifelse(random <= 800,10,10.1)
+
+;======================================
+;I
+;======================================
+[State 4200, 2]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = Parent,Power >= 1000 || Parent,Var(23) > 0
+triggerall Parent,Var(45) <=1
+triggerall Parent,Var(44) <=30
+triggerall = Parent, Ctrl
+trigger1 = (Parent,Anim = [150,159])
+trigger1 = p2bodydist X <= 90 && p2dist X >= -20
+trigger1 = EnemyNear, Vel X >= 0 && EnemyNear, Ctrl = 0 && EnemyNear, Pos Y >= -140
+trigger1 = EnemyNear,AnimTime <= -14 || EnemyNear, Statetype = A
+trigger2 = (Parent,Anim = [120,159])
+trigger2 = p2bodydist X <= 90 && p2dist X >= -20
+trigger2 = EnemyNear, Vel X >= 0 && EnemyNear, Ctrl = 0 && EnemyNear, Pos Y >= -140
+trigger2 = EnemyNear,Time > 2
+trigger2 = Parent,Var(43) >= 4
+trigger2 = EnemyNear,Stateno!= 106 ||  EnemyNear,Stateno!= 52
+trigger2 = EnemyNear,Statetype = A
+trigger3 = (Parent,Anim = [120,159])
+trigger3 = p2bodydist X <= 90 && p2dist X >= -20
+trigger3 = EnemyNear, Vel X >= 0 && EnemyNear, Ctrl = 0 && EnemyNear, Pos Y >= -140
+trigger3 = EnemyNear,Time > 2
+trigger3 = EnemyNear,AnimTime <= -14
+trigger3 = Parent,Var(43) >= 4
+trigger3 = EnemyNear,Stateno!= 106 ||  EnemyNear,Stateno!= 52
+trigger3 = EnemyNear,Statetype != A
+trigger4 = EnemyNear,Ctrl
+trigger4 = EnemyNear, Time > 7
+trigger4 = EnemyNear,AnimTime < -12
+trigger4 = Parent,Stateno = 5200 ||Parent,Stateno = 5120 ||Parent,Stateno = 5201
+trigger4 = Parent,AnimTime = [0,4]
+trigger4 = Parent,Var(44) <= 10
+trigger5 = EnemyNear,MoveType = A
+trigger5 = EnemyNear, Time > 7
+trigger5 = EnemyNear,AnimTime < -12
+trigger5 = Parent,Stateno = 5200 ||Parent,Stateno = 5120 ||Parent,Stateno = 5201
+trigger5 = Parent,AnimTime = [0,4]
+trigger5 = Parent,Var(44) <= 30
+fv = 10
+value = 9
+
+;======================================
+;G
+;======================================
+[State 4200, 2]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = Parent,Power >= 1000 || Parent,Var(23) > 0
+triggerall Parent,Var(45) <=4
+triggerall = (Parent,Anim = [120,159])
+triggerall = Parent, Ctrl
+triggerall = p2bodydist X <= 20 && p2dist X >= -20
+trigger1 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0
+trigger1 = EnemyNear,AnimTime = [-10,-5]
+;trigger1 = EnemyNear,Life<= 227
+fv = 10
+value = 7
+
+[State 4200, 2]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = Parent,Power >= 1000 || Parent,Var(23) > 0
+triggerall Parent,Var(45) <=3
+triggerall =(Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = p2bodydist X <= 20 && p2dist X >= -20
+trigger1 = EnemyNear, Pos Y = [-85,-40]
+trigger1 = Parent,NumTarget(1200) || Parent,NumTarget(1320)
+trigger1 =Parent,AnimTime = [0,(Parent,Var(46))]
+fv = 10
+value = 7
+
+;======================================
+;E
+;======================================
+[State 4200, 6]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=2
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = P2dist X <= 70 && p2dist x > -20
+triggerall = EnemyNear,Stateno != 40
+trigger1 =  EnemyNear, Ctrl = 0 && EnemyNear,Movetype = A
+trigger1 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3))+100;500
+fv = 10
+value = 5
+
+;======================================
+;F
+;======================================
+[State 4200, 6]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=1
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = P2dist X <= 75 && p2dist x > -20
+triggerall = EnemyNear,Stateno != 40
+triggerall = Parent, Var(44)<= 10
+trigger1 = EnemyNear,AnimTime = [-18,-9]
+trigger1 =  EnemyNear, Ctrl = 0 && EnemyNear,Movetype = A
+trigger1 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3))+100;500
+trigger2 = EnemyNear, Anim = 42 &&  EnemyNear, Vel Y > 0  &&  EnemyNear, Vel X > 0
+trigger2 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)+100;500
+trigger3 = EnemyNear, Anim = 52 &&  EnemyNear, Vel Y > 0
+trigger3 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-100;500
+trigger4 = p2dist x < 50 && p2dist x >= -20
+trigger4 = EnemyNear, Anim <= 53 &&  EnemyNear, Vel Y > 0 &&  EnemyNear, Vel X = 0
+trigger4 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)+200;500
+trigger5 = p2dist x < 80 && p2dist x >= -20
+trigger5 = EnemyNear, Vel X > 0
+trigger5 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno)-200;500
+fv = 10
+value = 6
+
+[State 4200, 2]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=2
+triggerall Parent,Var(44) <=25
+triggerall = Parent, Ctrl
+trigger1 = (Parent,Anim = [150,159])
+trigger1 = p2bodydist X <= 65 && p2dist X >= -20
+trigger1 = EnemyNear, Vel X >= 0 && EnemyNear, Ctrl = 0 && EnemyNear, Pos Y >= -140
+trigger1 = EnemyNear,AnimTime <= -14 || EnemyNear, Statetype = A
+trigger2 = (Parent,Anim = [120,159])
+trigger2 = p2bodydist X <= 65 && p2dist X >= -20
+trigger2 = EnemyNear, Vel X >= 0 && EnemyNear, Ctrl = 0 && EnemyNear, Pos Y >= -140
+trigger2 = EnemyNear,Time > 2
+trigger2 = Parent,Var(43) >= 4
+trigger2 = EnemyNear,Stateno!= 106 ||  EnemyNear,Stateno!= 52
+trigger2 = EnemyNear,Statetype = A
+trigger3 = (Parent,Anim = [120,159])
+trigger3 = p2bodydist X <= 65 && p2dist X >= -20
+trigger3 = EnemyNear, Vel X >= 0 && EnemyNear, Ctrl = 0 && EnemyNear, Pos Y >= -140
+trigger3 = EnemyNear,Time > 2
+trigger3 = EnemyNear,AnimTime <= -14
+trigger3 = Parent,Var(43) >= 3
+trigger3 = EnemyNear,Stateno!= 106 ||  EnemyNear,Stateno!= 52
+trigger3 = EnemyNear,Statetype != A
+fv = 10
+value = 6
+
+;======================================
+;H
+;======================================
+[State 4200, Z]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = p2bodydist X <= 10 && p2dist X >= -20
+triggerall = (p2statetype = S) || (p2statetype = C)
+triggerall = p2movetype != H
+triggerall Parent,Var(45) <=2
+triggerall = Parent, Var(44)<=20
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014) || (Parent,Stateno = 4020) || (Parent,Stateno = 4021)
+trigger1 = EnemyNear, Pos Y = 0
+fv = 10
+value = 8
+
+[State 4200, Z]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = p2bodydist X <= 10 && p2dist X >= -20
+triggerall = (p2statetype = S) || (p2statetype = C)
+triggerall = p2movetype != H
+triggerall Parent,Var(45) <=2
+triggerall = Parent, Var(44)<=20
+triggerall = (Parent,Anim = [150,159])
+triggerall = Parent, Ctrl
+trigger1 = EnemyNear, Pos Y = 0
+fv = 10
+value = 8
+
+[State 4200, Wakeup]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = p2bodydist X <= 10 && p2dist X >= -20
+triggerall = (p2statetype = S) || (p2statetype = C)
+triggerall = p2movetype != H
+triggerall Parent,Var(45) <=3
+triggerall = Parent,Stateno = 5120 && Parent, AnimTime = 0
+triggerall = Parent, Ctrl
+trigger1 = EnemyNear, Pos Y = 0
+fv = 10
+value = 8
+
+;======================================
+;A
+;======================================
+[State 4200, 1]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=2
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = P2dist X <= 85 && p2dist x > 52
+trigger1 = EnemyNear, Vel X > 0 && EnemyNear, Pos Y = 0
+trigger1 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno)-200;500
+trigger2 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype != A
+trigger2 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3))+200;500
+trigger3 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype = A
+trigger3 = EnemyNear,AnimTime = [-20,-5]
+trigger3 = EnemyNear,Time > 9
+trigger3 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno/4))-100;500
+fv = 10
+value = 1
+
+[State 4200, 2]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=5
+triggerall = (Parent,Anim = [150,159])
+triggerall = Parent, Ctrl
+triggerall = P2dist X <= 85 && p2dist x > 52
+trigger1 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype != A
+trigger1 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3))+200;500
+trigger2 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype = A
+trigger2 = EnemyNear,AnimTime = [-18,-5]
+trigger2 = EnemyNear,Time > 9
+trigger2 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno/4))-100;500
+fv = 10
+value = 1
+
+[State 4200, 1]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = P2dist X <= 52 && p2dist x > -20
+trigger1 Parent,Var(45) <=2
+trigger1 = EnemyNear, Vel X > 0 && EnemyNear, Pos Y = 0
+trigger1 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno)-200;500
+trigger2 Parent,Var(45) <=2
+trigger2 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype != A
+trigger2 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3))+200;500
+trigger3 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype = A
+trigger3 Parent,Var(45) <=2
+trigger3 = EnemyNear,AnimTime = [-20,-5]
+trigger3 = EnemyNear,Time > 9
+trigger3 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno/4))-100;500
+trigger4 = Parent, Stateno = 4100
+trigger4 = P2dist X <= 40 && p2dist x > -20
+fv = 10
+value = 1.1
+
+[State 4200, 1]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = P2dist X <= 52 && p2dist x > -20
+Trigger1 = Parent,Var(45) <=4
+trigger1 = EnemyNear, Pos Y = 0 && Parent, Var(41) = 0
+fv = 10
+value = 1.2
+
+[State 4200, 2]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=5
+triggerall = (Parent,Anim = [150,159])
+triggerall = Parent, Ctrl
+triggerall = P2dist X <= 52 && p2dist x > -20
+trigger1 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && Parent, Var(41) = 0
+trigger2 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && Parent, Var(41) = 1
+trigger2 = EnemyNear,AnimTime = [-18,-3]
+trigger2 = EnemyNear,Time > 9
+trigger2 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno/4))-100;500
+fv = 10
+value = 1.1
+
+;======================================
+;B
+;======================================
+[State 4200, 3]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=3
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = p2dist x < 110 && p2dist x >= -20
+trigger1 = EnemyNear, Anim = 42 &&  EnemyNear, Vel Y > 0  &&  EnemyNear, Vel X > 0
+trigger1 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)+100;500
+trigger2 = EnemyNear, Anim = 52 &&  EnemyNear, Vel Y > 0
+trigger2 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-100;500
+trigger3 = p2dist x < 50 && p2dist x >= -20
+trigger3 = EnemyNear, Anim <= 53 &&  EnemyNear, Vel Y > 0 &&  EnemyNear, Vel X = 0
+trigger3 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)+200;500
+trigger4 = p2dist x < 80 && p2dist x >= -20
+trigger4 = EnemyNear, Vel X > 0
+trigger4 = Random <= (((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno)-200;500
+fv = 10
+value = 2
+
+[State 4200, 3]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=2
+triggerall Parent,Var(44) <=30
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = p2dist x < 800 && p2dist x >= -20
+trigger1 = (Parent,Anim = [120,159])
+trigger1 = p2bodydist X <= 90 && p2dist X >= -20
+trigger1 = EnemyNear, Vel X >= 0 && EnemyNear, Ctrl = 0 && EnemyNear, Pos Y >= -140
+trigger1 = EnemyNear,Time > 2
+trigger3 = Parent,Var(43) >= 3
+fv = 10
+value = 2
+
+;======================================
+;C
+;======================================
+[State 4200, 4]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=1
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011)
+triggerall = P2dist X <= 152 && p2dist x > 52
+triggerall = EnemyNear,Stateno != 40 && Enemynear,Stateno != 105
+trigger1 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype != A
+trigger1 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3))+400;500
+trigger2 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype = A
+trigger2 = EnemyNear,AnimTime = [-20,-5]
+trigger2 = EnemyNear,Time > 9
+trigger2 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno/4))-100;500
+fv = 10
+value = 3
+
+[State 4200, 5]
+type = ParentVarSet
+triggerall = Parent, fvar(17) != 6
+triggerall Parent,Var(45) <=5
+triggerall = (Parent,Anim = [150,159])
+triggerall = Parent, Ctrl
+triggerall = P2dist X <= 152 && p2dist x > -20
+trigger1 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype != A
+trigger1 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3))+200;500
+trigger2 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype = A
+trigger2 = EnemyNear,AnimTime = [-20,-10]
+trigger2 = EnemyNear,Time > 9
+trigger2 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno/4))-100;500
+fv = 10
+value = 3
+
+;======================================
+;D
+;======================================
+[State 4200, 6]
+type = ParentVarSet
+triggerall != Parent,Stateno = 5120 && Parent,AnimTime <= 4
+triggerall Parent,Var(45) <=1
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = P2dist X <= 160 && p2dist x > 42
+triggerall = EnemyNear,Stateno != 40
+trigger1 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype != A
+trigger1 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3))+200;500
+trigger2 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype = A
+trigger2 = EnemyNear,AnimTime = [-20,-5]
+trigger2 = EnemyNear,Time > 9
+trigger2 = Parent, Var(44)<=15
+trigger2 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno/4))-100;500
+fv = 10
+value = 4
+
+[State 4200, 7]
+type = ParentVarSet
+triggerall Parent,Var(45) <=4
+triggerall = (Parent,Anim = [150,159])
+triggerall = Parent, Ctrl
+triggerall = P2dist X <= 190 && p2dist x > -20
+trigger1 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype != A
+trigger1 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3))+200;500
+trigger2 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 0 && EnemyNear,Movetype = A
+trigger2 = EnemyNear,AnimTime = [-20,-10]
+trigger2 = Parent, Var(44)<=25
+trigger2 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)-abs(p2bodydist x/3)-(EnemyNear, Stateno/4))-100;500
+fv = 10
+value = 4
+
+[State 4200, 6]
+type = ParentVarSet
+triggerall Parent,Var(45) =1
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011)
+triggerall = EnemyNear,Stateno != 40
+;triggerall = p2dist x > 60
+triggerall = Parent, Var(44)<=10
+trigger1 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 1 && EnemyNear,Movetype != A
+trigger1 = Random <= 100
+fv = 10
+value = 4.1
+
+[State 4200, 6]
+type = ParentVarSet
+triggerall Parent,Var(45) =1
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021) || (Parent,Stateno = 4011) || (Parent,Stateno = 4100)
+triggerall = EnemyNear,Stateno != 40
+;triggerall = p2dist x > 60
+triggerall = Parent, Var(44)<=20
+trigger1 = EnemyNear, Pos Y = 0 && EnemyNear, Ctrl = 1 && EnemyNear,Movetype != A
+trigger1 = Random <= (abs(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2)+(RoundNo*100)+abs(p2bodydist x/4))-300;500
+fv = 10
+value = 4.2
+
+;======================================
+;Combo/Tricks
+;======================================
+;*After Jump D*
+;A: C/D
+;B: Crouch B
+;C: One-Two
+
+;*After Near C/D*
+;A: One-Two
+;_Puncher Vision (Only If Guarded)
+
+;*After Crouch B*
+;A: One-Two
+;B: Puncher Weaving
+
+;*After One-Two*
+;A: MGP (First Hit Only)
+;B: Puncher Weaving (First Hit Only)
+;C: Helion (First Hit Only AND When Enemy Is Cornered)
+;D: Crazy Puncher: (Both Hits)
+;E: Gaia Gear (First Hit Only)
+;F: Max Puncher (First Hit Only)
+;G: Dash Puncher (Two Hits Only)
+;H: Puncher Vision (Both Hits, Guard Only)
+
+;*After Far C*
+;A: Dash Puncher (PrevStateno Cannot Be 4020 or 4100)
+;B: Crazy Puncher (Move Hitted Only)
+;C: Puncher Vision (Both Hits, Guard Only)
+
+;*After Puncher Weaving*
+;A: Near C /Far C
+;B: Crouch B
+;C: Walk&Throw
+;D: Puncher Vision
+;E: Turtle
+
+;*After Max Puncher*
+;A: Walk -> (Near C -> One-Two (One Hit) -> MGP -> Puncher Vision)*2 -> Near C -> One-Two -> Crazy Puncher
+
+;*After Dash Puncher
+;A: Jump Fwd -> CD
+;B: Run -> Champion Puncher
+
+;*After Helion
+;A: Champion Puncher
+
+;*After Crouch D*
+;A: Puncher Weaving
+;B: Puncher Vision
+
+[Statedef 4260]
+type    = S
+physics = S
+anim = 1
+ctrl = 0
+velset = 0
+sprpriority = 1
+
+[State 4200, A Main Route]
+type = null;ParentVarSet
+trigger1 = Parent,Stateno = 0
+trigger1 = Parent,PrevStateno != 1000 || Parent,PrevStateno != 3500
+trigger2 = Parent, Fvar(16) = 8
+trigger2 = Parent, Stateno != 1320 || Parent, Stateno != 4011
+trigger3 = Parent, Fvar(16) = 9 && Parent, MoveType = H
+fv = 16
+value = 0
+
+[State 4200, A Main Route]
+type = ParentVarSet
+trigger1 = 1
+fv = 10
+value = 0
+
+[State 4200, A Main Route]
+type = ParentVarSet
+trigger1 = 1
+fv = 17
+value = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Parent,Fvar(16)=0 && Parent,Fvar(19)=0
+trigger1 = time >= 1
+value = 4200
+ctrl = 0
+
+;======================================
+;Jump D
+;======================================
+;A
+;======================================
+[State 4200, Combo Pokes]
+type = ParentVarSet
+trigger1 = Parent,Stateno = 440
+;trigger1 = Parent, Stateno = 4052 && Time >= 1
+fv = 16
+value = ifelse(Parent,Var(45) <= 3, 1,ifelse(Parent,Var(45) >= 4 && Parent,Var(45)<= 5,1.1, ifelse(Parent,Var(44) <=35,1.2,1.3)))
+
+;======================================
+;Max Puncher
+;======================================
+;A
+;======================================
+[State 4200, Combo Pokes]
+type = null;ParentVarSet
+trigger1 = Parent,Facing != EnemyNear,Facing
+trigger1 = Parent,Stateno = 3500
+fv = 19
+value = 9
+
+;======================================
+;Near C/D
+;======================================
+;A
+;======================================
+[State 4200, Combo Pokes]
+type = ParentVarSet
+trigger1 = Parent, Var(45) = 1
+trigger1 = Parent, Var(44) <= 10
+trigger1 = Parent, Stateno = 215 || Parent, Stateno = 240
+trigger1 = MoveGuarded
+;trigger1 = Parent, Stateno = 4052 && Time >= 1
+fv = 16
+value = 2.1
+
+[State 4200, Combo Pokes]
+type = ParentVarSet
+trigger1 = Parent, Stateno = 215 || Parent, Stateno = 240
+trigger1 = EnemyNear, Pos Y = 0
+;trigger1 = Parent, Stateno = 4052 && Time >= 1
+fv = 16
+value = 2
+
+;======================================
+;Crouch B
+;======================================
+;B
+;======================================
+[State 4200, Combo Pokes]
+type = ParentVarSet
+trigger1 = Parent, Stateno = 330
+;trigger1 = Parent, Stateno = 4052 && Time >= 1
+fv = 16
+value = ifelse(Random <= 900, 3,3.1)
+
+;======================================
+;One-Two!
+;======================================
+;C
+;======================================
+;*After One-Two*
+;A: MGP (First Hit Only)
+;B: Puncher Weaving (First Hit Only)
+;C: Helion (First Hit Only AND When Enemy Is Cornered)
+;D: Crazy Puncher: (Both Hits)
+;E: Gaia Gear (First Hit Only)
+;F: Max Puncher (First Hit Only)
+;G: Dash Puncher (Two Hits Only)
+;H: Puncher Vision (Both Hits, Guard Only)
+
+[State 4200, MP!]
+type = ParentVarSet
+triggerall = Parent,power >= 2000 && Parent,var(23) = 0
+triggerall = P2dist x <= 80 && P2dist x > -20
+triggerall = Parent,Facing != EnemyNear,Facing
+trigger1 = Parent,stateno = 265  && Parent,animelemtime(4) > 1 && Parent,animelemtime(5) < 0 && Parent,MoveHit
+;trigger1 = Parent,Var(45) <= 3 || EnemyNear,Life > 370
+fv = 16
+value = 4.5
+
+[State 4200, GG!]
+type = ParentVarSet
+triggerall = Parent,power >= 2000 && Parent,var(23) = 0
+triggerall = P2dist x <= 60 && P2dist x > -20
+trigger1 = Parent,stateno = 265  && Parent,animelemtime(4) > 1 && Parent,animelemtime(5) < 0 && Parent,MoveHit
+trigger1 = Parent,Var(45) <= 5 || EnemyNear,Life <= 370
+fv = 16
+value = 4.4
+
+[State 4200, CP!]
+type = ParentVarSet
+triggerall = Parent,power >= 1000 && Parent,var(23) = 0
+trigger1 = Parent,stateno = 265  && Parent,animelemtime(4) > 1 && Parent,animelemtime(5) < 0 && Parent,MoveHit
+trigger1 = Parent,Var(44) <= 35
+trigger2 = Parent,stateno = 265  && Parent,animelemtime(9) > 1 && Parent,animelemtime(11) < 0 && Parent,MoveHit
+trigger2 = Parent,Var(45) <= 4 ;|| EnemyNear,Life <= 237
+fv = 16
+value = 4.3
+
+[State 4200, DP]
+type = ParentVarSet
+trigger1 = Parent,stateno = 265  && Parent,animelemtime(9) > 1 && Parent,animelemtime(11) < 0 && Parent,MoveHit
+fv = 16
+value = 4.6
+
+[State 4200, PW]
+type = ParentVarSet
+trigger1 = Parent,Prevstateno = 330
+trigger1 = Parent,stateno = 265  && Parent,animelemtime(4) > 1 && Parent,animelemtime(5) < 0 && Parent,MoveHit
+trigger1 = Parent,Var(45) <= 4
+trigger2 = Parent,stateno = 265  && Parent,animelemtime(4) > 1 && Parent,animelemtime(5) < 0 && Parent,MoveGuarded
+trigger2 = Parent,Var(45) <= 3
+fv = 16
+value = 4.1
+
+[State 4200, Helion]
+type = ParentVarSet
+trigger1 = Parent,stateno = 265  && Parent,animelemtime(4) > 1 && Parent,animelemtime(5) < 0 && Parent,MoveHit
+trigger1 = (EnemyNear, BackEdgeBodyDist <= 0) || (EnemyNear, FrontEdgeBodyDist <= 0)
+trigger1 = Parent,Var(45) <= 5
+fv = 16
+value = 4.2
+
+[State 4200, MGP]
+type = ParentVarSet
+trigger1 = Parent,stateno = 265  && Parent,animelemtime(4) > 1 && Parent,animelemtime(5) < 0 && Parent,MoveHit
+trigger1 = Parent,Var(45) <= 5
+trigger1 = Parent,Var(44) <= 30
+trigger2 = Parent,stateno = 265  && Parent,animelemtime(4) > 1 && Parent,animelemtime(5) < 0 && Parent,MoveGuarded
+trigger2 = Parent,Var(45) = 1
+trigger2 = Parent,Var(44) <= 10
+fv = 16
+value = 4
+
+[State 4200, PV!]
+type = ParentVarSet
+trigger1 = Parent,stateno = 265  && Parent,animelemtime(4) > 1 && Parent,animelemtime(5) < 0 && Parent,MoveGuarded
+trigger1 = Parent,Var(45) >= 4
+trigger2 = Parent,stateno = 265  && Parent,animelemtime(9) > 1 && Parent,animelemtime(11) < 0 && Parent,MoveGuarded
+fv = 16
+value = 4.7
+
+;======================================
+;Far C
+;======================================
+;D
+;======================================
+[State 4200, CP!]
+type = ParentVarSet
+triggerall = Parent,power >= 1000 && Parent,var(23) = 0
+trigger1 = Parent, Stateno = 210 && Parent, animelemtime(5) > 1 && Parent, animelemtime(6) < 0 && Parent, MoveHit
+trigger1 = Parent,Var(45) <= 2 || EnemyNear,Life <= 237
+fv = 16
+value = 5.1
+
+[State 4200, Combo Pokes]
+type = ParentVarSet
+trigger1 = Parent, Var(45) <= 1
+trigger1 = Parent, Var(44) <= 10
+trigger1 = Parent, Stateno = 210 && Parent, animelemtime(5) > 1 && Parent, animelemtime(6) < 0 && Parent, MoveGuarded
+fv = 16
+value = 5.2
+
+[State 4200, Combo Pokes]
+type = ParentVarSet
+trigger1 = Parent, Stateno = 210 && Parent, animelemtime(5) > 1 && Parent, animelemtime(6) < 0 && Parent, MoveContact
+fv = 16
+value = 5
+
+;======================================
+;Puncher Weaving
+;======================================
+;E
+;======================================
+[State 4200, Combo Pokes]
+type = ParentVarSet
+triggerall = Parent, Stateno = 1100 && Parent, Time = 14
+trigger1 = Parent, PrevStateno = 330
+trigger2 = Parent, PrevStateno != 330
+trigger2 = Parent, Var(45) <= 2
+fv = 16
+value = 6
+
+[State 4200, Combo Pokes]
+type = ParentVarSet
+triggerall = Parent, Stateno = 1100 && Parent, Time = 14
+trigger1 = Parent, Var(45) = 3
+fv = 16
+value = 6.1
+
+[State 4200, Combo Pokes]
+type = ParentVarSet
+triggerall = Parent, Stateno = 1100 && Parent, Time = 14
+trigger1 = Parent, Var(45) = 4
+fv = 16
+value = 6.2
+
+[State 4200, Combo Pokes]
+type = ParentVarSet
+triggerall = Parent, Stateno = 1100 && Parent, Time = 14
+trigger1 = Parent, Var(45) = [5,6]
+fv = 16
+value = 0
+
+;======================================
+;Helion
+;======================================
+;F
+;======================================
+[State 4200, Combo Pokes]
+type = ParentVarSet
+triggerall = Parent, Stateno = 1100 && Parent, Time = 14
+trigger1 = Parent, Stateno = 1320 && MoveHit
+trigger1 = EnemyNear, BackEdgeBodyDist <= 0 || EnemyNear, FrontEdgeBodyDist <= 0
+fv = 16
+value = 8
+
+;======================================
+;Against Wake-ups
+;======================================
+;A: Run to to reach close range -> Crouch -> Smal Jump Bwd -> Instant D
+;_Run to to reach close range -> Crouch -> Moushuu Kyaku
+;B: Back Dash to reach CD Range -> CD -> Weak Venom
+;_Back Dash to reach CD Range -> Weak Venom
+;_Back Dash to reach CD Range -> Crouch (90 frames in counter position).
+;C: Run to reach CD Range
+;_Run to reach CD Range -> Weak Venom
+;_Run to reach CD Range -> Crouch (90 frames in counter position).
+;D: Super Jump Bwd -> Ex Venom
+;E: Walk Back -> Venom Strike Venom
+[Statedef 4220]
+type    = S
+physics = S
+anim = 1
+ctrl = 0
+velset = 0
+sprpriority = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = facing = 1
+trigger1 = Enemy, pos x < pos x
+trigger2 = facing = -1
+trigger2 = Enemy, pos x > pos x
+
+[State 4200, A Main Route]
+type = ParentVarSet
+trigger1 = parent, fvar(15) > 0
+trigger1 = time = 0
+fv = 15
+value = 0
+
+[State 4200, A Main Route]
+type = ParentVarSet
+trigger1 = parent, fvar(13) > 0
+trigger1 = time >= 0
+fv = 13
+value = 0
+
+[State 4200, A Main Route]
+type = ParentVarSet
+trigger1 = parent, fvar(14) > 0
+trigger1 = time >= 13
+fv = 14
+value = 0
+
+[State 4200, A Main Route]
+type = ParentVarSet
+trigger1 = parent, fvar(10) > 0
+trigger1 = time = 0
+fv = 10
+value = 0
+
+[State 4200, A Main Route]
+type = ParentVarSet
+trigger1 = parent, fvar(12) > 0
+trigger1 = time >= 130
+trigger2 = Parent,Stateno = 440
+trigger3 = Parent,Stateno = 1300
+trigger4 = Parent,Stateno = 1000
+trigger5 = Parent,Stateno = 4014
+fv = 12
+value = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = parent, Stateno = 245 && Parent,Movecontact
+trigger2 = parent, Stateno = 300 && Parent,Movecontact
+trigger3 = parent, Stateno = 230 && Parent,Movecontact
+trigger4 = parent, Stateno = 1300 && Parent,Movecontact
+trigger5 = parent, Stateno = 350 && Parent,Movecontact
+trigger6 = parent, Stateno = 1350 && Parent,Movecontact
+value = 4260
+ctrl = 0
+
+[State 4200, A Main Route]
+type = ChangeState
+trigger1 = PlayerIDExist(Parent,var(35))
+trigger1 = playerID(Parent,var(35)),TeamSide != TeamSide
+trigger1 = playerid(Parent,var(35)),vel x > 0 && playerid(Parent,var(35)),vel x < 8
+trigger2 = PlayerIDExist(Parent,var(35)-1)
+trigger2 = playerID(Parent,var(35)-1),TeamSide != TeamSide
+trigger2 = playerid(Parent,var(35)-1),vel x > 0 && playerid(Parent,var(35)-1),vel x < 8
+trigger3 = PlayerIDExist(Parent,var(35)+1)
+trigger3 = playerID(Parent,var(35)+1),TeamSide != TeamSide
+trigger3 = playerid(Parent,var(35)+1),vel x > 0 && playerid(Parent,var(35)+1),vel x < 8
+trigger4 = PlayerIDExist(Parent,var(35)-2)
+trigger4 = playerID(Parent,var(35)-2),TeamSide != TeamSide
+trigger4 = playerid(Parent,var(35)-2),vel x > 0 && playerid(Parent,var(35)-2),vel x < 8
+trigger5 = PlayerIDExist(Parent,var(35)+2)
+trigger5 = playerID(Parent,var(35)+2),TeamSide != TeamSide
+trigger5 = playerid(Parent,var(35)+2),vel x > 0 && playerid(Parent,var(35)+2),vel x < 8
+trigger6 = EnemyNear, NumProj
+value = 4240
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Parent,PrevStateno = 5120 || Parent,PrevStateno = 5201 || Parent,PrevStateno = 5200 || Parent,PrevStateno = 5110
+value = 4230
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Time > 10
+trigger1 = parent, movetype = H
+value = 4210
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Time > 130
+trigger2 = Parent,Stateno = 440
+trigger3 = Parent,Stateno = 1300
+value = 4200
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = parent, stateno = 4014
+value = 4210
+ctrl = 0
+
+;======================================
+;A
+;======================================
+[State 4200, 1]
+type = ParentVarSet
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021)
+triggerall = p2dist X > 82
+trigger1 = Random <= ((EnemyNear, Life)-(((Parent, Life/4)+300))-((EnemyNear, Power/10)/5))/3
+fv = 12
+value = ifelse(Parent,Var(45)<=3, 1,1.1)
+
+;[State 4200, A Second Route]
+;type = ParentVarSet
+;trigger1 = Time = 0
+;fv = 12
+;value = 1.1
+
+;======================================
+;B
+;======================================
+[State 4200, 1]
+type = ParentVarSet
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021)
+triggerall = p2dist X <= 82 && p2dist X >= -20
+triggerall = Parent,Fvar(12) = 0
+trigger1 = Random <= (EnemyNear, Life)-(((Parent, Life/4)+300))-((EnemyNear, Power/10)/2);500
+fv = 12
+value = ifelse(Parent,Var(45)=1, 2,ifelse(Parent,Var(45)=2,2.1,2.2))
+
+;======================================
+;C
+;======================================
+
+[State 4200, 1]
+type = ParentVarSet
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014) || (Parent,Stateno = 4020) || (Parent,Stateno = 4021)
+triggerall = p2dist X > 82
+trigger1 = Random <= (Parent, Life)-((EnemyNear, Life/2))-((EnemyNear, Power/10)/2);500
+fv = 12
+value = ifelse(Parent,Var(45)=1, 3,ifelse(Parent,Var(45)=2,3.1,3.2))
+
+;======================================
+;D
+;======================================
+
+[State 4200, 1]
+type = ParentVarSet
+triggerall = Parent,Power >= 500
+triggerall = EnemyNear, Life < 200
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014) || (Parent,Stateno = 4020) || (Parent,Stateno = 4021)
+triggerall = p2dist X < 190 && p2dist X >= 0
+triggerall = Parent,Fvar(12) = 0
+trigger1 = Random <= (EnemyNear, Life)-(((Parent, Life/4)+300))+((EnemyNear, Power/10)/2)+(RoundNo*200);500
+fv = 12
+value = 4
+
+;======================================
+;E
+;======================================
+[State 4200, 1]
+type = ParentVarSet
+triggerall = (Parent,Stateno = 0) || (Parent,Stateno = 4014)|| (Parent,Stateno = 4020) || (Parent,Stateno = 4021)
+triggerall = p2dist X <= 220
+trigger1 = Random <= (EnemyNear, Life)-(((Parent, Life/4)+300))-((EnemyNear, Power/10)/5);500
+fv = 12
+value = ifelse(Parent,Var(45)<=5,5,0)

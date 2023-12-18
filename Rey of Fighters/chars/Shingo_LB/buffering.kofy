@@ -1,0 +1,513 @@
+;==============================================================================;
+;Command Buffering File for: Shingo Yabuki                                     ;
+;Original system for Capcom VS. SNK: Collision Course                          ;
+;KOF buffering system for The King of Fighters: Yillion (working title)        ;
+;by Vans                                                                       ;
+;==============================================================================;
+;Introduction:
+;This is a buffering system aimed at recreating the control feel of the NeoGeo
+;KOF series of games. 
+;
+;The helper is capable of providing buffering as well as PERFECT reversed
+;commands.
+;
+;Any and all editions should be done in the BUFFER DEFINITION section.
+;
+;Unless you plan to modify the whole system, do not touch the numbers in the
+;varsets, ever.
+;
+;Try to keep a list of the variables used as well as the respective commands,
+;just to keep some sort of order.
+;
+;In addition, try to follow this list as much as possible to avoid problems:
+;Basic and system commands:  = var(0)  - var(19) (RESERVED.)
+;Special move type commands: = var(20) - var(39)
+;Super move type commands    = var(40) - var(49)
+;MISC. commands              = var(50) - var(59)
+;Ultimate Button Check       = fvar(1)
+
+[Statedef 10371]
+anim = 1
+ctrl = 0
+
+;================================================================================
+; ------- Chizuru compatibility --------
+;===============================================================================
+[State 10371, NO SPECIAL COMMANDS]
+type = VarRangeSet
+trigger1 = root,numprojid(131035)
+value = 0
+first = 20
+last = 59
+;-------------------------------------------------------------------------------
+
+[State 10371, VarSet]
+type = VarSet
+trigger1 = 1
+fvar(1)=(command="hold_x")*2+(command="hold_a")*2+(command="hold_y")*2+(command="hold_b")*2+(command="hold_z")*4+(command="hold_c")*4
+
+[State -2, VarSet]
+type = VarAdd
+trigger1 = root,movehit = 1
+fvar(11) = 1
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = root,movehit = 2
+trigger2 = root,hitpausetime = 0
+fvar(11) = 0
+
+[State -2, VarSet]
+type = VarSet
+trigger1 = 1;root,movecontact = 1 && var(2) = 0
+fvar(12) = root,movecontact
+
+;[State -2, DTC]
+;type = DisplayToClipboard
+;trigger1 = NumHelper(247)
+;text = "MoveHit = %d MoveContact = %d"
+;params = Var(1), var(2)
+
+[State 10371, MAX MODE ALL RESET]
+type = VarRangeSet
+trigger1 = root,stateno = 780
+value = 0
+
+[State 10371, NO TURN BEHAVIOR.]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible ;Just in case.
+ignorehitpause = 1
+
+[State 10371, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+time = 1
+pos = Const(size.head.pos.x),Const(size.head.pos.y)
+ignorehitpause = 1
+
+[State 10371, AM I WORKING ?]
+type = DisplayToClipboard
+trigger1 = 1
+text = "A = %d  A = %d QCF = %d DP = %d check = %f"
+params = var(0),var(3),var(21),var(20),fvar(1)
+ignorehitpause = 1
+
+;SHINGO ONLY
+[State 10371, 1-FRAME FIX]
+type = VarSet
+trigger1 = root,stateno = 215
+trigger1 = root,animelem =1
+var(1) = 0
+
+;----------------------------[BUFFER DECREASE]---------------------------------;
+
+;--------------------------------[BUTTONS]-------------------------------------;
+;NON-NEGATIVE EDGE:
+;var(0)  = LP (A)
+;var(1)  = MP (C)
+;var(2)  = HP (E)
+;var(3)  = LK (B)
+;var(4)  = MK (D)
+;var(5)  = HK (SHORTCUT)
+;var(6)  = Start
+;NEGATIVE EDGE:
+;var(7)  = LP
+;var(8)  = MP
+;var(9)  = HP
+;var(10) = LK
+;var(11) = MK
+;var(12) = HK
+;var(13) = Start
+;DOUBLE BUTTON:
+;var(14) = LP+LK (A+B)
+;var(15) = LK+MP (B+D)
+;var(16) = MP+MK (C+D)
+;var(17) = LP+MP (A+C)
+
+[State 10371, LP Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(0)
+var(0) = -1
+
+[State 10371, MP Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(1)
+var(1) = -1
+
+[State 10371, HP Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(2)
+var(2) = -1
+
+[State 10371, LK Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(3)
+var(3) = -1
+
+[State 10371, MK Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(4)
+var(4) = -1
+
+[State 10371, HK Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(5)
+var(5) = -1
+
+[State 10371, START Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(6)
+var(6) = -1
+
+;NEGATIVE EDGE SETS:
+
+[State 10371, NEG LP Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(7) && !var(0)
+var(7) = -1
+
+[State 10371, NEG MP Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(8) && !var(1)
+var(8) = -1
+
+[State 10371, NEG HP Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(9) && !var(2)
+var(9) = -1
+
+[State 10371, NEG LK Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(10) && !var(3)
+var(10) = -1
+
+[State 10371, NEG MK Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(11) && !var(4)
+var(11) = -1
+
+[State 10371, NEG HK Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(12) && !var(5)
+var(12) = -1
+
+[State 10371, NEG START Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(13) && !var(6)
+var(13) = -1
+
+;--------------------------------[COMMANDS]------------------------------------;
+;var(20)  = QCF
+;var(21)  = DP
+;var(22)  = QCB
+;var(23)  = rDP
+;var(24)  = HCF
+;var(25)  = HCB,F
+;var(26)  = DU
+;var(27)  = HCF
+;var(40)  = 2xQCF
+;var(41)  = 2xQCB
+;var(42)  = 2xHCB
+;var(43)  = 2xQCB
+;var(44)  = RAIJINTEN
+;------------------- SUPERS ---------------------------------------------------;
+[State 10371, 2xQCF Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(40)
+var(40) = -1
+
+[State 10371, 2xQCB Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(41)
+var(41) = -1
+
+[State 10371, 2xHCB Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(42)
+var(42) = -1
+
+[State 10371, 2xQCB Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(43)
+var(43) = -1
+
+[State 10371, RAIJINTEN Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(44)
+var(44) = -1
+
+;------------------- SPECIALS -------------------------------------------------;
+[State 10371, QCF Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(20)
+var(20) = -1
+
+[State 10371, DP Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(21)
+var(21) = -1
+
+[State 10371, QCB Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(22)
+var(22) = -1
+
+[State 10371, rDP Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0  ;^^ root, HitPausetime = 1
+trigger1 = var(23)
+var(23) = -1
+
+[State 10371, HCB Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(24)
+var(24) = -1
+
+[State 10371, HCB,F Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(25)
+var(25) = -1
+
+[State 10371, DU Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(26)
+var(26) = -1
+
+[State 10371, HCF Dec]
+type = VarAdd
+triggerall = root, HitPauseTime = 0 ;^^ root, HitPausetime = 1
+trigger1 = var(27)
+var(27) = -1
+
+;--------------------------[BUFFER DEFINITION]---------------------------------;
+;----------------------------[BUTTON BUFFER]-----------------------------------;
+;Leave the BUTTON BUFFER alone for compatibility.
+;NON-NEGATIVE EDGE:
+;var(0)  = LP (A)
+;var(1)  = MP (C)
+;var(2)  = HP (E)
+;var(3)  = LK (B)
+;var(4)  = MK (D)
+;var(5)  = HK (SHORTCUT)
+;var(6)  = Start
+;NEGATIVE EDGE (RESERVED):
+;var(7)  = LP
+;var(8)  = MP
+;var(9)  = HP
+;var(10) = LK
+;var(11) = MK
+;var(12) = HK
+;var(13) = Start
+;DOUBLE BUTTON:
+;var(14) = LP+LK (A+B)
+;var(15) = LK+MP (B+D)
+;var(16) = MP+MK (C+D)
+;var(17) = LP+MP (A+C)
+
+[State 10371, LP Init]
+type = VarSet
+trigger1 = command = "x"
+var(0) = 3
+
+[State 10371, MP Init]
+type = VarSet
+trigger1 = command = "y"
+;SHORTCUT
+trigger2 = command = "z"
+trigger3 = command = "c"
+var(1) = 3
+
+[State 10371, HP Init]
+type = VarSet
+trigger1 = command = "z"
+var(2) = 3
+
+[State 10371, LK Init]
+type = VarSet
+trigger1 = command = "a"
+;SHORTCUT
+trigger2 = command = "c"
+var(3) = 3
+
+[State 10371, MK Init]
+type = VarSet
+trigger1 = command = "b"
+;SHORTCUT
+trigger2 = command = "z"
+var(4) = 3
+
+[State 10371, HK Init]
+type = VarSet
+trigger1 = command = "c"
+var(5) = 3
+
+[State 10371, START Init]
+type = VarSet
+trigger1 = command = "start"
+var(6) = 3
+
+;----------------------------[COMMAND BUFFER]----------------------------------;
+;This is where ONLY THE NECESSARY commands are buffered. The buffer requires
+;both the regular command and its reversed equivalent.
+;
+;ALL COMMANDS SET HERE MUST ALSO BE PUT IN [Commands] UNDER [Buffer Decrease]
+;
+;One last thing, just like the CMD file, put the complicated commands on top.
+;Command checklist:
+;
+;var(20)  = DP
+;var(21)  = QCF
+;var(22)  = QCB
+;var(23)  = rDP
+;var(24)  = HCB
+;var(25)  = HCB,F
+;var(26)  = DU
+;var(27)  = HCF
+;var(40)  = QCBHCF
+;var(41)  = 2xQCF
+;var(42)  = 2xHCB
+;var(43)  = 2xQCB
+;var(44)  = RAIJINTEN
+;------------------- SUPERS -------------------------------------------------;
+[State 10371, RAIJINTEN Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "raijinten1" && command != "holdback"
+trigger2 = p2dist X < 0 && command = "raijinten2" && command != "holdfwd"
+var(44) = 16
+
+[State 10371, HCB Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "2hcb" && command != "holdfwd"
+trigger2 = p2dist X < 0 && command = "2hcf" && command != "holdback"
+var(42) = 16
+
+[State 10371, QCBHCF Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "qcbhcf" && command != "holdback"
+;trigger1 = command = "relb"
+trigger2 = p2dist X < 0 && command = "qcfhcb" && command != "holdfwd"
+;trigger2 = command = "relf"
+var(40) = 17
+
+[State 10371, HCB Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "2qcf" && command != "holdback"
+;trigger1 = command = "relf"
+trigger2 = p2dist X < 0 && command = "2qcb" && command != "holdfwd"
+;trigger2 = command = "relb"
+var(41) = 18
+
+[State 10371, HCB Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "2qcb" && command != "holdfwd"
+trigger2 = p2dist X < 0 && command = "2qcf" && command != "holdback"
+var(43) = 18
+
+;------------------- SPECIALS -------------------------------------------------;
+[State 10371, HCB,F Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "hcbf" && command != "holdback"
+trigger2 = p2dist X < 0 && command = "hcfb" && command != "holdfwd"
+var(25) = 10
+
+[State 10371, HCF Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "hcf" && command != "holdback"
+trigger2 = p2dist X < 0 && command = "hcb" && command != "holdfwd"
+var(27) = 10
+
+[State 10371, HCB Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "hcb" && command != "holdfwd"
+trigger2 = p2dist X < 0 && command = "hcf" && command != "holdback"
+var(24) = 10
+
+[State 10371, DP Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "dp" && command != "holdback"
+trigger1 = command = "relf"
+trigger2 = p2dist X < 0 && command = "rdp" && command != "holdfwd"
+trigger2 = command = "relb"
+var(20) = 11
+
+[State 10371, rDP Init]
+type = VarSet
+trigger1 = p2dist X >= 0 && command = "rdp" && command != "holdfwd"
+trigger2 = p2dist X < 0 && command = "dp" && command != "holdback"
+var(23) = 11
+
+[State 10371, QCF Init]
+type = VarSet
+triggerall = command != "holddown"
+trigger1 = p2dist X >= 0 && command = "qcf" && command != "holdback"
+trigger2 = p2dist X < 0 && command = "qcb" && command != "holdfwd"
+var(21) = 13
+
+[State 10371, QCB Init]
+type = VarSet
+triggerall = command != "holddown"
+trigger1 = p2dist X >= 0 && command = "qcb" && command != "holdfwd"
+trigger2 = p2dist X < 0 && command = "qcf" && command != "holdback"
+var(22) = 13
+
+[State 10371, DU Init]
+type = VarSet
+triggerall = command != "holddown"
+trigger1 = command = "du" 
+var(26) = 6
+
+;----------------[In revision, this is deprecated.]----------------
+[State p, LOOK I AM AHURON]
+type = VarSet
+trigger1 = 1
+fvar(0)  = ceil(parent, Power)
+[State f, BURN COOKIES]
+type = VarSet
+trigger1 = Var(40) = [1,6]
+fvar(22)=ifElse((((Var(1)=[1,2])||(Var(8) =[1,2]))&&FVar(0)  >= 2000)||(((Var(2)=[1,2])||(Var(9)=[1,2]))&&(FVar(0) =[2000,2999])),1,IfElse(((Var(2)=[1,2])||(Var(9)=[1,2]))&&(FVar(0) >=3000),2,0))
+[State f, BURN COOKIES]
+type = VarSet
+trigger1 = Var(40) = [1,6]
+fvar(23)=ifElse((((Var(4)=[1,2])||(Var(11) =[1,2]))&&FVar(0)  >= 2000)||(((Var(5)=[1,2])||(Var(12)=[1,2]))&&(FVar(0) =[2000,2999])),1,IfElse(((Var(5)=[1,2])||(Var(12)=[1,2]))&&(FVar(0) >=3000),2,0))
+;var(14) = LP+MP
+;var(15) = LP+HP
+;var(16) = MP+HP
+;----------------[DOUBLE BUTTON CHECK]----------------
+[State c, CRACK CRACK CRACK THE EGG INTO THE BOWL]
+type = null
+trigger1 = var(14) := (((var(0) = [1,3]) && (var(3) = [1,3])))
+[State c, M.I.X. THE FLOUR INTO THE BOWL]
+type = null
+trigger1 = var(15) := (((var(1) = [1,3]) && (var(3) = [1,3])))
+[State c, BUTTER BUTTER BUTTER JOINS THE BOWL]
+type = null
+trigger1 = var(16) := (((var(1) = [1,3]) && (var(4) = [1,3])))
+[State c, BUTTER BUTTER BUTTER JOINS THE BOWL]
+type = null
+trigger1 = var(17) := (((var(0) = [1,3]) && (var(1) = [1,3])))

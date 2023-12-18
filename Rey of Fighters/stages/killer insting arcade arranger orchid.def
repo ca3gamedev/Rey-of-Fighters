@@ -1,0 +1,748 @@
+ ;--------------------------------------------------------
+[Info]
+Name   = "killer insting arcade arranger orchid"
+Author = "EXShadow"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -340
+boundright = 340
+boundhigh = -230
+boundlow = 0
+verticalfollow = .95
+floortension = 58
+tension = 60
+startzoom = 1
+zoomout = 0.66
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1      ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+hires = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 80
+color = 0,0,0
+yscale = .3
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic     = sound/killer insting arcade arranger orchid.mp3
+bgvolume    = 150
+
+;--------------------------------------------------------Main background definition
+[BGdef]
+spr         = killer insting arcade arranger orchid.sff
+debugbg     = 0
+
+[BG Black]
+type  = normal
+spriteno = 0, 0
+delta = 0, 0
+zoomdelta = 0,0
+mask = 0
+layerno = 0
+
+[BG Moon]
+type  = normal
+spriteno = 3, 0
+start = 0,323
+delta = .05, .80
+zoomdelta = 0,0
+mask = 1
+layerno = 0
+
+[BG Moon002]
+type  = normal
+spriteno = 3, 1
+start = 0,323
+delta = .05, .80
+zoomdelta = 0,0
+mask = 1
+trans = add
+layerno = 0
+
+[BG Moon003]
+type  = normal
+spriteno = 3, 2
+start = 0,323
+delta = .05, .80
+zoomdelta = 0,0
+mask = 1
+trans = add
+layerno = 0
+
+[BG BuildingsBack]
+type  = normal
+spriteno = 2, 3
+start = 0,400
+delta = .16, 1
+zoomdelta = .20,.20
+mask = 1
+trans = sub
+layerno = 0
+
+[BG Buildings]
+type  = normal
+spriteno = 2, 0
+start = 0,400
+delta = .16, 1
+zoomdelta = .20,.20
+mask = 1
+trans = add
+layerno = 0
+
+[BG Buildings002]
+type  = normal
+spriteno = 2, 1
+start = 0,400
+delta = .16, 1
+zoomdelta = .20,.20
+mask = 1
+trans = add
+layerno = 0
+
+[BG Buildings003]
+type  = normal
+spriteno = 2, 2
+start = 0,400
+delta = .16, 1
+zoomdelta = .20,.20
+mask = 1
+trans = add
+layerno = 0
+
+[BG Buildings002]
+type  = anim
+actionno = 2
+spriteno = 5, 0
+start = 0,400
+delta = .16, 1
+zoomdelta = .20,.20
+layerno = 0
+
+[BG BuildingsAX003]
+type  = anim
+actionno = 5
+spriteno = 2, 6
+start = 0,400
+delta = .16, 1
+zoomdelta = .20,.20
+layerno = 0
+
+[BG BuildingsAX002]
+type  = anim
+actionno = 4
+spriteno = 2, 5
+start = 0,400
+delta = .16, 1
+zoomdelta = .20,.20
+layerno = 0
+
+[BG BuildingsA]
+type  = anim
+actionno = 1
+spriteno = 3, 3
+start = 40,400
+delta = .16, 1
+zoomdelta = .20,.20
+layerno = 0
+
+[BG BuildingsA]
+type  = normal
+spriteno = 7, 0
+start = 40,400
+delta = .16, 1
+tile = 1,0
+trans= add
+velocity = 1,0
+zoomdelta = .20,.20
+layerno = 0
+
+[BG BuildingsA]
+type  = normal
+spriteno = 7, 1
+start = 40,400
+delta = .16, 1
+tile = 1,0
+trans= add
+velocity = .5,0
+zoomdelta = .20,.20
+layerno = 0
+
+[BG BuildingsAaaa2]
+type  = anim
+actionno = 3
+spriteno = 8, 2
+start = 0,400
+delta = .16, 1
+zoomdelta = .20,.20
+layerno = 0
+
+[BG BuildingsAaaa]
+type  = anim
+actionno = 6
+spriteno = 8, 1
+start = 0,400
+delta = .16, 1
+zoomdelta = .20,.20
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 1
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 2
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 3
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 4
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 5
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 6
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 7
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 8
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 9
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 10
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 11
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 12
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 13
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 14
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 15
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 16
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 17
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 18
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 19
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 20
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 21
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+[BG Floor]
+type  = parallax
+spriteno = 1, 22
+start = 0,323
+delta = .54, 1.50
+mask = 1
+xscale = 2,10
+yscalestart = 100
+yscaledelta = .7000
+layerno = 0
+
+
+
+[BG BaseBack]
+type  = normal
+spriteno = 1, 26
+start = 0,324
+delta = .56, 1.51
+mask = 1
+trans = sub
+layerno = 0
+
+[BG Base]
+type  = normal
+spriteno = 1, 25
+start = 0,324
+delta = .56, 1.51
+mask = 1
+trans = add
+layerno = 0
+
+[BG BaseBack]
+type  = normal
+spriteno = 1, 24
+start = 0,324
+delta = .56, 1.51
+mask = 1
+trans = sub
+layerno = 0
+
+[BG Base]
+type  = normal
+spriteno = 1, 23
+start = 0,324
+delta = .56, 1.51
+mask = 1
+trans = add
+layerno = 0
+
+[BG Hue]
+type  = normal
+spriteno = 4, 0
+delta = 0, 0
+zoomdelta = 0,0
+mask = 1
+trans = addalpha
+alpha = 256,250
+layerno = 1
+
+;--------------------------------------------------------Animations
+[Begin Action 1]
+3,3,0,0,2, ,as256d256
+3,3,0,0,2, ,as255d256
+
+[Begin Action 2]
+5,0, 0,0, 2,, a
+5,1, 0,0, 2,, a
+5,2, 0,0, 2,, a
+5,3, 0,0, 2,, a
+5,4, 0,0, 2,, a
+5,5, 0,0, 2,, a
+5,6, 0,0, 2,, a
+5,7, 0,0, 2,, a
+5,8, 0,0, 2,, a
+5,9, 0,0, 2,, a
+5,10, 0,0, 2,, a
+5,11, 0,0, 2,, a
+5,12, 0,0, 2,, a
+5,13, 0,0, 2,, a
+5,14, 0,0, 2,, a
+5,15, 0,0, 2,, a
+5,16, 0,0, 2,, a
+5,17, 0,0, 2,, a
+5,18, 0,0, 2,, a
+5,19, 0,0, 2,, a
+5,20, 0,0, 2,, a
+5,21, 0,0, 2,, a
+5,22, 0,0, 2,, a
+5,23, 0,0, 2,, a
+5,24, 0,0, 2,, a
+5,25, 0,0, 2,, a
+5,26, 0,0, 2,, a
+5,27, 0,0, 2,, a
+5,28, 0,0, 2,, a
+5,29, 0,0, 2,, a
+5,30, 0,0, 2,, a
+5,31, 0,0, 2,, a
+5,32, 0,0, 2,, a
+5,33, 0,0, 2,, a
+5,34, 0,0, 2,, a
+5,35, 0,0, 2,, a
+5,36, 0,0, 2,, a
+5,37, 0,0, 2,, a
+5,38, 0,0, 2,, a
+5,39, 0,0, 2,, a
+5,40, 0,0, 2,, a
+5,41, 0,0, 2,, a
+5,42, 0,0, 2,, a
+5,43, 0,0, 2,, a
+5,44, 0,0, 2,, a
+5,45, 0,0, 2,, a
+5,46, 0,0, 2,, a
+5,47, 0,0, 2,, a
+5,48, 0,0, 2,, a
+5,49, 0,0, 2,, a
+5,50, 0,0, 2,, a
+5,51, 0,0, 2,, a
+5,52, 0,0, 2,, a
+5,53, 0,0, 2,, a
+5,54, 0,0, 2,, a
+5,55, 0,0, 2,, a
+5,56, 0,0, 2,, a
+5,57, 0,0, 2,, a
+5,58, 0,0, 2,, a
+5,59, 0,0, 2,, a
+5,60, 0,0, 2,, a
+5,61, 0,0, 2,, a
+5,62, 0,0, 2,, a
+5,63, 0,0, 2,, a
+5,64, 0,0, 2,, a
+5,65, 0,0, 2,, a
+5,66, 0,0, 2,, a
+5,67, 0,0, 2,, a
+5,68, 0,0, 2,, a
+5,69, 0,0, 2,, a
+5,70, 0,0, 2,, a
+5,71, 0,0, 2,, a
+5,72, 0,0, 2,, a
+5,73, 0,0, 2,, a
+5,74, 0,0, 2,, a
+5,75, 0,0, 2,, a
+5,76, 0,0, 2,, a
+5,77, 0,0, 2,, a
+5,78, 0,0, 2,, a
+5,79, 0,0, 2,, a
+5,80, 0,0, 2,, a
+5,81, 0,0, 2,, a
+5,82, 0,0, 2,, a
+5,83, 0,0, 2,, a
+5,84, 0,0, 2,, a
+5,85, 0,0, 2,, a
+5,86, 0,0, 2,, a
+5,87, 0,0, 2,, a
+5,88, 0,0, 2,, a
+5,89, 0,0, 2,, a
+5,90, 0,0, 2,, a
+5,91, 0,0, 2,, a
+5,92, 0,0, 2,, a
+5,93, 0,0, 2,, a
+5,94, 0,0, 2,, a
+5,95, 0,0, 2,, a
+5,96, 0,0, 2,, a
+5,97, 0,0, 2,, a
+5,98, 0,0, 2,, a
+5,99, 0,0, 2,, a
+5,100, 0,0, 2,, a
+5,101, 0,0, 2,, a
+5,102, 0,0, 2,, a
+5,103, 0,0, 2,, a
+5,104, 0,0, 2,, a
+5,105, 0,0, 2,, a
+5,106, 0,0, 2,, a
+5,107, 0,0, 2,, a
+5,108, 0,0, 2,, a
+5,109, 0,0, 2,, a
+5,110, 0,0, 2,, a
+5,111, 0,0, 2,, a
+5,112, 0,0, 2,, a
+5,113, 0,0, 2,, a
+5,114, 0,0, 2,, a
+5,115, 0,0, 2,, a
+5,116, 0,0, 2,, a
+5,117, 0,0, 2,, a
+5,118, 0,0, 2,, a
+5,119, 0,0, 2,, a
+5,120, 0,0, 2,, a
+5,121, 0,0, 2,, a
+5,122, 0,0, 2,, a
+5,123, 0,0, 2,, a
+5,124, 0,0, 2,, a
+5,125, 0,0, 2,, a
+5,126, 0,0, 2,, a
+5,127, 0,0, 2,, a
+5,128, 0,0, 2,, a
+5,129, 0,0, 2,, a
+5,130, 0,0, 2,, a
+5,131, 0,0, 2,, a
+5,132, 0,0, 2,, a
+5,133, 0,0, 2,, a
+5,134, 0,0, 2,, a
+5,135, 0,0, 2,, a
+5,136, 0,0, 2,, a
+5,137, 0,0, 2,, a
+5,138, 0,0, 2,, a
+5,139, 0,0, 2,, a
+5,140, 0,0, 2,, a
+5,141, 0,0, 2,, a
+5,142, 0,0, 2,, a
+5,143, 0,0, 2,, a
+5,144, 0,0, 2,, a
+5,145, 0,0, 2,, a
+5,146, 0,0, 2,, a
+5,147, 0,0, 2,, a
+5,148, 0,0, 2,, a
+5,149, 0,0, 2,, a
+5,150, 0,0, 2,, a
+5,151, 0,0, 2,, a
+5,152, 0,0, 2,, a
+5,153, 0,0, 2,, a
+5,154, 0,0, 2,, a
+5,155, 0,0, 2,, a
+5,156, 0,0, 2,, a
+5,157, 0,0, 2,, a
+5,158, 0,0, 2,, a
+5,159, 0,0, 2,, a
+5,160, 0,0, 2,, a
+5,161, 0,0, 2,, a
+5,162, 0,0, 2,, a
+5,163, 0,0, 2,, a
+5,164, 0,0, 2,, a
+5,165, 0,0, 2,, a
+5,166, 0,0, 2,, a
+5,167, 0,0, 2,, a
+5,168, 0,0, 2,, a
+5,169, 0,0, 2,, a
+5,170, 0,0, 2,, a
+5,171, 0,0, 2,, a
+5,172, 0,0, 2,, a
+5,173, 0,0, 2,, a
+5,174, 0,0, 2,, a
+5,175, 0,0, 2,, a
+5,176, 0,0, 2,, a
+5,177, 0,0, 2,, a
+5,178, 0,0, 2,, a
+5,179, 0,0, 2,, a
+5,180, 0,0, 2,, a
+5,181, 0,0, 2,, a
+5,182, 0,0, 2,, a
+5,183, 0,0, 2,, a
+5,184, 0,0, 2,, a
+5,185, 0,0, 2,, a
+5,186, 0,0, 2,, a
+5,187, 0,0, 2,, a
+5,188, 0,0, 2,, a
+5,189, 0,0, 2,, a
+5,190, 0,0, 2,, a
+5,191, 0,0, 2,, a
+5,192, 0,0, 2,, a
+5,193, 0,0, 2,, a
+5,194, 0,0, 2,, a
+5,195, 0,0, 2,, a
+5,196, 0,0, 2,, a
+5,197, 0,0, 2,, a
+5,198, 0,0, 2,, a
+5,199, 0,0, 2,, a
+5,200, 0,0, 2,, a
+5,201, 0,0, 2,, a
+5,202, 0,0, 2,, a
+5,203, 0,0, 2,, a
+5,204, 0,0, 2,, a
+5,205, 0,0, 18,, a
+
+[Begin Action 3]
+8,2,0,0,42
+0,0,0,0,42
+
+[Begin Action 4]
+0,0,0,0,34
+2,5,0,0,34
+
+[Begin Action 5]
+2,6,0,0,30
+0,0,0,0,30
+
+[Begin Action 6]
+8,1,0,0,30, ,a
+8,0,0,0,30, ,a

@@ -1,0 +1,421 @@
+;traduccion por rock :P
+
+[Scenedef]
+spr = agent_team.sff
+startscene = 0
+
+[Scene 0]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 0
+layer0.offset = 0,0
+layer0.starttime = 0
+bgm = end.mp3
+bgm.loop = 0
+volume = 255
+end.time = 60
+
+[Begin Action 0]
+0,0,0,0,-1
+
+[Scene 1]
+fadein.time = 30
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 30
+fadeout.col = 255,255,255
+layerall.pos = 0,0
+layer0.anim = 1
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 100
+
+[Begin Action 1]
+0,1,0,0,-1
+
+[Scene 2]
+fadein.time = 30
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 2
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 100
+
+[Begin Action 2]
+0,2,0,0,-1
+
+[Scene 3]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 3
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 150
+
+bgm = dp01948.mp3
+bgm.loop = 0
+volume = 255
+
+[Begin Action 3]
+0,3,0,0,-1
+
+[Scene 4]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 4
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 130
+
+[Begin Action 4]
+0,4,0,0,-1
+
+[Scene 5]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 5
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 130
+
+[Begin Action 5]
+0,5,0,0,-1
+
+[Scene 6]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 6
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 130
+
+[Begin Action 6]
+0,6,0,0,-1
+
+[Scene 7]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 7
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 120
+
+[Begin Action 7]
+0,7,0,0,-1
+
+[Scene 8]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 8
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 120
+
+[Begin Action 8]
+0,8,0,0,-1
+
+[Scene 9]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 9
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 120
+
+[Begin Action 9]
+0,9,0,0,-1
+
+[Scene 10]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 10
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 120
+
+[Begin Action 10]
+0,10,0,0,-1
+
+[Scene 11]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 11
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 120
+
+[Begin Action 11]
+0,11,0,0,-1
+
+[Scene 12]
+fadein.time = 30
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 12
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 200
+
+bgm =AGENT.mp3
+ bgm.loop = 0
+ volume = 255
+
+[Begin Action 12]
+0,12,0,0,-1
+
+[Scene 13]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 13
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 200
+
+[Begin Action 13]
+0,13,0,0,-1
+
+[Scene 14]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 14
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 200
+
+[Begin Action 14]
+0,14,0,0,-1
+
+[Scene 15]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 15
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 180
+
+[Begin Action 15]
+0,15,0,0,-1
+
+[Scene 16]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 16
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 180
+
+[Begin Action 16]
+0,16,0,0,-1
+
+[Scene 17]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 30
+fadeout.col = 0.0.0
+layerall.pos = 0,0
+layer0.anim = 17
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 180
+
+[Begin Action 17]
+0,17,0,0,-1
+
+[Scene 18]
+fadein.time = 30
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 18
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 180
+
+[Begin Action 18]
+0,18,0,0,-1
+
+[Scene 19]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 19
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 200
+
+[Begin Action 19]
+0,19,0,0,-1
+
+[Scene 20]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 20
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 230
+
+[Begin Action 20]
+0,20,0,0,-1
+
+[Scene 21]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 30
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 21
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 230
+
+[Begin Action 21]
+0,21,0,0,-1
+
+[Scene 22]
+fadein.time = 30
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 22
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 230
+
+[Begin Action 22]
+0,22,0,0,-1
+
+[Scene 23]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 30
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 23
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 230
+
+[Begin Action 23]
+0,23,0,0,-1
+
+[Scene 24]
+fadein.time = 30
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 24
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 230
+
+[Begin Action 24]
+0,24,0,0,-1
+
+[Scene 25]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 0
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 25
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 230
+
+[Begin Action 25]
+0,25,0,0,-1
+
+[Scene 26]
+fadein.time = 0
+fadein.col = 0,0,0
+clearcolor = 0,0,0
+fadeout.time = 100
+fadeout.col = 0,0,0
+layerall.pos = 0,0
+layer0.anim = 26
+layer0.offset = 0,0
+layer0.starttime = 0
+end.time = 350
+
+[Begin Action 26]
+0,26,0,0,-1

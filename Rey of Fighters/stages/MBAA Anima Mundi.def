@@ -1,0 +1,1694 @@
+;--------------------------------------------------------
+[Info]
+Name = "MBAA Anima Mundi"
+Author = "EXShadow"
+Editor: xWagnerPlaguesx
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -52
+boundright = 53
+boundhigh = -80
+boundlow = 0
+verticalfollow = .95
+floortension = 60
+tension = 50
+tensionhigh = 90
+tensionlow = -20
+floortension = 0
+tension = 60
+startzoom = 1
+zoomin = 1
+zoomout = .71
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 20    ;Dist from left of screen that player can move to
+screenright = 20   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 224
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+hires = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 70
+color = 0,0,0
+yscale = .4
+fade.range = -20,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 0
+
+;--------------------------------------------------------
+[Music]
+bgmusic   = sound/MBAA Anima Mundi.mp3
+bgvolume  = 150
+
+;--------------------------------------------------------Main background definition
+[BGdef]
+spr       = MBAA Anima Mundi.sff
+debugbg   = 0
+
+[BG Black]
+type  = normal
+spriteno = 0, 0
+delta = 0, 0
+mask = 0
+layerno = 0
+
+[BG Back]
+type  = normal
+spriteno = 7, 0
+delta = 1.16, 1
+Start = 0,74
+mask = 0
+layerno = 0
+
+[BG Back]
+type  = normal
+spriteno = 7, 1
+delta = 1.16, 1
+Start = 0,74
+mask = 0
+trans = add
+layerno = 0
+
+[BG Back]
+type  = normal
+spriteno = 7, 2
+delta = 1.16, 1
+Start = 0,74
+mask = 0
+trans = add
+layerno = 0
+
+[BG FloorBack006]
+type  = normal
+spriteno = 6, 1
+delta = 1.20, 1.10
+Start = 0,100
+mask = 0
+trans = sub
+layerno = 0
+
+[BG Floor006]
+type  = normal
+spriteno = 6, 0
+delta = 1.20, 1.10
+Start = 0,100
+mask = 0
+trans = add
+layerno = 0
+
+[BG Spark007]
+type  =  anim
+actionno = 31
+spriteno = 5, 0
+delta = 1.20, 1.10
+Start = 0,97
+layerno = 0
+
+[BG Spark006]
+type  =  anim
+actionno = 30
+spriteno = 5, 0
+delta = 1.20, 1.10
+Start = -8,87
+layerno = 0
+
+[BG Spark005]
+type  =  anim
+actionno = 29
+spriteno = 5, 0
+delta = 1.20, 1.10
+Start = 10,94; 0,100
+layerno = 0
+
+[BG Spark004]
+type  =  anim
+actionno = 28
+spriteno = 5, 0
+delta = 1.20, 1.10
+Start = -2,94;0,100
+layerno = 0
+
+[BG Spark003]
+type  =  anim
+actionno = 27
+spriteno = 5, 0
+delta = 1.20, 1.10
+Start = 0,97
+layerno = 0
+
+[BG Spark002]
+type  =  anim
+actionno = 26
+spriteno = 5, 0
+delta = 1.20, 1.10
+Start = 0,97
+layerno = 0
+
+[BG Spark]
+type  =  anim
+actionno = 25
+spriteno = 5, 0
+delta = 1.20, 1.10
+Start = 0,97
+layerno = 0
+
+[BG Lightning007]
+type  =  anim
+actionno = 19
+spriteno = 15, 1
+delta = 1.20, 1.10
+Start = 70,112
+layerno = 0
+
+[BG Lightning008]
+type  =  anim
+actionno = 24
+spriteno = 15, 0
+delta = 1.20, 1.05
+Start = 155,120
+layerno = 0
+
+[BG Lightning007]
+type  =  anim
+actionno = 23
+spriteno = 15, 1
+delta = 1.20, 1.10
+Start = 90,112
+layerno = 0
+
+[BG Lightning006]
+type  =  anim
+actionno = 22
+spriteno = 15, 0
+delta = 1.20, 1.10
+Start = -150,115
+layerno = 0
+
+[BG Lightning005]
+type  =  anim
+actionno = 21
+spriteno = 15, 1
+delta = 1.20, 1.10
+Start = -180,66
+layerno = 0
+
+[BG Lightning004]
+type  =  anim
+actionno = 20
+spriteno = 15, 1
+delta = 1.20, 1.10
+Start = -120,93
+layerno = 0
+
+[BG Lightning003]
+type  =  anim
+actionno = 19
+spriteno = 15, 0
+delta = 1.20, 1.10
+Start = -130,100
+layerno = 0
+
+[BG Lightning002]
+type  =  anim
+actionno = 18
+spriteno = 15, 1
+delta = 1.20, 1.10
+Start = 135,100
+layerno = 0
+
+[BG Lightning]
+type  =  anim
+actionno = 17
+spriteno = 15, 0
+delta = 1.20, 1.10
+Start = -140,85
+layerno = 0
+
+[BG FloorBack005]
+type  = normal
+spriteno = 25, 1
+delta = 1.30, 1.30
+Start = 0,98
+mask = 0
+trans = sub
+layerno = 0
+
+[BG Floor005]
+type  = normal
+spriteno = 25, 0
+delta = 1.30, 1.30
+Start = 0,98
+mask = 0
+trans = add
+layerno = 0
+
+[BG FloorBack004]
+type  = normal
+spriteno = 4, 1
+delta = 1.48, 1.40
+Start = 0,66
+mask = 0
+trans = sub
+layerno = 0
+
+[BG Floor004]
+type  = normal
+spriteno = 4, 0
+delta = 1.48, 1.40
+Start = 0,66
+mask = 0
+trans = add
+layerno = 0
+
+[BG FloorBack003]
+type  = normal
+spriteno = 3, 1
+delta = 1.70, 1.60
+Start = 0,74
+mask = 0
+trans = sub
+layerno = 0
+
+[BG Floor003]
+type  = normal
+spriteno = 3, 0
+delta = 1.70, 1.60
+Start = 0,74
+mask = 0
+trans = add
+layerno = 0
+
+[BG FloorBack002]
+type  = normal
+spriteno = 2, 1
+delta = 1.90, 1.80
+Start = 0,20
+mask = 0
+trans = sub
+layerno = 0
+
+[BG Floor002]
+type  = normal
+spriteno = 2, 0
+delta = 1.90, 1.80
+Start = 0,20
+mask = 0
+trans = add
+layerno = 0
+
+[BG FloorBack]
+type  = normal
+spriteno = 1, 1
+Start = 0,45
+delta = 2, 2
+mask = 0
+trans = sub
+layerno = 0
+
+[BG Floor]
+type  = normal
+spriteno = 1, 0
+Start = 0,45
+delta = 2, 2
+mask = 0
+trans = add
+layerno = 0
+
+[BG FlowersBack023]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = -450,-120
+delta = 2, 2
+layerno = 0
+
+[BG Flowers023]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = -450,-120
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack022]
+type  = anim
+actionno = 16
+spriteno = 12, 0
+Start = -390,-130
+delta = 2, 2
+layerno = 0
+
+[BG Flowers022]
+type  = anim
+actionno = 15
+spriteno = 13, 0
+Start = -390,-130
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack021]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = -570,-140
+delta = 2, 2
+layerno = 0
+
+[BG Flowers021]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = -570,-140
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack020]
+type  = anim
+actionno = 16
+spriteno = 12, 0
+Start = -550,-150
+delta = 2, 2
+layerno = 0
+
+[BG Flowers020]
+type  = anim
+actionno = 15
+spriteno = 13, 0
+Start = -550,-150
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack019]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = -350,-120
+delta = 2, 2
+layerno = 0
+
+[BG Flowers019]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = -350,-120
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack018]
+type  = anim
+actionno = 16
+spriteno = 12, 0
+Start = -300,-100
+delta = 2, 2
+layerno = 0
+
+[BG Flowers018]
+type  = anim
+actionno = 15
+spriteno = 13, 0
+Start = -300,-100
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack017]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = -580,-110
+delta = 2, 2
+layerno = 0
+
+[BG Flowers017]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = -580,-110
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack016]
+type  = anim
+actionno = 16
+spriteno = 12, 0
+Start = -400,-100
+delta = 2, 2
+layerno = 0
+
+[BG Flowers016]
+type  = anim
+actionno = 15
+spriteno = 13, 0
+Start = -400,-100
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack015]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = -500,-150
+delta = 2, 2
+layerno = 0
+
+[BG Flowers015]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = -500,-150
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack014]
+type  = anim
+actionno = 14
+spriteno = 12, 0
+Start = -600,-180
+delta = 2, 2
+layerno = 0
+
+[BG Flowers014]
+type  = anim
+actionno = 13
+spriteno = 13, 0
+Start = -600,-180
+delta = 2, 2
+layerno = 0
+
+[BG FlowersBack013]
+type  = anim
+actionno = 16
+spriteno = 12, 0
+Start = 222,-90
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 0
+
+[BG Flowers013]
+type  = anim
+actionno = 15
+spriteno = 13, 0
+Start = 222,-90
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 0
+
+[BG FlowersBack012]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = 111,-70
+delta = 2, 2
+tile = 1,0
+tilespacing = 120,0
+layerno = 0
+
+[BG Flowers012]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = 111,-70
+delta = 2, 2
+tile = 1,0
+tilespacing = 120,0
+layerno = 0
+
+[BG FlowersBack011]
+type  = anim
+actionno = 16
+spriteno = 12, 0
+Start = -310,-70
+delta = 2, 2
+tile = 1,0
+tilespacing = 90,0
+layerno = 0
+
+[BG Flowers011]
+type  = anim
+actionno = 15
+spriteno = 13, 0
+Start = -310,-70
+delta = 2, 2
+tile = 1,0
+tilespacing = 90,0
+layerno = 0
+
+[BG FlowersBack010]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = -210,-50
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 0
+
+[BG Flowers010]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = -210,-50
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 0
+
+[BG FlowersBack009]
+type  = anim
+actionno = 10
+spriteno = 12, 0
+Start = 100,-50
+delta = 2, 2
+tile = 1,0
+tilespacing = 450,0
+layerno = 0
+
+[BG Flowers009]
+type  = anim
+actionno = 9
+spriteno = 11, 0
+Start = 100,-50
+delta = 2, 2
+tile = 1,0
+tilespacing = 450,0
+layerno = 0
+
+[BG FlowersBack008]
+type  = anim
+actionno = 10
+spriteno = 12, 0
+Start = 80,-20
+delta = 2, 2
+tile = 1,0
+tilespacing = 600,0
+layerno = 1
+
+[BG Flowers008]
+type  = anim
+actionno = 9
+spriteno = 11, 0
+Start = 80,-20
+delta = 2, 2
+tile = 1,0
+tilespacing = 600,0
+layerno = 1
+
+[BG FlowersBack007]
+type  = anim
+actionno = 10
+spriteno = 12, 0
+Start = 50,0
+delta = 2, 2
+tile = 1,0
+tilespacing = 320,0
+layerno = 1
+
+[BG Flowers007]
+type  = anim
+actionno = 9
+spriteno = 11, 0
+Start = 50,0
+delta = 2, 2
+tile = 1,0
+tilespacing = 320,0
+layerno = 1
+
+[BG FlowersBack006]
+type  = anim
+actionno = 2
+spriteno = 10, 0
+Start = 0,-10
+delta = 2, 2
+tile = 1,0
+tilespacing = 400,0
+layerno = 1
+
+[BG Flowers006]
+type  = anim
+actionno = 1
+spriteno = 9, 0
+Start = 0,-10
+delta = 2, 2
+tile = 1,0
+tilespacing = 400,0
+layerno = 1
+
+[BG FlowersBack005]
+type  = anim
+actionno = 4
+spriteno = 10, 0
+Start = 100,-40
+delta = 2, 2
+tile = 1,0
+tilespacing = 450,0
+layerno = 0
+
+[BG Flowers005]
+type  = anim
+actionno = 3
+spriteno = 9, 0
+Start = 100,-40
+delta = 2, 2
+tile = 1,0
+tilespacing = 450,0
+layerno = 0
+
+[BG FlowersBack004]
+type  = anim
+actionno = 6
+spriteno = 10, 0
+Start = -340,60
+delta = 2, 2
+tile = 1,0
+tilespacing = 700,0
+layerno = 1
+
+[BG Flowers004]
+type  = anim
+actionno = 5
+spriteno = 9, 0
+Start = -340,60
+delta = 2, 2
+tile = 1,0
+tilespacing = 700,0
+layerno = 1
+
+[BG FlowersBack003]
+type  = anim
+actionno = 6
+spriteno = 10, 0
+Start = -140,70
+delta = 2, 2
+tile = 1,0
+tilespacing = 500,0
+layerno = 1
+
+[BG Flowers003]
+type  = anim
+actionno = 5
+spriteno = 9, 0
+Start = -140,70
+delta = 2, 2
+tile = 1,0
+tilespacing = 500,0
+layerno = 1
+
+[BG FlowersBack002]
+type  = anim
+actionno = 4
+spriteno = 10, 0
+Start = -100,90
+delta = 2, 2
+tile = 1,0
+tilespacing = 400,0
+layerno = 1
+
+[BG Flowers002]
+type  = anim
+actionno = 3
+spriteno = 9, 0
+Start = -100,90
+delta = 2, 2
+tile = 1,0
+tilespacing = 400,0
+layerno = 1
+
+[BG FlowersBack]
+type  = anim
+actionno = 2
+spriteno = 10, 0
+Start = 50,80
+delta = 2, 2
+tile = 1,0
+tilespacing = 720,0
+layerno = 1
+
+[BG Flowers]
+type  = anim
+actionno = 1
+spriteno = 9, 0
+Start = 50,80
+delta = 2, 2
+tile = 1,0
+tilespacing = 720,0
+layerno = 1
+
+[BG FlowersBackFT004]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = -210,-20
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 0
+
+[BG FlowersFT004]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = -210,-20
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 0
+
+[BG FlowersBackFT003]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = -20,10
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 1
+
+[BG FlowersFT003]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = -20,10
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 1
+
+[BG FlowersBackFT002]
+type  = anim
+actionno = 14
+spriteno = 12, 0
+Start = 50,60
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 1
+
+[BG FlowersFT002]
+type  = anim
+actionno = 13
+spriteno = 13, 0
+Start = 50,60
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 1
+
+[BG FlowersBackFT]
+type  = anim
+actionno = 12
+spriteno = 12, 0
+Start = 0,30
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 1
+
+[BG FlowersFT]
+type  = anim
+actionno = 11
+spriteno = 13, 0
+Start = 0,30
+delta = 2, 2
+tile = 1,0
+tilespacing = 100,0
+layerno = 1
+
+[BG FlowersFTBack003]
+type  = normal
+spriteno = 8, 3
+Start = 196,45
+delta = 2, 2
+mask = 0
+trans = sub
+layerno = 1
+
+[BG FlowersFT003]
+type  = normal
+spriteno = 8, 2
+Start = 196,45
+delta = 2, 2
+mask = 0
+trans = add
+layerno = 1
+
+[BG FlowersFTBack002]
+type  = normal
+spriteno = 8, 3
+Start = 0,45
+delta = 2, 2
+mask = 0
+tile = 1,0
+trans = sub
+layerno = 1
+
+[BG FlowersFT002]
+type  = normal
+spriteno = 8, 2
+Start = 0,45
+delta = 2, 2
+mask = 0
+tile = 1,0
+trans = add
+layerno = 1
+
+[BG FlowersFTBack]
+type  = normal
+spriteno = 8, 1
+Start = 0,45
+delta = 2, 2
+mask = 0
+tile = 1,0
+trans = sub
+layerno = 1
+
+[BG FlowersFT]
+type  = normal
+spriteno = 8, 0
+Start = 0,45
+delta = 2, 2
+mask = 0
+tile = 1,0
+trans = add
+layerno = 1
+
+;--------------------------------------------------------Animations
+[Begin Action 1]
+9,0, 0,0, 7, ,a
+9,2, 0,0, 7, ,a
+9,4, 0,0, 7, ,a
+9,1, 0,0, 7, ,a
+9,6, 0,0, 7, ,a
+9,3, 0,0, 7, ,a
+9,5, 0,0, 7, ,a
+9,7, 0,0, 7, ,a
+9,14, 0,0, 7, ,a
+9,9, 0,0, 7, ,a
+
+[Begin Action 2]
+10,0, 0,0, 7, ,s
+10,2, 0,0, 7, ,s
+10,4, 0,0, 7, ,s
+10,1, 0,0, 7, ,s
+10,6, 0,0, 7, ,s
+10,3, 0,0, 7, ,s
+10,5, 0,0, 7, ,s
+10,7, 0,0, 7, ,s
+10,14, 0,0, 7, ,s
+10,9, 0,0, 7, ,s
+
+[Begin Action 3]
+9,3, 0,0, 7, ,a
+9,5, 0,0, 7, ,a
+9,7, 0,0, 7, ,a
+9,14, 0,0, 7, ,a
+9,9, 0,0, 7, ,a
+9,0, 0,0, 7, ,a
+9,2, 0,0, 7, ,a
+9,4, 0,0, 7, ,a
+9,1, 0,0, 7, ,a
+9,6, 0,0, 7, ,a
+
+[Begin Action 4]
+10,3, 0,0, 7, ,s
+10,5, 0,0, 7, ,s
+10,7, 0,0, 7, ,s
+10,14, 0,0, 7, ,s
+10,9, 0,0, 7, ,s
+10,0, 0,0, 7, ,s
+10,2, 0,0, 7, ,s
+10,4, 0,0, 7, ,s
+10,1, 0,0, 7, ,s
+10,6, 0,0, 7, ,s
+
+[Begin Action 5]
+9,1, 0,0, 7, ,a
+9,6, 0,0, 7, ,a
+9,3, 0,0, 7, ,a
+9,5, 0,0, 7, ,a
+9,7, 0,0, 7, ,a
+9,14, 0,0, 7, ,a
+9,9, 0,0, 7, ,a
+9,0, 0,0, 7, ,a
+9,2, 0,0, 7, ,a
+9,4, 0,0, 7, ,a
+
+[Begin Action 6]
+10,1, 0,0, 7, ,s
+10,6, 0,0, 7, ,s
+10,3, 0,0, 7, ,s
+10,5, 0,0, 7, ,s
+10,7, 0,0, 7, ,s
+10,14, 0,0, 7, ,s
+10,9, 0,0, 7, ,s
+10,0, 0,0, 7, ,s
+10,2, 0,0, 7, ,s
+10,4, 0,0, 7, ,s
+
+[Begin Action 7]
+9,2, 0,0, 7, ,a
+9,4, 0,0, 7, ,a
+9,1, 0,0, 7, ,a
+9,6, 0,0, 7, ,a
+9,3, 0,0, 7, ,a
+9,5, 0,0, 7, ,a
+9,7, 0,0, 7, ,a
+9,14, 0,0, 7, ,a
+9,9, 0,0, 7, ,a
+9,0, 0,0, 7, ,a
+
+[Begin Action 8]
+10,2, 0,0, 7, ,s
+10,4, 0,0, 7, ,s
+10,1, 0,0, 7, ,s
+10,6, 0,0, 7, ,s
+10,3, 0,0, 7, ,s
+10,5, 0,0, 7, ,s
+10,7, 0,0, 7, ,s
+10,14, 0,0, 7, ,s
+10,9, 0,0, 7, ,s
+10,0, 0,0, 7, ,s
+
+[Begin Action 9]
+11,12, 0,0, 7,, a
+11,6, 0,0, 7,, a
+11,13, 0,0, 7,, a
+11,1, 0,0, 7,, a
+11,15, 0,0, 7,, a
+11,2, 0,0, 7,, a
+11,14, 0,0, 7,, a
+11,10, 0,0, 7,, a
+11,11, 0,0, 7,, a
+
+[Begin Action 10]
+12,12, 0,0, 7,, s
+12,6, 0,0, 7,, s
+12,13, 0,0, 7,, s
+12,1, 0,0, 7,, s
+12,15, 0,0, 7,, s
+12,2, 0,0, 7,, s
+12,14, 0,0, 7,, s
+12,10, 0,0, 7,, s
+12,11, 0,0, 7,, s
+
+[Begin Action 11]
+13,11, 0,0, 7,, A
+13,4, 0,0, 7,, A
+13,1, 0,0, 7,, A
+13,7, 0,0, 7,, A
+13,1, 0,0, 7,, A
+13,9, 0,0, 7,, A
+13,4, 0,0, 7,, A
+
+[Begin Action 12]
+14,11, 0,0, 7,, s
+14,4, 0,0, 7,, s
+14,1, 0,0, 7,, s
+14,7, 0,0, 7,, s
+14,1, 0,0, 7,, s
+14,9, 0,0, 7,, s
+14,4, 0,0, 7,, s
+
+[Begin Action 13]
+13,7, 0,0, 7,, A
+13,1, 0,0, 7,, A
+13,9, 0,0, 7,, A
+13,4, 0,0, 7,, A
+13,11, 0,0, 7,, A
+13,4, 0,0, 7,, A
+13,1, 0,0, 7,, A
+
+[Begin Action 14]
+14,7, 0,0, 7,, s
+14,1, 0,0, 7,, s
+14,9, 0,0, 7,, s
+14,4, 0,0, 7,, s
+14,11, 0,0, 7,, s
+14,4, 0,0, 7,, s
+14,1, 0,0, 7,, s
+
+[Begin Action 15]
+13,9, 0,0, 7,, A
+13,4, 0,0, 7,, A
+13,11, 0,0, 7,, A
+13,4, 0,0, 7,, A
+13,1, 0,0, 7,, A
+13,7, 0,0, 7,, A
+13,1, 0,0, 7,, A
+
+[Begin Action 16]
+14,9, 0,0, 7,, s
+14,4, 0,0, 7,, s
+14,11, 0,0, 7,, s
+14,4, 0,0, 7,, s
+14,1, 0,0, 7,, s
+14,7, 0,0, 7,, s
+14,1, 0,0, 7,, s
+
+[Begin Action 17]
+15,0,0,0,1, ,as16d256
+15,0,0,0,1, ,as56d256
+15,0,0,0,1, ,as156d256
+15,0,0,0,10, ,as256d256
+15,0,0,0,3, ,as246d256
+15,0,0,0,3, ,as236d256
+15,0,0,0,3, ,as226d256
+15,0,0,0,3, ,as216d256
+15,0,0,0,3, ,as206d256
+15,0,0,0,3, ,as196d256
+15,0,0,0,3, ,as186d256
+15,0,0,0,3, ,as176d256
+15,0,0,0,3, ,as166d256
+15,0,0,0,3, ,as156d256
+15,0,0,0,3, ,as146d256
+15,0,0,0,3, ,as136d256
+15,0,0,0,3, ,as126d256
+15,0,0,0,3, ,as116d256
+15,0,0,0,3, ,as106d256
+15,0,0,0,3, ,as96d256
+15,0,0,0,3, ,as86d256
+15,0,0,0,3, ,as76d256
+15,0,0,0,3, ,as66d256
+15,0,0,0,3, ,as56d256
+15,0,0,0,3, ,as46d256
+15,0,0,0,3, ,as36d256
+15,0,0,0,3, ,as26d256
+15,0,0,0,3, ,as16d256
+15,0,0,0,3, ,as6d256
+0,0,0,0,181
+
+[Begin Action 18]
+0,0,0,0,300
+15,1,0,0,1, ,as16d256
+15,1,0,0,1, ,as56d256
+15,1,0,0,1, ,as156d256
+15,1,0,0,10, ,as256d256
+15,1,0,0,3, ,as246d256
+15,1,0,0,3, ,as236d256
+15,1,0,0,3, ,as226d256
+15,1,0,0,3, ,as216d256
+15,1,0,0,3, ,as206d256
+15,1,0,0,3, ,as196d256
+15,1,0,0,3, ,as186d256
+15,1,0,0,3, ,as176d256
+15,1,0,0,3, ,as166d256
+15,1,0,0,3, ,as156d256
+15,1,0,0,3, ,as146d256
+15,1,0,0,3, ,as136d256
+15,1,0,0,3, ,as126d256
+15,1,0,0,3, ,as116d256
+15,1,0,0,3, ,as106d256
+15,1,0,0,3, ,as96d256
+15,1,0,0,3, ,as86d256
+15,1,0,0,3, ,as76d256
+15,1,0,0,3, ,as66d256
+15,1,0,0,3, ,as56d256
+15,1,0,0,3, ,as46d256
+15,1,0,0,3, ,as36d256
+15,1,0,0,3, ,as26d256
+15,1,0,0,3, ,as16d256
+15,1,0,0,3, ,as6d256
+0,0,0,0,655
+15,1,0,0,1, ,as16d256
+15,1,0,0,1, ,as56d256
+15,1,0,0,1, ,as156d256
+15,1,0,0,10, ,as256d256
+15,1,0,0,3, ,as246d256
+15,1,0,0,3, ,as236d256
+15,1,0,0,3, ,as226d256
+15,1,0,0,3, ,as216d256
+15,1,0,0,3, ,as206d256
+15,1,0,0,3, ,as196d256
+15,1,0,0,3, ,as186d256
+15,1,0,0,3, ,as176d256
+15,1,0,0,3, ,as166d256
+15,1,0,0,3, ,as156d256
+15,1,0,0,3, ,as146d256
+15,1,0,0,3, ,as136d256
+15,1,0,0,3, ,as126d256
+15,1,0,0,3, ,as116d256
+15,1,0,0,3, ,as106d256
+15,1,0,0,3, ,as96d256
+15,1,0,0,3, ,as86d256
+15,1,0,0,3, ,as76d256
+15,1,0,0,3, ,as66d256
+15,1,0,0,3, ,as56d256
+15,1,0,0,3, ,as46d256
+15,1,0,0,3, ,as36d256
+15,1,0,0,3, ,as26d256
+15,1,0,0,3, ,as16d256
+15,1,0,0,3, ,as6d256
+
+[Begin Action 19]
+0,0,0,0,20
+15,0,0,0,1, ,as16d256
+15,0,0,0,1, ,as56d256
+15,0,0,0,1, ,as156d256
+15,0,0,0,10, ,as256d256
+15,0,0,0,3, ,as246d256
+15,0,0,0,3, ,as236d256
+15,0,0,0,3, ,as226d256
+15,0,0,0,3, ,as216d256
+15,0,0,0,3, ,as206d256
+15,0,0,0,3, ,as196d256
+15,0,0,0,3, ,as186d256
+15,0,0,0,3, ,as176d256
+15,0,0,0,3, ,as166d256
+15,0,0,0,3, ,as156d256
+15,0,0,0,3, ,as146d256
+15,0,0,0,3, ,as136d256
+15,0,0,0,3, ,as126d256
+15,0,0,0,3, ,as116d256
+15,0,0,0,3, ,as106d256
+15,0,0,0,3, ,as96d256
+15,0,0,0,3, ,as86d256
+15,0,0,0,3, ,as76d256
+15,0,0,0,3, ,as66d256
+15,0,0,0,3, ,as56d256
+15,0,0,0,3, ,as46d256
+15,0,0,0,3, ,as36d256
+15,0,0,0,3, ,as26d256
+15,0,0,0,3, ,as16d256
+15,0,0,0,3, ,as6d256
+0,0,0,0,133
+15,0,0,0,1, ,as16d256
+15,0,0,0,1, ,as56d256
+15,0,0,0,1, ,as156d256
+15,0,0,0,10, ,as256d256
+15,0,0,0,3, ,as246d256
+15,0,0,0,3, ,as236d256
+15,0,0,0,3, ,as226d256
+15,0,0,0,3, ,as216d256
+15,0,0,0,3, ,as206d256
+15,0,0,0,3, ,as196d256
+15,0,0,0,3, ,as186d256
+15,0,0,0,3, ,as176d256
+15,0,0,0,3, ,as166d256
+15,0,0,0,3, ,as156d256
+15,0,0,0,3, ,as146d256
+15,0,0,0,3, ,as136d256
+15,0,0,0,3, ,as126d256
+15,0,0,0,3, ,as116d256
+15,0,0,0,3, ,as106d256
+15,0,0,0,3, ,as96d256
+15,0,0,0,3, ,as86d256
+15,0,0,0,3, ,as76d256
+15,0,0,0,3, ,as66d256
+15,0,0,0,3, ,as56d256
+15,0,0,0,3, ,as46d256
+15,0,0,0,3, ,as36d256
+15,0,0,0,3, ,as26d256
+15,0,0,0,3, ,as16d256
+15,0,0,0,3, ,as6d256
+0,0,0,0,244
+
+[Begin Action 20]
+15,1,0,0,3, ,as116d256
+15,1,0,0,3, ,as106d256
+15,1,0,0,3, ,as96d256
+15,1,0,0,3, ,as86d256
+15,1,0,0,3, ,as76d256
+15,1,0,0,3, ,as66d256
+15,1,0,0,3, ,as56d256
+15,1,0,0,3, ,as46d256
+15,1,0,0,3, ,as36d256
+15,1,0,0,3, ,as26d256
+15,1,0,0,3, ,as16d256
+15,1,0,0,3, ,as6d256
+0,0,0,0,400
+15,1,0,0,1, ,as16d256
+15,1,0,0,1, ,as56d256
+15,1,0,0,1, ,as156d256
+15,1,0,0,10, ,as256d256
+15,1,0,0,3, ,as246d256
+15,1,0,0,3, ,as236d256
+15,1,0,0,3, ,as226d256
+15,1,0,0,3, ,as216d256
+15,1,0,0,3, ,as206d256
+15,1,0,0,3, ,as196d256
+15,1,0,0,3, ,as186d256
+15,1,0,0,3, ,as176d256
+15,1,0,0,3, ,as166d256
+15,1,0,0,3, ,as156d256
+15,1,0,0,3, ,as146d256
+15,1,0,0,3, ,as136d256
+15,1,0,0,3, ,as126d256
+15,1,0,0,3, ,as116d256
+15,1,0,0,3, ,as106d256
+15,1,0,0,3, ,as96d256
+15,1,0,0,3, ,as86d256
+15,1,0,0,3, ,as76d256
+15,1,0,0,3, ,as66d256
+15,1,0,0,3, ,as56d256
+15,1,0,0,3, ,as46d256
+15,1,0,0,3, ,as36d256
+15,1,0,0,3, ,as26d256
+15,1,0,0,3, ,as16d256
+15,1,0,0,3, ,as6d256
+0,0,0,0,600
+15,1,0,0,1, ,as16d256
+15,1,0,0,1, ,as56d256
+15,1,0,0,1, ,as156d256
+15,1,0,0,10, ,as256d256
+15,1,0,0,3, ,as246d256
+15,1,0,0,3, ,as236d256
+15,1,0,0,3, ,as226d256
+15,1,0,0,3, ,as216d256
+15,1,0,0,3, ,as206d256
+15,1,0,0,3, ,as196d256
+15,1,0,0,3, ,as186d256
+15,1,0,0,3, ,as176d256
+15,1,0,0,3, ,as166d256
+15,1,0,0,3, ,as156d256
+15,1,0,0,3, ,as146d256
+15,1,0,0,3, ,as136d256
+15,1,0,0,3, ,as126d256
+
+[Begin Action 21]
+0,0,0,0,500
+15,1,0,0,1, ,as16d256
+15,1,0,0,1, ,as56d256
+15,1,0,0,1, ,as156d256
+15,1,0,0,10, ,as256d256
+15,1,0,0,3, ,as246d256
+15,1,0,0,3, ,as236d256
+15,1,0,0,3, ,as226d256
+15,1,0,0,3, ,as216d256
+15,1,0,0,3, ,as206d256
+15,1,0,0,3, ,as196d256
+15,1,0,0,3, ,as186d256
+15,1,0,0,3, ,as176d256
+15,1,0,0,3, ,as166d256
+15,1,0,0,3, ,as156d256
+15,1,0,0,3, ,as146d256
+15,1,0,0,3, ,as136d256
+15,1,0,0,3, ,as126d256
+15,1,0,0,3, ,as116d256
+15,1,0,0,3, ,as106d256
+15,1,0,0,3, ,as96d256
+15,1,0,0,3, ,as86d256
+15,1,0,0,3, ,as76d256
+15,1,0,0,3, ,as66d256
+15,1,0,0,3, ,as56d256
+15,1,0,0,3, ,as46d256
+15,1,0,0,3, ,as36d256
+15,1,0,0,3, ,as26d256
+15,1,0,0,3, ,as16d256
+15,1,0,0,3, ,as6d256
+0,0,0,0,750
+15,1,0,0,1, ,as16d256
+15,1,0,0,1, ,as56d256
+15,1,0,0,1, ,as156d256
+15,1,0,0,10, ,as256d256
+15,1,0,0,3, ,as246d256
+15,1,0,0,3, ,as236d256
+15,1,0,0,3, ,as226d256
+15,1,0,0,3, ,as216d256
+15,1,0,0,3, ,as206d256
+15,1,0,0,3, ,as196d256
+15,1,0,0,3, ,as186d256
+15,1,0,0,3, ,as176d256
+15,1,0,0,3, ,as166d256
+15,1,0,0,3, ,as156d256
+15,1,0,0,3, ,as146d256
+15,1,0,0,3, ,as136d256
+15,1,0,0,3, ,as126d256
+15,1,0,0,3, ,as116d256
+15,1,0,0,3, ,as106d256
+15,1,0,0,3, ,as96d256
+15,1,0,0,3, ,as86d256
+15,1,0,0,3, ,as76d256
+15,1,0,0,3, ,as66d256
+15,1,0,0,3, ,as56d256
+15,1,0,0,3, ,as46d256
+15,1,0,0,3, ,as36d256
+15,1,0,0,3, ,as26d256
+15,1,0,0,3, ,as16d256
+15,1,0,0,3, ,as6d256
+0,0,0,0,53
+
+[Begin Action 22]
+0,0,0,0,400
+15,0,0,0,1, ,as16d256
+15,0,0,0,1, ,as56d256
+15,0,0,0,1, ,as156d256
+15,0,0,0,10, ,as256d256
+15,0,0,0,3, ,as246d256
+15,0,0,0,3, ,as236d256
+15,0,0,0,3, ,as226d256
+15,0,0,0,3, ,as216d256
+15,0,0,0,3, ,as206d256
+15,0,0,0,3, ,as196d256
+15,0,0,0,3, ,as186d256
+15,0,0,0,3, ,as176d256
+15,0,0,0,3, ,as166d256
+15,0,0,0,3, ,as156d256
+15,0,0,0,3, ,as146d256
+15,0,0,0,3, ,as136d256
+15,0,0,0,3, ,as126d256
+15,0,0,0,3, ,as116d256
+15,0,0,0,3, ,as106d256
+15,0,0,0,3, ,as96d256
+15,0,0,0,3, ,as86d256
+15,0,0,0,3, ,as76d256
+15,0,0,0,3, ,as66d256
+15,0,0,0,3, ,as56d256
+15,0,0,0,3, ,as46d256
+15,0,0,0,3, ,as36d256
+15,0,0,0,3, ,as26d256
+15,0,0,0,3, ,as16d256
+15,0,0,0,3, ,as6d256
+0,0,0,0,20
+
+[Begin Action 23]
+0,0,0,0,166
+15,0,0,0,1, ,as16d256
+15,0,0,0,1, ,as56d256
+15,0,0,0,1, ,as156d256
+15,0,0,0,10, ,as256d256
+15,0,0,0,3, ,as246d256
+15,0,0,0,3, ,as236d256
+15,0,0,0,3, ,as226d256
+15,0,0,0,3, ,as216d256
+15,0,0,0,3, ,as206d256
+15,0,0,0,3, ,as196d256
+15,0,0,0,3, ,as186d256
+15,0,0,0,3, ,as176d256
+15,0,0,0,3, ,as166d256
+15,0,0,0,3, ,as156d256
+15,0,0,0,3, ,as146d256
+15,0,0,0,3, ,as136d256
+15,0,0,0,3, ,as126d256
+15,0,0,0,3, ,as116d256
+15,0,0,0,3, ,as106d256
+15,0,0,0,3, ,as96d256
+15,0,0,0,3, ,as86d256
+15,0,0,0,3, ,as76d256
+15,0,0,0,3, ,as66d256
+15,0,0,0,3, ,as56d256
+15,0,0,0,3, ,as46d256
+15,0,0,0,3, ,as36d256
+15,0,0,0,3, ,as26d256
+15,0,0,0,3, ,as16d256
+15,0,0,0,3, ,as6d256
+0,0,0,0,133
+
+[Begin Action 24]
+0,0,0,0,88
+15,0,0,0,1, ,as16d256
+15,0,0,0,1, ,as56d256
+15,0,0,0,1, ,as156d256
+15,0,0,0,10, ,as256d256
+15,0,0,0,3, ,as246d256
+15,0,0,0,3, ,as236d256
+15,0,0,0,3, ,as226d256
+15,0,0,0,3, ,as216d256
+15,0,0,0,3, ,as206d256
+15,0,0,0,3, ,as196d256
+15,0,0,0,3, ,as186d256
+15,0,0,0,3, ,as176d256
+15,0,0,0,3, ,as166d256
+15,0,0,0,3, ,as156d256
+15,0,0,0,3, ,as146d256
+15,0,0,0,3, ,as136d256
+15,0,0,0,3, ,as126d256
+15,0,0,0,3, ,as116d256
+15,0,0,0,3, ,as106d256
+15,0,0,0,3, ,as96d256
+15,0,0,0,3, ,as86d256
+15,0,0,0,3, ,as76d256
+15,0,0,0,3, ,as66d256
+15,0,0,0,3, ,as56d256
+15,0,0,0,3, ,as46d256
+15,0,0,0,3, ,as36d256
+15,0,0,0,3, ,as26d256
+15,0,0,0,3, ,as16d256
+15,0,0,0,3, ,as6d256
+0,0,0,0,244
+
+[Begin Action 25]
+0,0,0,0,100
+5,0,0,0,1, ,as16d256
+5,0,0,0,1, ,as56d256
+5,0,0,0,1, ,as106d256
+5,0,0,0,1, ,as156d256
+5,0,0,0,1, ,as206d256
+5,0,0,0,1, ,as256d256
+5,0,0,0,1, ,as206d256
+5,0,0,0,1, ,as156d256
+5,0,0,0,1, ,as106d256
+5,0,0,0,1, ,as56d256
+5,0,0,0,1, ,as16d256
+5,0,0,0,1, ,as56d256
+5,0,0,0,1, ,as106d256
+5,0,0,0,1, ,as156d256
+5,0,0,0,1, ,as206d256
+5,0,0,0,1, ,as256d256
+5,0,0,0,1, ,as206d256
+5,0,0,0,1, ,as156d256
+5,0,0,0,1, ,as106d256
+5,0,0,0,1, ,as56d256
+
+[Begin Action 26]
+0,0,0,0,55
+5,1,0,0,1, ,as16d256
+5,1,0,0,1, ,as56d256
+5,1,0,0,1, ,as106d256
+5,1,0,0,1, ,as156d256
+5,1,0,0,1, ,as206d256
+5,1,0,0,1, ,as256d256
+5,1,0,0,1, ,as206d256
+5,1,0,0,1, ,as156d256
+5,1,0,0,1, ,as106d256
+5,1,0,0,1, ,as56d256
+5,1,0,0,1, ,as16d256
+5,1,0,0,1, ,as56d256
+5,1,0,0,1, ,as106d256
+5,1,0,0,1, ,as156d256
+5,1,0,0,1, ,as206d256
+5,1,0,0,1, ,as256d256
+5,1,0,0,1, ,as206d256
+5,1,0,0,1, ,as156d256
+5,1,0,0,1, ,as106d256
+5,1,0,0,1, ,as56d256
+0,0,0,0,21
+
+[Begin Action 27]
+0,0,0,0,81
+5,2,0,0,1, ,as16d256
+5,2,0,0,1, ,as56d256
+5,2,0,0,1, ,as106d256
+5,2,0,0,1, ,as156d256
+5,2,0,0,1, ,as206d256
+5,2,0,0,1, ,as256d256
+5,2,0,0,1, ,as206d256
+5,2,0,0,1, ,as156d256
+5,2,0,0,1, ,as106d256
+5,2,0,0,1, ,as56d256
+5,2,0,0,1, ,as16d256
+5,2,0,0,1, ,as56d256
+5,2,0,0,1, ,as106d256
+5,2,0,0,1, ,as156d256
+5,2,0,0,1, ,as206d256
+5,2,0,0,1, ,as256d256
+5,2,0,0,1, ,as206d256
+5,2,0,0,1, ,as156d256
+5,2,0,0,1, ,as106d256
+5,2,0,0,1, ,as56d256
+0,0,0,0,111
+
+[Begin Action 28]
+0,0,0,0,122
+5,3,0,0,1, ,as16d256
+5,3,0,0,1, ,as56d256
+5,3,0,0,1, ,as106d256
+5,3,0,0,1, ,as156d256
+5,3,0,0,1, ,as206d256
+5,3,0,0,1, ,as256d256
+5,3,0,0,1, ,as206d256
+5,3,0,0,1, ,as156d256
+5,3,0,0,1, ,as106d256
+5,3,0,0,1, ,as56d256
+5,3,0,0,1, ,as16d256
+5,3,0,0,1, ,as56d256
+5,3,0,0,1, ,as106d256
+5,3,0,0,1, ,as156d256
+5,3,0,0,1, ,as206d256
+5,3,0,0,1, ,as256d256
+5,3,0,0,1, ,as206d256
+5,3,0,0,1, ,as156d256
+5,3,0,0,1, ,as106d256
+5,3,0,0,1, ,as56d256
+0,0,0,0,88
+5,3,0,0,1, ,as16d256
+5,3,0,0,1, ,as56d256
+5,3,0,0,1, ,as106d256
+5,3,0,0,1, ,as156d256
+5,3,0,0,1, ,as206d256
+5,3,0,0,1, ,as256d256
+5,3,0,0,1, ,as206d256
+5,3,0,0,1, ,as156d256
+5,3,0,0,1, ,as106d256
+5,3,0,0,1, ,as56d256
+5,3,0,0,1, ,as16d256
+5,3,0,0,1, ,as56d256
+5,3,0,0,1, ,as106d256
+5,3,0,0,1, ,as156d256
+5,3,0,0,1, ,as206d256
+5,3,0,0,1, ,as256d256
+5,3,0,0,1, ,as206d256
+5,3,0,0,1, ,as156d256
+5,3,0,0,1, ,as106d256
+5,3,0,0,1, ,as56d256
+
+[Begin Action 29]
+0,0,0,0,30
+5,4,0,0,1, ,as16d256
+5,4,0,0,1, ,as56d256
+5,4,0,0,1, ,as106d256
+5,4,0,0,1, ,as156d256
+5,4,0,0,1, ,as206d256
+5,4,0,0,1, ,as256d256
+5,4,0,0,1, ,as206d256
+5,4,0,0,1, ,as156d256
+5,4,0,0,1, ,as106d256
+5,4,0,0,1, ,as56d256
+5,4,0,0,1, ,as16d256
+5,4,0,0,1, ,as56d256
+5,4,0,0,1, ,as106d256
+5,4,0,0,1, ,as156d256
+5,4,0,0,1, ,as206d256
+5,4,0,0,1, ,as256d256
+5,4,0,0,1, ,as206d256
+5,4,0,0,1, ,as156d256
+5,4,0,0,1, ,as106d256
+5,4,0,0,1, ,as56d256
+0,0,0,0,100
+5,4,0,0,1, ,as16d256
+5,4,0,0,1, ,as56d256
+5,4,0,0,1, ,as106d256
+5,4,0,0,1, ,as156d256
+5,4,0,0,1, ,as206d256
+5,4,0,0,1, ,as256d256
+5,4,0,0,1, ,as206d256
+5,4,0,0,1, ,as156d256
+5,4,0,0,1, ,as106d256
+5,4,0,0,1, ,as56d256
+5,4,0,0,1, ,as16d256
+5,4,0,0,1, ,as56d256
+5,4,0,0,1, ,as106d256
+5,4,0,0,1, ,as156d256
+5,4,0,0,1, ,as206d256
+5,4,0,0,1, ,as256d256
+5,4,0,0,1, ,as206d256
+5,4,0,0,1, ,as156d256
+5,4,0,0,1, ,as106d256
+5,4,0,0,1, ,as56d256
+
+[Begin Action 30]
+0,0,0,0,133
+5,5,0,0,1, ,as16d256
+5,5,0,0,1, ,as56d256
+5,5,0,0,1, ,as106d256
+5,5,0,0,1, ,as156d256
+5,5,0,0,1, ,as206d256
+5,5,0,0,1, ,as256d256
+5,5,0,0,1, ,as206d256
+5,5,0,0,1, ,as156d256
+5,5,0,0,1, ,as106d256
+5,5,0,0,1, ,as56d256
+5,5,0,0,1, ,as16d256
+5,5,0,0,1, ,as56d256
+5,5,0,0,1, ,as106d256
+5,5,0,0,1, ,as156d256
+5,5,0,0,1, ,as206d256
+5,5,0,0,1, ,as256d256
+5,5,0,0,1, ,as206d256
+5,5,0,0,1, ,as156d256
+5,5,0,0,1, ,as106d256
+5,5,0,0,1, ,as56d256
+0,0,0,0,66
+
+[Begin Action 31]
+0,0,0,0,44
+5,6,0,0,1, ,as16d256
+5,6,0,0,1, ,as56d256
+5,6,0,0,1, ,as106d256
+5,6,0,0,1, ,as156d256
+5,6,0,0,1, ,as206d256
+5,6,0,0,1, ,as256d256
+5,6,0,0,1, ,as206d256
+5,6,0,0,1, ,as156d256
+5,6,0,0,1, ,as106d256
+5,6,0,0,1, ,as56d256
+5,6,0,0,1, ,as16d256
+5,6,0,0,1, ,as56d256
+5,6,0,0,1, ,as106d256
+5,6,0,0,1, ,as156d256
+5,6,0,0,1, ,as206d256
+5,6,0,0,1, ,as256d256
+5,6,0,0,1, ,as206d256
+5,6,0,0,1, ,as156d256
+5,6,0,0,1, ,as106d256
+5,6,0,0,1, ,as56d256
+0,0,0,0,100
+5,6,0,0,1, ,as16d256
+5,6,0,0,1, ,as56d256
+5,6,0,0,1, ,as106d256
+5,6,0,0,1, ,as156d256
+5,6,0,0,1, ,as206d256
+5,6,0,0,1, ,as256d256
+5,6,0,0,1, ,as206d256
+5,6,0,0,1, ,as156d256
+5,6,0,0,1, ,as106d256
+5,6,0,0,1, ,as56d256
+5,6,0,0,1, ,as16d256
+5,6,0,0,1, ,as56d256
+5,6,0,0,1, ,as106d256
+5,6,0,0,1, ,as156d256
+5,6,0,0,1, ,as206d256
+5,6,0,0,1, ,as256d256
+5,6,0,0,1, ,as206d256
+5,6,0,0,1, ,as156d256
+5,6,0,0,1, ,as106d256
+5,6,0,0,1, ,as56d256
+0,0,0,0,66

@@ -1,0 +1,27 @@
+[Info]
+name 	     = "Seth"        
+displayname  = "Seth" 
+versiondate  = 05,21,2008
+mugenversion = 04,14,2001
+author 	     = "Nyankoro"        
+pal.defaults = 1     
+
+[Files]
+cmd  	  = CNS/seth.cmd
+cns  	  = CNS/seth.cns   
+st   	  = CNS/seth.cns  
+st1 	  = CNS/seth.cns
+st2  	  = CNS/seth_Speciels.cns
+st3 	  = CNS/seth_Hypers.cns
+stcommon  = common1.cns 
+sprite    = Files/seth.sff   
+anim  	  = Files/seth.air  
+sound 	  = Files/seth.snd   
+pal1  	  = Paletas/Seth_01.act
+pal2  	  = Paletas/Seth_02.act
+pal3 	  = Paletas/Seth_03.act 
+pal4	  = Paletas/Seth_04.act
+pal5 	  = Paletas/Seth_05.act
+pal6  	  = Paletas/Seth_06.act
+pal7 	  = Paletas/Seth_07.act
+pal7 	  = Paletas/Seth_08.act

@@ -1,0 +1,39 @@
+[Info]
+name           ="Krizalid-KOF02UM"        
+displayname    ="Krizalid-KOF02UM" 
+versiondate    = 11,06,2005
+mugenversion   = 06,14,2003
+author         ="Nyankoro"  ;edith author ="yu" 
+pal.defaults   = 4
+
+[Files]
+cmd       = krizalid.cmd
+cns       = krizalid-0.cns   
+st        = krizalid-0.cns  
+stcommon  = common.cns 
+sprite    = krizalid.sff   
+anim      = krizalid.air  
+sound     = krizalid.snd 
+pal1      = act/krizalid-01.act
+pal2      = act/krizalid-02.act
+pal3      = act/krizalid-03.act
+pal4      = act/krizalid-04.act
+pal5      = act/krizalid-05.act
+pal6      = act/krizalid-01.act
+pal7      = act/krizalid-01.act
+pal8      = act/krizalid-02.act
+pal9      = act/krizalid-03.act
+pal10     = act/krizalid-04.act
+pal11     = act/krizalid-05.act
+pal12     = act/krizalid-06.act
+st1       = krizalid-0.cns
+st2       = krizalid-1.cns
+st3       = krizalid-2.cns
+St4       = krizalid-2-3.cns
+St5       = Helper.cns
+St6       = AI_Helper.cns
+
+;sound  = krizalid_EV.snd  
+[Arcade]
+intro.storyboard=
+ending.storyboard=

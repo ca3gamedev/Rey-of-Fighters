@@ -1,0 +1,1017 @@
+;; SNK vs CAPCOM Chaos (SNK playmore) Station Obsolete Stage MUGEN Edition
+;; *This Stage is Open Source for non-commercial purposes use only.
+
+
+[Info]
+	name        = "SVC-Station_obsolete 2014"
+	displayname = "SVC-Station_obsolete"
+	versiondate=11,30,2003
+;op;	versiondate=03,03,2018 ;; remake_date
+;op;	mugenversion=2002,02,14 ;; [default]
+
+[Camera]
+	startx=0
+	starty=0
+	boundleft=-220
+	boundright=220
+	boundhigh=-240
+	boundlow=0
+	verticalfollow=1
+	tension=100
+	floortension=150
+
+	;;--- * v1.1 (zoom) *---
+	;;cuthigh=30
+	cutlow=10
+	;;---
+	overdrawhigh=5
+	overdrawlow=5
+	;;---
+	tensionhigh=85 ;;t_hi
+	tensionlow=25
+	startzoom=1
+	zoomout=0.85
+	zoomin=1
+	;;--- * v1.1 (zoom) *---
+
+[PlayerInfo]
+	p1startx=-70
+	p1starty=0
+	p1startz=0
+	p1facing=1
+
+	p2startx=70
+	p2starty=0
+	p2startz=0
+	p2facing=-1
+
+	leftbound=-1000
+	rightbound=1000
+	topbound=0
+	botbound=0
+
+[Scaling]
+	topz=0
+	botz=50
+	topscale=1
+	botscale=1
+
+[Bound]
+	screenleft=15
+	screenright=15
+
+[StageInfo]
+	zoffset=215
+	autoturn=1
+	resetBG=0
+	localcoord=320,240
+
+
+[Shadow]
+	color=0,0,0
+	intensity=256
+	reflect=0
+	yscale=-0.05
+	fade.range=-100,0
+[Reflection]
+	intensity=0
+
+
+[Music]
+	bgmusic     = sound/SVC-Station_obsolete 2014.mp3
+	bgvolume    = 150
+
+;----------------
+[BGdef]
+	spr         = SVC-Station_obsolete 2014.sff
+	debugbg     = 0
+
+
+
+
+;----------------
+
+;----------------
+
+
+
+;--- base
+[bg 0]
+	type=normal
+	spriteno=1,1
+	start=-160,0
+	mask=0
+	delta=    0,0
+	zoomdelta=0
+
+
+;---
+;--- bg
+[bg 0]
+	type=normal
+	spriteno=3,1
+	start=-300,-140
+	mask=1
+	delta=    0.25,0.5
+	zoomdelta=0.25
+;--- shadow
+[bg 0]
+	type=anim
+	actionno=1
+	start=-300,-140
+	mask=1
+	delta=    0.25,0.5
+	zoomdelta=0.25
+	windowdelta=0,0.73
+	window=-800,170,800,250
+;---
+[Begin Action 1]
+3,1,0,599,-1,v
+
+
+;---
+;--- in-gate
+;--- smoke
+[bg 0]
+	id=4
+	type=normal
+	spriteno=4,2
+	start=-96,123
+	mask=1
+	tile=1,0
+	tilespacing=0,0
+	delta=    0.32,0.70
+	zoomdelta=0.32
+;---
+[BGCtrlDef Pos]
+looptime=4
+ctrlID=4
+[BGCtrl 0]
+	type=posadd
+	time=0
+	x=1
+
+;--- bg
+[bg 0]
+	type=normal
+	spriteno=4,1
+	start=-96,123
+	mask=1
+	delta=    0.32,0.70
+	zoomdelta=0.32
+;--- shadow
+[bg 0]
+	type=anim
+	actionno=2
+	start=-96,123
+	mask=1
+	delta=    0.32,0.70
+	zoomdelta=0.32
+;---
+[Begin Action 2]
+4,1,0,110,-1,v
+
+
+;---
+;--- gate
+[bg 0]
+	type=normal
+	spriteno=2,1
+	start=-382,84
+	mask=1
+	delta=    0.375,0.73
+	zoomdelta=0.375
+;--- shadow
+[bg 0]
+	type=anim
+	actionno=3
+	start=-382,84
+	mask=1
+	delta=    0.375,0.73
+	zoomdelta=0.375
+;---
+[Begin Action 3]
+2,1,0,182,-1,v
+
+
+
+
+
+
+
+
+
+
+;-------------------
+; shadows
+;-------------------
+
+
+
+;--- right_train
+;---
+[bg 0]
+	type=anim
+	actionno=191
+	mask=1
+	start=80,176
+	delta=    0.43,0.720
+	zoomdelta=0.43
+	;---
+;op;	scalestart=1,1
+	scaledelta=-0.0011
+;---
+[Begin Action 191]
+19,1,0,-1,-1,v
+
+
+;--- center_far_p
+[bg 0]
+	type=anim
+	actionno=111
+	mask=1
+	start=-100,176
+	delta=    0.44,0.735
+	zoomdelta=0.44
+;---
+[Begin Action 111]
+10,1,0,-1,-1,v
+
+
+;--- right_far2_p
+[bg 0]
+	type=anim
+	actionno=241
+	mask=1
+	start=100,178
+	delta=    0.49,0.755
+	zoomdelta=0.49
+;---
+[Begin Action 241]
+24,1,0,-1,-1,v
+
+
+;--- right_far_lump1/2
+[bg 0]
+	type=anim
+	actionno=331
+	mask=1
+	start=-96,178
+	delta=    0.49,0.755
+	zoomdelta=0.49
+;---
+[Begin Action 331]
+33,1,0,-1,-1,v
+
+
+;--- right_far_lump2/2
+[bg 0]
+	type=anim
+	actionno=341
+	mask=1
+	start=-40,178
+	delta=    0.49,0.755
+	zoomdelta=0.49
+;---
+[Begin Action 341]
+34,1,0,-1,-1,v
+
+
+;--- left_mid_p
+[bg 0]
+	type=anim
+	actionno=231
+	mask=1
+	start=-180,184
+	delta=    0.55,0.785
+	zoomdelta=0.55
+;---
+[Begin Action 231]
+23,1,0,-1,-1,v
+
+
+;--- right_mid_p
+[bg 0]
+	type=anim
+	actionno=251
+	mask=1
+	start=110,188
+	delta=    0.61,0.815
+	zoomdelta=0.61
+;---
+[Begin Action 251]
+25,1,0,-1,-1,v
+
+
+;---
+;--- center_far_lump
+[bg 0]
+	type=anim
+	actionno=161
+	mask=1
+	start=-22,190
+	delta=    0.64,0.830
+	zoomdelta=0.64
+;---
+[Begin Action 161]
+16,1,0,-1,-1,v
+
+
+;---
+;--- right_far_lump
+[bg 0]
+	type=anim
+	actionno=271
+	mask=1
+	start=80,190
+	delta=    0.64,0.830
+	zoomdelta=0.64
+;---
+[Begin Action 271]
+27,1,0,-1,10,v
+27,2,0,-1,10,v
+27,3,0,-1,10,v
+27,2,0,-1,10,v
+
+
+;;--- right_lump ******
+;[bg 0]
+;	type=anim
+;	actionno=281
+;	mask=1
+;	start=200,198
+;	delta=    0.76,0.890
+;	zoomdelta=0.76
+;;---
+;[Begin Action 281]
+;28,1,0,-1,10,v
+;28,2,0,-1,10,v
+;28,3,0,-1,10,v
+;28,2,0,-1,10,v
+
+
+;---
+;--- left_near_p
+[bg 0]
+	type=anim
+	actionno=321
+	start=-300,188
+	delta=    0.61,0.815
+	zoomdelta=0.61
+;---
+[Begin Action 321]
+32,1,0,-1,-1,v
+
+;--- left_near_2
+[bg 0]
+	type=anim
+	actionno=291
+	mask=1
+	start=-360,198
+	delta=    0.73,0.875
+	zoomdelta=0.73
+;---
+[Begin Action 291]
+29,1,0,-1,-1,v
+
+
+;;---
+;;--- left_low_p
+;[bg 0]
+;	type=anim
+;	actionno=261
+;	mask=1
+;	start=-210,208
+;	delta=    0.88,0.950
+;	zoomdelta=0.88
+;;---
+;[Begin Action 261]
+;26,1,0,-1,-1,v
+
+
+
+
+
+
+
+
+
+
+
+;-------------------
+; floor
+;-------------------
+
+;;---
+;; img.size: [752x162]
+;; for y = 172 to 215 step 2
+;; h=215-172=43/2=20 x0.3 +4.0
+
+
+;---
+; 0.4(+0.30),0.675(+0.15)
+;---
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.675
+	zoomdelta=    0.40
+	windowdelta=0,0.40
+	window=-800,172,800,173
+
+
+;---
+; start
+;---
+
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.690
+	zoomdelta=    0.41
+	windowdelta=0,0.41
+	window=-800,172,800,176
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.705
+	zoomdelta=    0.42
+	windowdelta=0,0.42
+	window=-800,174,800,178
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.720
+	zoomdelta=    0.43
+	windowdelta=0,0.43
+	window=-800,176,800,180
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.735
+	zoomdelta=    0.44
+	windowdelta=0,0.44
+	window=-800,178,800,182
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.740
+	zoomdelta=    0.46
+	windowdelta=0,0.46
+	window=-800,180,800,184
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.755
+	zoomdelta=    0.49
+	windowdelta=0,0.49
+	window=-800,182,800,186
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.770
+	zoomdelta=    0.52
+	windowdelta=0,0.52
+	window=-800,184,800,188
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.785
+	zoomdelta=    0.55
+	windowdelta=0,0.55
+	window=-800,186,800,190
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.800
+	zoomdelta=    0.58
+	windowdelta=0,0.58
+	window=-800,188,800,192
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.815
+	zoomdelta=    0.61
+	windowdelta=0,0.61
+	window=-800,190,800,194
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.830
+	zoomdelta=    0.64
+	windowdelta=0,0.64
+	window=-800,192,800,196
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.845
+	zoomdelta=    0.67
+	windowdelta=0,0.67
+	window=-800,194,800,198
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.860
+	zoomdelta=    0.70
+	windowdelta=0,0.70
+	window=-800,196,800,200
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.875
+	zoomdelta=    0.73
+	windowdelta=0,0.73
+	window=-800,198,800,202
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.890
+	zoomdelta=    0.76
+	windowdelta=0,0.76
+	window=-800,200,800,204
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.905
+	zoomdelta=    0.79
+	windowdelta=0,0.79
+	window=-800,202,800,206
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.920
+	zoomdelta=    0.82
+	windowdelta=0,0.82
+	window=-800,204,800,208
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.935
+	zoomdelta=    0.85
+	windowdelta=0,0.85
+	window=-800,206,800,210
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.950
+	zoomdelta=    0.88
+	windowdelta=0,0.88
+	window=-800,208,800,212
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.965
+	zoomdelta=    0.91
+	windowdelta=0,0.91
+	window=-800,210,800,214
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.970
+	zoomdelta=    0.94
+	windowdelta=0,0.94
+	window=-800,212,800,216
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,0.985
+	zoomdelta=    0.97
+	windowdelta=0,0.97
+	window=-800,214,800,218
+
+;---
+; end
+;---
+
+
+;;---
+;; 1.0
+;;---
+[bg 0]
+	type=parallax
+	spriteno=20,1
+	start=0,172
+	mask=1
+;op;	tile=1,0
+	yscalestart=150
+;op;	yscaledelta=1.001
+	xscale=       0.40,1.38
+	;---
+	delta=   0.40,1.00
+;op;	zoomdelta=    1.00
+	windowdelta=0,1.00
+	window=-800,215,800,300
+
+
+
+
+
+
+
+
+
+
+;-------------------
+
+;-------------------
+
+
+;--- right_train
+;---
+[bg 0]
+	type=anim
+	actionno=190
+	mask=1
+	start=80,176
+	delta=    0.43,0.720
+	zoomdelta=0.43
+	;---
+;op;	scalestart=1,1
+	scaledelta=-0.0011
+;---
+[Begin Action 190]
+19,1,0,0,-1
+
+
+
+
+
+;-------------------
+
+;-------------------
+
+
+;---
+;--- left_far_car
+[bg 0]
+	type=anim
+	actionno=360
+	mask=1
+	start=-260,176
+	delta=    0.44,0.735
+	zoomdelta=0.44
+;---
+[Begin Action 360]
+36,1,0,0,-1
+
+
+
+;---
+;--- center_far_p
+[bg 0]
+	type=anim
+	actionno=110
+	mask=1
+	start=-100,176
+	delta=    0.44,0.735
+	zoomdelta=0.44
+;---
+[Begin Action 110]
+10,1,0,0,-1
+
+
+;--- right_far2_p
+[bg 0]
+	type=anim
+	actionno=240
+	mask=1
+	start=100,178
+	delta=    0.49,0.755
+	zoomdelta=0.49
+;---
+[Begin Action 240]
+24,1,0,0,-1
+
+
+;--- right_far_lump1/2
+[bg 0]
+	type=anim
+	actionno=330
+	mask=1
+	start=-96,178
+	delta=    0.49,0.755
+	zoomdelta=0.49
+;---
+[Begin Action 330]
+33,1,0,0,-1
+
+
+;--- right_far_lump2/2
+[bg 0]
+	type=anim
+	actionno=340
+	mask=1
+	start=-40,178
+	delta=    0.49,0.755
+	zoomdelta=0.49
+;---
+[Begin Action 340]
+34,1,0,0,-1
+
+
+;--- left_mid_p
+[bg 0]
+	type=anim
+	actionno=230
+	mask=1
+	start=-180,184
+	delta=    0.55,0.785
+	zoomdelta=0.55
+;---
+[Begin Action 230]
+23,1,0,0,-1
+
+
+;--- right_mid_p
+[bg 0]
+	type=anim
+	actionno=250
+	mask=1
+	start=110,188
+	delta=    0.61,0.815
+	zoomdelta=0.61
+;---
+[Begin Action 250]
+25,1,0,0,-1
+
+
+;---
+;--- center_far_lump
+[bg 0]
+	type=anim
+	actionno=160
+	mask=1
+	start=-22,190
+	delta=    0.64,0.830
+	zoomdelta=0.64
+;---
+[Begin Action 160]
+16,1,0,0,-1
+
+
+;---
+;--- right_far_lump
+[bg 0]
+	type=anim
+	actionno=270
+	mask=1
+	start=80,190
+	delta=    0.64,0.830
+	zoomdelta=0.64
+;---
+[Begin Action 270]
+27,1,0,0,10
+27,2,0,0,10
+27,3,0,0,10
+27,2,0,0,10
+
+
+;--- right_lump
+[bg 0]
+	type=anim
+	actionno=280
+	mask=1
+	start=200,198
+	delta=    0.76,0.890
+	zoomdelta=0.76
+;---
+[Begin Action 280]
+28,1,0,0,10
+28,2,0,0,10
+28,3,0,0,10
+28,2,0,0,10
+
+
+;---
+;--- left_near_p
+[bg 0]
+	type=anim
+	actionno=320
+	start=-300,188
+	delta=    0.61,0.815
+	zoomdelta=0.61
+;---
+[Begin Action 320]
+32,1,0,0,-1
+
+;--- left_near_2
+[bg 0]
+	type=anim
+	actionno=290
+	mask=1
+	start=-360,198
+	delta=    0.73,0.875
+	zoomdelta=0.73
+;---
+[Begin Action 290]
+29,1,0,0,-1
+
+
+;---
+;--- left_low_p
+[bg 0]
+	type=anim
+	actionno=260
+	mask=1
+	start=-210,208
+	delta=    0.88,0.950
+	zoomdelta=0.88
+;---
+[Begin Action 260]
+26,1,0,0,-1
+
+
+;---
+;--- right_p
+[bg 0]
+	type=anim
+	actionno=300
+	mask=1
+	start=180,208
+	delta=    0.88,0.950
+	zoomdelta=0.88
+;---
+[Begin Action 300]
+30,1,0,0,-1
+
+
+
+
+
+
+
+
+
+;--- fg
+;---
+[bg 0]
+	type=anim
+	actionno=350
+	mask=1
+	start=-510,245
+	delta=    1.40,1
+	zoomdelta=1
+	layerno=1
+;---
+[Begin Action 350]
+35,1,0,0,-1
+;---
+[bg 0]
+	type=anim
+	actionno=351
+	mask=1
+	start=510,245
+	delta=    1.40,1
+	zoomdelta=1
+	layerno=1
+;---
+[Begin Action 351]
+35,1,0,0,-1,h
+
+
+
+
+
+
+
+;---
+;---
+;[EOF]

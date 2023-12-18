@@ -1,0 +1,33 @@
+
+ Some palettes made by Dark Saviour (darksaviour77@hotmail.com).
+
+-============-
+ Informations
+-============-
+
+	Character: Iron Kusanagi
+	Author: Iron Mugen
+	Number of palettes: 12
+	Origin: (in order of appearance in the GIF file)
+		1. Original palette by Iron Mugen
+		2. KOF96, Kyo, color 1
+		3. KOF96, Kyo, color 2
+		4. KOF97, Kyo, color 2
+		5. KOF98, Kyo, color 1
+		6. KOF98, Kyo, color 4
+		7. KOF99, Kyo-1, color 1
+		8. KOF99, Kyo-1, color 2
+		9. KOF99, Kyo-2, color 1
+		10. KOF99, Kyo-2, color 2
+		11. KOF2k2, Kusanagi, color 1
+		12. SvC, Kyo, color 2
+
+-============-
+ Known Issues
+-============-
+
+	Grey color appears on Kusanagi during Saishuu Kessen Ougi Reishiki... ask Iron Mugen to fix that :p.
+
+
+IRONMUGEN says: Problem fixed :P
+==============

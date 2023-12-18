@@ -1,0 +1,36 @@
+[Info]
+name ="Griffon_AKOF"
+displayname ="GRIFFON AKOF"
+versiondate =3,17,2012
+mugenversion = 1.1
+author ="Lifeend/Modified by oscar12345 ||| AI Patch by GUMHOY DAAAAAAH"
+pal.defaults = 1
+
+; Files for the player
+[Files]
+cmd     =AKOFgriffon.cmd
+cns     =AKOFgriffon.cns
+st      =AKOFgriffon.cns
+stcommon =common1.cns 
+sprite  =AKOFgriffon.sff
+anim    =AKOFgriffon.air
+sound   =AKOFgriffon.snd
+pal1=act/1.act
+pal2=act/2.act
+pal3=act/3.act
+pal4=act/4.act
+pal5=act/5.act
+pal6=act/6.act
+pal7=act/7.act
+pal8=act/8.act
+pal9=act/9.act
+pal10=act/10.act
+st1=AKOFgriffon2.cns
+st2=AKOFgriffon3.cns
+st3=AKOFgriffon3.cns
+
+
+
+[Arcade]
+;intro.storyboard  = intro.def
+;ending.storyboard = ending.def

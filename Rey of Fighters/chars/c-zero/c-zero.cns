@@ -1,0 +1,75 @@
+;KOF
+[data]
+life			=1300
+power			=5000
+attack			=110
+defence			=130
+fall.defence_up		=0
+liedown.time		=30
+airjuggle		=1
+sparkno			=-1
+guard.sparkno		=-1
+ko.echo			=0
+volume			=0
+intpersistindex		=0
+floatpersistindex	=0
+
+[size]
+xscale		=1.01
+yscale		=1.01
+ground.front	=21
+ground.back	=21
+air.front	=21
+air.back	=21
+height		=59
+attack.dist	=320
+proj.attack.dist=320
+proj.doscale	=1
+mid.pos		=0,-57
+head.pos	=-2,-105
+shadowoffset	=0
+draw.offset	=4,0
+
+[velocity]
+walk.fwd	=3.08
+walk.back	=-3.08
+run.fwd		=6.54
+run.back	=-9.24,-4.5
+jump.neu	=0,-9.6
+jump.fwd	=3.08
+jump.back	=-3.08
+runjump.fwd	=4.905,-9.6
+runjump.back	=-4.905,-9.6
+airjump.neu	=0,-9.6
+airjump.fwd	=3.08
+airjump.back	=-3.08
+
+[movement]
+airjump.num	=0
+airjump.height	=35
+yaccel		=0.6
+stand.friction	=0.85
+crouch.friction	=0.82
+
+;var(0) :チートスイッチ
+;var(1) :MAX発動ゲージ
+;var(2) :MAX発動中のゲージ固定
+;var(3) :カウンターヒットフラグ
+;var(4) :スパキャン点滅制御
+;var(5) :ハイジャンプ
+;var(6) :小ジャンプ
+;var(7) :技封印1
+;var(8) :技封印2
+;var(9) :追撃不可フラグ
+;var(10):汎用
+	810=投げ抜け制御
+	3100,3500=白羅滅精ヒット数カウント
+	4010=瞬獄殺制御1
+;var(11):キャンセル関連
+;var(12):ターゲットのID
+;var(13):瞬獄殺制御2
+;var(57):AI特別モード
+;var(58):AI補助
+;var(59):AI
+
+;fvar(0):クイックMAX発動補正

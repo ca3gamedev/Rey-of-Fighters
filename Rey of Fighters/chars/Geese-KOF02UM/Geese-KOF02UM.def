@@ -1,0 +1,38 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Geese"        ;Name of character
+displayname = "Geese-KOF02UM" ;Name of character to display
+versiondate = 04,14,2002    ;Version date of character (MM-DD-YYYY)
+mugenversion = 04,14,2002   ;Version of M.U.G.E.N character works on
+author = "Ambasa"         ;Character author name
+pal.defaults = 6,3,4,2      ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = seizi_AI/Geese_A.cmd   ;Command set
+cns     = seizi_AI/Geese_A.cns   ;Constants
+st      = seizi_AI/Geese_A.cns   ;States
+st2     = seizi_AI/Geese_A2.cns  ;States
+st3     = Geese_A_helper.cns   ;States
+st4     = seizi_AI/Geese_A_-2-3.cns   ;States
+st5     = seizi_AI/AI.txt
+st6     = seizi_AI/AI_option.txt
+stcommon= seizi_AI/common1.cns  ;Common states
+sprite  = Geese_A.sff   ;Sprite
+anim    = Geese_A.air   ;Animation
+sound   = Geese_A.snd   ;Sound
+pal1    = act/Geese_A01.act   ;Aで選択   モードI    KOF風
+pal2    = act/Geese_A02.act   ;Bで選択   モードI    KOF風
+pal3    = act/Geese_A03.act   ;Cで選択   モードI    KOF風
+pal4    = act/Geese_A04.act   ;Xで選択   モードII   餓狼風
+pal5    = act/Geese_A05.act   ;Yで選択   モードII   餓狼風
+pal6    = act/Geese_A06.act   ;Zで選択   モードII   餓狼風
+pal7    = act/Geese_A07.act   ;S+Aで選択 MIXモード
+pal8    = act/Geese_A08.act   ;S+Bで選択 MIXモード
+pal9    = act/Geese_A09.act   ;S+Cで選択 MIXモード
+pal10   = act/Geese_A10.act   ;S+Xで選択 ナイトメアモード
+pal11   = act/Geese_A11.act   ;S+Yで選択 ナイトメアモード
+pal12   = act/Geese_A12.act   ;S+Zで選択 ナイトメアモード

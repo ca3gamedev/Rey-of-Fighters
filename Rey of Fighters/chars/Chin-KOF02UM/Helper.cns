@@ -1,0 +1,950 @@
+;===========================================================================
+;MAXゲージ (HelperID:7000)
+;===========================================================================
+;---------------------------------------------------------------------------
+;MAXゲージ
+[Statedef 7000]
+type    = A
+movetype= I
+physics = N
+anim = 8000 ;ダミー
+velset = 0,0
+ctrl = 0
+
+[State 7000, Explod];1P
+type = Explod
+trigger1 = Time = 0
+trigger1 = teamside = 1
+anim = 7000
+id = 7000
+pos = 36,206; -60
+postype = Left
+sprpriority = 5
+bindtime = -1
+removetime = 99999999999999
+ontop = 1
+ownpal = 1
+facing = 1
+persistent = 0
+ignorehitpause = 1
+pausemovetime = 99999999999999
+Supermovetime = 99999999999999
+
+[State 7000, Explod];1P
+type = Explod
+trigger1 = Time = 0
+trigger1 = teamside = 1
+anim = 7005
+id = 7005
+pos = 60,216; -60
+postype = Left
+sprpriority = 6
+bindtime = -1
+removetime = 99999999999999
+ontop = 1
+ownpal = 1
+facing = 1
+persistent = 0
+ignorehitpause = 1
+scale = 1,1
+pausemovetime = 99999999999999
+Supermovetime = 99999999999999
+
+[State 7000, Explod];2P
+type = Explod
+trigger1 = Time = 0
+trigger1 = teamside = 2
+anim = 7001
+id = 7000
+pos = -36,206; -60
+postype = Right
+sprpriority = 5
+bindtime = -1
+removetime = 99999999999999
+ontop = 1
+ownpal = 1
+facing = 1
+persistent = 0
+ignorehitpause = 1
+pausemovetime = 99999999999999
+Supermovetime = 99999999999999
+
+[State 7000, Explod];2P
+type = Explod
+trigger1 = Time = 0
+trigger1 = teamside = 2
+anim = 7006
+id = 7005
+pos = -60,216; -60
+postype = Right
+sprpriority = 6
+bindtime = -1
+removetime = 99999999999999
+ontop = 1
+ownpal = 1
+facing = 1
+persistent = 0
+ignorehitpause = 1
+scale = 1,1
+pausemovetime = 99999999999999
+Supermovetime = 99999999999999
+
+[State 7000, ModifyExplod]
+type = ModifyExplod
+trigger1 = 1
+ID = 7005
+scale = root,var(8) * 0.001112,1
+
+[State 7000, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,var(8)<=0
+trigger2 = roundstate != 2
+id = 7000
+ignorehitpause = 1
+
+[State 7000, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,var(8)<=0
+trigger2 = roundstate != 2
+id = 7005
+ignorehitpause = 1
+
+[State 7000, ChangeState]
+type = DestroySelf
+trigger1 = Root,var(8)<= 0
+trigger2 = roundstate != 2
+
+;===========================================================================
+;MAX2背景 (HelperID:8000)
+;===========================================================================
+;---------------------------------------------------------------------------
+;MAX2
+[Statedef 8000]
+type = A
+movetype = I
+physics = N
+anim = 8000 ;ダミー
+velset = 0, 0
+ctrl = 0
+sprpriority = -99
+
+[State 8000, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoBG
+flag2 = NoFG
+ignorehitpause = 1
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8001
+id = 8000
+postype = back
+pos = 0, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8001
+id = 8000
+postype = back
+pos = -320, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8002
+id = 8000
+postype = back
+pos = 0, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8002
+id = 8000
+postype = back
+pos = -320, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8003
+id = 8000
+postype = back
+pos = 0, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8003
+id = 8000
+postype = back
+pos = -320, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8004
+id = 8000
+postype = back
+pos = 0, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8004
+id = 8000
+postype = back
+pos = -320, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8005
+id = 8000
+postype = back
+pos = 0, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8005
+id = 8000
+postype = back
+pos = -320, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8006
+id = 8000
+postype = back
+pos = 0, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8006
+id = 8000
+postype = back
+pos = -320, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8007
+id = 8000
+postype = back
+pos = 0, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 8007
+id = 8000
+postype = back
+pos = -320, 0
+bindtime = -1
+removetime = -1
+sprpriority = -999
+supermovetime = 999
+
+[State 8000, ChangeState]
+type = ChangeState
+trigger1 = root,StateNo = 3401
+trigger1 = root,Anim = 3401
+trigger1 = root,AnimElemTime(1) = 15
+trigger2 = root,Movetype = H
+value = 8001
+
+;---------------------------------------------------------------------------
+;割れる
+[Statedef 8001]
+type = A
+movetype = I
+physics = N
+anim = 8000
+velset = 0, 0
+ctrl = 0
+sprpriority = -99
+
+[State 8001, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0;6
+value = 8000,0
+
+[state 8001, varset]
+type = VarSet
+trigger1 = time = 0
+v = 1
+value = 256
+
+[state 8001, varadd]
+type = VarAdd
+trigger1 = time <= 32
+v = 1
+value = -8
+
+[State 8001, BGPalFX]
+type = BGPalfx
+trigger1 = time <= 32
+time = 1
+add = var(1),var(1),var(1)
+invertall = 0
+color = 256
+
+[State 8000, Explod]
+type = Explod
+trigger1 = time = 0;6
+anim = 8010
+id = 8010
+postype = back
+pos = 0, 0
+bindtime = -1
+sprpriority = -999
+supermovetime = 999
+trans = addalpha
+alpha = 245,150
+
+[State 8000, RemoveExplod]
+type = RemoveExplod
+trigger1 = time = 0;6
+ID = 8000
+
+[State 3020, 1]
+type = DestroySelf
+trigger1 = time = 32
+
+;===========================================================================
+;MAX2カットイン (HelperID:8100)
+;===========================================================================
+;---------------------------------------------------------------------------
+[Statedef 8100]
+type = S
+ctrl = 0
+anim = 8100
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = -95
+
+[state 8100, PosSet]
+type = PosSet
+trigger1 = facing = 1
+x = -160
+y = pos y - screenpos y + 95
+
+[state 8100, PosSet]
+type = posset
+trigger1 = facing = -1
+x = 160
+y = pos y - screenpos y + 95
+
+[state 8100, VarSet]
+type = null;VarSet
+trigger1 = time = 0
+v = 1
+value = 0
+
+[state 8100, VarAdd]
+type = null;VarAdd
+trigger1 = animelem = 5,>0
+v = 1
+value = 1
+
+[state 8100, Helper];カットイン顔呼び出し
+type = Helper
+trigger1 = time = 0
+id = 8105
+name = "cut"
+pos = 0 , 0
+postype = p1
+stateno = 8105
+pausemovetime = 999
+supermovetime = 999
+helpertype = normal
+persistent = 0
+ignorehitpause = 1
+keyctrl = 0 
+ownpal = 1
+
+[state 8100, VarAdd]
+type = varadd
+trigger1 = animelem = 23,>0
+v = 2
+value = 1
+
+[state 8100, VarAdd]
+type = angledraw
+trigger1 = animelem = 23,>=0
+scale = 1.0,1.0 - var(2)*0.1
+
+[state a]
+type = destroyself
+trigger1 = animtime = 0
+trigger2 = root,movetype = H
+
+;---------------------------------------------------------------------------
+;カットイン
+;顔
+[Statedef 8105]
+type = S
+ctrl = 0
+anim = 8105
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = -85
+
+[state 8100, PosSet]
+type = posset
+trigger1 = facing = 1
+x = -160 + var(1)*0.1
+y = pos y - screenpos y + 95
+
+[state 8100, PosSet]
+type = posset
+trigger1 = facing = -1
+x = 160 - var(1)*0.1
+y = pos y - screenpos y + 95
+
+[state 8100, VarSet]
+type = varset
+trigger1 = time = 0
+v = 1
+value = 0
+
+[state 8100, VarAdd]
+type = varadd
+trigger1 = animelem = 1,>0
+v = 1
+value = 4
+
+;[state 8100, VarAdd]
+;type = varadd
+;trigger1 = animelem = 5
+;v = 1
+;value = 100
+
+[state 8100, VarAdd]
+type = varadd
+trigger1 = animelem = 6,>0
+v = 2
+value = 1
+
+[state 8100, VarAdd]
+type = angledraw
+trigger1 = animelemtime(2)>=0
+trigger1 = animelemtime(3)<0
+scale = 1.0, 0.3
+
+[state 8100, VarAdd]
+type = angledraw
+trigger1 = animelemtime(3)>=0
+trigger1 = animelemtime(4)<0
+scale = 1.0, 0.54
+
+[state 8100, VarAdd]
+type = angledraw
+trigger1 = animelemtime(4)>=0
+trigger1 = animelemtime(5)<0
+scale = 1.0, 0.77
+
+[state 8100, VarAdd]
+type = angledraw
+trigger1 = animelemtime(5)=0
+scale = 1.0, 1.0
+
+[state 8100, VarAdd]
+type = angledraw
+trigger1 = animelemtime(5)>0
+trigger1 = animelemtime(6)<0
+scale = 1.0, 1.1
+
+[state 8100, AngleDrew]
+type = angledraw
+trigger1 = animelem = 6,>=0
+scale = 1.0,1.0 - var(2)*0.1
+
+[state 8100, destroyself]
+type = destroyself
+trigger1 = animtime = 0
+trigger2 = root,movetype = H
+
+;==========================================================================
+; 飛び道具対策用ヘルパー(ID:30000)
+; by厨忍氏
+;==========================================================================
+;--------------------------------------------------------------------------
+;全員共通のループステート１
+[Statedef 30000]
+type = A
+movetype = I
+physics = N
+ctrl = 0
+anim = 9999
+sprpriority=0
+velset=0,0
+
+[State -2];ループ回数設定
+type=varset
+trigger1=!var(54)
+var(54)=40
+
+;ＩＤ探索ステートへ
+[State -2]
+type=ChangeState
+triggerall=!numhelper(30001);このＦの中でまだＩＤ予測をしていない（失敗していない）
+trigger1=var(56)!=-1||prevstateno=30009;このＦの中でまだＩＤ探索に失敗していない
+trigger1=!playerIDexist(var(3+var(55)));変数が現在使用中ではない
+value=30002
+
+;透明化
+[State -2]
+type=assertspecial
+trigger1=1
+flag=noshadow
+flag2=invisible
+ignorehitpause=1
+
+;無敵化
+[State -2]
+type=Nothitby
+trigger1=1
+value=SCA
+
+;本体と敵との中間に配置
+[State -2]
+type=posset
+trigger1=1
+x=(root,pos x+EnemyNear(root,Var(58)),pos x)/2.0
+
+;本体と同じ向き
+[State -2]
+type=turn
+trigger1=facing!=root,facing
+
+;本体の近くに飛び道具があるなら警戒
+[State 30000]
+type=varset
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=playerID(var(3+var(55))),movetype=A
+trigger1=abs(root,pos y-playerID(var(3+var(55))),pos y)<200
+trigger1=abs(playerID(var(3+var(55))),pos x-root,pos x)<=200
+var(2)=5
+
+;------------------------------------
+;ＩＤ用変数の最高値記録
+[State 30000]
+type=varset
+trigger1=var(57)<var(3+var(55))
+var(57)=var(3+var(55))
+
+;ループバック
+[State 30000]
+type=Changestate
+trigger1=!numhelper(30001)	;何か見つかった１
+trigger1=var(56)!=-1	;何か見つかった２
+trigger1=var(55)<var(54)	;ループが指定回数未満
+trigger1=var(55):=var(55)+1||1	;インクリメント（ループカウンタ増加処理）
+value=30000
+
+;------------------------------------
+[State -2];カウンタ初期化
+type=VarSet
+trigger1=1
+var(55)=0
+
+;inguarddist系反応判断用
+[State -2]
+type=VarAdd
+trigger1=var(0)>0
+var(0)=-1
+
+;inguarddist系反応判断用
+[State -2]
+type=VarSet
+trigger1=!EnemyNear(root,Var(58)),ctrl&&EnemyNear(root,Var(58)),stateno>=200
+trigger2=inguarddist
+trigger3=root,inguarddist
+var(0)=15
+
+;inguarddist系反応判断用
+[State -2]
+type=VarAdd
+trigger1=var(0)
+var(1)=1
+
+;inguarddist系反応判断用
+[State -2]
+type=Varset
+trigger1=!var(0)
+var(1)=0
+
+;------------------------------------
+;飛び道具の裏側対策
+[State -2]
+type=Varadd
+trigger1=var(2)>0
+var(2)=-1
+
+;飛び道具の裏側対策
+[State -2]
+type=varset
+triggerall=root,inguarddist
+trigger1=EnemyNear(root,Var(58)),movetype!=A
+trigger2=P2Dist x>EnemyNear(root,Var(58)),Const(size.attack.dist)
+var(2)=20
+
+;------------------------------------
+;飛び道具の裏側対策。一時的に裏側に配置
+[State -2]
+type=posset
+trigger1=1
+x=root,pos x-facing*80
+
+;飛び道具の裏側対策
+[State -2]
+type=varset
+trigger1=inguarddist
+var(2)=5
+
+;コンボ用変数みたいなもの
+[State 30000 対策テスト]
+type=varset
+trigger1=1
+var(59)=0
+
+;終了したらキャラ別対策判断用のステートへ
+[State -2]
+type=ChangeState
+trigger1=1
+value=30009
+
+;--------------------------------------------------------------------------
+;ＩＤ予測ヘルパー用ステート
+[Statedef 30001]
+anim=9999
+ctrl=0
+
+;即消える
+[State 30001]
+type=destroyself
+trigger1=1
+
+;--------------------------------------------------------------------------
+;ループステート
+[Statedef 30002]
+anim=9999
+ctrl=0
+
+;開始値を最高値に合わせる
+[State -2]
+type=varset
+trigger1=prevstateno!=30002;
+var(3+var(55))=var(57)+1
+
+;ループカウンタ増加
+[State -2]
+type=varadd
+var(56)=1
+trigger1=var(56)!=-1
+
+;ループカウンタ初期化
+[State -2]
+type=Varset
+trigger1=prevstateno!=30002
+var(56)=0
+
+;ふるいにかける。１つでも該当するなら次へ
+[State -2]
+type=varadd
+trigger1=!playerIDExist(var(3+var(55)))
+trigger2=playerID(var(3+var(55))),movetype!=A||!(playerID(var(3+var(55))),hitdefattr=SCA,AA,AP,AT)
+trigger2=playerID(var(3+var(55))),time>200-var(55)*10
+trigger3=abs(playerID(var(3+var(55))),Screenpos x)>500
+trigger4=abs(playerID(var(3+var(55))),pos y)>500
+trigger5=teamside=playerID(var(3+var(55))),teamside
+var(3+var(55))=1
+
+[state -2];id確認用。１０回繰り返して当たりがこなかったら、中止して次に備える
+type=Helper
+trigger1=var(56)>10
+trigger1=var(56):=-1
+trigger1=!numhelper(30001)
+helpertype=normal
+name="id_check"
+ID=30001
+pos=0, 0
+postype=right
+facing=1
+stateno=30001
+ownpal=1
+supermovetime=99999
+pausemovetime=99999
+
+;変数の値を今出したばかりのヘルパーのものに
+[State -2]
+type=varset
+trigger1=var(56)=-1
+trigger1=numhelper(30001)
+var(3+var(55))=helper(30001),id
+
+;ループバック
+[State -2]
+type=ChangeState
+value=30002
+triggerall=var(56)!=-1
+trigger1=!playerIDExist(var(3+var(55)))
+trigger2=playerID(var(3+var(55))),movetype!=A||!(playerID(var(3+var(55))),hitdefattr=SCA,AA,AP,AT)
+trigger2=playerID(var(3+var(55))),time>200-var(55)*10
+trigger3=abs(playerID(var(3+var(55))),Screenpos x)>500
+trigger4=abs(playerID(var(3+var(55))),pos y)>500
+trigger5=teamside=playerID(var(3+var(55))),teamside
+
+;終わったら戻る
+[State -2]
+type=ChangeState
+value=30000
+trigger1=1
+
+;--------------------------------------------------------------------------
+;飛び道具対策、キャラ別ステート
+[Statedef 30009]
+anim=9999
+ctrl=0
+
+;１Ｆ経ったらまたＩＤ取得から
+[State 30009]
+type=CHangeState
+trigger1=time>0
+value=30000
+
+;変数の値に該当するヘルパーが存在しないならここでループカウンタ増加させてまた初めから
+[State 30009]
+type=CHangeState
+trigger1=!playerIDExist(var(3+var(55)))
+trigger1=var(55)<var(54)-1
+trigger1=var(55):=var(55)+1
+value=30009
+
+;判断用変数初期化
+[State 30000]
+type=varset
+trigger1=prevstateno!=30009
+var(58)=0
+
+;------------------------------------
+[State 30000 地上波動]
+type=varadd
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=!((var(58))%10)
+trigger1=playerID(var(3+var(55))),movetype=A
+trigger1=playerID(var(3+var(55))),pos y+playerID(var(3+var(55))),vel y*10=[-100,60]
+trigger1=abs(playerID(var(3+var(55))),vel x)>1
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)>0
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)-playerID(var(3+var(55))),vel x*6>70
+trigger1=fvar(0):=playerID(var(3+var(55))),vel x
+var(58)=1
+
+;------------------------------------
+[State 30000 地上波動近すぎ]
+type=varadd
+trigger1=!((var(58)/1000)%10)
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=playerID(var(3+var(55))),movetype=A
+trigger1=playerID(var(3+var(55))),pos y+playerID(var(3+var(55))),vel y*10=[-100,60]
+trigger1=abs(playerID(var(3+var(55))),vel x)>1
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)-playerID(var(3+var(55))),vel x*6<=70
+var(58)=1000
+
+;------------------------------------
+[State 30000 空中波動]
+type=varadd
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=!((var(58)/10)%10)
+trigger1=playerID(var(3+var(55))),movetype=A
+trigger1=playerID(var(3+var(55))),pos y+playerID(var(3+var(55))),vel y*20<-80
+trigger1=abs(playerID(var(3+var(55))),vel x)>1
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)>-50
+trigger1=fvar(1):=playerID(var(3+var(55))),vel y
+var(58)=10
+
+;------------------------------------
+[State 30000 空中波動近すぎ]
+type=varadd
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=!((var(58)/10000)%10)
+trigger1=playerID(var(3+var(55))),movetype=A
+trigger1=playerID(var(3+var(55))),pos y+playerID(var(3+var(55))),vel y*10>=-80
+trigger1=abs(playerID(var(3+var(55))),vel x)>1
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)>-50
+trigger1=fvar(1):=playerID(var(3+var(55))),vel y
+var(58)=10000
+
+;------------------------------------
+[State 30000 近すぎ]
+type=varadd
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=!((var(58)/100000)%10)
+trigger1=playerID(var(3+var(55))),movetype=A
+trigger1=playerID(var(3+var(55))),pos y-root,pos y=[-80,80]
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)=[-100,100]
+var(58)=100000
+
+;------------------------------------これとか変更してどうにかする
+[State 30000 リフレク]
+type=varadd
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=!((var(58)/1000000)%10)
+trigger1=playerID(var(3+var(55))),movetype=A&&(playerID(var(3+var(55))),hitdefattr=SCA,AP||playerID(var(3+var(55))),hitdefattr=SA,AA)
+trigger1=playerID(var(3+var(55))),pos y+playerID(var(3+var(55))),vel y*14=[-100,60]
+trigger1=abs(playerID(var(3+var(55))),vel x)>1
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)-playerID(var(3+var(55))),vel x*14>15 ;16>70
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)-playerID(var(3+var(55))),vel x*22<=50 ;28<=20
+trigger1=fvar(2):=playerID(var(3+var(55))),vel x||1
+var(58)=1000000
+
+;------------------------------------
+[State 30000 飛び込み]
+type=varadd
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=!((var(58)/10000000)%10)
+trigger1=playerID(var(3+var(55))),movetype=A&&(playerID(var(3+var(55))),hitdefattr=SCA,AP||playerID(var(3+var(55))),hitdefattr=SA,AA)
+trigger1=playerID(var(3+var(55))),pos y+playerID(var(3+var(55))),vel y*20 >= -80
+trigger1=abs(playerID(var(3+var(55))),vel y) = [-1,1]
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)-playerID(var(3+var(55))),vel x*13>85 ;16>70
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)-playerID(var(3+var(55))),vel x*34<=120 ;28<=20
+trigger1=fvar(3):=playerID(var(3+var(55))),vel y||1
+var(58)=10000000
+
+;------------------------------------
+[State 30000 回り込み]
+type=varadd
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=!((var(58)/100000000)%10)
+trigger1=playerID(var(3+var(55))),movetype=A&&(playerID(var(3+var(55))),hitdefattr=SCA,AP||playerID(var(3+var(55))),hitdefattr=SA,AA)
+trigger1=playerID(var(3+var(55))),pos y+playerID(var(3+var(55))),vel y*10=[-100,60]
+trigger1=abs(playerID(var(3+var(55))),vel x)>1
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)-playerID(var(3+var(55))),vel x*1 > 1
+trigger1=playerID(var(3+var(55))),facing*(root,pos x-playerID(var(3+var(55))),pos x)-playerID(var(3+var(55))),vel x*25 <= 0
+trigger1=fvar(2):=playerID(var(3+var(55))),vel x||1
+var(58)=100000000
+
+;------------------------------------
+[State 30000];設置
+type=varadd
+trigger1=!((var(58)/100)%10)
+trigger1=playerIDExist(var(3+var(55)))
+trigger1=playerID(var(3+var(55))),movetype=A
+trigger1=playerID(var(3+var(55))),pos y>-140
+trigger1=playerID(var(3+var(55))),vel x<3
+trigger1=playerID(var(3+var(55))),time>=40
+trigger1=(root,pos x-playerID(var(3+var(55))),pos x)>80
+var(58)=100
+
+;------------------------------------
+;ループカウンタ増加、初めに戻る
+[State 30009]
+type=CHangeState
+trigger1=var(55)<var(54)
+trigger1=var(55):=var(55)+1||1
+value=30009
+
+
+;記述例（ヘルパー用ステート）--------------------------------------------------------
+
+;飛び道具対策ヘルパー30000（suparpause,pause無視）
+;var(0):飛び道具対策変数１　相手攻撃判断＆カウントダウン用
+;var(1):飛び道具対策変数２　反応までのカウントアップ用
+;var(2):飛び道具の後ろ側をガードするための変数
+;var(3)~var(53):ヘルパーリダイレクト用
+;var(54):最大ループ回数設定
+;var(55):30000,30009ループカウント用
+;var(56):30002ループカウント用
+;var(57):リダイレクト変数のうち、現在の最高の値
+;var(58):結果から状況判断
+;var(59):対策テスト用
+
+;fvar(0)~fvar(x):ｘ速度など。確率変動に使う
+
+;※var(3+var(55))が、「現在調査中のＩＤ用変数」
+;------------------------------------------------------------------------
+[State -2 デバッグ用]
+type=displayToClipboard
+trigger1=1
+ignorehitpause=1
+text=" var(2)=%d var(4)=%d var(3)=%d var(5)=%d var(6)=%d"
+params=var(2),var(4),var(3),var(5),var(6)
+
+
+[State -2 デバッグ用]
+type=AppendToClipboard
+trigger1=1
+ignorehitpause=1
+text=" \nvar(7)=%d var(59)=%d var(55)=%d var(54)=%d var(58)=%d"
+params=var(7),var(59),var(55),var(54),var(58)
+;------------------------------------------------------------------------
+[State 30000];カウンタ初期化
+type=varset
+trigger1=1
+var(55)=0
+
+[State 30000];カウンタ初期化
+type=varset
+trigger1=1
+var(56)=0

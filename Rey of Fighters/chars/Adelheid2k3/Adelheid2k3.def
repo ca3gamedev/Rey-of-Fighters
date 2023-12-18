@@ -1,0 +1,24 @@
+[Info]
+Name = "Adelheid"       
+DisplayName = "Adelheid2k3" 
+MugenVersion 
+Author = "TightRiam"        
+Pal.Defaults = 1      
+
+[Files]
+Cmd = Adelheid2k3.cmd   
+Cns = Adelheid2k3.cns  
+St = Adelheid2k3.cns   
+St0 = Adelheid2k3_Helper.cns
+St1 = Adelheid2k3_-2.cns  
+St2 = Adelheid2k3_AI.txt
+StCommon = Adelheid2k3_common.cns
+Sprite = Adelheid2k3.sff   
+Anim = Adelheid2k3.air  
+Sound = Adelheid2k3.snd  
+Pal1 = Adelheid2k3_01.act
+Pal2 = Adelheid2k3_02.act
+Pal3 = Adelheid2k3_01.act
+Pal4 = Adelheid2k3_02.act
+Pal5 = Adelheid2k3_01.act
+Pal6 = Adelheid2k3_02.act

@@ -1,0 +1,162 @@
+﻿;----------------------------------------------------------------------------------
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;□                                                                              □
+;□                               Original_Zero-UM                               □
+;□                                                                              □
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;----------------------------------------------------------------------------------
+[Statedef -3]
+;----------------------------------------------------------------------------------
+;Setting
+;----------------------------------------------------------------------------------
+;语音:
+;Var(5) = 0  : Kof2001
+;Var(5) = 1  : Kof2002UM
+;Default: 1 。
+
+[State x]
+type = VarSet
+trigger1 = !IsHelper
+var(5) = 1           ;←Here Set: 0 or 1
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;援护召唤动作:
+;模式A:Kof2002UM 动作，Krizalid、Long、Glaugan只允许一单位存在。
+;模式B:Kof2001   动作，Krizalid、Long、Glaugan只允许一单位存在。
+;模式C:Kof2002UM 动作，Krizalid、Long、Glaugan允许同时存在。
+;模式D:Kof2001   动作，Krizalid、Long、Glaugan允许同时存在。
+;1P-5P、7P-11P适用。
+;6P、12P固定模式D。
+;Var(9) = 0  : Type A
+;Var(9) = 1  : Type B
+;Var(9) = 2  : Type C
+;Var(9) = 3  : Type D
+;Default: 0 。
+
+[State x]
+type = VarSet
+trigger1 = !IsHelper
+var(9) = 0             ;←Here Set: 0 ~ 3
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;气条显示:
+;Var(15) = 0  : Off
+;Var(15) = 1  : On
+;Default: 1 。
+
+[State x]
+type = VarSet
+trigger1 = !IsHelper
+var(15) = 1            ;←Here Set: 0 or 1
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;招式解禁:
+;魔舞紅躁、疾火煌陣、獄鎖斬陣Max、白羅滅精Max2、暗琉天破Max2。
+;1P-6P适用。
+;7P-12P固定On。
+;Var(16) = 0  : Off
+;Var(16) = 1  : On
+;Default: 0 。
+
+[State x]
+type = VarSet
+trigger1 = !IsHelper
+var(16) = 0            ;←Here Set: 0 or 1
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;常时AI:
+;Var(21) = 0  : Off
+;Var(21) = 1  : On
+;Default: 0 。
+
+[State x]
+type = VarSet
+trigger1 = !IsHelper
+var(21) = 0            ;←Here Set: 0 or 1
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;AI等级:
+;Var(59) = 1~5
+;Default: 5 。
+
+[State x]
+type = VarSet
+triggerall = !IsHelper
+trigger1 = Var(21)
+trigger2 = Var(59)
+var(59) = 5            ;←Here Set: 1 ~ 5
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;KOF2002UM胜利动画:
+;Var(13) = 0  : Off
+;Var(13) = 1  : On
+;Default: 1 。
+
+[State x]
+type = VarSet
+trigger1 = !IsHelper
+var(13) = 1            ;←Here Set: 0 or 1
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;EnemyNear(0)
+;----------------------------------------------------------------------------------
+[State x]
+Type = VarSet
+trigger1 = NumEnemy = 1
+var(37) = 0
+ignorehitpause = 1
+
+[State x]
+Type = VarSet
+trigger1 = NumEnemy = 2
+trigger1 = EnemyNear(0),Alive
+trigger1 = EnemyNear(1),Alive
+var(37) = IfElse(((Abs(Pos X-EnemyNear(0),Pos X)) < (Abs(Pos X-EnemyNear(1),Pos X))),0,1)
+ignorehitpause = 1
+
+[State x]
+Type = VarSet
+trigger1 = NumEnemy = 2
+trigger1 = !EnemyNear(0),Alive || !EnemyNear(1),Alive
+var(37) = IfElse(EnemyNear(0),Alive,0,1)
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;EnemyNear(1)
+;----------------------------------------------------------------------------------
+[State x]
+Type = VarSet
+trigger1 = NumEnemy = 1
+var(38) = 0
+ignorehitpause = 1
+
+[State x]
+Type = VarSet
+trigger1 = NumEnemy = 2
+trigger1 = EnemyNear(0),Alive
+trigger1 = EnemyNear(1),Alive
+var(38) = IfElse(((Abs(Pos X-EnemyNear(0),Pos X)) < (Abs(Pos X-EnemyNear(1),Pos X))),1,0)
+ignorehitpause = 1
+
+[State x]
+Type = VarSet
+trigger1 = NumEnemy = 2
+trigger1 = !EnemyNear(0),Alive || !EnemyNear(1),Alive
+var(38) = IfElse(EnemyNear(1),Alive,1,0)
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;Life
+;----------------------------------------------------------------------------------
+[State x]
+Type = VarSet
+triggerall = !IsHelper
+triggerall = RoundState = 2
+trigger1 = StateNo != [150,153]
+var(27) = Life
+ignorehitpause = 1
+;----------------------------------------------------------------------------------
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;□                                                                              □
+;□                               Original_Zero-UM                               □
+;□                                                                              □
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;----------------------------------------------------------------------------------

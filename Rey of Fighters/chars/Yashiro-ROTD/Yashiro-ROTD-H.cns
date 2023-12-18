@@ -1,0 +1,2423 @@
+;==============================================================================
+;-| 超必殺技 |-----------------------------------------------------------------
+;==============================================================================
+
+;var(6) = 追加コマンド入力判定
+;var(7) = コンビネーション ヒット判定
+;var(9) = ジャンプ関連
+;var(24)= 壁激突音関連
+;var(26)= 床叩き付け音関連
+
+;------------------------------------------------------------------------------
+;-| ファイナルインパクト |-----------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2000]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2000
+sprpriority = 4
+
+;---------------------------------------------------
+;超必殺技：画面効果
+[State 2000, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 30
+movetime = 30
+anim = -1
+darken = 0
+poweradd = -1000
+
+[State 2000, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 5,0
+
+[State 2000, EnvColor]
+type = EnvColor
+trigger1 = Time = 2
+ignorehitpause = 1
+value = 0, 0, 0
+time = 31
+under = 1
+
+[State 2000, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time = [1,31]
+flag = NoFG
+flag1 = noshadow
+ignorehitpause = 1
+
+[State 2000, Explod]
+type = Explod
+trigger1 = Time = 2
+anim = 6050
+pos = 0,-65
+postype = p1
+sprpriority = 0
+supermove = 1
+bindtime = 1
+removetime = -2
+ownpal = 1
+
+[State 2000, Explod]
+type = Explod
+trigger1 = Time = 2
+anim = 6051
+pos = 0,-65
+postype = p1
+sprpriority = 3
+supermove = 1
+bindtime = 1
+removetime = -2
+ownpal = 1
+;---------------------------------------------------
+
+[State 2000, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 64,0
+channel = 0
+
+[State 2000, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 64,1
+channel = 20
+
+[State 2000, Explod]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 30000
+ID = 30000
+pos = 0,0
+postype = p1
+ownpal = 1
+bindtime = -1
+removetime = -1
+sprpriority = 3
+removeongethit = 1
+ignorehitpause = 1
+
+[State 2000, ChangeState]
+type = ChangeState
+triggerall = AnimElemtime(4) > 0
+trigger1 = command != "holdx"
+value = 2001
+
+[State 2000, ChangeState]
+type = ChangeState
+triggerall = AnimElemtime(4) > 0
+trigger1 = time = 59
+value = 2010
+
+;===================================================
+;ファイナルインパクト・打撃
+[Statedef 2001]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2030
+sprpriority = 4
+
+[State 2001, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 64,2
+channel = 0
+
+[State 2001, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 62,1
+
+[State 2001, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 62,2
+
+[State 2001, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+ID = 30000
+
+[State 2001, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 15
+
+[State 2001, VelMul]
+type = VelMul
+trigger1 = Time > 0
+x = .85
+
+[State 2001, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 2001, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 6
+trigger3 = AnimElem = 7
+x = 8
+
+[State 2001, HitDef]
+type = HitDef                    
+trigger1 = time = 0          
+attr = S, NA                     
+damage = 180,10             
+animtype = Up                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 32, 32                 
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S64, 3
+guardsound = S2, 0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -6, -6      
+airguard.velocity = -4, -4 
+air.type = High                  
+air.velocity = -6,-6         
+air.hittime = 12            
+fall = 1
+fall.recover = 0
+envshake.time = 32
+envshake.freq = 180
+envshake.ampl = 4
+
+[State 2001, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ファイナルインパクト・２段階 |---------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2010]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2010
+sprpriority = 4
+
+[State 2010, ChangeState]
+type = ChangeState
+trigger1 = command != "holdx"
+value = 2011
+
+[State 2010, ChangeState]
+type = ChangeState
+trigger1 = time = 28
+value = 2020
+
+;===================================================
+;ファイナルインパクト・２段階・打撃
+[Statedef 2011]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2030
+sprpriority = 2
+
+[State 2011, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 64,2
+channel = 0
+
+[State 2011, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 62,1
+
+[State 2011, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 62,2
+
+[State 2011, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+ID = 30000
+
+[State 2011, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 15
+
+[State 2011, VelMul]
+type = VelMul
+trigger1 = Time > 0
+x = .85
+
+[State 2011, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 2011, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 6
+trigger3 = AnimElem = 7
+x = 8
+
+[State 2011, HitDef]
+type = HitDef                    
+trigger1 = time = 0          
+attr = S, NA                     
+damage = 200,10             
+animtype = Up                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 32, 32                 
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S64, 3
+guardsound = S2, 0            
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -6, -6      
+airguard.velocity = -4, -4 
+air.type = High                  
+air.velocity = -6,-5.5          
+air.hittime = 12            
+fall = 1
+fall.recover = 0
+envshake.time = 24
+envshake.freq = 180
+envshake.ampl = 4
+
+[State 2011, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ファイナルインパクト・３段階 |---------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2020]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2020
+sprpriority = 4
+
+[State 2020, ChangeState]
+type = ChangeState
+trigger1 = command != "holdx"
+value = 2021
+ctrl = 1
+
+[State 2020, ChangeState]
+type = ChangeState
+trigger1 = time = 30
+value = 2031
+
+;===================================================
+;ファイナルインパクト・３段階・打撃
+[Statedef 2021]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2030
+sprpriority = 2
+
+[State 2021, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 64,2
+channel = 0
+
+[State 2021, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 62,1
+
+[State 2021, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 62,2
+
+[State 2021, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+ID = 30000
+
+[State 2021, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 15
+
+[State 2021, VelMul]
+type = VelMul
+trigger1 = Time > 0
+x = .85
+
+[State 2021, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 2021, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 6
+trigger3 = AnimElem = 7
+x = 8
+
+[State 2021, HitDef]
+type = HitDef                    
+trigger1 = time = 0          
+attr = S, NA                     
+damage = 220,10             
+animtype = Up                 
+guardflag = MA                   
+hitflag = MAF                    
+priority = 3, Hit                
+pausetime = 32, 32                 
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S64, 3
+guardsound = S2, 0                   
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -6, -6      
+airguard.velocity = -4, -4 
+air.type = High                  
+air.velocity = -6,-5.5          
+air.hittime = 12            
+fall = 1
+fall.recover = 0
+envshake.time = 24
+envshake.freq = 180
+envshake.ampl = 4
+
+[State 2021, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ファイナルインパクト・４段階 |---------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2031]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2030
+sprpriority = 2
+
+[State 2031, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 64,2
+channel = 0
+
+[State 2031, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 62,1
+
+[State 2031, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 62,2
+
+[State 2031, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+ID = 30000
+
+[State 2031, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 15
+
+[State 2031, VelMul]
+type = VelMul
+trigger1 = Time > 0
+x = .85
+
+[State 2031, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 2031, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 6
+trigger3 = AnimElem = 7
+x = 8
+
+[State 2031, HitDef]
+type = HitDef                    
+trigger1 = time = 0          
+attr = S, NA                     
+damage = 250,10            
+animtype = DiagUp                               
+hitflag = MAF                    
+priority = 3, Hit                
+pausetime = 32, 32                 
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S64, 3
+guardsound = S2, 0                 
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -6.5, -7      
+airguard.velocity = -4, -4 
+air.type = High                  
+air.velocity = -6.5,-6.5          
+air.hittime = 12            
+fall = 1
+fall.recover = 0
+envshake.time = 24
+envshake.freq = 180
+envshake.ampl = 4
+
+[State 2031, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム |-----------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2100]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2100
+sprpriority = 2
+
+;---------------------------------------------------
+;超必殺技：画面効果
+[State 2100, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 30
+movetime = 30
+anim = -1
+darken = 0
+poweradd = -1000
+
+[State 2100, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 5,0
+
+[State 2100, EnvColor]
+type = EnvColor
+trigger1 = Time = 2
+ignorehitpause = 1
+value = 0, 0, 0
+time = 31
+under = 1
+
+[State 2100, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time = [1,31]
+flag = NoFG
+flag1 = noshadow
+ignorehitpause = 1
+
+[State 2100, Explod]
+type = Explod
+trigger1 = Time = 2
+anim = 6050
+pos = 0,-65
+postype = p1
+sprpriority = 0
+supermove = 1
+bindtime = 1
+removetime = -2
+ownpal = 1
+
+[State 2100, Explod]
+type = Explod
+trigger1 = Time = 2
+anim = 6051
+pos = 0,-65
+postype = p1
+sprpriority = 3
+supermove = 1
+bindtime = 1
+removetime = -2
+ownpal = 1
+;---------------------------------------------------
+
+[State 2100, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 65,0
+channel = 0
+
+[State 2100, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 8 || AnimElem = 12 || AnimElem = 20 || AnimElem = 24
+value = 3,4
+
+[State 2100, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 7 || AnimElem = 11 || AnimElem = 17 || AnimElem = 23
+x = 5.5
+
+[State 2100, VarSet]
+type = VarSet
+trigger1 = Time = 0
+var(6) = 0
+
+[State 2100, VarSet]
+type = VarSet
+triggerall = AnimElemtime(1) > 0
+trigger1 = command = "ミリオンバッシュストリーム・連打" || command = "ミリオンバッシュストリーム２・連打"
+var(6) = 1
+
+[State 2100, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9
+trigger2 = AnimElem = 21
+attr = S, NA                     
+damage = 15,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2100, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 13
+trigger2 = AnimElem = 25
+attr = S, NA                     
+damage = 15,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2100, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 0
+trigger1 = AnimTime = 0
+value = 2110
+
+[State 2100, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 1
+trigger1 = AnimTime = 0
+value = 2120
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム フィニッシュ |----------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2110]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2110
+sprpriority = 2
+
+[State 2110, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 3,4
+
+[State 2110, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 61,0
+channel = 0
+
+[State 2110, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 2
+x = 8
+
+[State 2110, HitDef]
+type = HitDef                    
+trigger1 = time = 0          
+attr = S, NA                     
+damage = 30,10                  
+animtype = Up                
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 24, 24               
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -95 
+hitsound = S64, 3
+guardsound = S2, 0               
+ground.type = High               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -1,-9    
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-8          
+air.hittime = 12 
+fall = 1       
+fall.recover = 0    
+envshake.time = 24
+envshake.freq = 180
+envshake.ampl = 4
+
+[State 2110, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム 連打１ |----------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2120]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2120
+sprpriority = 2
+
+[State 2120, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4 || AnimElem = 8
+value = 3,4
+
+[State 2120, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 3 || AnimElem = 7
+x = 5.5
+
+[State 2120, VarSet]
+type = VarSet
+trigger1 = Time = 0
+var(6) = 0
+
+[State 2120, VarSet]
+type = VarSet
+triggerall = AnimElemtime(1) > 0
+trigger1 = command = "ミリオンバッシュストリーム・連打" || command = "ミリオンバッシュストリーム２・連打"
+var(6) = 1
+
+[State 2120, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 5
+attr = S, NA                     
+damage = 20,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2120, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9
+attr = S, NA                     
+damage = 20,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2120, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 0
+trigger1 = AnimTime = 0
+value = 2110
+
+[State 2120, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 1
+trigger1 = AnimTime = 0
+value = 2130
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム 連打２ |----------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2130]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2120
+sprpriority = 2
+
+[State 2130, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4 || AnimElem = 8
+value = 3,4
+
+[State 2130, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 3 || AnimElem = 7
+x = 5.5
+
+[State 2130, VarSet]
+type = VarSet
+trigger1 = Time = 0
+var(6) = 0
+
+[State 2130, VarSet]
+type = VarSet
+triggerall = AnimElemtime(1) > 0
+trigger1 = command = "ミリオンバッシュストリーム・連打" || command = "ミリオンバッシュストリーム２・連打"
+var(6) = 1
+
+[State 2130, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 5
+attr = S, NA                     
+damage = 20,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2130, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9
+attr = S, NA                     
+damage = 20,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2130, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 0
+trigger1 = AnimTime = 0
+value = 2110
+
+[State 2130, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 1
+trigger1 = AnimTime = 0
+value = 2140
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム 連打３ |----------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2140]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2120
+sprpriority = 2
+
+[State 2140, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4 || AnimElem = 8
+value = 3,4
+
+[State 2140, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 3 || AnimElem = 7
+x = 5.5
+
+[State 2140, VarSet]
+type = VarSet
+trigger1 = Time = 0
+var(6) = 0
+
+[State 2140, VarSet]
+type = VarSet
+triggerall = AnimElemtime(1) > 0
+trigger1 = command = "ミリオンバッシュストリーム・連打" || command = "ミリオンバッシュストリーム２・連打"
+var(6) = 1
+
+[State 2140, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 5
+attr = S, NA                     
+damage = 20,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2140, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9
+attr = S, NA                     
+damage = 20,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2140, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 0
+trigger1 = AnimTime = 0
+value = 2110
+
+[State 2140, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 1
+trigger1 = AnimTime = 0
+value = 2150
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム 連打４ |----------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2150]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2120
+sprpriority = 2
+
+[State 2150, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4 || AnimElem = 8
+value = 3,4
+
+[State 2150, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 3 || AnimElem = 7
+x = 5.5
+
+[State 2150, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 5
+attr = S, NA                     
+damage = 20,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2150, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9
+attr = S, NA                     
+damage = 20,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2150, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 2110
+
+;------------------------------------------------------------------------------
+;-| ファイナルインパクト２ |---------------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2200]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2000
+sprpriority = 4
+
+;---------------------------------------------------
+;超必殺技：画面効果
+[State 2200, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 30
+movetime = 30
+anim = -1
+darken = 0
+poweradd = -2000
+p2defmul = 1
+
+[State 2200, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 5,1
+
+[State 2200, EnvColor]
+type = EnvColor
+trigger1 = Time = 2
+ignorehitpause = 1
+value = 0, 0, 0
+time = 31
+under = 1
+
+[State 2200, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time = [1,31]
+flag = NoFG
+flag1 = noshadow
+ignorehitpause = 1
+
+[State 2200, Explod]
+type = Explod
+trigger1 = Time = 2
+anim = 6060
+pos = 0,-65
+postype = p1
+sprpriority = 0
+supermove = 1
+bindtime = 1
+removetime = -2
+ownpal = 1
+
+[State 2200, Explod]
+type = Explod
+trigger1 = Time = 2
+anim = 6061
+pos = 0,-65
+postype = p1
+sprpriority = 3
+supermove = 1
+bindtime = 1
+removetime = -2
+ownpal = 1
+;---------------------------------------------------
+
+[State 2200, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 64,0
+channel = 0
+
+[State 2200, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4
+value = 64,1
+channel = 20
+
+[State 2200, Explod]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 32000
+ID = 30000
+pos = 0,0
+postype = p1
+ownpal = 1
+bindtime = -1
+removetime = -1
+sprpriority = 3
+removeongethit = 1
+ignorehitpause = 1
+
+[State 2200, EnvShake]
+type = EnvShake
+triggerall = AnimElemtime(4) > 0
+trigger1 = time % 2 = 0
+time = 4
+ampl = 3
+freq = 180
+
+[State 2200, ChangeState]
+type = ChangeState
+triggerall = AnimElemtime(4) > 0
+trigger1 = command != "holdy"
+value = 2201
+
+[State 2200, ChangeState]
+type = ChangeState
+triggerall = AnimElemtime(4) > 0
+trigger1 = time = 59
+value = 2210
+
+;===================================================
+;ファイナルインパクト２・打撃
+[Statedef 2201]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2030
+sprpriority = 4
+
+[State 2201, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 64,2
+channel = 0
+
+[State 2201, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 62,1
+
+[State 2201, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 62,2
+
+[State 2201, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+ID = 30000
+
+[State 2201, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 15
+
+[State 2201, VelMul]
+type = VelMul
+trigger1 = Time > 0
+x = .85
+
+[State 2201, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 2201, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 6
+trigger3 = AnimElem = 7
+x = 8
+
+[State 2201, HitDef]
+type = HitDef                    
+trigger1 = time = 0          
+attr = S, NA                     
+damage = 320,10             
+animtype = Up                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 32, 32                 
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S64, 3
+guardsound = S2, 0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -6, -6      
+airguard.velocity = -4, -4 
+air.type = High                  
+air.velocity = -6,-6         
+air.hittime = 12            
+fall = 1
+fall.recover = 0
+envshake.time = 32
+envshake.freq = 180
+envshake.ampl = 4
+
+[State 2201, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ファイナルインパクト２・２段階 |-------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2210]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2010
+sprpriority = 4
+
+[State 2210, EnvShake]
+type = EnvShake
+trigger1 = time % 2 = 0;AnimElem = 1
+time = 4
+ampl = 3
+freq = 180
+
+[State 2210, ChangeState]
+type = ChangeState
+trigger1 = command != "holdy"
+value = 2211
+
+[State 2010, ChangeState]
+type = ChangeState
+trigger1 = time = 28
+value = 2220
+
+;===================================================
+;ファイナルインパクト２・２段階・打撃
+[Statedef 2211]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2030
+sprpriority = 2
+
+[State 2211, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 64,2
+channel = 0
+
+[State 2211, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 62,1
+
+[State 2211, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 62,2
+
+[State 2211, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+ID = 30000
+
+[State 2211, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 15
+
+[State 2211, VelMul]
+type = VelMul
+trigger1 = Time > 0
+x = .85
+
+[State 2211, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 2211, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 6
+trigger3 = AnimElem = 7
+x = 8
+
+[State 2211, HitDef]
+type = HitDef                    
+trigger1 = time = 0          
+attr = S, NA                     
+damage = 340,10             
+animtype = Up                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 32, 32                 
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S64, 3
+guardsound = S2, 0            
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -6, -6      
+airguard.velocity = -4, -4 
+air.type = High                  
+air.velocity = -6,-5.5          
+air.hittime = 12            
+fall = 1
+fall.recover = 0
+envshake.time = 24
+envshake.freq = 180
+envshake.ampl = 4
+
+[State 2211, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ファイナルインパクト２・３段階 |-------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2220]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2020
+sprpriority = 4
+
+[State 2210, EnvShake]
+type = EnvShake
+trigger1 = time % 2 = 0;AnimElem = 1
+time = 4
+ampl = 3
+freq = 180
+
+[State 2220, ChangeState]
+type = ChangeState
+trigger1 = command != "holdy"
+value = 2221
+ctrl = 1
+
+[State 2220, ChangeState]
+type = ChangeState
+trigger1 = time = 30
+value = 2231
+
+;===================================================
+;ファイナルインパクト２・３段階・打撃
+[Statedef 2221]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2030
+sprpriority = 2
+
+[State 2221, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 64,2
+channel = 0
+
+[State 2221, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 62,1
+
+[State 2221, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 62,2
+
+[State 2221, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+ID = 30000
+
+[State 2221, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 15
+
+[State 2221, VelMul]
+type = VelMul
+trigger1 = Time > 0
+x = .85
+
+[State 2221, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 2221, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 6
+trigger3 = AnimElem = 7
+x = 8
+
+[State 2221, HitDef]
+type = HitDef                    
+trigger1 = time = 0          
+attr = S, NA                     
+damage = 360,10             
+animtype = Up                 
+guardflag = MA                   
+hitflag = MAF                    
+priority = 3, Hit                
+pausetime = 32, 32                 
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S64, 3
+guardsound = S2, 0                   
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -6, -6      
+airguard.velocity = -4, -4 
+air.type = High                  
+air.velocity = -6,-5.5          
+air.hittime = 12            
+fall = 1
+fall.recover = 0
+envshake.time = 24
+envshake.freq = 180
+envshake.ampl = 4
+
+[State 2221, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ファイナルインパクト２・４段階・打撃 |-------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2231]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2030
+sprpriority = 2
+
+[State 2231, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 64,2
+channel = 0
+
+[State 2231, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 62,1
+
+[State 2231, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 2
+value = 62,2
+
+[State 2231, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+ID = 30000
+
+[State 2231, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = 15
+
+[State 2231, VelMul]
+type = VelMul
+trigger1 = Time > 0
+x = .85
+
+[State 2231, VelSet]
+type = VelSet
+trigger1 = AnimElem = 4
+x = 0
+
+[State 2231, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 5
+trigger2 = AnimElem = 6
+trigger3 = AnimElem = 7
+x = 8
+
+[State 2231, HitDef]
+type = HitDef                    
+trigger1 = time = 0          
+attr = S, NA                     
+damage = 400,10            
+animtype = DiagUp                               
+hitflag = MAF                    
+priority = 3, Hit                
+pausetime = 32, 32                 
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -75 
+hitsound = S64, 3
+guardsound = S2, 0                 
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -6.5, -7      
+airguard.velocity = -4, -4 
+air.type = High                  
+air.velocity = -6.5,-6.5          
+air.hittime = 12            
+fall = 1
+fall.recover = 0
+envshake.time = 24
+envshake.freq = 180
+envshake.ampl = 4
+
+[State 2231, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム２ |---------------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2300]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 0
+ctrl = 0
+velset = 0,0
+anim = 2300
+sprpriority = 2
+
+;---------------------------------------------------
+;超必殺技：画面効果
+[State 2300, SuperPause]
+type = SuperPause
+trigger1 = Time = 2
+time = 30
+movetime = 30
+anim = -1
+darken = 0
+poweradd = -2000
+p2defmul = 1
+
+[State 2300, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 5,1
+
+[State 2300, EnvColor]
+type = EnvColor
+trigger1 = Time = 2
+ignorehitpause = 1
+value = 0, 0, 0
+time = 31
+under = 1
+
+[State 2300, AssertSpecial]
+type = AssertSpecial
+trigger1 = Time = [1,31]
+flag = NoFG
+flag1 = noshadow
+ignorehitpause = 1
+
+[State 2300, Explod]
+type = Explod
+trigger1 = Time = 2
+anim = 6060
+pos = 0,-65
+postype = p1
+sprpriority = 0
+supermove = 1
+bindtime = 1
+removetime = -2
+ownpal = 1
+
+[State 2300, Explod]
+type = Explod
+trigger1 = Time = 2
+anim = 6061
+pos = 0,-65
+postype = p1
+sprpriority = 3
+supermove = 1
+bindtime = 1
+removetime = -2
+ownpal = 1
+;---------------------------------------------------
+
+[State 2300, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3
+value = 65,0
+channel = 0
+
+[State 2300, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 8 || AnimElem = 12 || AnimElem = 20 || AnimElem = 24
+value = 3,4
+
+[State 2300, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 7 || AnimElem = 11 || AnimElem = 17 || AnimElem = 23
+x = 5.5
+
+[State 2300, VarSet]
+type = VarSet
+trigger1 = Time = 0
+var(6) = 0
+
+[State 2300, VarSet]
+type = VarSet
+triggerall = AnimElemtime(1) > 0
+trigger1 = command = "ミリオンバッシュストリーム・連打" || command = "ミリオンバッシュストリーム２・連打"
+var(6) = 1
+
+[State 2300, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9
+trigger2 = AnimElem = 21
+attr = S, NA                     
+damage = 10,5                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2300, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 13
+trigger2 = AnimElem = 25
+attr = S, NA                     
+damage = 10,5                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2300, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 0
+trigger1 = AnimTime = 0
+value = 2310
+
+[State 2300, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 1
+trigger1 = AnimTime = 0
+value = 2330
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム２ フィニッシュ |--------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2310]
+type    = S
+movetype= A
+physics = N
+juggle  = 4
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2310
+sprpriority = 2
+
+[State 2310, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 3 || AnimElem = 7
+value = 3,4
+
+[State 2310, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 10
+value = 61,0
+channel = 0
+
+[State 2310, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 10
+value = 60,1
+
+[State 2310, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 2 || AnimElem = 8 || AnimElem = 9
+x = 8
+
+[State 2310, PosAdd]
+type = PosAdd
+trigger1 = AnimElem = 10
+x = 16
+
+[State 2310, VelSet]
+type = VelSet
+trigger1 = Animelem = 10
+y = -8
+x = 1.5
+
+[State 2310, VelSet]
+type = VelSet
+trigger1 = Animelem = 11
+x = 0
+
+[State 2310, VelSet]
+type = VelAdd
+trigger1 = Animelem = 10,>= 0
+y = .42
+
+[State 2310, StateTypeSet]
+type = StateTypeSet
+trigger1 = AnimElem = 10
+StateType = A
+physics = N
+
+[State 2310, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 4
+attr = S, NA                     
+damage = 40,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 32, 32             
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -15, -70
+hitsound = S4, 4
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -2      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-4         
+air.hittime = 12            
+envshake.time = 32
+envshake.freq = 180
+envshake.ampl = 4     
+
+[State 2310, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 8
+attr = S, NA                     
+damage = 40,10                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 16, 16             
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -25, -85           
+hitsound = S4, 4
+guardsound = S2,0               
+ground.type = High               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -2      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-4        
+air.hittime = 12            
+
+[State 2310, HitDef]
+type = HitDef
+trigger1 = AnimElem = 10
+attr = A, HA
+animtype = Hard
+damage = 70,10
+hitflag = MAF
+guardflag = MA
+getpower  = 10,5
+givepower = 10,5
+pausetime = 24, 24
+sparkno = S6003
+guard.sparkno = S6011
+sparkxy = -20, -110
+hitsound = S64, 3
+guardsound = S2,0
+ground.type = High          
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -2, -8        
+airguard.velocity = -3, -3   
+air.type = High                  
+air.velocity = -2,-8        
+air.hittime = 12           
+fall = 1
+fall.recover = 0
+p2stateno = 2311
+p2facing = 1
+envshake.time = 32
+envshake.freq = 180
+envshake.ampl = 4     
+
+[State 2310, VelSet]
+type = ChangeState
+trigger1 = Vel Y > 0 && Pos Y >= 0
+value = 2320
+
+;---------------------------------------------------------------------------
+;ミリオンバッシュストリーム２ フィニッシュ Hit 2P
+[Statedef 2311]
+type    = S
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 0
+
+[State 2311, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2311
+
+[State 2311, ChangeState]
+type = ChangeState
+trigger1 = Time = 24
+value = 2312
+
+;---------------------------------------------------------------------------
+;ミリオンバッシュストリーム２ フィニッシュ Hit上昇 2P
+[Statedef 2312]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+sprpriority = 0
+
+[State 2312, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+[State 2312, ChangeAnim2]
+type = ChangeAnim2
+Trigger1 = Time = 0
+value = 2312
+
+[state 2312, VelSet]
+type = VelSet
+trigger1 = Animelem = 1
+x = -1.5
+y = -15
+
+[State 2312, VelAdd]
+type = VelAdd
+trigger1 = Animelem = 1,>= 0
+y = .56
+
+[State 2312, EnvShake]
+type = EnvShake
+triggerall = Vel Y > 0
+trigger1 = Pos Y >= 0
+time = 22
+ampl = 6
+freq = 175
+
+[State 2312, ChangeState]
+type = SelfState
+trigger1 = Vel Y > 0 && Pos Y >= 12
+value = 5100
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム２ フィニッシュ 着地 |---------------------------
+;------------------------------------------------------------------------------
+[Statedef 2320]
+type = S
+movetype = I
+physics = S
+anim = 2320
+ctrl = 0
+velset = 0,0
+sprpriority = 2
+
+[State 2320, PosSet]
+type = PosSet
+trigger1 = time = 0
+y = 0
+
+[State 2320, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 1
+value = 0,1
+
+[State 2320, Changestate]
+type = Changestate
+trigger1 = Animtime = 0
+value = 0
+ctrl = 1
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム２ 連打１ |--------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2330]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2330
+sprpriority = 2
+
+[State 2330, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4 || AnimElem = 8 || AnimElem = 16 || AnimElem = 20
+value = 3,4
+
+[State 2330, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 3 || AnimElem = 7 || AnimElem = 15 || AnimElem = 19
+x = 5.5
+
+[State 2330, VarSet]
+type = VarSet
+trigger1 = Time = 0
+var(6) = 0
+
+[State 2330, VarSet]
+type = VarSet
+triggerall = AnimElemtime(1) > 0
+trigger1 = command = "ミリオンバッシュストリーム・連打" || command = "ミリオンバッシュストリーム２・連打"
+var(6) = 1
+
+[State 2330, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 5 || AnimElem = 17
+attr = S, NA                     
+damage = 10,5                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2330, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9 || AnimElem = 21
+attr = S, NA                     
+damage = 10,5                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2330, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 0
+trigger1 = AnimTime = 0
+value = 2310
+
+[State 2330, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 1
+trigger1 = AnimTime = 0
+value = 2340
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム２ 連打２ |--------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2340]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2330
+sprpriority = 2
+
+[State 2340, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4 || AnimElem = 8 || AnimElem = 16 || AnimElem = 20
+value = 3,4
+
+[State 2340, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 3 || AnimElem = 7 || AnimElem = 15 || AnimElem = 19
+x = 5.5
+
+[State 2340, VarSet]
+type = VarSet
+trigger1 = Time = 0
+var(6) = 0
+
+[State 2340, VarSet]
+type = VarSet
+triggerall = AnimElemtime(1) > 0
+trigger1 = command = "ミリオンバッシュストリーム・連打" || command = "ミリオンバッシュストリーム２・連打"
+var(6) = 1
+
+[State 2340, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 5 || AnimElem = 17
+attr = S, NA                     
+damage = 10,5                
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2340, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9 || AnimElem = 21
+attr = S, NA                     
+damage = 10,5                 
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2340, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 0
+trigger1 = AnimTime = 0
+value = 2310
+
+[State 2340, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 1
+trigger1 = AnimTime = 0
+value = 2350
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム２ 連打３ |--------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2350]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2330
+sprpriority = 2
+
+[State 2350, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4 || AnimElem = 8 || AnimElem = 16 || AnimElem = 20
+value = 3,4
+
+[State 2350, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 3 || AnimElem = 7 || AnimElem = 15 || AnimElem = 19
+x = 5.5
+
+[State 2350, VarSet]
+type = VarSet
+trigger1 = Time = 0
+var(6) = 0
+
+[State 2350, VarSet]
+type = VarSet
+triggerall = AnimElemtime(1) > 0
+trigger1 = command = "ミリオンバッシュストリーム・連打" || command = "ミリオンバッシュストリーム２・連打"
+var(6) = 1
+
+[State 2350, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 5 || AnimElem = 17
+attr = S, NA                     
+damage = 10,5             
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2350, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9 || AnimElem = 21
+attr = S, NA                     
+damage = 10,5                
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2350, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 0
+trigger1 = AnimTime = 0
+value = 2310
+
+[State 2340, ChangeState]
+type = ChangeState
+trigger1 = Var(6) = 1
+trigger1 = AnimTime = 0
+value = 2360
+
+;------------------------------------------------------------------------------
+;-| ミリオンバッシュストリーム２ 連打４ |--------------------------------------
+;------------------------------------------------------------------------------
+[Statedef 2360]
+type    = S
+movetype= A
+physics = S
+juggle  = 0
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 2330
+sprpriority = 2
+
+[State 2360, PlaySnd]
+type = PlaySND
+trigger1 = AnimElem = 4 || AnimElem = 8 || AnimElem = 16 || AnimElem = 20
+value = 3,4
+
+[State 2360, PosAdd]
+type = VelSet
+trigger1 = AnimElem = 3 || AnimElem = 7 || AnimElem = 15 || AnimElem = 19
+x = 5.5
+
+[State 2360, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 5 || AnimElem = 17
+attr = S, NA                     
+damage = 10,5               
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = Low               
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2360, HitDef]
+type = HitDef                    
+trigger1 = AnimElem = 9 || AnimElem = 21
+attr = S, NA                     
+damage = 10,5                
+animtype = Hard                 
+guardflag = MA                   
+hitflag = MAF                   
+priority = 3, Hit                
+pausetime = 7, 10              
+sparkno = S6002
+guard.sparkno = S6011
+sparkxy = -15, -75
+hitsound = S4, 3
+guardsound = S2,0               
+ground.type = High              
+ground.slidetime = 12            
+ground.hittime  = 20             
+ground.velocity = -4      
+airguard.velocity = -3,-2.5    
+air.type = High                  
+air.velocity = -2,-2         
+air.hittime = 12            
+
+[State 2360, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 2310

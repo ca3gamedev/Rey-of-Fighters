@@ -1,0 +1,35 @@
+[Info]
+Name="IGNIZ"
+DisplayName="IGNIZ"
+MugenVersion=04,15,2001
+Author="GONZO"
+Pal.Defaults=1,2,7,8
+versiondate=18/07/2009
+
+
+[Files]
+cmd =igniz.cmd
+cns =igniz.cns
+st =igniz.cns
+stcommon =common1.cns
+sprite =igniz.sff
+anim =igniz.air
+sound =igniz.snd
+pal1=igniz.act
+pal2=igniz2p.act
+pal3=igniz2.act
+pal4=igniz3.act
+pal5=igniz4.act
+pal6=igniz5.act
+pal7=igniz7.act
+pal8=igniz2pex.act
+pal9=igniz8.act
+pal10=igniz10.act
+pal11=igniz9.act
+pal12=igniz7.act
+
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

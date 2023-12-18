@@ -1,0 +1,26 @@
+; ここにキャラ情報を書いてください
+[Info]
+name = "Syo Hayate"        ;キャラの名前
+displayname = "Syo Hayate" ;表示されるキャラの名前
+versiondate = 11,22,2000    ;キャラの更新情報
+mugenversion = 11,22,2000   ;キャラが動くmugenのバージョン
+author = "ahuron"         ;キャラの製作者名
+pal.defaults = 1      ;敵としてでるキャラのパレット
+
+; Files for the player
+[Files]
+cmd     = Hayate_XI.cmd   ;キャラのコマンド
+cns     = Hayate_XI.cns   ;キャラのプログラム
+st      = Hayate_XI.cns   ;基本動作、必殺技、特殊ゲージ、-2、-3
+st2     = Hayate_XI2.cns  ;超必殺技
+st3     = Hayate_XI3.cns  ;ブーメラン表示（不本意）
+stcommon = common1.cns 
+sprite  = Hayate_XI.sff   ;キャラの絵
+anim    = Hayate_XI.air   ;キャラの動き
+sound   = Hayate_XI.snd   ;キャラの音
+pal1    = Hayate_XI2.act
+pal2    = Hayate_XI.act
+pal3    = Hayate_XI2.act
+pal4    = Hayate_XI.act
+pal5    = Hayate_XI2.act
+pal6    = Hayate_XI.act

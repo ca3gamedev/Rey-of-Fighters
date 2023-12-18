@@ -1,0 +1,40 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Chris"
+displayname = "Orochi Chris"
+versiondate = 04,14,2002
+mugenversion = 04,14,2002
+author = "Ahuron & DarkMiguel"
+pal.defaults = 1,8
+
+[Files]
+sprite = Chris.sff
+anim = Chris.air
+sound = Chris.snd
+cmd = Chris.cmd
+cns = O-Chris.cns
+stcommon = common1.cns
+st = O-Chris.cns
+st1 = Chris2.cns
+st2 = helper.cns
+st3 = helper.cns
+pal1 = Orochi\01.act
+pal2 = Orochi\02.act
+pal3 = Orochi\03.act
+pal4 = Orochi\04.act
+pal5 = Orochi\05.act
+pal6 = Orochi\06.act
+pal7 = Orochi\07.act
+pal8 = Orochi\08.act
+pal9 = Orochi\09.act
+pal10 = Orochi\10.act
+pal11 = Orochi\11.act
+pal12 = Orochi\12.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -205,9 +205,16 @@ whip_XI
 Kyo-KOF02UM
 Benimaru KOF98
 Goro_Daimon
+Hayate_XI
+Griffon_AKOF
+bjenet-kofa
 TerryEX-KOF02UM
+Rock-KOF02UM
 Andy Bogard
 Joe-KOF98+14
+Oswald-KOFXI
+Elisabeth Blanctorche-KOFM
+duck_xi
 RyoEX-KOF02UM
 robert
 Yuri-EX-AOF-KOF98
@@ -217,8 +224,9 @@ ralf-KOF-95-98
 Clark KOF98
 Athena
 Kensou
-Chin-KOFM
-
+Diamonds_Studio_-_Momoko
+K_Malin
+baom0
 King
 Mai-KOF02UM
 Kasumi KOF98
@@ -226,6 +234,59 @@ Xiangfei-KOF99-mix
 Hinako-KOF02UM
 K_MayLee
 Kim_Kaphwan
+
+Choi
+Jhun-ROTD
+Lin(duagi)
+Shingo_LB
+ash1
+DuoLon_XI
+D
+Lucky '94 - Robo Z
+Brian-um
+Yashiro-ROTD
+Shermie
+chris kof2002 7 10 2006  zzzasd
+shermie(duagi)
+Orochi Yashiro
+O-Chris
+Yamazaki XI UM
+bluemary_bc
+BILLY
+Eiji KOF98
+Kagura
+Iori-KOF02UM
+IoriEX-KOF02UM
+mature
+Vice-KOF02
+Vanessa
+Seth
+ramon
+Kula-2002(UM)
+foxy
+Angel-KOF02-ARRANGE
+K9999-KOF02UM
+Nameless-KOF02UM
+Heidern
+K_Takuma
+Saisyu-ROTD
+Chin-KOF02UM
+ccikusanagi
+Kyo-1
+Kyo-2
+GoenitzEX KOF02UM
+Goenitz KOF98
+Krizalid-KOF02UM automatico
+c-zero
+Original_Zero-UM
+igniz
+OMEGA Rugal
+Adelheid2k3
+Geese-KOF02UM
+N-Geese
+big
+Krauser-KOF
+Mrkarate2-KOF02UM
 
 ;-------------------------------------------------------------------------------
 [ExtraStages]
@@ -296,12 +357,33 @@ stages/KOF 2011 Esaka 1 ps2.def
 stages/KOF 2011 Shuttle 1 ps2.def
 stages/KOF 2011 Shuttle 2 ps2.def
 stages/KOF-2003-Mexico 4 ps2.def
-stages/
-stages/
-stages/
-stages/
-stages/
-stages/
+stages/KOF-96-team-Boss-Gondola-Ride-Mr.Big.def
+stages/KOF-96-ZZ-Goenitz.def
+stages/KOF-98-japan-Temple-03-HD.def
+stages/KOF-97-Orochi-Shermie.def
+stages/KOF-97-OROCHI-03.def
+stages/KOF-98-Omega-Rugal-boss.def
+stages/KOF-99-PARQUE-03-HD.def
+stages/KOF-99-Evolution-A-mechanical-bless.def
+stages/KOF-99-Evolution-AMUSEMENT-PARK-A.def
+stages/KOF-99-Evolution-AMUSEMENT-PARK-B.def
+stages/KOF-99-Evolution-B-dear-falling-angel.def
+stages/KOF-99-Evolution-Museum-1-floor-Dinosaur-World.def
+stages/KOF-2002-UM-Clone-Laboratory-01.def
+stages/KOF-2002-Rugal-Plane.def
+stages/KOF-2002-UM-rugal.def
+stages/CvSNKPro-01-Aensland-Castle.def
+stages/CvSNKPro-01-Ayutaya.def
+stages/CvSNKPro-01-Ayutaya-02.def 
+stages/CvSNKPro-01-Final-Fight.def     
+stages/CvSNKPro-01-Hansin-highway.def  
+stages/CvSNKPro-01-Shadoloo-Underground-base.def
+stages/CvSNKPro-02-Burning-Osaka.def
+stages/KOF 2002 Italy NESTS ps2.def
+stages/KOF 2011 Esaka 1 ps2.def
+stages/KOF 2011 Shuttle 1 ps2.def
+stages/KOF 2011 Shuttle 2 ps2.def
+
 ;-------------------------------------------------------------------------------
 [Options]
  ;Here you set the maximum number of matches to fight before game ends in arcade

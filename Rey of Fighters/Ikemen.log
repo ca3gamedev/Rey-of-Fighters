@@ -1,6 +1,7 @@
-.\external\script\start.lua:1403: chars\BAO XI/BAO-XI-Hyper.cns:1750:
-
-trans: Value not specified
+.\external\script\start.lua:1403: chars/Kula-2002(UM)/Kula-2002(UM).def:
+./data/functions.zss
+data/functions.zss:84:
+Command doesn't exist: holdback
 stack traceback:
 	[G]: in function 'game'
 	.\external\script\start.lua:1403: in function 'f_game'

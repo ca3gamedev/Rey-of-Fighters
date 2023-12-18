@@ -1,0 +1,41 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Ryuji Yamazaki"
+displayname = "Yamazaki"
+versiondate = 02.14.2006
+mugenversion = 
+author = "Orochikof97"
+pal.defaults = 1,2,3,4
+
+[Files]
+sprite = sff\ultrarox_yamazaki.sff
+anim = cns\ultrarox_yamazaki.air
+sound = snd\ultrarox_yamazaki_kof02.snd
+cmd = cns\ultrarox_yamazaki.cmd
+cns = cns\ultrarox_yamazaki.cns
+stcommon = common1.cns
+st = cns\ultrarox_yamazaki_N.st
+st1 = cns\ultrarox_yamazaki_S.st
+st2 = cns\ultrarox_yamazaki_H.st
+st3 = cns\overrides.st
+st4 = cns\overrides.st
+pal1 = pal\ultrarox_yamazaki_01.act
+pal2 = pal\ultrarox_yamazaki_02.act
+pal3 = pal\ultrarox_yamazaki_03.act
+pal4 = pal\ultrarox_yamazaki_04.act
+pal5 = pal\ultrarox_yamazaki_05.act
+pal6 = pal\ultrarox_yamazaki_06.act
+pal7 = pal\ultrarox_yamazaki_07.act
+pal8 = pal\ultrarox_yamazaki_08.act
+pal9 = pal\ultrarox_yamazaki_09.act
+pal10 = pal\ultrarox_yamazaki_10.act
+pal11 = pal\ultrarox_yamazaki_11.act
+pal12 = pal\ultrarox_yamazaki_12.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,1062 @@
+;---------------------------------
+;KOF-2002-UM-Clone Zero
+;author = "IORIKYO"
+;---------------------------------
+[Info]
+name = "KOF-2002-UM-Clone Zero"
+
+[Camera]
+	startx=0
+	starty=0
+	boundleft= -220
+	boundright= 220
+	boundhigh= -10
+	boundlow=-2
+	verticalfollow=1
+	tension=100;50
+	floortension=150
+
+	;;--- * v1.1 (zoom) *---
+;;	cuthigh=30 ;;c_hi
+	cutlow=10 ;;c_lo
+	;;---
+	overdrawhigh=5
+	overdrawlow=5
+	;;---
+	tensionhigh=85
+	tensionlow=25
+	startzoom=1
+	;zoomout=0.88 ;;c_zo
+	;zoomin=1 ;;c_zi
+	;;--- * v1.1 (zoom) *---
+
+[PlayerInfo]
+	p1startx=-70
+	p1starty=0
+	p1startz=0
+	p1facing=1
+
+	p2startx=70
+	p2starty=0
+	p2startz=0
+	p2facing=-1
+
+	leftbound=-1000
+	rightbound=1000
+	topbound=0
+	botbound=0
+
+[Scaling]
+	topz=0
+	botz=50
+	topscale=1
+	botscale=1.2
+
+[Bound]
+	screenleft=15
+	screenright=15
+
+ [StageInfo]
+	zoffset=215
+	autoturn=1
+	resetBG=0
+hires=1
+
+
+;---------------------------------
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = -.18
+fade.range = -100,-10
+;---------------------------------
+[Reflection]
+intensity = 0
+
+;---------------------------------
+[Music]
+bgmusic = sound/czero.mp3
+bgvolume = 255
+;---------------------------------
+[BGdef]
+spr = stages\KOF-2002-UM-Clone Zero.sff
+debugbg = 0
+
+
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+[BG 6]
+type = normal
+spriteno = 0,0
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 0,1
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 0,2
+start = 0,0
+delta = 2,2
+mask = 1
+
+
+
+
+
+;------------------------------------------
+
+
+[BG 4 ]
+type = Anim
+ActionNo = 4
+start = 0,0
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 4]
+4,0,0,0,6,
+4,1,0,0,6,
+4,2,0,0,6,
+4,3,0,0,6,
+
+[BG 5 ]
+type = Anim
+ActionNo = 5
+start = 0,0
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 5]
+5,0,0,0,6,
+5,1,0,0,6,
+5,2,0,0,6,
+5,3,0,0,6,
+
+
+[BG 6 ]
+type = Anim
+ActionNo = 6
+start = 665,-200
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 6]
+6,0,0,0,6,,A
+6,1,0,0,6,,A
+6,2,0,0,6,,A
+6,3,0,0,6,,A
+6,2,0,0,6,,A
+6,1,0,0,6,,A
+6,0,0,0,6,,A
+
+[BG 7 ]
+type = Anim
+ActionNo = 7
+start = 0,0
+delta = 2,2
+mask = 0
+layerno = 0
+[BG 71 ]
+type = Anim
+ActionNo = 71
+start = 0,0
+delta = 2,2
+mask = 0
+layerno = 0
+[BG 72 ]
+type = Anim
+ActionNo = 72
+start = 0,0
+delta = 2,2
+mask = 0
+layerno = 0
+
+
+[Begin Action 7]
+7,0,0,0,6,
+7,1,0,0,6,
+7,2,0,0,6,
+7,3,0,0,6,
+
+[Begin Action 71]
+7,4,0,0,6,
+7,5,0,0,6,
+7,6,0,0,6,
+7,7,0,0,6,
+
+[Begin Action 72]
+7,8,0,0,6,
+7,9,0,0,6,
+7,10,0,0,6,
+7,11,0,0,6,
+
+
+
+
+[BG 8 ]
+type = Anim
+ActionNo = 8
+start = 0,0
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 8]
+8,0,0,0,6,
+8,1,0,0,6,
+8,2,0,0,6,
+8,3,0,0,6,
+
+
+[BG 5 ]
+type = Anim
+ActionNo = 10
+start = 600,150
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 10]
+10,0,0,0,6,,A
+10,1,0,0,6,,A
+10,2,0,0,6,,A
+10,3,0,0,6,,A
+10,2,0,0,6,,A
+10,1,0,0,6,,A
+10,0,0,0,6,,A
+
+
+[BG 11 ]
+type = Anim
+ActionNo = 11
+start = 220,220
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 11]
+11,0,0,0,6,,A
+11,1,0,0,6,,A
+11,2,0,0,6,,A
+11,3,0,0,6,,A
+11,2,0,0,6,,A
+11,1,0,0,6,,A
+11,0,0,0,6,,A
+
+;======================================================
+
+[BG 12 ]
+type = Anim
+ActionNo = 12
+start = 520,180
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 12]
+12,0,0,0,6,,A
+12,1,0,0,6,,A
+12,2,0,0,6,,A
+12,3,0,0,6,,A
+12,2,0,0,6,,A
+12,1,0,0,6,,A
+12,0,0,0,6,,A
+
+
+[BG 13 ]
+type = Anim
+ActionNo = 13
+start = 315,220
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 13]
+13,0,0,0,6,,A
+13,1,0,0,6,,A
+13,2,0,0,6,,A
+13,3,0,0,6,,A
+13,2,0,0,6,,A
+13,1,0,0,6,,A
+13,0,0,0,6,,A
+
+
+
+[BG 14 ]
+type = Anim
+ActionNo = 14
+start = 415,215
+delta = 2,2
+mask = 0
+layerno = 0
+
+
+[Begin Action 14]
+14,0,0,0,6,,A
+14,1,0,0,6,,A
+14,2,0,0,6,,A
+14,3,0,0,6,,A
+14,2,0,0,6,,A
+14,1,0,0,6,,A
+14,0,0,0,6,,A
+
+
+
+
+
+[BG 19 ]
+type = Anim
+ActionNo = 19
+start = 73,-88
+delta = 2,2
+mask = 1
+layerno = 0
+
+[BG 19 ]
+type = Anim
+ActionNo = 19
+start = 135,-80
+delta = 2,2
+mask = 1
+layerno = 0
+
+
+[BG 19 ]
+type = Anim
+ActionNo = 19
+start = 475,-93
+delta = 2,2
+mask = 1
+layerno = 0
+
+[BG 19 ]
+type = Anim
+ActionNo = 19
+start = 541,-110
+delta = 2,2
+mask = 1
+layerno = 0
+
+
+[Begin Action 19]
+19,0,0,0,5,,A
+19,1,0,0,5,,A
+19,2,0,0,5,,A
+19,3,0,0,5,,A
+19,4,0,0,5,,A
+19,5,0,0,5,,A
+19,6,0,0,5,,A
+
+
+
+
+[BG 191 ]
+type = Anim
+ActionNo = 191
+start = 335,-85
+delta = 2,2
+mask = 1
+layerno = 0
+
+[BG 191 ]
+type = Anim
+ActionNo = 191
+start = 248,-80
+delta = 2,2
+mask = 1
+layerno = 0
+[Begin Action 191]
+19,7,0,0,9,,A
+19,8,0,0,9,,A
+19,9,0,0,9,,A
+19,10,0,0,9,,A
+19,11,0,0,9,,A
+19,12,0,0,9,,A
+19,13,0,0,9,,A
+19,14,0,0,9,,A
+19,15,0,0,9,,A
+19,16,0,0,9,,A
+19,17,0,0,9,,A
+19,18,0,0,9,,A
+19,19,0,0,9,,A
+19,20,0,0,9,,A
+19,21,0,0,9,,A
+19,22,0,0,9,,A
+19,23,0,0,9,,A
+19,24,0,0,9,,A
+19,25,0,0,9,,A
+19,26,0,0,9,,A
+19,27,0,0,9,,A
+
+
+[bg 0] ; obj_light
+type=anim
+actionno=9
+delta=2,2
+start=450,178
+tile=2,0
+tilespacing=70,0
+
+
+[bg 0] ; obj_light
+type=anim
+actionno=9
+delta=2,2
+start=225,178
+tile=2,0
+tilespacing=90,0
+
+[Begin Action 9]
+9,0,75,0,5,,as064d256
+9,1,75,0,5,,as054d256
+9,2,75,0,5,,as044d256
+9,1,75,0,5,,as044d256
+9,0,75,0,5,,as054d256
+
+
+[BG final tint]
+type = anim
+actionno = 91
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 91]
+9,3,0,0,1,,AS170D256
+9,3,0,0,1,,AS180D256
+9,3,0,0,1,,AS190D256
+9,3,0,0,1,,AS200D256
+9,3,0,0,1,,AS210D256
+9,3,0,0,1,,AS220D256
+9,3,0,0,1,,AS230D256
+9,3,0,0,1,,AS256D256
+9,3,0,0,1,,AS256D256
+9,3,0,0,1,,AS256D256
+9,3,0,0,1,,AS230D256
+9,3,0,0,1,,AS230D256
+9,3,0,0,1,,AS210D256
+9,3,0,0,1,,AS210D256
+9,3,0,0,1,,AS200D256
+9,3,0,0,1,,AS190D256
+9,3,0,0,1,,AS180D256
+9,3,0,0,1,,AS170D256
+9,3,0,0,1,,AS160D256
+9,3,0,0,1,,AS150D256
+9,3,0,0,1,,AS130D256	
+9,3,0,0,1,,AS180D256
+
+
+[BG final tint]
+type = anim
+actionno = 92
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 92]
+9,4,0,0,1,,AS170D256
+9,4,0,0,1,,AS180D256
+9,4,0,0,1,,AS190D256
+9,4,0,0,1,,AS200D256
+9,4,0,0,1,,AS210D256
+9,4,0,0,1,,AS220D256
+9,4,0,0,1,,AS230D256
+9,4,0,0,1,,AS256D256
+9,4,0,0,1,,AS256D256
+9,4,0,0,1,,AS256D256
+9,4,0,0,1,,AS230D256
+9,4,0,0,1,,AS230D256
+9,4,0,0,1,,AS210D256
+9,4,0,0,1,,AS210D256
+9,4,0,0,1,,AS200D256
+9,4,0,0,1,,AS190D256
+9,4,0,0,1,,AS180D256
+9,4,0,0,1,,AS170D256
+9,4,0,0,1,,AS160D256
+9,4,0,0,1,,AS150D256
+9,4,0,0,1,,AS130D256	
+9,4,0,0,1,,AS180D256
+
+[BG final tint]
+type = anim
+actionno = 93
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 93]
+9,5,0,0,1,,AS170D256
+9,5,0,0,1,,AS180D256
+9,5,0,0,1,,AS190D256
+9,5,0,0,1,,AS200D256
+9,5,0,0,1,,AS210D256
+9,5,0,0,1,,AS220D256
+9,5,0,0,1,,AS230D256
+9,5,0,0,1,,AS256D256
+9,5,0,0,1,,AS256D256
+9,5,0,0,1,,AS256D256
+9,5,0,0,1,,AS230D256
+9,5,0,0,1,,AS230D256
+9,5,0,0,1,,AS210D256
+9,5,0,0,1,,AS210D256
+9,5,0,0,1,,AS200D256
+9,5,0,0,1,,AS190D256
+9,5,0,0,1,,AS180D256
+9,5,0,0,1,,AS170D256
+9,5,0,0,1,,AS160D256
+9,5,0,0,1,,AS150D256
+9,5,0,0,1,,AS130D256	
+9,5,0,0,1,,AS180D256
+
+
+[BG final tint]
+type = anim
+actionno = 94
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 94]
+9,6,0,0,1,,AS170D256
+9,6,0,0,1,,AS180D256
+9,6,0,0,1,,AS190D256
+9,6,0,0,1,,AS200D256
+9,6,0,0,1,,AS210D256
+9,6,0,0,1,,AS220D256
+9,6,0,0,1,,AS230D256
+9,6,0,0,1,,AS256D256
+9,6,0,0,1,,AS256D256
+9,6,0,0,1,,AS256D256
+9,6,0,0,1,,AS230D256
+9,6,0,0,1,,AS230D256
+9,6,0,0,1,,AS210D256
+9,6,0,0,1,,AS210D256
+9,6,0,0,1,,AS200D256
+9,6,0,0,1,,AS190D256
+9,6,0,0,1,,AS180D256
+9,6,0,0,1,,AS170D256
+9,6,0,0,1,,AS160D256
+9,6,0,0,1,,AS150D256
+9,6,0,0,1,,AS130D256	
+9,6,0,0,1,,AS180D256
+
+[BG final tint]
+type = anim
+actionno = 95
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 95]
+9,7,0,0,1,,AS170D256
+9,7,0,0,1,,AS180D256
+9,7,0,0,1,,AS190D256
+9,7,0,0,1,,AS200D256
+9,7,0,0,1,,AS210D256
+9,7,0,0,1,,AS220D256
+9,7,0,0,1,,AS230D256
+9,7,0,0,1,,AS256D256
+9,7,0,0,1,,AS256D256
+9,7,0,0,1,,AS256D256
+9,7,0,0,1,,AS230D256
+9,7,0,0,1,,AS230D256
+9,7,0,0,1,,AS210D256
+9,7,0,0,1,,AS210D256
+9,7,0,0,1,,AS200D256
+9,7,0,0,1,,AS190D256
+9,7,0,0,1,,AS180D256
+9,7,0,0,1,,AS170D256
+9,7,0,0,1,,AS160D256
+9,7,0,0,1,,AS150D256
+9,7,0,0,1,,AS130D256	
+9,7,0,0,1,,AS180D256
+
+[BG final tint]
+type = anim
+actionno = 96
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 96]
+9,8,0,0,1,,AS170D256
+9,8,0,0,1,,AS180D256
+9,8,0,0,1,,AS190D256
+9,8,0,0,1,,AS200D256
+9,8,0,0,1,,AS210D256
+9,8,0,0,1,,AS220D256
+9,8,0,0,1,,AS230D256
+9,8,0,0,1,,AS256D256
+9,8,0,0,1,,AS256D256
+9,8,0,0,1,,AS256D256
+9,8,0,0,1,,AS230D256
+9,8,0,0,1,,AS230D256
+9,8,0,0,1,,AS210D256
+9,8,0,0,1,,AS210D256
+9,8,0,0,1,,AS200D256
+9,8,0,0,1,,AS190D256
+9,8,0,0,1,,AS180D256
+9,8,0,0,1,,AS170D256
+9,8,0,0,1,,AS160D256
+9,8,0,0,1,,AS150D256
+9,8,0,0,1,,AS130D256	
+9,8,0,0,1,,AS180D256
+
+[BG final tint]
+type = anim
+actionno = 977
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 977]
+9,9,0,0,1,,A
+
+[BG final tint]
+type = anim
+actionno = 97
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 97]
+9,9,0,0,1,,AS130D256	
+9,9,0,0,1,,AS180D256
+
+[BG final tint]
+type = anim
+actionno = 98
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 98]
+9,10,0,0,1,,A
+
+[BG final tint]
+type = anim
+actionno = 99
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 99]
+9,11,0,0,1,,A
+
+[BG final tint]
+type = anim
+actionno = 110
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 110]
+9,12,0,0,1,,A
+
+[BG final tint]
+type = anim
+actionno = 120
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 120]
+9,13,0,0,1,,A
+
+[BG final tint]
+type = anim
+actionno = 121
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 121]
+9,14,0,0,1,,A
+
+[BG final tint]
+type = anim
+actionno = 122
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 122]
+9,15,0,0,1,,A
+
+[BG final tint]
+type = anim
+actionno = 123
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 123]
+9,16,0,0,1,,A
+
+[BG final tint]
+type = anim
+actionno = 124
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+[Begin action 124]
+9,17,0,0,1,,A
+;----------------------------------------------------------------
+
+[BG final tint]
+type = anim
+actionno = 20
+start = 0,0
+delta = 2,2
+layerno = 0
+mask = 1	
+
+[BG final tint]
+type = anim
+actionno = 20
+start = 150,0
+delta = 2,2
+layerno = 0
+mask = 1	
+
+
+[BG final tint]
+type = anim
+actionno = 20
+start = 290,0
+delta = 2,2
+layerno = 0
+mask = 1
+
+[BG final tint]
+type = anim
+actionno = 20
+start = 440,40
+delta = 2,2
+layerno = 0
+mask = 1
+[Begin action 20]
+20,0,0,0,1,,A
+
+
+
+
+;== Fuego ==;
+
+[BG 6]
+type = normal
+spriteno = 1,8
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,9
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,10
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,11
+start = 0,0
+delta = 2,2
+mask = 1
+
+
+[BG 6]
+type = normal
+spriteno = 1,12
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,13
+start = 0,0
+delta = 2,2
+mask = 1
+
+
+[BG 6]
+type = normal
+spriteno = 1,14
+start = 0,0
+delta = 2,2
+mask = 1
+
+
+[BG 6]
+type = normal
+spriteno = 1,15
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,16
+start = 0,0
+delta = 2,2
+mask = 1
+
+
+[BG 6]
+type = normal
+spriteno = 1,17
+start = 0,0
+delta = 2,2
+mask = 1
+
+
+[BG 6]
+type = normal
+spriteno = 1,18
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,19
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,20
+start = 0,0
+delta = 2,2
+mask = 1
+
+
+
+[BG 3 ]
+type = Anim
+ActionNo = 3
+start = 26,55
+delta = 2,2
+mask = 0
+layerno = 0
+
+[BG 3 ]
+type = Anim
+ActionNo = 3
+start = 225,70
+delta = 2,2
+mask = 0
+layerno = 0
+
+[BG 3 ]
+type = Anim
+ActionNo = 3
+start = 372,75
+delta = 2,2
+mask = 0
+layerno = 0
+
+
+[BG 3 ]
+type = Anim
+ActionNo = 3
+start = 455,75
+delta = 2,2
+mask = 0
+layerno = 0
+
+[BG 3 ]
+type = Anim
+ActionNo = 3
+start = 530,75
+delta = 2,2
+mask = 0
+layerno = 0
+
+
+[BG 3 ]
+type = Anim
+ActionNo = 3
+start = 1180,65
+delta = 2,2
+mask = 0
+layerno = 0
+
+
+
+[BG 3 ]
+type = Anim
+ActionNo = 3
+start = 1245,55
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 3]
+3,0,0,0,9,,A
+3,1,0,0,9,,A
+3,2,0,0,9,,A
+3,3,0,0,9,,A
+3,4,0,0,9,,A
+3,5,0,0,9,,A
+
+
+
+[BG 2 ]
+type = Anim
+ActionNo = 2
+start = 30,-10
+delta = 2,2
+mask = 0
+layerno = 0
+
+[BG 2 ]
+type = Anim
+ActionNo = 2
+start = 30,0
+delta = 2,2
+mask = 0
+layerno = 0
+
+[BG 2 ]
+type = Anim
+ActionNo = 2
+start = 225,10
+delta = 2,2
+mask = 0
+layerno = 0
+
+[BG 2 ]
+type = Anim
+ActionNo = 2
+start = 372,15
+delta = 2,2
+mask = 0
+layerno = 0
+
+
+[BG 2 ]
+type = Anim
+ActionNo = 2
+start = 455,25
+delta = 2,2
+mask = 0
+layerno = 0
+
+[BG 2]
+type = Anim
+ActionNo = 2
+start = 530,25
+delta = 2,2
+mask = 0
+layerno = 0
+
+
+[BG 2 ]
+type = Anim
+ActionNo = 2
+start = 1180,15
+delta = 2,2
+mask = 0
+layerno = 0
+
+
+
+[BG 2 ]
+type = Anim
+ActionNo = 2
+start = 1245,15
+delta = 2,2
+mask = 0
+layerno = 0
+
+[Begin Action 2]
+2,0,0,0,9,,A
+2,1,0,0,9,,A
+2,2,0,0,9,,A
+2,3,0,0,9,,A
+2,4,0,0,9,,A
+2,5,0,0,9,,A
+
+
+
+
+
+[BG 6]
+type = normal
+spriteno = 1,0
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,1
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,2
+start = 0,0
+delta = 2,2
+mask = 1
+
+
+[BG 6]
+type = normal
+spriteno = 1,3
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,4
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,5
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,6
+start = 0,0
+delta = 2,2
+mask = 1
+
+[BG 6]
+type = normal
+spriteno = 1,7
+start = 0,0
+delta = 2,2
+mask = 1

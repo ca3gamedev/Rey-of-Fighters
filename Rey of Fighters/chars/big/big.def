@@ -1,0 +1,44 @@
+;---------------------------------------------------------------------------
+; ☆Mr,ビッグ (KOF2002UM～Xlアレンジ)
+;---------------------------------------------------------------------------
+[Info]
+Name         = "Mr.Big-KOF02UM"         ;キャラクターの名前（必要な項目なので省略不可）
+DisplayName  = "Mr.Big"         ;M.U.G.E.Nで実際に表示される名前（省略可能）
+VersionDate  = 04,14,2002       ;キャラクターの最終更新日（変えなくてもＯＫ）
+MugenVersion = 04,14,2002       ;キャラクターが動作出来るM.U.G.E.Nの改訂版
+Author       = "DD"             ;キャラクターの作成者（必要な項目なので省略不可）
+Pal.Defaults = 1,2,3,4,5,6,7,8  ;ＣＰＵで出てきた時のカラーパレットの順番
+
+;---------------------------------------------------------------------------
+;各データー処理
+[Files]
+Cmd      = States/Big.cmd
+Cns      = States/Big.cns
+St       = States/Big.cns
+St2      = States/Big-S.cns
+St3      = States/Big-H.cns
+St4      = States/Big-D.cns
+StCommon = common1.cns
+Sprite   = files/Big.sff
+Anim     = files/Big.air
+Sound    = files/Big.snd
+
+;---------------------------------------------------------------------------
+;カラーパレット
+Pal1 = ACT/b01_re.act
+Pal2 = ACT/b02_re.act
+Pal3 = ACT/b03_re.act
+Pal4 = ACT/b04_re.act
+Pal5 = ACT/b05_re.act
+Pal6 = ACT/b06_re.act
+Pal7 = ACT/b07_re.act
+Pal8 = ACT/b08_re.act
+
+;---------------------------------------------------------------------------
+;特殊イントロ
+[Arcade]
+intro.storyboard   = 
+ending.storyboard  = 
+
+;-----------------------------------------------------------------------------
+

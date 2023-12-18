@@ -1,0 +1,34 @@
+; ‚±‚±‚ÉƒLƒƒƒ‰î•ñ‚ğ‘‚¢‚Ä‚­‚¾‚³‚¢
+[Info]
+name ="Griffon Mask"
+displayname ="tyzoc"
+versiondate =11,22,2000
+mugenversion =11,22,2000
+author ="ahuron"
+pal.defaults =1
+
+; Files for the player
+[Files]
+cmd     =2003griffon.cmd
+cns     =2003griffon.cns
+st      =2003griffon.cns
+stcommon =common1.cns 
+sprite  =2003griffon.sff
+anim    =2003griffon.air
+sound   =2003griffon.snd
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+pal7=7.act
+pal8=8.act
+pal9=9.act
+pal10=10.act
+st1=2003griffon2.cns
+st2=2003griffon3.cns
+st3=2003griffon3.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

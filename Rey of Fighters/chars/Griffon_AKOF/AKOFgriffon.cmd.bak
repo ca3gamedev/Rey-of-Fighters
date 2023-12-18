@@ -1,0 +1,984 @@
+;--| CPU Motions |-------------------------
+[command]
+name = "AI1"
+command = B,D,a+c,z,c+b,s
+time = 1
+[command]
+name = "AI2"
+command = B,F,c+b,z,c+z,x,s
+time = 1
+[command]
+name = "AI3"
+command = B,U,a+b,y,c+y,s,z,D
+time = 1
+[command]
+name = "AI4"
+command = B,B,a+y,c,z+x,s
+time = 1
+[command]
+name = "AI5"
+command = B,B,a+b,z,c+b,s
+time = 1
+[command]
+name = "AI6"
+command = D,B,z+b,z,c+x,s
+time = 1
+[command]
+name = "AI7"
+command = B,U,a+b,z,c+x,s
+time = 1
+[command]
+name = "AI8"
+command = B,F,a+b,c,c+x,s
+time = 1
+[Command]
+name = "AI9"
+command = U,D,F,F,B,B,s
+time = 1
+[Command]
+name = "AI10"
+command = U,D,F,F,B,F,s
+time = 1
+[Command]
+name = "AI11"
+command = U,D,F,F,B,D,s
+time = 1
+[Command]
+name = "AI12"
+command = U,D,F,F,B,U,s
+time = 1
+[Command]
+name = "AI13"
+command = U,D,F,F,U,B,s
+time = 1
+[Command]
+name = "AI14"
+command = U,D,F,F,D,B,s
+time = 1
+[Command]
+name = "AI15"
+command = U,D,F,F,F,B,s
+time = 1
+[Command]
+name = "AI16"
+command = U,D,U,F,B,B,s
+time = 1
+[Command]
+name = "AI17"
+command = U,D,D,F,B,B,s
+time = 1
+[Command]
+name = "AI18"
+command = D,D,F,F,B,B,s
+time = 1
+[Command]
+name = "AI19"
+command = U,U,F,F,B,B,s
+time = 1
+[Command]
+name = "AI20"
+command = U,B,F,F,B,B,s
+time = 1
+[Command]
+name = "AI21"
+command = UB, U, F, a+b,s
+time = 1
+[Command]
+name = "AI22"
+command = UB, U, F, b+c,s
+time = 1
+[Command]
+name = "AI23"
+command = UB, U, F, a+c,s
+time = 1
+[Command]
+name = "AI24"
+command = UF, U, B, x+y,s
+time = 1
+[Command]
+name = "AI25"
+command = UF, U, B, y+z,s
+time = 1
+[Command]
+name = "AI26"
+command = UF, U, B, x+z,s
+time = 1
+[Command]
+name = "AI27"
+command = UB, U, F, x+y,s
+time = 1
+[Command]
+name = "AI28"
+command = UB, U, F, y+z,s
+time = 1
+[Command]
+name = "AI29"
+command = UB, U, F, x+z,s
+time = 1
+[Command]
+name = "AI30"
+command = UF, U, B, a+b,s
+time = 1
+[Command]
+name = "AI31"
+command = UF, U, B, b+c,s
+time = 1
+[Command]
+name = "AI32"
+command = UF, U, B, a+c,s
+time = 1
+[Command]
+name = "AI33"
+command = UF, DB, UB,DF ,x,s
+time = 1
+[Command]
+name = "AI34"
+command = UF, DB, UB,DF ,y,s
+time = 1
+[Command]
+name = "AI35"
+command = UF, DB, UB,DF , z,s
+time = 1
+;-| 超必殺技 |--------------------------------------------------------
+;ここには超必殺技を記述してください、同じ名前を「name =」欄に書けますが
+;コマンドは絶対に違ったものにしてください。
+;カンフーマンは弱パンチと強パンチで技が出せるように同じ名前のコマンドで
+;内容が弱と強になっています。
+;「time=20」と書くことで「コマンドを20フレーム以内に入力」と設定できます。
+[Command]
+name = "MAX2"
+command = ~D,F,D,F,b
+time = 30
+
+[Command]
+name = "MAXダイダロスアタック"
+command = ~D,F,D,F,x+y
+time = 25
+
+[Command]
+name = "ダイダロスアタック"
+command = ~D,F,D,F,x
+time = 25
+
+[Command]
+name = "ダイダロスアタック"
+command = ~D,F,D,F,y
+time = 25
+
+
+[Command]
+name = "MAXビッグフォールグリフォン"
+command = ~D,F,D,F,a+b
+time = 30
+
+[Command]
+name = "ビッグフォールグリフォン"
+command = ~D,F,D,F,b
+time = 30
+
+[Command]
+name = "ビッグフォールグリフォン"
+command = ~D,F,D,F,a
+time = 30
+
+;-| 必殺技 |------------------------------------------------------
+[Command]
+name = "アクティブテュポーン"
+command = ~F,D,DF,y
+
+[Command]
+name = "アクティブテュポーン"
+command = ~F,D,DF,x
+
+
+[Command]
+name = "イカロスクラッシュ"
+command = ~D,DF,F,x
+
+
+[Command]
+name = "ヘラクレスルー"
+command = ~B,DB,D,DF,F,a
+time = 25
+
+
+[Command]
+name = "グリフォール"
+command = ~DF,DF,y
+
+
+[Command]
+name = "強オリンポスオーバー"
+command = ~D,DB,B,b
+
+[Command]
+name = "弱オリンポスオーバー"
+command = ~D,DB,B,a
+
+
+[Command]
+name = "強ポセイドンウェイブ"
+command = ~B,D,F,y
+
+[Command]
+name = "弱ポセイドンウェイブ"
+command = ~B,D,F,x
+
+
+[Command]
+name = "強ジャスティスハリケーン"
+command = ~F,DF,D,DB,B,y
+time = 25
+
+[Command]
+name = "弱ジャスティスハリケーン"
+command = ~F,DF,D,DB,B,x
+time = 25
+
+
+[Command]
+name = "緊急回避前"
+command = x+a
+time = 1
+
+[Command]
+name = "緊急回避後"
+command = /$B,x+a
+time = 1
+
+;-| ２回押し技 |-----------------------------------------------------------
+[Command]
+name = "FF"     
+command = F, F
+time = 10
+
+[Command]
+name = "BB"     
+command = B, B
+time = 10
+
+;-| ２・３個の同時押し技 |-----------------------------------------------
+
+[Command]
+name = "上段避け攻撃"
+command = /$D,x+y
+time = 1
+
+[Command]
+name = "グリドロスーパーキック"
+command = /$D,a+b
+time = 1
+
+[Command]
+name = "recovery"
+command = x+y
+time = 1
+
+[Command]
+name = "ふっ飛ばし"
+command = y+b
+time = 1
+
+[Command]
+name = "MAX"
+command = a+y
+time = 1
+
+[Command]
+name = "ストライカー"
+command = a+y
+time = 1
+
+[Command]
+name = "ゲージ溜め発動"
+command = z+c
+time = 1
+
+[Command]
+name = "おしっぱなしx"
+command = /$x
+time = 1
+
+[Command]
+name = "おしっぱなしy"
+command = /$y
+time = 1
+
+[Command]
+name = "おしっぱなしa"
+command = /$a
+time = 1
+
+[Command]
+name = "おしっぱなしb"
+command = /$b
+time = 1
+
+[Command]
+name = "おしっぱなしz"
+command = /$z
+time = 1
+
+[Command]
+name = "おしっぱなしc"
+command = /$c
+time = 1
+
+;-| 方向とボタンで出す技 |---------------------------------------------------------
+
+[Command]
+name = "down_a"
+command = /$D,a
+time = 1
+
+[Command]
+name = "down_b"
+command = /$D,b
+time = 1
+
+;-| ボタン設定（いじらない）|---------------------------------------------------------
+[Command]
+name = "a"
+command = a
+time = 1
+
+[Command]
+name = "b"
+command = b
+time = 1
+
+[Command]
+name = "c"
+command = c
+time = 1
+
+[Command]
+name = "x"
+command = x
+time = 1
+
+[Command]
+name = "y"
+command = y
+time = 1
+
+[Command]
+name = "z"
+command = z
+time = 1
+
+[Command]
+name = "start"
+command = s
+time = 1
+
+;-| 押しっぱなし設定（いじらない）-------------------------------------------------------
+[Command]
+name = "holdfwd"
+command = /$F
+time = 1
+
+[Command]
+name = "holdback"
+command = /$B
+time = 1
+
+[Command]
+name = "holdup" 
+command = /$U
+time = 1
+
+[Command]
+name = "holddown"
+command = /$D
+time = 1
+
+
+; 下の記述↓は絶対に消さないでください。
+[Statedef -1]
+;・変数使用
+;　1 = 
+;　2 = 勝利ポーズ変更
+;　3 = MAX発動関係
+;　4 = スロー処理
+;　5 = 強弱ボタン判定
+;　6 = ヒット判定
+;　7 = 
+;　8 = MAX発動判定
+;　9 = MAX発動時のパワーセット(仮)
+; 10 = プレイヤーの向き設定
+; 11 = MAX発動コマンド判定
+; 12 = 
+; 13 = 
+; 14 = 
+; 
+
+
+
+;===========================================================================
+;---------------------------------------------------------------------------
+;MAX2
+[State -1, Strong Kung Fu Palm]
+type = null;ChangeState
+value = 2101
+triggerall = command = "MAX2"
+triggerall = power >= 2000
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 215
+trigger2 = movecontact = 1 && animelem = 5,>=0
+trigger3 = stateno = 245
+trigger3 = movecontact
+trigger4 = stateno = 410
+trigger4 = movecontact = 1
+trigger5 = stateno = 440
+trigger5 = movecontact = 1
+trigger6 = stateno = 450
+trigger6 = movecontact = 1 && animelem = 7,>=0
+trigger7 = stateno = 451
+trigger7 = movecontact = 1 && animelem = 12,>=0 && animelem = 17,<=0
+trigger8 = stateno = 452
+trigger8 = movecontact = 1
+
+;---------------------------------------------------------------------------
+;MAXダイダロスアタック
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 2300
+triggerall = command = "MAXダイダロスアタック"
+triggerall =power >= 2000
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+trigger8 = stateno = 1000
+trigger8 = movecontact = 1
+trigger9 = stateno = 1006
+trigger9 = movecontact = 1
+trigger10= stateno = 250
+trigger11= stateno =[2100,2100]
+;---------------------------------------------------------------------------
+;ダイダロスアタック
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 2100
+triggerall = command = "ダイダロスアタック"
+triggerall = power >= 1000
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+trigger8 = stateno = 1000
+trigger8 = movecontact = 1
+trigger9 = stateno = 1006
+trigger9 = movecontact = 1
+trigger10= stateno = 250
+trigger10= movecontact = 1
+trigger11 = stateno =[1000,1000]
+;---------------------------------------------------------------------------
+;MAXビッグフォールグリフォン
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 2200
+triggerall = command = "MAXビッグフォールグリフォン"
+triggerall = power >= 2000
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+trigger8 = stateno = 1000
+trigger8 = movecontact = 1
+trigger9 = stateno = 1006
+trigger9 = movecontact = 1
+trigger10= stateno = 250
+trigger10= stateno = 250
+trigger11= stateno =[2100,2100]
+;---------------------------------------------------------------------------
+;ビッグフォールグリフォン
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 2000
+triggerall = command = "ビッグフォールグリフォン"
+triggerall = power >= 1000
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+trigger8 = stateno = 1000
+trigger8 = movecontact = 1
+trigger9 = stateno = 1006
+trigger9 = movecontact = 1
+trigger10= stateno = 250
+trigger10= movecontact = 1
+
+;===========================================================================
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;アクティブテュポーン
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 1600
+triggerall = command = "アクティブテュポーン"
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+;---------------------------------------------------------------------------
+;イカロスクラッシュ
+[State -1, Jump Light Punch]
+type = ChangeState
+value = 1500
+triggerall = command = "イカロスクラッシュ"
+trigger1 = statetype = A
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+;ヘラクレスルー
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 1400
+triggerall = command = "ヘラクレスルー"
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+;---------------------------------------------------------------------------
+;弱オリンポスオーバー
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 1200
+triggerall = command = "弱オリンポスオーバー"
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+;---------------------------------------------------------------------------
+;ジャスティスハリケーン
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 1100
+triggerall = (command = "弱ジャスティスハリケーン")||(command = "強ジャスティスハリケーン")
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+
+;---------------------------------------------------------------------------
+;強ポセイドンウェイブ
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 1005
+triggerall = (command = "強ポセイドンウェイブ")||(command = "強オリンポスオーバー")
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+
+;---------------------------------------------------------------------------
+;弱ポセイドンウェイブ
+[State -1, Strong Kung Fu Palm]
+type = ChangeState
+value = 1000
+triggerall = command = "弱ポセイドンウェイブ"
+trigger1 = statetype != A
+trigger1 = ctrl
+trigger2 = stateno = 200
+trigger2 = movecontact = 1
+trigger3 = stateno = 205
+trigger3 = movecontact
+trigger4 = stateno = 210
+trigger4 = movecontact = 1
+trigger5 = stateno = 230
+trigger5 = movecontact = 1
+trigger6 = stateno = 290
+trigger6 = movecontact = 1
+trigger7 = stateno = 400
+trigger7 = movecontact = 1
+
+;===========================================================================
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;ふっ飛ばし攻撃
+[State -1, Stand Light Punch]
+type = ChangeState
+value = 290
+triggerall = command = "ふっ飛ばし"
+trigger1 = statetype = S
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+;空中ふっ飛ばし攻撃
+[State -1, Stand Light Punch]
+type = ChangeState
+value = 690
+triggerall = command = "ふっ飛ばし"
+trigger1 = statetype = A
+trigger1 = ctrl
+
+
+
+;===========================================================================
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;クイックMAX
+[State -1, Stand Light Punch]
+type = ChangeState
+value = 198
+triggerall = command = "MAX"
+triggerall = power >= 2000 
+triggerall = var(8) <= 0
+trigger1 = stateno = [200,499]
+trigger1 = movecontact = 1
+;---------------------------------------------------------------------------
+;MAX発動
+[State -1, Stand Light Punch]
+type = ChangeState
+value = 199
+triggerall = command = "MAX"
+triggerall = power >= 1000 
+trigger1 = statetype = S
+trigger1 = var(8) <= 0
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+;緊急回避後
+[State -1, Taunt]
+type = ChangeState
+value = 701
+triggerall = command = "緊急回避後"
+trigger1 = statetype != A
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+;緊急回避前
+[State -1, Taunt]
+type = ChangeState
+value = 700
+triggerall = command = "緊急回避前"
+trigger1 = statetype != A
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+;ダウン回避
+[State -1, Taunt]
+type = ChangeState
+value = 702
+triggerall = command = "緊急回避前"
+trigger1 = stateno = 5050
+trigger1 = pos y >=-40
+;---------------------------------------------------------------------------
+;ダッシュ
+[State -1, Run Fwd]
+type = ChangeState
+value = 100
+trigger1 = command = "FF"
+trigger1 = statetype = S
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;後退ダッシュ
+[State -1, Run Back]
+type = ChangeState
+value = 105
+trigger1 = command = "BB"
+trigger1 = statetype = S
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;上段避け攻撃
+[State -1, Taunt]
+type = ChangeState
+value = 250
+triggerall = command = "上段避け攻撃"
+trigger1 = statetype != A
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;グリドロスーパーキック
+[State -1, Taunt]
+type = ChangeState
+value = 251
+triggerall = command = "グリドロスーパーキック"
+trigger1 = statetype != A
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;グリフォンチョップ
+[State -1, Kung Fu Throw]
+type = ChangeState
+value = 800
+triggerall = command = "y"
+triggerall = statetype = S
+triggerall = ctrl
+triggerall = stateno != 100
+trigger1 = command = "holdfwd"
+trigger1 = p2bodydist X < 3
+trigger1 = (p2statetype = S) || (p2statetype = C)
+trigger1 = p2movetype != H
+trigger2 = command = "holdback"
+trigger2 = p2bodydist X < 5
+trigger2 = (p2statetype = S) || (p2statetype = C)
+trigger2 = p2movetype != H
+;---------------------------------------------------------------------------
+;グリフォンタワー
+[State -1, Kung Fu Throw]
+type = ChangeState
+value = 850
+triggerall = command = "b"
+triggerall = statetype = S
+triggerall = ctrl
+triggerall = stateno != 100
+trigger1 = command = "holdfwd"
+trigger1 = p2bodydist X < 3
+trigger1 = (p2statetype = S) || (p2statetype = C)
+trigger1 = p2movetype != H
+trigger2 = command = "holdback"
+trigger2 = p2bodydist X < 5
+trigger2 = (p2statetype = S) || (p2statetype = C)
+trigger2 = p2movetype != H
+
+;===========================================================================
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;遠距離立ち弱パンチ
+[State -1, Stand Light Punch]
+type = ChangeState
+value = 200
+triggerall = command = "x"
+triggerall = command != "holddown"
+triggerall = P2bodydist X > 23
+trigger1 = statetype = S
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+;近距離立ち弱パンチ
+[State -1, Stand Light Punch]
+type = ChangeState
+value = 205
+triggerall = command = "x"
+triggerall = command != "holddown"
+triggerall = P2bodydist X <= 23
+trigger1 = statetype = S
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;立ち強パンチ
+[State -1, Stand Strong Punch]
+type = ChangeState
+value = 210
+triggerall = command = "y"
+triggerall = command != "holddown"
+trigger1 = statetype != A
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;立ち弱キック
+[State -1, Stand Light Kick]
+type = ChangeState
+value = 230
+triggerall = command = "a"
+triggerall = command != "holddown"
+trigger1 = statetype = S
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;遠距離立ち強キック
+[State -1, Standing Strong Kick]
+type = ChangeState
+value = 240
+triggerall = command = "b"
+triggerall = command != "holddown"
+triggerall = P2bodydist X > 20
+trigger1 = statetype = S
+trigger1 = ctrl
+;---------------------------------------------------------------------------
+;近距離立ち強キック
+[State -1, Standing Strong Kick]
+type = ChangeState
+value = 245
+triggerall = command = "b"
+triggerall = command != "holddown"
+triggerall = P2bodydist X <= 20
+trigger1 = statetype = S
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;挑発
+[State -1, Taunt]
+type = ChangeState
+value = 195
+triggerall = command = "start"
+trigger1 = statetype != A
+trigger1 = ctrl
+
+
+;---------------------------------------------------------------------------
+;しゃがみ弱パンチ
+[State -1, Crouching Light Punch]
+type = ChangeState
+value = 400
+triggerall = command = "x"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;しゃがみ強パンチ
+[State -1, Crouching Strong Punch]
+type = ChangeState
+value = 410
+triggerall = command = "y"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;しゃがみ弱キック
+[State -1, Crouching Light Kick]
+type = ChangeState
+value = 430
+triggerall = command = "a"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+
+
+;---------------------------------------------------------------------------
+;しゃがみ強キック
+[State -1, Crouching Strong Kick]
+type = ChangeState
+value = 440
+triggerall = command = "b"
+triggerall = command = "holddown"
+trigger1 = statetype = C
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中弱パンチ
+[State -1, Jump Light Punch]
+type = ChangeState
+value = 600
+triggerall = command = "x"
+trigger1 = statetype = A
+trigger1 = stateno != 106
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中強パンチ
+[State -1, Jump Strong Punch]
+type = ChangeState
+value = 610
+triggerall = command = "y"
+trigger1 = statetype = A
+trigger1 = stateno != 106
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中弱キック
+[State -1, Jump Light Kick]
+type = ChangeState
+value = 630
+triggerall = command = "a"
+trigger1 = statetype = A
+trigger1 = stateno != 106
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------
+;空中強キック
+[State -1, Jump Strong Kick]
+type = ChangeState
+value = 640
+triggerall = command = "b"
+trigger1 = statetype = A
+trigger1 = stateno != 106
+trigger1 = ctrl
+
+;---------------------------------------------------------------------------

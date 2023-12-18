@@ -1,0 +1,215 @@
+
+;   SNK VS CAPCOM CHAOS (SVC CHAOS) Guardian Dogs Temple Stage (Shin Gouki, Honki Mr.Karate)
+; I would like to thank EXShadow for guiding me on stages + parallax, Devon for the guiding me on the floor parallax,RaZorBakk36 for helping me with custom spriting,ELECTRO for the fixups,Shiyo Kakuge for the wonderful work he has done, and the players/creators at MFFA, MFG, and pretty much every other Mugen site out there. Thank you ^^.
+[Info]        
+name                 = "SVC-Guardian-Dogs-Temple"
+	displayname  = "SVC-Guardian-Dogs-Temple"
+	versiondate=08,08,2014
+	mugenversion=1.1
+
+[Camera]
+startx=0
+	starty=0
+	boundleft= -161
+	boundright= 161
+	boundhigh= -250
+	boundlow=0
+	;verticalfollow=1
+	tension=100
+
+	
+
+[PlayerInfo]
+	p1startx=-70
+	p1starty=0
+	p1startz=0
+	p1facing=1
+
+	p2startx=70
+	p2starty=0
+	p2startz=0
+	p2facing=-1
+
+	leftbound=-1000
+	rightbound=1000
+	topbound=0
+	botbound=0
+
+[Scaling]
+	topz=0
+	botz=50
+	topscale=1
+	botscale=1.2
+
+[Bound]
+	screenleft=15
+	screenright=15
+
+[StageInfo]
+	zoffset=215
+	autoturn=1
+	resetBG=0
+	localcoord=320,240
+
+
+[Shadow]
+color          = 256,256,256                            
+yscale         = 0.2
+
+[Music]
+bgmusic        = sound/SVC-Guardian-Dogs-Temple.mp3
+bgvolume       = 155
+
+[BGdef]
+spr            = SVC-Guardian-Dogs-Temple.sff
+debugbg        = 1
+
+;=============================================================================
+[BG SKY]
+type = normal
+spriteno = 0,5
+layerno = 0
+start = 0,180
+delta=    0.5,0.85
+trans = none
+mask = 0
+
+[BG MOUNTAINS]
+type = normal
+spriteno = 10,0
+layerno = 0
+start = 0,140
+delta = .65,1
+trans = none
+mask = 1
+
+[BG 20FLOOR]
+type = parallax
+spriteno = 20,0
+start = 0, 150
+delta=0.8,1
+xscale = 1, 1.6
+width=768,1050
+yscalestart=80
+yscaledelta=.001
+
+[BG FLOORANIM 1]
+type = parallax
+actionno = 5
+spriteno = 5,1
+start = 0, 150
+delta=0.55,1
+;xscale = 1, 1.1
+width=209,411  
+yscalestart=80
+yscaledelta=.001
+layer=0
+mask = 1
+
+[BG BAMBOO]
+type = normal
+spriteno = 5,0
+layerno = 0
+start = 1,148
+delta = .8,1
+trans = none
+mask = 1
+
+[BG BAMBOOFIREFLIES]
+type = anim
+actionno = 1 
+layerno = 0
+start = 1,148
+delta = .8,1
+trans = none
+mask =1
+
+[BG TEMPLETOP]
+type = normal
+spriteno = 15,0
+layerno = 0
+start = 0,150
+delta = .85,1
+trans = none
+mask = 1
+
+[BG TEMPLEBASE]
+type = normal
+spriteno = 11,0
+layerno = 0
+start = 0,150
+delta = 0.85,1
+trans = none
+mask = 1
+
+[BG TEMPLELIGHTS]
+type = anim
+actionno = 2 
+layerno = 0
+start = 1,150
+delta = .85,1
+trans = none
+mask =1
+
+[BG SHISAa]
+type = normal
+spriteno = 25,0
+layerno = 0
+start = 0,150
+delta = .83,1
+trans = none
+mask = 1
+
+[BG SHISAb]
+type = normal
+spriteno = 25,1
+layerno = 0
+start = 0,150
+delta = .83,1
+trans = none
+mask = 1
+
+[BG TORCH]
+type = normal
+actionno = 10 
+layerno = 0
+start = 0,160
+delta = .9,1
+trans = none
+mask = 1
+;-----------------------------------------------------------------------------------
+[Begin action 1]
+1,0.,0,0,4
+1,1.,0,0,4
+1,2.,0,0,4
+1,3.,0,0,4
+1,4.,0,0,4
+1,5.,0,0,4
+1,6.,0,0,4
+1,7.,0,0,4
+
+[Begin action 2]
+2,0.,0,0,3
+2,1.,0,0,3
+2,2.,0,0,3
+2,3.,0,0,3
+2,4.,0,0,3
+2,5.,0,0,3
+2,6.,0,0,3
+2,7.,0,0,3
+
+[Begin action 5]
+5,1.,0,0,4
+5,2.,0,0,4
+5,3.,0,0,4
+5,4.,0,0,4
+
+[Begin action 10]
+10,1.,0,0,5
+10,2.,0,0,5
+10,3.,0,0,5
+10,4.,0,0,5
+10,5.,0,0,5
+10,6.,0,0,5
+10,7.,0,0,5
+10,8.,0,0,5

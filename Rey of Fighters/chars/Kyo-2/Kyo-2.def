@@ -1,0 +1,34 @@
+[Info]
+Name         ="Kyo-2"
+DisplayName  ="Kyo-2"
+VersionDate  =04,14,2009
+MugenVersion =06,14,2003
+Author       ="jin&zkull"
+Pal.Defaults =1,2,3,4,5,6
+
+[Files]
+Cmd      =CloneKyo.cmd
+Cns      =CloneKyo.cns
+St       =CloneKyo.cns
+St0      = CloneKyo-N.cns
+StCommon =common1.cns
+Sprite   =CloneKyo.sff
+Anim     =CloneKyo.air
+Sound    =CloneKyo.snd
+pal1=CloneKyo01.act
+pal2=CloneKyo02.act
+pal3=CloneKyo03.act
+pal4=CloneKyo04.act
+pal5=CloneKyo05.act
+pal6=CloneKyo06.act
+st1=CloneKyo-S.cns
+st2=CloneKyo-N.cns
+st3=CloneKyo-H.cns
+st4=CloneKyo-2-3.cns
+
+;---カラーパレット---
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

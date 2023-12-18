@@ -1,0 +1,36 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Yashiro Nanakase"
+displayname ="Orochi Yashiro"
+versiondate =04,14,2002
+mugenversion =04,14,2002
+author ="Ahuron"
+pal.defaults =1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite =Yashiro_Nanakase.sff
+anim =Yashiro_Nanakase.air
+sound =Yashiro_Nanakase.snd
+cmd =Yashiro_Nanakase.cmd
+cns =O-Yashiro.cns
+stcommon =common1.cns
+st =O-Yashiro.cns
+st3 = helper.cns
+pal1=Paletas\Orochi_Yashiro1.act
+pal2=Paletas\Orochi_Yashiro2.act
+pal3=Paletas\Orochi_Yashiro3.act
+pal4=Paletas\Orochi_Yashiro4.act
+pal5=Paletas\Orochi_Yashiro5.act
+pal6=Paletas\Orochi_Yashiro6.act
+st1=Yashiro_Nanakase2.cns
+st2=helper.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
+;intro.storyboard = 
+;ending.storyboard = 

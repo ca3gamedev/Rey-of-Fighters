@@ -1,0 +1,86 @@
+;Shingo LB Dipswitch Set
+;---------------------------------------------------------------------------
+; Initialize (at the start of the round)
+[Statedef 5900]
+type = S
+
+[State 190, Dipswitch]
+type = Null
+trigger1 = (var(20) := 1)||e  ; 1 = Afterimages, 0 = No Afterimages
+trigger1 = (var(21) := 1)||e  ; 1 = Flash, 0 = No Flash
+trigger1 = (var(24) := 1)||e  ; 1 = KO BG, 0 = No KO BG
+trigger1 = (var(27) := 1)||e  ; 1 = Transparency, 0 = No Transparency
+persistent = 1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;Anything Below Should Be Left Alone.                       ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[State 5900, ChangeAnim]
+type = ChangeAnim
+trigger1 = !time
+value = 0+ifelse(var(10),29999,0)+var(10)
+
+[State 5900, SUPMAN] ;Mode check
+type = ChangeState
+trigger1 = !time && prevstateno != 5910
+value = 5910
+
+[State 5900, turn]
+type = ChangeState
+trigger1 = TeamMode = Turns
+trigger1 = roundno > 1
+trigger1 = RoundsExisted = 0
+value = 190
+
+[State 180, 1]
+type = ChangeState
+triggerall = numenemy
+triggerall = enemy,roundsexisted = 0
+trigger1 = enemynear, name = "Kasumi"
+trigger2 = enemynear, name = "Kasumi Todoh"
+value = 184
+[State 180, 1]
+type = ChangeState
+triggerall = numenemy
+triggerall = enemy,roundsexisted = 0
+trigger1 = enemynear, name = "Iori Yagami"
+trigger2 = enemynear, name = "Iori"
+trigger3 = enemynear, name = "cvsiori"
+trigger4 = enemynear, name = "F-Iori Yagami"
+value = 183
+[State 180, 1]
+type = ChangeState
+triggerall = numenemy
+triggerall = enemy,roundsexisted = 0
+trigger1 = enemynear, name = "Kyo Kusanagi" && enemynear, authorname = "nazo"
+trigger2 = enemynear, name = "Kyo Kusanagi" && enemynear, authorname = "David Demianoff"
+value = 182
+[State 180, 1]
+type = ChangeState
+triggerall = numenemy
+triggerall = enemy,roundsexisted = 0
+trigger1 = enemynear, name = "Kyo Kusanagi 99"
+trigger2 = enemynear, name = "Kyo_WLS"
+trigger3 = enemynear, name = "EX_Kyo"
+trigger4 = enemynear, name = "Kyo99"
+trigger5 = enemynear, name = "NESTS Kyo"
+value = 181
+[State 180, 1]
+type = ChangeState
+triggerall = numenemy
+triggerall = enemy,roundsexisted = 0
+trigger1 = enemynear, name = "Kyo Kusanagi" 
+trigger2 = enemynear, name = "cvskyo"
+trigger3 = enemynear, name = "Kyo"
+trigger4 = enemynear, name = "Kyo98"
+value = 194
+
+[State 5900, AI]
+type = VarSet
+trigger1 = !RoundsExisted
+var(30) = 0
+
+[State 5900, 3] ;Intro
+type = ChangeState
+trigger1 = roundno = 1
+value = 190

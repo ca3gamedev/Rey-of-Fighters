@@ -1,0 +1,35 @@
+; Ash Crimson's DEF File
+; by Helios (gilhelios@hotmail.com)
+; Do not redistribute. Do not modify.
+;---------------------------------------------------------------------------
+
+[Info]
+name         = "Ash Crimson"
+displayname  = "Ash"
+mugenversion = 04,14,2001
+author       = "Helios"
+
+[Files]
+cmd      = ash.cmd
+cns      = ash.cns
+st       = ash.cns
+stcommon = common1.cns
+sprite   = ash.sff
+anim     = ash.air
+sound    = ash.snd
+pal1     = ash_a.act
+pal2     = ash_b.act
+pal3     = ash_c.act
+pal4     = ash_d.act
+pal5     = ash_e.act
+pal6     = ash_f.act
+pal7     = ash_a.act
+pal8     = ash_b.act
+pal9     = ash_c.act
+pal10    = ash_d.act
+pal11    = ash_e.act
+pal12    = ash_f.act
+
+[Arcade]
+intro.storyboard = D:\MUGEN\extrastuff\add-ons\Intros&Endings\kof2003intro/Kof2003.def
+ending.storyboard = end/hero.def

@@ -1,0 +1,28 @@
+; Definition file for Ralf KOF´94 style
+
+; Player information
+[Info]
+name="KOF94 - Lucky"
+displayname="Lucky KOF94"
+author="Robo Z"
+pal.defaults=1,2
+
+; Files for the player
+versiondate=08-09-2008
+mugenversion=
+[Files]
+cmd=Lucky.cmd
+cns=Lucky.cns
+st=Lucky.cns
+;st1=ai.cns        ======>Em construção
+stcommon=common1.cns
+sprite=Lucky.sff
+anim=Lucky.air
+;sound=Lucky.snd     ;Sound
+
+; Arcade mode
+sound=
+pal1=dos.act
+[Arcade]
+intro.storyboard=D:\MUGEN\extrastuff\add-ons\Intros&Endings\kof94intro/kof94intro.def
+ending.storyboard=end/kof94usa.def =====>Em construção

@@ -1,0 +1,42 @@
+; Player information
+[Info]
+name ="Tin's Ramon"        
+displayname ="Ramon" 
+versiondate =08,20,2006   
+mugenversion =04,14,2001  
+author ="Tin"      
+pal.defaults =1
+[Files]
+cmd     =00ramon.cmd        
+
+;//////////////////////////////////////
+cns     =00ramon.cns
+st      =00ramon.cns
+sound   =00ramon.snd
+;//////////////////////////////////////
+stcommon =common.st 
+sprite  =Ramon_XI.sff   
+anim    =00ramon.air  
+pal1=SNK_Ramon_01.act
+pal2=SNK_Ramon_02.act
+pal3=SNK_Ramon_03.act
+pal4=SNK_Ramon_04.act
+pal5=SNK_Ramon_05.act
+pal6=SNK_Ramon_06.act
+pal7=SNK_Ramon_07.act
+pal8=SNK_Ramon_08.act
+pal9=SNK_Ramon_09.act
+pal10=SNK_Ramon_10.act
+pal11=SNK_Ramon_11.act
+pal12=SNK_Ramon_12.act
+st1=ramon_config.txt
+st2=ramon_config.txt
+
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=agent_team.def

@@ -1,0 +1,57 @@
+; Player information
+[Info]
+name ="Takuma Sakazaki"        
+displayname ="Takuma" 
+mugenversion =1.0
+versiondate =29,6,2016  
+author ="KoopaKoot"         
+pal.defaults =4,5,6,1,2,3,10,11,12,7,8,9
+
+; Files for the player
+[Files]
+cmd     =commands.cmd
+cns     =constants.cns
+st      =normals.cns
+st1      =specials.cns
+st2      =supers.cns
+st3     =config.txt
+st4     =K_Takuma.def
+st5=buffering.kofy
+st6=system.cns
+st7=Yillion_SystemG.cns
+stcommon =common1.cns
+sprite  =sprites.sff
+anim    =animation.air
+sound   = sounds.snd
+;sound   = soundsALT.snd
+
+[Palette Keymap]
+x = 1
+y = 2
+z = 3
+a = 4
+b = 5
+c = 6
+x2 = 7 
+y2 = 8
+z2 = 9
+a2 = 10
+b2 = 11
+c2 = 12
+
+;=================================================;
+;Mode Select                                                                                                        ;
+;=================================================;
+; Initialize (at the start of the round)
+[Statedef 5910]
+type = S
+;[State 190, Dipswitch]
+;type = Null
+;trigger1 = (var(10) := 0) 
+;persistent = 1
+[State 5900, SUPMAN] ;Mode check
+type = ChangeState
+trigger1 = !time 
+value = 5900
+
+

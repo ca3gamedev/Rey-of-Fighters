@@ -1,0 +1,51 @@
+;----------------------------------------------------------------------------------
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;□                                                                              □
+;□                               Original_Zero-UM                               □
+;□                                                                              □
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;----------------------------------------------------------------------------------
+[Info]
+Name          = "Original Zero"
+Displayname   = "ZERO-UM"
+Versiondate   = 05,10,2017
+Mugenversion  = 04,14,2002
+Author        = "SaltedFish"
+Pal.defaults  = 1
+;----------------------------------------------------------------------------------
+[Files]
+Sprite        = Original_Zero-UM.sff
+Anim          = Original_Zero-UM.air
+Sound         = Original_Zero-UM.snd
+Cmd           = Original_Zero-UM.cmd
+Stcommon      = common1.cns
+Cns           = Original_Zero-UM.cns
+St            = Original_Zero-UM.cns
+St1           = Original_Zero-UM_-2.cns
+St2           = Original_Zero-UM_-3.cns
+St3           = Original_Zero-UM_N.cns
+St4           = Original_Zero-UM_S.cns
+St5           = Original_Zero-UM_H-1.cns
+St6           = Original_Zero-UM_H-2.cns
+St7           = Original_Zero-UM_H-3.cns
+St8           = Original_Zero-UM_Null.cns
+;----------------------------------------------------------------------------------
+Pal1          = Pal\Original_Zero_01.act
+Pal2          = Pal\Original_Zero_02.act
+Pal3          = Pal\Original_Zero_03.act
+Pal4          = Pal\Original_Zero_04.act
+Pal5          = Pal\Original_Zero_05.act
+Pal6          = Pal\Original_Zero_06.act
+Pal7          = Pal\Original_Zero_01.act
+pal8          = Pal\Original_Zero_02.act
+pal9          = Pal\Original_Zero_03.act
+pal10         = Pal\Original_Zero_04.act
+pal11         = Pal\Original_Zero_05.act
+Pal12         = Pal\Original_Zero_06.act
+;----------------------------------------------------------------------------------
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;□                                                                              □
+;□                               Original_Zero-UM                               □
+;□                                                                              □
+;□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□□
+;----------------------------------------------------------------------------------

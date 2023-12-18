@@ -1,0 +1,7577 @@
+ ;--------------------------------------------------------
+[Info]
+Name = "KOF-99-Evolution-Museum-1-floor-Dinosaur-World"
+Author = "EXShadow"
+
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -460
+boundright = 460
+boundhigh = -0
+boundlow = 0
+verticalfollow = .94
+floortension = 50
+tension = 30
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = .9      ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 0
+hires = 1
+
+;--------------------------------------------------------
+[Shadow]
+intensity = 0
+color = 0,0,0
+yscale = .2
+fade.range = 0,0
+
+;--------------------------------------------------------
+[Reflection]
+intensity = 80
+
+;--------------------------------------------------------
+[Music]
+bgmusic    = sound/KOF-99-Evolution-Museum-1-floor-Dinosaur-World.mp3 
+bgvolume   = 150
+
+;--------------------------------------------------------Main background definition
+[BGdef]
+spr        = KOF-99-Evolution-Museum-1-floor-Dinosaur-World.sff
+debugbg    = 0
+
+[BG Black]
+type  = normal
+spriteno = 0, 0
+delta = 0, 0
+mask = 0
+layerno = 0
+
+[BG 241]
+type = normal
+spriteno = 1, 113
+start = -153920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 242]
+type = normal
+spriteno = 1, 113
+start = -154560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 243]
+type = normal
+spriteno = 1, 112
+start = -155200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 244]
+type = normal
+spriteno = 1, 112
+start = -155840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 245]
+type = normal
+spriteno = 1, 111
+start = -156480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 246]
+type = normal
+spriteno = 1, 111
+start = -157120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 247]
+type = normal
+spriteno = 1, 110
+start = -157760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 248]
+type = normal
+spriteno = 1, 110
+start = -158400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 249]
+type = normal
+spriteno = 1, 109
+start = -159040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 250]
+type = normal
+spriteno = 1, 109
+start = -159680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 251]
+type = normal
+spriteno = 1, 108
+start = -160320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 252]
+type = normal
+spriteno = 1, 108
+start = -160960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 253]
+type = normal
+spriteno = 1, 107
+start = -161600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 254]
+type = normal
+spriteno = 1, 107
+start = -162240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 255]
+type = normal
+spriteno = 1, 106
+start = -162880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 256]
+type = normal
+spriteno = 1, 106
+start = -163520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 257]
+type = normal
+spriteno = 1, 105
+start = -164160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 258]
+type = normal
+spriteno = 1, 105
+start = -164800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 259]
+type = normal
+spriteno = 1, 104
+start = -165440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 260]
+type = normal
+spriteno = 1, 104
+start = -166080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 261]
+type = normal
+spriteno = 1, 103
+start = -166720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 262]
+type = normal
+spriteno = 1, 103
+start = -167360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 263]
+type = normal
+spriteno = 1, 102
+start = -168000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 264]
+type = normal
+spriteno = 1, 102
+start = -168640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 265]
+type = normal
+spriteno = 1, 101
+start = -169280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 266]
+type = normal
+spriteno = 1, 101
+start = -169920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 267]
+type = normal
+spriteno = 1, 100
+start = -170560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 268]
+type = normal
+spriteno = 1, 100
+start = -171200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 269]
+type = normal
+spriteno = 1, 99
+start = -171840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 270]
+type = normal
+spriteno = 1, 99
+start = -172480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 271]
+type = normal
+spriteno = 1, 98
+start = -173120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 272]
+type = normal
+spriteno = 1, 98
+start = -173760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 273]
+type = normal
+spriteno = 1, 97
+start = -174400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 274]
+type = normal
+spriteno = 1, 97
+start = -175040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 275]
+type = normal
+spriteno = 1, 96
+start = -175680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 276]
+type = normal
+spriteno = 1, 96
+start = -176320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 277]
+type = normal
+spriteno = 1, 95
+start = -176960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 278]
+type = normal
+spriteno = 1, 95
+start = -177600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 279]
+type = normal
+spriteno = 1, 94
+start = -178240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 280]
+type = normal
+spriteno = 1, 94
+start = -178880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 281]
+type = normal
+spriteno = 1, 93
+start = -179520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 282]
+type = normal
+spriteno = 1, 93
+start = -180160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 283]
+type = normal
+spriteno = 1, 92
+start = -180800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 284]
+type = normal
+spriteno = 1, 92
+start = -181440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 285]
+type = normal
+spriteno = 1, 91
+start = -182080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 286]
+type = normal
+spriteno = 1, 91
+start = -182720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 287]
+type = normal
+spriteno = 1, 90
+start = -183360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 288]
+type = normal
+spriteno = 1, 90
+start = -184000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 289]
+type = normal
+spriteno = 1, 89
+start = -184640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 290]
+type = normal
+spriteno = 1, 89
+start = -185280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 291]
+type = normal
+spriteno = 1, 88
+start = -185920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 292]
+type = normal
+spriteno = 1, 88
+start = -186560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 293]
+type = normal
+spriteno = 1, 87
+start = -187200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 294]
+type = normal
+spriteno = 1, 87
+start = -187840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 295]
+type = normal
+spriteno = 1, 86
+start = -188480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 296]
+type = normal
+spriteno = 1, 86
+start = -189120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 297]
+type = normal
+spriteno = 1, 85
+start = -189760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 298]
+type = normal
+spriteno = 1, 85
+start = -190400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 299]
+type = normal
+spriteno = 1, 84
+start = -191040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 300]
+type = normal
+spriteno = 1, 84
+start = -191680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 301]
+type = normal
+spriteno = 1, 83
+start = -192320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 302]
+type = normal
+spriteno = 1, 83
+start = -192960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 303]
+type = normal
+spriteno = 1, 82
+start = -193600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 304]
+type = normal
+spriteno = 1, 82
+start = -194240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 305]
+type = normal
+spriteno = 1, 81
+start = -194880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 306]
+type = normal
+spriteno = 1, 81
+start = -195520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 307]
+type = normal
+spriteno = 1, 80
+start = -196160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 308]
+type = normal
+spriteno = 1, 80
+start = -196800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 309]
+type = normal
+spriteno = 1, 79
+start = -197440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 310]
+type = normal
+spriteno = 1, 79
+start = -198080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 311]
+type = normal
+spriteno = 1, 78
+start = -198720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 312]
+type = normal
+spriteno = 1, 78
+start = -199360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 313]
+type = normal
+spriteno = 1, 77
+start = -200000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 314]
+type = normal
+spriteno = 1, 77
+start = -200640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 315]
+type = normal
+spriteno = 1, 76
+start = -201280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 316]
+type = normal
+spriteno = 1, 76
+start = -201920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 317]
+type = normal
+spriteno = 1, 75
+start = -202560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 318]
+type = normal
+spriteno = 1, 75
+start = -203200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 319]
+type = normal
+spriteno = 1, 74
+start = -203840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 320]
+type = normal
+spriteno = 1, 74
+start = -204480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 321]
+type = normal
+spriteno = 1, 73
+start = -205120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 322]
+type = normal
+spriteno = 1, 73
+start = -205760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 323]
+type = normal
+spriteno = 1, 72
+start = -206400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 324]
+type = normal
+spriteno = 1, 72
+start = -207040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 325]
+type = normal
+spriteno = 1, 71
+start = -207680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 326]
+type = normal
+spriteno = 1, 71
+start = -208320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 327]
+type = normal
+spriteno = 1, 70
+start = -208960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 328]
+type = normal
+spriteno = 1, 70
+start = -209600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 329]
+type = normal
+spriteno = 1, 69
+start = -210240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 330]
+type = normal
+spriteno = 1, 69
+start = -210880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 331]
+type = normal
+spriteno = 1, 68
+start = -211520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 332]
+type = normal
+spriteno = 1, 68
+start = -212160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 333]
+type = normal
+spriteno = 1, 67
+start = -212800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 334]
+type = normal
+spriteno = 1, 67
+start = -213440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 335]
+type = normal
+spriteno = 1, 66
+start = -214080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 336]
+type = normal
+spriteno = 1, 66
+start = -214720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 337]
+type = normal
+spriteno = 1, 65
+start = -215360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 338]
+type = normal
+spriteno = 1, 65
+start = -216000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 339]
+type = normal
+spriteno = 1, 64
+start = -216640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 340]
+type = normal
+spriteno = 1, 64
+start = -217280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 341]
+type = normal
+spriteno = 1, 63
+start = -217920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 342]
+type = normal
+spriteno = 1, 63
+start = -218560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 343]
+type = normal
+spriteno = 1, 62
+start = -219200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 344]
+type = normal
+spriteno = 1, 62
+start = -219840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 345]
+type = normal
+spriteno = 1, 61
+start = -220480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 346]
+type = normal
+spriteno = 1, 61
+start = -221120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 347]
+type = normal
+spriteno = 1, 60
+start = -221760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 348]
+type = normal
+spriteno = 1, 60
+start = -222400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 349]
+type = normal
+spriteno = 1, 59
+start = -223040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 350]
+type = normal
+spriteno = 1, 59
+start = -223680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 351]
+type = normal
+spriteno = 1, 58
+start = -224320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 352]
+type = normal
+spriteno = 1, 58
+start = -224960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 353]
+type = normal
+spriteno = 1, 57
+start = -225600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 354]
+type = normal
+spriteno = 1, 57
+start = -226240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 355]
+type = normal
+spriteno = 1, 56
+start = -226880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 356]
+type = normal
+spriteno = 1, 56
+start = -227520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 357]
+type = normal
+spriteno = 1, 55
+start = -228160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 358]
+type = normal
+spriteno = 1, 55
+start = -228800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 359]
+type = normal
+spriteno = 1, 54
+start = -229440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 360]
+type = normal
+spriteno = 1, 54
+start = -230080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 361]
+type = normal
+spriteno = 1, 53
+start = -230720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 362]
+type = normal
+spriteno = 1, 53
+start = -231360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 363]
+type = normal
+spriteno = 1, 52
+start = -232000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 364]
+type = normal
+spriteno = 1, 52
+start = -232640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 365]
+type = normal
+spriteno = 1, 51
+start = -233280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 366]
+type = normal
+spriteno = 1, 51
+start = -233920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 367]
+type = normal
+spriteno = 1, 50
+start = -234560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 368]
+type = normal
+spriteno = 1, 50
+start = -235200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 369]
+type = normal
+spriteno = 1, 49
+start = -235840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 370]
+type = normal
+spriteno = 1, 49
+start = -236480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 371]
+type = normal
+spriteno = 1, 48
+start = -237120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 372]
+type = normal
+spriteno = 1, 48
+start = -237760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 373]
+type = normal
+spriteno = 1, 47
+start = -238400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 374]
+type = normal
+spriteno = 1, 47
+start = -239040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 375]
+type = normal
+spriteno = 1, 46
+start = -239680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 376]
+type = normal
+spriteno = 1, 46
+start = -240320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 377]
+type = normal
+spriteno = 1, 45
+start = -240960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 378]
+type = normal
+spriteno = 1, 45
+start = -241600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 379]
+type = normal
+spriteno = 1, 44
+start = -242240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 380]
+type = normal
+spriteno = 1, 44
+start = -242880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 381]
+type = normal
+spriteno = 1, 43
+start = -243520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 382]
+type = normal
+spriteno = 1, 43
+start = -244160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 383]
+type = normal
+spriteno = 1, 42
+start = -244800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 384]
+type = normal
+spriteno = 1, 42
+start = -245440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 385]
+type = normal
+spriteno = 1, 41
+start = -246080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 386]
+type = normal
+spriteno = 1, 41
+start = -246720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 387]
+type = normal
+spriteno = 1, 40
+start = -247360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 388]
+type = normal
+spriteno = 1, 40
+start = -248000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 389]
+type = normal
+spriteno = 1, 39
+start = -248640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 390]
+type = normal
+spriteno = 1, 39
+start = -249280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 391]
+type = normal
+spriteno = 1, 38
+start = -249920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 392]
+type = normal
+spriteno = 1, 38
+start = -250560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 393]
+type = normal
+spriteno = 1, 37
+start = -251200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 394]
+type = normal
+spriteno = 1, 37
+start = -251840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 395]
+type = normal
+spriteno = 1, 36
+start = -252480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 396]
+type = normal
+spriteno = 1, 36
+start = -253120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 397]
+type = normal
+spriteno = 1, 35
+start = -253760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 398]
+type = normal
+spriteno = 1, 35
+start = -254400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 399]
+type = normal
+spriteno = 1, 34
+start = -255040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 400]
+type = normal
+spriteno = 1, 34
+start = -255680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 401]
+type = normal
+spriteno = 1, 33
+start = -256320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 402]
+type = normal
+spriteno = 1, 33
+start = -256960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 403]
+type = normal
+spriteno = 1, 32
+start = -257600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 404]
+type = normal
+spriteno = 1, 32
+start = -258240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 405]
+type = normal
+spriteno = 1, 31
+start = -258880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 406]
+type = normal
+spriteno = 1, 31
+start = -259520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 407]
+type = normal
+spriteno = 1, 30
+start = -260160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 408]
+type = normal
+spriteno = 1, 30
+start = -260800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 409]
+type = normal
+spriteno = 1, 29
+start = -261440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 410]
+type = normal
+spriteno = 1, 29
+start = -262080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 411]
+type = normal
+spriteno = 1, 28
+start = -262720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 412]
+type = normal
+spriteno = 1, 28
+start = -263360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 413]
+type = normal
+spriteno = 1, 27
+start = -264000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 414]
+type = normal
+spriteno = 1, 27
+start = -264640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 415]
+type = normal
+spriteno = 1, 26
+start = -265280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 416]
+type = normal
+spriteno = 1, 26
+start = -265920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 417]
+type = normal
+spriteno = 1, 25
+start = -266560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 418]
+type = normal
+spriteno = 1, 25
+start = -267200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 419]
+type = normal
+spriteno = 1, 24
+start = -267840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 420]
+type = normal
+spriteno = 1, 24
+start = -268480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 421]
+type = normal
+spriteno = 1, 23
+start = -269120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 422]
+type = normal
+spriteno = 1, 23
+start = -269760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 423]
+type = normal
+spriteno = 1, 22
+start = -270400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 424]
+type = normal
+spriteno = 1, 22
+start = -271040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 425]
+type = normal
+spriteno = 1, 21
+start = -271680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 426]
+type = normal
+spriteno = 1, 21
+start = -272320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 427]
+type = normal
+spriteno = 1, 20
+start = -272960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 428]
+type = normal
+spriteno = 1, 20
+start = -273600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 429]
+type = normal
+spriteno = 1, 19
+start = -274240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 430]
+type = normal
+spriteno = 1, 19
+start = -274880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 431]
+type = normal
+spriteno = 1, 18
+start = -275520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 432]
+type = normal
+spriteno = 1, 18
+start = -276160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 433]
+type = normal
+spriteno = 1, 17
+start = -276800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 434]
+type = normal
+spriteno = 1, 17
+start = -277440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 435]
+type = normal
+spriteno = 1, 16
+start = -278080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 436]
+type = normal
+spriteno = 1, 16
+start = -278720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 437]
+type = normal
+spriteno = 1, 15
+start = -279360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 438]
+type = normal
+spriteno = 1, 15
+start = -280000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 439]
+type = normal
+spriteno = 1, 14
+start = -280640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 440]
+type = normal
+spriteno = 1, 14
+start = -281280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 441]
+type = normal
+spriteno = 1, 13
+start = -281920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 442]
+type = normal
+spriteno = 1, 13
+start = -282560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 443]
+type = normal
+spriteno = 1, 12
+start = -283200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 444]
+type = normal
+spriteno = 1, 12
+start = -283840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 445]
+type = normal
+spriteno = 1, 11
+start = -284480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 446]
+type = normal
+spriteno = 1, 11
+start = -285120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 447]
+type = normal
+spriteno = 1, 10
+start = -285760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 448]
+type = normal
+spriteno = 1, 10
+start = -286400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 449]
+type = normal
+spriteno = 1, 9
+start = -287040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 450]
+type = normal
+spriteno = 1, 9
+start = -287680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 451]
+type = normal
+spriteno = 1, 8
+start = -288320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 452]
+type = normal
+spriteno = 1, 8
+start = -288960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 453]
+type = normal
+spriteno = 1, 7
+start = -289600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 454]
+type = normal
+spriteno = 1, 7
+start = -290240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 455]
+type = normal
+spriteno = 1, 6
+start = -290880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 456]
+type = normal
+spriteno = 1, 6
+start = -291520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 457]
+type = normal
+spriteno = 1, 5
+start = -292160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 458]
+type = normal
+spriteno = 1, 5
+start = -292800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 459]
+type = normal
+spriteno = 1, 4
+start = -293440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 460]
+type = normal
+spriteno = 1, 4
+start = -294080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 461]
+type = normal
+spriteno = 1, 3
+start = -294720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 462]
+type = normal
+spriteno = 1, 3
+start = 295360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 463]
+type = normal
+spriteno = 1, 2
+start = 296000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 464]
+type = normal
+spriteno = 1, 2
+start = 296640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 465]
+type = normal
+spriteno = 1, 1
+start = 297280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 466]
+type = normal
+spriteno = 1, 1
+start = 297920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+;-------------
+Cut
+;-------------
+
+[BG 240]
+type = normal
+spriteno = 1, 114
+start = -153280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 239]
+type = normal
+spriteno = 1, 114
+start = -152640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 238]
+type = normal
+spriteno = 1, 115
+start = -152000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 237]
+type = normal
+spriteno = 1, 115
+start = -151360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 236]
+type = normal
+spriteno = 1, 116
+start = -150720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 235]
+type = normal
+spriteno = 1, 116
+start = -150080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 234]
+type = normal
+spriteno = 1, 117
+start = -149440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 233]
+type = normal
+spriteno = 1, 117
+start = -148800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 232]
+type = normal
+spriteno = 1, 118
+start = -148160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 231]
+type = normal
+spriteno = 1, 118
+start = -147520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 230]
+type = normal
+spriteno = 1, 119
+start = -146880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 229]
+type = normal
+spriteno = 1, 119
+start = -146240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 228]
+type = normal
+spriteno = 1, 120
+start = -145600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 227]
+type = normal
+spriteno = 1, 120
+start = -144960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 226]
+type = normal
+spriteno = 1, 121
+start = -144320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 225]
+type = normal
+spriteno = 1, 121
+start = -143680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 224]
+type = normal
+spriteno = 1, 122
+start = -143040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 223]
+type = normal
+spriteno = 1, 122
+start = -142400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 222]
+type = normal
+spriteno = 1, 123
+start = -141760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 221]
+type = normal
+spriteno = 1, 123
+start = -141120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 220]
+type = normal
+spriteno = 1, 124
+start = -140480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 219]
+type = normal
+spriteno = 1, 124
+start = -139840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 218]
+type = normal
+spriteno = 1, 125
+start = -139200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 217]
+type = normal
+spriteno = 1, 125
+start = -138560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 216]
+type = normal
+spriteno = 1, 126
+start = -137920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 215]
+type = normal
+spriteno = 1, 126
+start = -137280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 214]
+type = normal
+spriteno = 1, 127
+start = -136640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 213]
+type = normal
+spriteno = 1, 127
+start = -136000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 212]
+type = normal
+spriteno = 1, 128
+start = -135360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 211]
+type = normal
+spriteno = 1, 128
+start = -134720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 210]
+type = normal
+spriteno = 1, 129
+start = -134080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 209]
+type = normal
+spriteno = 1, 129
+start = -133440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 208]
+type = normal
+spriteno = 1, 130
+start = -132800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 207]
+type = normal
+spriteno = 1, 130
+start = -132160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 206]
+type = normal
+spriteno = 1, 131
+start = -131520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 205]
+type = normal
+spriteno = 1, 131
+start = -130880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 204]
+type = normal
+spriteno = 1, 132
+start = -130240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 203]
+type = normal
+spriteno = 1, 132
+start = -129600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 202]
+type = normal
+spriteno = 1, 133
+start = -128960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 201]
+type = normal
+spriteno = 1, 133
+start = -128320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 200]
+type = normal
+spriteno = 1, 134
+start = -127680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 199]
+type = normal
+spriteno = 1, 134
+start = -127040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 198]
+type = normal
+spriteno = 1, 135
+start = -126400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 197]
+type = normal
+spriteno = 1, 135
+start = -125760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 195]
+type = normal
+spriteno = 1, 136
+start = -125120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 194]
+type = normal
+spriteno = 1, 136
+start = -124480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 193]
+type = normal
+spriteno = 1, 137
+start = -123840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 192]
+type = normal
+spriteno = 1, 137
+start = -123200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 191]
+type = normal
+spriteno = 1, 138
+start = -122560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 190]
+type = normal
+spriteno = 1, 138
+start = -121920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 189]
+type = normal
+spriteno = 1, 139
+start = -121280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 188]
+type = normal
+spriteno = 1, 139
+start = -120640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 187]
+type = normal
+spriteno = 1, 140
+start = -120000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 186]
+type = normal
+spriteno = 1, 140
+start = -119360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 185]
+type = normal
+spriteno = 1, 141
+start = -118720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 184]
+type = normal
+spriteno = 1, 141
+start = -118080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 183]
+type = normal
+spriteno = 1, 142
+start = -117440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 182]
+type = normal
+spriteno = 1, 142
+start = -116800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 181]
+type = normal
+spriteno = 1, 143
+start = -116160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 180]
+type = normal
+spriteno = 1, 143
+start = -115520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 179]
+type = normal
+spriteno = 1, 144
+start = -114880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 178]
+type = normal
+spriteno = 1, 144
+start = -114240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 177]
+type = normal
+spriteno = 1, 145
+start = -113600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 176]
+type = normal
+spriteno = 1, 145
+start = -112960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 175]
+type = normal
+spriteno = 1, 146
+start = -112320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 174]
+type = normal
+spriteno = 1, 146
+start = -111680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 173]
+type = normal
+spriteno = 1, 147
+start = -111040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 172]
+type = normal
+spriteno = 1, 147
+start = -110400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 171]
+type = normal
+spriteno = 1, 148
+start = -109760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 170]
+type = normal
+spriteno = 1, 148
+start = -109120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 169]
+type = normal
+spriteno = 1, 149
+start = -108480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 168]
+type = normal
+spriteno = 1, 149
+start = -107840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 167]
+type = normal
+spriteno = 1, 150
+start = -107200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 166]
+type = normal
+spriteno = 1, 150
+start = -106560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 165]
+type = normal
+spriteno = 1, 151
+start = -105920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 164]
+type = normal
+spriteno = 1, 151
+start = -105280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 163]
+type = normal
+spriteno = 1, 152
+start = -104640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 162]
+type = normal
+spriteno = 1, 152
+start = -104000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 161]
+type = normal
+spriteno = 1, 153
+start = -103360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 160]
+type = normal
+spriteno = 1, 153
+start = -102720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 159]
+type = normal
+spriteno = 1, 154
+start = -102080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 158]
+type = normal
+spriteno = 1, 154
+start = -101440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 157]
+type = normal
+spriteno = 1, 155
+start = -100800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 156]
+type = normal
+spriteno = 1, 155
+start = -100160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 155]
+type = normal
+spriteno = 1, 156
+start = -99520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 154]
+type = normal
+spriteno = 1, 156
+start = -98880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 153]
+type = normal
+spriteno = 1, 157
+start = -98240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 152]
+type = normal
+spriteno = 1, 157
+start = -97600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 151]
+type = normal
+spriteno = 1, 158
+start = -96960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 150]
+type = normal
+spriteno = 1, 158
+start = -96320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 149]
+type = normal
+spriteno = 1, 159
+start = -95680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 148]
+type = normal
+spriteno = 1, 159
+start = -95040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 147]
+type = normal
+spriteno = 1, 160
+start = -94400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 146]
+type = normal
+spriteno = 1, 160
+start = -93760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 145]
+type = normal
+spriteno = 1, 161
+start = -93120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 144]
+type = normal
+spriteno = 1, 161
+start = -92480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 143]
+type = normal
+spriteno = 1, 162
+start = -91840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 142]
+type = normal
+spriteno = 1, 162
+start = -91200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 141]
+type = normal
+spriteno = 1, 163
+start = -90560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 140]
+type = normal
+spriteno = 1, 163
+start = -89920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 139]
+type = normal
+spriteno = 1, 164
+start = -89280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 138]
+type = normal
+spriteno = 1, 164
+start = -88640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 137]
+type = normal
+spriteno = 1, 165
+start = -88000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 136]
+type = normal
+spriteno = 1, 165
+start = -87360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 135]
+type = normal
+spriteno = 1, 166
+start = -86720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 134]
+type = normal
+spriteno = 1, 166
+start = -86080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 133]
+type = normal
+spriteno = 1, 167
+start = -85440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 132]
+type = normal
+spriteno = 1, 167
+start = -84800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 131]
+type = normal
+spriteno = 1, 168
+start = -84160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 130]
+type = normal
+spriteno = 1, 168
+start = -83520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 129]
+type = normal
+spriteno = 1, 169
+start = -82880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 128]
+type = normal
+spriteno = 1, 169
+start = -82240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 127]
+type = normal
+spriteno = 1, 170
+start = -81600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 126]
+type = normal
+spriteno = 1, 170
+start = -80960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 125]
+type = normal
+spriteno = 1, 171
+start = -80320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 124]
+type = normal
+spriteno = 1, 171
+start = -79680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 123]
+type = normal
+spriteno = 1, 172
+start = -79040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 122]
+type = normal
+spriteno = 1, 172
+start = -78400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 121]
+type = normal
+spriteno = 1, 173
+start = -77760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 120]
+type = normal
+spriteno = 1, 173
+start = -77120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 119]
+type = normal
+spriteno = 1, 174
+start = -76480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 118]
+type = normal
+spriteno = 1, 174
+start = -75840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 117]
+type = normal
+spriteno = 1, 175
+start = -75200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 116]
+type = normal
+spriteno = 1, 175
+start = -74560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 115]
+type = normal
+spriteno = 1, 176
+start = -73920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 114]
+type = normal
+spriteno = 1, 176
+start = -73280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 113]
+type = normal
+spriteno = 1, 177
+start = -72640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 112]
+type = normal
+spriteno = 1, 177
+start = -72000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 111]
+type = normal
+spriteno = 1, 178
+start = -71360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 110]
+type = normal
+spriteno = 1, 178
+start = -70720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 109]
+type = normal
+spriteno = 1, 179
+start = -70080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 108]
+type = normal
+spriteno = 1, 179
+start = -69440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 107]
+type = normal
+spriteno = 1, 180
+start = -68800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 106]
+type = normal
+spriteno = 1, 180
+start = -68160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 105]
+type = normal
+spriteno = 1, 181
+start = -67520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 104]
+type = normal
+spriteno = 1, 181
+start = -66880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 103]
+type = normal
+spriteno = 1, 182
+start = -66240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 102]
+type = normal
+spriteno = 1, 182
+start = -65600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 101]
+type = normal
+spriteno = 1, 183
+start = -64960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 100]
+type = normal
+spriteno = 1, 183
+start = -64320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 099]
+type = normal
+spriteno = 1, 184
+start = -63680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 098]
+type = normal
+spriteno = 1, 184
+start = -63040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 097]
+type = normal
+spriteno = 1, 185
+start = -62400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 096]
+type = normal
+spriteno = 1, 185
+start = -61760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 095]
+type = normal
+spriteno = 1, 186
+start = -61120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 094]
+type = normal
+spriteno = 1, 186
+start = -60480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 093]
+type = normal
+spriteno = 1, 187
+start = -59840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 092]
+type = normal
+spriteno = 1, 187
+start = -59200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 091]
+type = normal
+spriteno = 1, 188
+start = -58560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 090]
+type = normal
+spriteno = 1, 188
+start = -57920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 089]
+type = normal
+spriteno = 1, 189
+start = -57280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 088]
+type = normal
+spriteno = 1, 189
+start = -56640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 087]
+type = normal
+spriteno = 1, 190
+start = -56000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 086]
+type = normal
+spriteno = 1, 190
+start = -55360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 085]
+type = normal
+spriteno = 1, 191
+start = -54720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 084]
+type = normal
+spriteno = 1, 191
+start = -54080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 083]
+type = normal
+spriteno = 1, 192
+start = -53440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 082]
+type = normal
+spriteno = 1, 192
+start = -52800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 081]
+type = normal
+spriteno = 1, 193
+start = -52160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 080]
+type = normal
+spriteno = 1, 193
+start = -51520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 079]
+type = normal
+spriteno = 1, 194
+start = -50880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 078]
+type = normal
+spriteno = 1, 194
+start = -50240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 077]
+type = normal
+spriteno = 1, 195
+start = -49600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 076]
+type = normal
+spriteno = 1, 195
+start = -48960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 075]
+type = normal
+spriteno = 1, 196
+start = -48320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 074]
+type = normal
+spriteno = 1, 196
+start = -47680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 073]
+type = normal
+spriteno = 1, 197
+start = -47040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 072]
+type = normal
+spriteno = 1, 197
+start = -46400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 071]
+type = normal
+spriteno = 1, 198
+start = -45760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 070]
+type = normal
+spriteno = 1, 198
+start = -45120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 069]
+type = normal
+spriteno = 1, 199
+start = -44480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 068]
+type = normal
+spriteno = 1, 199
+start = -43840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 067]
+type = normal
+spriteno = 1, 200
+start = -43200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 066]
+type = normal
+spriteno = 1, 200
+start = -42560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 065]
+type = normal
+spriteno = 1, 201
+start = -41920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 064]
+type = normal
+spriteno = 1, 201
+start = -41280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 063]
+type = normal
+spriteno = 1, 202
+start = -40640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 062]
+type = normal
+spriteno = 1, 202
+start = -40000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 061]
+type = normal
+spriteno = 1, 203
+start = -39360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 060]
+type = normal
+spriteno = 1, 203
+start = -38720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 059]
+type = normal
+spriteno = 1, 204
+start = -38080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 058]
+type = normal
+spriteno = 1, 204
+start = -37440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 057]
+type = normal
+spriteno = 1, 205
+start = -36800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 056]
+type = normal
+spriteno = 1, 205
+start = -36160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 055]
+type = normal
+spriteno = 1, 206
+start = -35520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 054]
+type = normal
+spriteno = 1, 206
+start = -34880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 053]
+type = normal
+spriteno = 1, 207
+start = -34240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 052]
+type = normal
+spriteno = 1, 207
+start = -33600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 051]
+type = normal
+spriteno = 1, 208
+start = -32960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 050]
+type = normal
+spriteno = 1, 208
+start = -32320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 049]
+type = normal
+spriteno = 1, 209
+start = -31680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 048]
+type = normal
+spriteno = 1, 209
+start = -31040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 047]
+type = normal
+spriteno = 1, 210
+start = -30400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 046]
+type = normal
+spriteno = 1, 210
+start = -29760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 045]
+type = normal
+spriteno = 1, 211
+start = -29120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 044]
+type = normal
+spriteno = 1, 211
+start = -28480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 043]
+type = normal
+spriteno = 1, 212
+start = -27840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 042]
+type = normal
+spriteno = 1, 212
+start = -27200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 041]
+type = normal
+spriteno = 1, 213
+start = -26560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 040]
+type = normal
+spriteno = 1, 213
+start = -25920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 039]
+type = normal
+spriteno = 1, 214
+start = -25280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 038]
+type = normal
+spriteno = 1, 214
+start = -24640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 037]
+type = normal
+spriteno = 1, 215
+start = -24000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 036]
+type = normal
+spriteno = 1, 215
+start = -23360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 035]
+type = normal
+spriteno = 1, 216
+start = -22720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 034]
+type = normal
+spriteno = 1, 216
+start = -22080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 033]
+type = normal
+spriteno = 1, 217
+start = -21440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 032]
+type = normal
+spriteno = 1, 217
+start = -20800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 031]
+type = normal
+spriteno = 1, 218
+start = -20160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 030]
+type = normal
+spriteno = 1, 218
+start = -19520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 029]
+type = normal
+spriteno = 1, 219
+start = -18880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 028]
+type = normal
+spriteno = 1, 219
+start = -18240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 027]
+type = normal
+spriteno = 1, 220
+start = -17600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 026]
+type = normal
+spriteno = 1, 220
+start = -16960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 025]
+type = normal
+spriteno = 1, 221
+start = -16320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 024]
+type = normal
+spriteno = 1, 221
+start = -15680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 023]
+type = normal
+spriteno = 1, 222
+start = -15040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 022]
+type = normal
+spriteno = 1, 222
+start = -14400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 021]
+type = normal
+spriteno = 1, 223
+start = -13760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 020]
+type = normal
+spriteno = 1, 223
+start = -13120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 019]
+type = normal
+spriteno = 1, 224
+start = -12480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 018]
+type = normal
+spriteno = 1, 224
+start = -11840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 017]
+type = normal
+spriteno = 1, 225
+start = -11200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 016]
+type = normal
+spriteno = 1, 226
+start = -10560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 015]
+type = normal
+spriteno = 1, 227
+start = -9920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 014]
+type = normal
+spriteno = 1, 227
+start = -9280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 013]
+type = normal
+spriteno = 1, 228
+start = -8640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 012]
+type = normal
+spriteno = 1, 228
+start = -8000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 011]
+type = normal
+spriteno = 1, 229
+start = -7360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 010]
+type = normal
+spriteno = 1, 229
+start = -6720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 009]
+type = normal
+spriteno = 1, 230
+start = -6080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 008]
+type = normal
+spriteno = 1, 230
+start = -5440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 007]
+type = normal
+spriteno = 1, 231
+start = -4800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 006]
+type = normal
+spriteno = 1, 231
+start = -4160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 005]
+type = normal
+spriteno = 1, 232
+start = -3520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 004]
+type = normal
+spriteno = 1, 232
+start = -2880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 003]
+type = normal
+spriteno = 1, 233
+start = -2240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 002]
+type = normal
+spriteno = 1, 233
+start = -1600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 001]
+type = normal
+spriteno = 1, 234
+start = -960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[BG 000]
+type = normal
+spriteno = 1, 234
+start = -320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+
+[BG 001]
+type = normal
+spriteno = 1, 234
+start = 320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 002]
+type = normal
+spriteno = 1, 235
+start = 960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 003]
+type = normal
+spriteno = 1, 235
+start = 1600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 004]
+type = normal
+spriteno = 1, 236
+start = 2240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 005]
+type = normal
+spriteno = 1, 236
+start = 2880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 006]
+type = normal
+spriteno = 1, 237
+start = 3520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 007]
+type = normal
+spriteno = 1, 237
+start = 4160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 008]
+type = normal
+spriteno = 1, 238
+start = 4800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 009]
+type = normal
+spriteno = 1, 238
+start = 5440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 010]
+type = normal
+spriteno = 1, 239
+start = 6080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 011]
+type = normal
+spriteno = 1, 239
+start = 6720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 012]
+type = normal
+spriteno = 1, 240
+start = 7360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 013]
+type = normal
+spriteno = 1, 240
+start = 8000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 014]
+type = normal
+spriteno = 1, 241
+start = 8640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 015]
+type = normal
+spriteno = 1, 241
+start = 9280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 016]
+type = normal
+spriteno = 1, 242
+start = 9920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 017]
+type = normal
+spriteno = 1, 242
+start = 10560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 018]
+type = normal
+spriteno = 1, 243
+start = 11200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 019]
+type = normal
+spriteno = 1, 243
+start = 11840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 020]
+type = normal
+spriteno = 1, 244
+start = 12480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 021]
+type = normal
+spriteno = 1, 245
+start = 13120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 022]
+type = normal
+spriteno = 1, 246
+start = 13760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 023]
+type = normal
+spriteno = 1, 246
+start = 14400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 024]
+type = normal
+spriteno = 1, 247
+start = 15040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 025]
+type = normal
+spriteno = 1, 247
+start = 15680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 026]
+type = normal
+spriteno = 1, 248
+start = 16320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 027]
+type = normal
+spriteno = 1, 248
+start = 16960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 028]
+type = normal
+spriteno = 1, 249
+start = 17600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 029]
+type = normal
+spriteno = 1, 250
+start = 18240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 030]
+type = normal
+spriteno = 1, 250
+start = 18880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 031]
+type = normal
+spriteno = 1, 251
+start = 19520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 032]
+type = normal
+spriteno = 1, 251
+start = 20160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 033]
+type = normal
+spriteno = 1, 252
+start = 20800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 034]
+type = normal
+spriteno = 1, 252
+start = 21440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 035]
+type = normal
+spriteno = 1, 253
+start = 22080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 036]
+type = normal
+spriteno = 1, 253
+start = 22720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 037]
+type = normal
+spriteno = 1, 254
+start = 23360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 038]
+type = normal
+spriteno = 1, 254
+start = 24000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 039]
+type = normal
+spriteno = 1, 255
+start = 24640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 040]
+type = normal
+spriteno = 1, 255
+start = 25280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 041]
+type = normal
+spriteno = 1, 256
+start = 25920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 042]
+type = normal
+spriteno = 1, 256
+start = 26560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 043]
+type = normal
+spriteno = 1, 257
+start = 27200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 044]
+type = normal
+spriteno = 1, 257
+start = 27840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 045]
+type = normal
+spriteno = 1, 258
+start = 28480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 046]
+type = normal
+spriteno = 1, 258
+start = 29120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 047]
+type = normal
+spriteno = 1, 259
+start = 29760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 048]
+type = normal
+spriteno = 1, 259
+start = 30400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 049]
+type = normal
+spriteno = 1, 260
+start = 31040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 050]
+type = normal
+spriteno = 1, 260
+start = 31680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 051]
+type = normal
+spriteno = 1, 261
+start = 32320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 052]
+type = normal
+spriteno = 1, 261
+start = 32960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 053]
+type = normal
+spriteno = 1, 262
+start = 33600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 054]
+type = normal
+spriteno = 1, 262
+start = 34240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 055]
+type = normal
+spriteno = 1, 263
+start = 34880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 056]
+type = normal
+spriteno = 1, 263
+start = 35520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 057]
+type = normal
+spriteno = 1, 264
+start = 36160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 058]
+type = normal
+spriteno = 1, 264
+start = 36800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 059]
+type = normal
+spriteno = 1, 265
+start = 37440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 060]
+type = normal
+spriteno = 1, 265
+start = 38080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 061]
+type = normal
+spriteno = 1, 266
+start = 38720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 062]
+type = normal
+spriteno = 1, 266
+start = 39360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 063]
+type = normal
+spriteno = 1, 267
+start = 40000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 064]
+type = normal
+spriteno = 1, 267
+start = 40640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 065]
+type = normal
+spriteno = 1, 268
+start = 41280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 066]
+type = normal
+spriteno = 1, 269
+start = 41920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 067]
+type = normal
+spriteno = 1, 269
+start = 42560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 068]
+type = normal
+spriteno = 1, 270
+start = 43200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 069]
+type = normal
+spriteno = 1, 270
+start = 43840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 070]
+type = normal
+spriteno = 1, 271
+start = 44480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 071]
+type = normal
+spriteno = 1, 271
+start = 45120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 072]
+type = normal
+spriteno = 1, 272
+start = 45760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 073]
+type = normal
+spriteno = 1, 272
+start = 46400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 074]
+type = normal
+spriteno = 1, 273
+start = 47040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 075]
+type = normal
+spriteno = 1, 273
+start = 47680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 076]
+type = normal
+spriteno = 1, 274
+start = 48320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 077]
+type = normal
+spriteno = 1, 274
+start = 48960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 078]
+type = normal
+spriteno = 1, 275
+start = 49600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 079]
+type = normal
+spriteno = 1, 275
+start = 50240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 080]
+type = normal
+spriteno = 1, 276
+start = 50880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 081]
+type = normal
+spriteno = 1, 276
+start = 51520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 082]
+type = normal
+spriteno = 1, 277
+start = 52160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 083]
+type = normal
+spriteno = 1, 277
+start = 52800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 084]
+type = normal
+spriteno = 1, 278
+start = 53440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 085]
+type = normal
+spriteno = 1, 278
+start = 54080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 086]
+type = normal
+spriteno = 1, 279
+start = 54720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 087]
+type = normal
+spriteno = 1, 279
+start = 55360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 088]
+type = normal
+spriteno = 1, 280
+start = 56000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 089]
+type = normal
+spriteno = 1, 280
+start = 56640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 090]
+type = normal
+spriteno = 1, 281
+start = 57280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 091]
+type = normal
+spriteno = 1, 281
+start = 57920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 092]
+type = normal
+spriteno = 1, 282
+start = 58560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 093]
+type = normal
+spriteno = 1, 282
+start = 59200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 094]
+type = normal
+spriteno = 1, 283
+start = 59840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 095]
+type = normal
+spriteno = 1, 283
+start = 60480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 096]
+type = normal
+spriteno = 1, 284
+start = 61120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 097]
+type = normal
+spriteno = 1, 284
+start = 61760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 098]
+type = normal
+spriteno = 1, 285
+start = 62400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 099]
+type = normal
+spriteno = 1, 285
+start = 63040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 100]
+type = normal
+spriteno = 1, 286
+start = 63680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 101]
+type = normal
+spriteno = 1, 286
+start = 64320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 102]
+type = normal
+spriteno = 1, 287
+start = 64960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 103]
+type = normal
+spriteno = 1, 287
+start = 65600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 104]
+type = normal
+spriteno = 1, 288
+start = 66240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 105]
+type = normal
+spriteno = 1, 288
+start = 66880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 106]
+type = normal
+spriteno = 1, 289
+start = 67520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 107]
+type = normal
+spriteno = 1, 289
+start = 68160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 108]
+type = normal
+spriteno = 1, 290
+start = 68800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 109]
+type = normal
+spriteno = 1, 290
+start = 69440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 110]
+type = normal
+spriteno = 1, 291
+start = 70080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 111]
+type = normal
+spriteno = 1, 291
+start = 70720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 112]
+type = normal
+spriteno = 1, 292
+start = 71360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 113]
+type = normal
+spriteno = 1, 292
+start = 72000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 114]
+type = normal
+spriteno = 1, 293
+start = 72640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 115]
+type = normal
+spriteno = 1, 293
+start = 73280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 116]
+type = normal
+spriteno = 1, 294
+start = 73920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 117]
+type = normal
+spriteno = 1, 294
+start = 74560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 118]
+type = normal
+spriteno = 1, 295
+start = 75200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 119]
+type = normal
+spriteno = 1, 296
+start = 75840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 120]
+type = normal
+spriteno = 1, 297
+start = 76480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 121]
+type = normal
+spriteno = 1, 297
+start = 77120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 122]
+type = normal
+spriteno = 1, 298
+start = 77760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 123]
+type = normal
+spriteno = 1, 298
+start = 78400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 124]
+type = normal
+spriteno = 1, 299
+start = 79040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 125]
+type = normal
+spriteno = 1, 299
+start = 79680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 126]
+type = normal
+spriteno = 1, 300
+start = 80320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 127]
+type = normal
+spriteno = 1, 300
+start = 80960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 128]
+type = normal
+spriteno = 1, 301
+start = 81600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 129]
+type = normal
+spriteno = 1, 301
+start = 82240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 130]
+type = normal
+spriteno = 1, 302
+start = 82880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 131]
+type = normal
+spriteno = 1, 302
+start = 83520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 132]
+type = normal
+spriteno = 1, 303
+start = 84160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 133]
+type = normal
+spriteno = 1, 303
+start = 84800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 134]
+type = normal
+spriteno = 1, 304
+start = 85440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 135]
+type = normal
+spriteno = 1, 304
+start = 86080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 136]
+type = normal
+spriteno = 1, 305
+start = 86720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 137]
+type = normal
+spriteno = 1, 305
+start = 87360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 138]
+type = normal
+spriteno = 1, 306
+start = 88000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 139]
+type = normal
+spriteno = 1, 306
+start = 88640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 140]
+type = normal
+spriteno = 1, 307
+start = 89280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 141]
+type = normal
+spriteno = 1, 307
+start = 89920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 142]
+type = normal
+spriteno = 1, 308
+start = 90560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 143]
+type = normal
+spriteno = 1, 308
+start = 91200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 144]
+type = normal
+spriteno = 1, 309
+start = 91840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 145]
+type = normal
+spriteno = 1, 309
+start = 92480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 146]
+type = normal
+spriteno = 1, 310
+start = 93120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 147]
+type = normal
+spriteno = 1, 310
+start = 93760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 148]
+type = normal
+spriteno = 1, 311
+start = 94400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 149]
+type = normal
+spriteno = 1, 311
+start = 95040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 150]
+type = normal
+spriteno = 1, 312
+start = 95680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 151]
+type = normal
+spriteno = 1, 312
+start = 96320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 152]
+type = normal
+spriteno = 1, 313
+start = 96960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 153]
+type = normal
+spriteno = 1, 313
+start = 97600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 154]
+type = normal
+spriteno = 1, 314
+start = 98240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 155]
+type = normal
+spriteno = 1, 314
+start = 98880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 156]
+type = normal
+spriteno = 1, 315
+start = 99520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 157]
+type = normal
+spriteno = 1, 315
+start = 100160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 158]
+type = normal
+spriteno = 1, 316
+start = 100800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 159]
+type = normal
+spriteno = 1, 316
+start = 101440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 160]
+type = normal
+spriteno = 1, 317
+start = 102080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 161]
+type = normal
+spriteno = 1, 317
+start = 102720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 162]
+type = normal
+spriteno = 1, 318
+start = 103360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 163]
+type = normal
+spriteno = 1, 318
+start = 104000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 164]
+type = normal
+spriteno = 1, 319
+start = 104640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 165]
+type = normal
+spriteno = 1, 319
+start = 105280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 166]
+type = normal
+spriteno = 1, 320
+start = 105920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 167]
+type = normal
+spriteno = 1, 320
+start = 106560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 168]
+type = normal
+spriteno = 1, 321
+start = 107200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 169]
+type = normal
+spriteno = 1, 321
+start = 107840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 170]
+type = normal
+spriteno = 1, 322
+start = 108480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 171]
+type = normal
+spriteno = 1, 322
+start = 109120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 172]
+type = normal
+spriteno = 1, 323
+start = 109760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 173]
+type = normal
+spriteno = 1, 323
+start = 110400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 174]
+type = normal
+spriteno = 1, 324
+start = 111040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 175]
+type = normal
+spriteno = 1, 324
+start = 111680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 176]
+type = normal
+spriteno = 1, 325
+start = 112320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 177]
+type = normal
+spriteno = 1, 325
+start = 112960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 178]
+type = normal
+spriteno = 1, 326
+start = 113600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 179]
+type = normal
+spriteno = 1, 326
+start = 114240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 180]
+type = normal
+spriteno = 1, 327
+start = 114880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 181]
+type = normal
+spriteno = 1, 327
+start = 115520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 182]
+type = normal
+spriteno = 1, 328
+start = 116160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 183]
+type = normal
+spriteno = 1, 328
+start = 116800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 184]
+type = normal
+spriteno = 1, 329
+start = 117440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 185]
+type = normal
+spriteno = 1, 329
+start = 118080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 186]
+type = normal
+spriteno = 1, 330
+start = 118720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 187]
+type = normal
+spriteno = 1, 330
+start = 119360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 188]
+type = normal
+spriteno = 1, 331
+start = 120000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 189]
+type = normal
+spriteno = 1, 331
+start = 120640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 190]
+type = normal
+spriteno = 1, 332
+start = 121280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 191]
+type = normal
+spriteno = 1, 332
+start = 121920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 192]
+type = normal
+spriteno = 1, 333
+start = 122560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 193]
+type = normal
+spriteno = 1, 333
+start = 123200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 194]
+type = normal
+spriteno = 1, 334
+start = 123840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 195]
+type = normal
+spriteno = 1, 334
+start = 124480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 196]
+type = normal
+spriteno = 1, 335
+start = 125120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 197]
+type = normal
+spriteno = 1, 335
+start = 125760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 198]
+type = normal
+spriteno = 1, 336
+start = 126400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 199]
+type = normal
+spriteno = 1, 336
+start = 127040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 200]
+type = normal
+spriteno = 1, 337
+start = 127680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 201]
+type = normal
+spriteno = 1, 337
+start = 128320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 202]
+type = normal
+spriteno = 1, 338
+start = 128960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 203]
+type = normal
+spriteno = 1, 338
+start = 129600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 204]
+type = normal
+spriteno = 1, 339
+start = 130240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 205]
+type = normal
+spriteno = 1, 339
+start = 130880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 206]
+type = normal
+spriteno = 1, 340
+start = 131520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 207]
+type = normal
+spriteno = 1, 340
+start = 132160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 208]
+type = normal
+spriteno = 1, 341
+start = 132800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 209]
+type = normal
+spriteno = 1, 341
+start = 133440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 210]
+type = normal
+spriteno = 1, 342
+start = 134080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 211]
+type = normal
+spriteno = 1, 342
+start = 134720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 212]
+type = normal
+spriteno = 1, 343
+start = 135360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 213]
+type = normal
+spriteno = 1, 343
+start = 136000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 214]
+type = normal
+spriteno = 1, 344
+start = 136640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 215]
+type = normal
+spriteno = 1, 344
+start = 137280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 216]
+type = normal
+spriteno = 1, 345
+start = 137920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 217]
+type = normal
+spriteno = 1, 345
+start = 138560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 218]
+type = normal
+spriteno = 1, 346
+start = 139200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 219]
+type = normal
+spriteno = 1, 346
+start = 139840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 220]
+type = normal
+spriteno = 1, 347
+start = 140480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 221]
+type = normal
+spriteno = 1, 347
+start = 141120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 222]
+type = normal
+spriteno = 1, 348
+start = 141760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 223]
+type = normal
+spriteno = 1, 348
+start = 142400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 224]
+type = normal
+spriteno = 1, 349
+start = 143040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 225]
+type = normal
+spriteno = 1, 349
+start = 143680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 226]
+type = normal
+spriteno = 1, 350
+start = 144320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 227]
+type = normal
+spriteno = 1, 350
+start = 144960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 228]
+type = normal
+spriteno = 1, 351
+start = 145600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 229]
+type = normal
+spriteno = 1, 351
+start = 146240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 230]
+type = normal
+spriteno = 1, 352
+start = 146880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 231]
+type = normal
+spriteno = 1, 352
+start = 147520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 232]
+type = normal
+spriteno = 1, 353
+start = 148160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 233]
+type = normal
+spriteno = 1, 353
+start = 148800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 234]
+type = normal
+spriteno = 1, 354
+start = 149440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 235]
+type = normal
+spriteno = 1, 354
+start = 150080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 236]
+type = normal
+spriteno = 1, 355
+start = 150720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 237]
+type = normal
+spriteno = 1, 355
+start = 151360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 238]
+type = normal
+spriteno = 1, 356
+start = 152000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 239]
+type = normal
+spriteno = 1, 356
+start = 152640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[BG 240]
+type = normal
+spriteno = 1, 357
+start = 153280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 241]
+type = normal
+spriteno = 1, 357
+start = 153920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 242]
+type = normal
+spriteno = 1, 358
+start = 154560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 243]
+type = normal
+spriteno = 1, 358
+start = 155200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 244]
+type = normal
+spriteno = 1, 359
+start = 155840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 245]
+type = normal
+spriteno = 1, 359
+start = 156480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 246]
+type = normal
+spriteno = 1, 360
+start = 157120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 247]
+type = normal
+spriteno = 1, 360
+start = 157760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 248]
+type = normal
+spriteno = 1, 361
+start = 158400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 249]
+type = normal
+spriteno = 1, 361
+start = 159040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 250]
+type = normal
+spriteno = 1, 362
+start = 159680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 251]
+type = normal
+spriteno = 1, 362
+start = 160320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 252]
+type = normal
+spriteno = 1, 363
+start = 160960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 253]
+type = normal
+spriteno = 1, 363
+start = 161600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 254]
+type = normal
+spriteno = 1, 364
+start = 162240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 255]
+type = normal
+spriteno = 1, 364
+start = 162880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 256]
+type = normal
+spriteno = 1, 365
+start = 163520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 257]
+type = normal
+spriteno = 1, 365
+start = 164160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 258]
+type = normal
+spriteno = 1, 366
+start = 164800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 259]
+type = normal
+spriteno = 1, 366
+start = 165440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 260]
+type = normal
+spriteno = 1, 367
+start = 166080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 261]
+type = normal
+spriteno = 1, 367
+start = 166720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 262]
+type = normal
+spriteno = 1, 368
+start = 167360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 263]
+type = normal
+spriteno = 1, 368
+start = 168000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 264]
+type = normal
+spriteno = 1, 369
+start = 168640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 265]
+type = normal
+spriteno = 1, 369
+start = 169280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 266]
+type = normal
+spriteno = 1, 370
+start = 169920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 267]
+type = normal
+spriteno = 1, 370
+start = 170560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 268]
+type = normal
+spriteno = 1, 371
+start = 171200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 269]
+type = normal
+spriteno = 1, 371
+start = 171840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 270]
+type = normal
+spriteno = 1, 372
+start = 172480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 271]
+type = normal
+spriteno = 1, 372
+start = 173120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 272]
+type = normal
+spriteno = 1, 373
+start = 173760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 273]
+type = normal
+spriteno = 1, 373
+start = 174400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 274]
+type = normal
+spriteno = 1, 374
+start = 175040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 275]
+type = normal
+spriteno = 1, 374
+start = 175680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 276]
+type = normal
+spriteno = 1, 375
+start = 176320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 277]
+type = normal
+spriteno = 1, 375
+start = 176960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 278]
+type = normal
+spriteno = 1, 376
+start = 177600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 279]
+type = normal
+spriteno = 1, 376
+start = 178240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 280]
+type = normal
+spriteno = 1, 377
+start = 178880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 281]
+type = normal
+spriteno = 1, 377
+start = 179520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 282]
+type = normal
+spriteno = 1, 378
+start = 180160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 283]
+type = normal
+spriteno = 1, 378
+start = 180800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 284]
+type = normal
+spriteno = 1, 379
+start = 181440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 285]
+type = normal
+spriteno = 1, 379
+start = 182080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 286]
+type = normal
+spriteno = 1, 380
+start = 182720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 287]
+type = normal
+spriteno = 1, 380
+start = 183360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 288]
+type = normal
+spriteno = 1, 381
+start = 184000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 289]
+type = normal
+spriteno = 1, 381
+start = 184640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 290]
+type = normal
+spriteno = 1, 382
+start = 185280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 291]
+type = normal
+spriteno = 1, 382
+start = 185920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 292]
+type = normal
+spriteno = 1, 383
+start = 186560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 293]
+type = normal
+spriteno = 1, 383
+start = 187200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 294]
+type = normal
+spriteno = 1, 384
+start = 187840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 295]
+type = normal
+spriteno = 1, 384
+start = 188480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 296]
+type = normal
+spriteno = 1, 385
+start = 189120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 297]
+type = normal
+spriteno = 1, 385
+start = 189760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 298]
+type = normal
+spriteno = 1, 386
+start = 190400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 299]
+type = normal
+spriteno = 1, 386
+start = 191040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 300]
+type = normal
+spriteno = 1, 387
+start = 191680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 301]
+type = normal
+spriteno = 1, 387
+start = 192320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 302]
+type = normal
+spriteno = 1, 388
+start = 192960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 303]
+type = normal
+spriteno = 1, 388
+start = 193600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 304]
+type = normal
+spriteno = 1, 389
+start = 194240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 305]
+type = normal
+spriteno = 1, 389
+start = 194880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 306]
+type = normal
+spriteno = 1, 390
+start = 195520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 307]
+type = normal
+spriteno = 1, 390
+start = 196160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 308]
+type = normal
+spriteno = 1, 391
+start = 196800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 309]
+type = normal
+spriteno = 1, 391
+start = 197440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 310]
+type = normal
+spriteno = 1, 392
+start = 198080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 311]
+type = normal
+spriteno = 1, 392
+start = 198720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 312]
+type = normal
+spriteno = 1, 393
+start = 199360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 313]
+type = normal
+spriteno = 1, 393
+start = 200000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 314]
+type = normal
+spriteno = 1, 394
+start = 200640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 315]
+type = normal
+spriteno = 1, 394
+start = 201280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 316]
+type = normal
+spriteno = 1, 395
+start = 201920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 317]
+type = normal
+spriteno = 1, 395
+start = 202560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 318]
+type = normal
+spriteno = 1, 396
+start = 203200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 319]
+type = normal
+spriteno = 1, 396
+start = 203840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 320]
+type = normal
+spriteno = 1, 397
+start = 204480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 321]
+type = normal
+spriteno = 1, 397
+start = 205120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 322]
+type = normal
+spriteno = 1, 398
+start = 205760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 323]
+type = normal
+spriteno = 1, 398
+start = 206400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 324]
+type = normal
+spriteno = 1, 399
+start = 207040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 325]
+type = normal
+spriteno = 1, 399
+start = 207680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 326]
+type = normal
+spriteno = 1, 400
+start = 208320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 327]
+type = normal
+spriteno = 1, 400
+start = 208960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 328]
+type = normal
+spriteno = 1, 401
+start = 209600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 329]
+type = normal
+spriteno = 1, 401
+start = 210240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 330]
+type = normal
+spriteno = 1, 402
+start = 210880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 331]
+type = normal
+spriteno = 1, 402
+start = 211520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 332]
+type = normal
+spriteno = 1, 403
+start = 212160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 333]
+type = normal
+spriteno = 1, 403
+start = 212800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 334]
+type = normal
+spriteno = 1, 404
+start = 213440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 335]
+type = normal
+spriteno = 1, 404
+start = 214080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 336]
+type = normal
+spriteno = 1, 405
+start = 214720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 337]
+type = normal
+spriteno = 1, 405
+start = 215360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 338]
+type = normal
+spriteno = 1, 406
+start = 216000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 339]
+type = normal
+spriteno = 1, 406
+start = 216640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 340]
+type = normal
+spriteno = 1, 407
+start = 217280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 341]
+type = normal
+spriteno = 1, 407
+start = 217920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 342]
+type = normal
+spriteno = 1, 408
+start = 218560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 343]
+type = normal
+spriteno = 1, 408
+start = 219200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 344]
+type = normal
+spriteno = 1, 409
+start = 219840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 345]
+type = normal
+spriteno = 1, 409
+start = 220480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 346]
+type = normal
+spriteno = 1, 410
+start = 221120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 347]
+type = normal
+spriteno = 1, 410
+start = 221760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 348]
+type = normal
+spriteno = 1, 411
+start = 222400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 349]
+type = normal
+spriteno = 1, 411
+start = 223040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 350]
+type = normal
+spriteno = 1, 412
+start = 223680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 351]
+type = normal
+spriteno = 1, 412
+start = 224320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 352]
+type = normal
+spriteno = 1, 413
+start = 224960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 353]
+type = normal
+spriteno = 1, 413
+start = 225600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 354]
+type = normal
+spriteno = 1, 414
+start = 226240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 355]
+type = normal
+spriteno = 1, 414
+start = 226880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 356]
+type = normal
+spriteno = 1, 415
+start = 227520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 357]
+type = normal
+spriteno = 1, 415
+start = 228160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 358]
+type = normal
+spriteno = 1, 416
+start = 228800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 359]
+type = normal
+spriteno = 1, 416
+start = 229440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 360]
+type = normal
+spriteno = 1, 417
+start = 230080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 361]
+type = normal
+spriteno = 1, 417
+start = 230720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 362]
+type = normal
+spriteno = 1, 418
+start = 231360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 363]
+type = normal
+spriteno = 1, 418
+start = 232000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 364]
+type = normal
+spriteno = 1, 419
+start = 232640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 365]
+type = normal
+spriteno = 1, 419
+start = 233280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 366]
+type = normal
+spriteno = 1, 420
+start = 233920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 367]
+type = normal
+spriteno = 1, 420
+start = 234560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 368]
+type = normal
+spriteno = 1, 421
+start = 235200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 369]
+type = normal
+spriteno = 1, 421
+start = 235840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 370]
+type = normal
+spriteno = 1, 422
+start = 236480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 371]
+type = normal
+spriteno = 1, 422
+start = 237120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 372]
+type = normal
+spriteno = 1, 423
+start = 237760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 373]
+type = normal
+spriteno = 1, 423
+start = 238400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 374]
+type = normal
+spriteno = 1, 424
+start = 239040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 375]
+type = normal
+spriteno = 1, 424
+start = 239680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 376]
+type = normal
+spriteno = 1, 425
+start = 240320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 377]
+type = normal
+spriteno = 1, 425
+start = 240960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 378]
+type = normal
+spriteno = 1, 426
+start = 241600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 379]
+type = normal
+spriteno = 1, 426
+start = 242240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 380]
+type = normal
+spriteno = 1, 427
+start = 242880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 381]
+type = normal
+spriteno = 1, 427
+start = 243520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 382]
+type = normal
+spriteno = 1, 428
+start = 244160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 383]
+type = normal
+spriteno = 1, 428
+start = 244800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 384]
+type = normal
+spriteno = 1, 429
+start = 245440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 385]
+type = normal
+spriteno = 1, 429
+start = 246080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 386]
+type = normal
+spriteno = 1, 430
+start = 246720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 387]
+type = normal
+spriteno = 1, 430
+start = 247360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 388]
+type = normal
+spriteno = 1, 431
+start = 248000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 389]
+type = normal
+spriteno = 1, 431
+start = 248640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 390]
+type = normal
+spriteno = 1, 432
+start = 249280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 391]
+type = normal
+spriteno = 1, 432
+start = 249920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 392]
+type = normal
+spriteno = 1, 433
+start = 250560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 393]
+type = normal
+spriteno = 1, 433
+start = 251200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 394]
+type = normal
+spriteno = 1, 434
+start = 251840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 395]
+type = normal
+spriteno = 1, 434
+start = 252480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 396]
+type = normal
+spriteno = 1, 435
+start = 253120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 397]
+type = normal
+spriteno = 1, 435
+start = 253760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 398]
+type = normal
+spriteno = 1, 436
+start = 254400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 399]
+type = normal
+spriteno = 1, 436
+start = 255040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 400]
+type = normal
+spriteno = 1, 437
+start = 255680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 401]
+type = normal
+spriteno = 1, 437
+start = 256320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 402]
+type = normal
+spriteno = 1, 438
+start = 256960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 403]
+type = normal
+spriteno = 1, 438
+start = 257600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 404]
+type = normal
+spriteno = 1, 439
+start = 258240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 405]
+type = normal
+spriteno = 1, 439
+start = 258880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 406]
+type = normal
+spriteno = 1, 440
+start = 259520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 407]
+type = normal
+spriteno = 1, 440
+start = 260160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 408]
+type = normal
+spriteno = 1, 441
+start = 260800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 409]
+type = normal
+spriteno = 1, 441
+start = 261440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 410]
+type = normal
+spriteno = 1, 442
+start = 262080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 411]
+type = normal
+spriteno = 1, 442
+start = 262720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 412]
+type = normal
+spriteno = 1, 443
+start = 263360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 413]
+type = normal
+spriteno = 1, 443
+start = 264000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 414]
+type = normal
+spriteno = 1, 444
+start = 264640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 415]
+type = normal
+spriteno = 1, 444
+start = 265280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 416]
+type = normal
+spriteno = 1, 445
+start = 265920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 417]
+type = normal
+spriteno = 1, 445
+start = 266560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 418]
+type = normal
+spriteno = 1, 446
+start = 267200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 419]
+type = normal
+spriteno = 1, 446
+start = 267840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 420]
+type = normal
+spriteno = 1, 447
+start = 268480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 421]
+type = normal
+spriteno = 1, 447
+start = 269120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 422]
+type = normal
+spriteno = 1, 448
+start = 269760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 423]
+type = normal
+spriteno = 1, 448
+start = 270400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 424]
+type = normal
+spriteno = 1, 449
+start = 271040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 425]
+type = normal
+spriteno = 1, 449
+start = 271680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 426]
+type = normal
+spriteno = 1, 450
+start = 272320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 427]
+type = normal
+spriteno = 1, 450
+start = 272960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 428]
+type = normal
+spriteno = 1, 451
+start = 273600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 429]
+type = normal
+spriteno = 1, 451
+start = 274240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 430]
+type = normal
+spriteno = 1, 452
+start = 274880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 431]
+type = normal
+spriteno = 1, 452
+start = 275520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 432]
+type = normal
+spriteno = 1, 453
+start = 276160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 433]
+type = normal
+spriteno = 1, 453
+start = 276800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 434]
+type = normal
+spriteno = 1, 454
+start = 277440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 435]
+type = normal
+spriteno = 1, 454
+start = 278080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 436]
+type = normal
+spriteno = 1, 455
+start = 278720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 437]
+type = normal
+spriteno = 1, 455
+start = 279360, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 438]
+type = normal
+spriteno = 1, 456
+start = 280000, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 439]
+type = normal
+spriteno = 1, 456
+start = 280640, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 440]
+type = normal
+spriteno = 1, 457
+start = 281280, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 441]
+type = normal
+spriteno = 1, 457
+start = 281920, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 442]
+type = normal
+spriteno = 1, 458
+start = 282560, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 443]
+type = normal
+spriteno = 1, 458
+start = 283200, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 444]
+type = normal
+spriteno = 1, 459
+start = 283840, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 445]
+type = normal
+spriteno = 1, 459
+start = 284480, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 446]
+type = normal
+spriteno = 1, 460
+start = 285120, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 447]
+type = normal
+spriteno = 1, 460
+start = 285760, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 448]
+type = normal
+spriteno = 1, 461
+start = 286400, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 449]
+type = normal
+spriteno = 1, 461
+start = 287040, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 450]
+type = normal
+spriteno = 1, 462
+start = 287680, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 451]
+type = normal
+spriteno = 1, 462
+start = 288320, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 452]
+type = normal
+spriteno = 1, 463
+start = 288960, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 453]
+type = normal
+spriteno = 1, 463
+start = 289600, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 454]
+type = normal
+spriteno = 1, 464
+start = 290240, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 455]
+type = normal
+spriteno = 1, 464
+start = 290880, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 456]
+type = normal
+spriteno = 1, 465
+start = 291520, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 457]
+type = normal
+spriteno = 1, 465
+start = 292160, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 458]
+type = normal
+spriteno = 1, 466
+start = 292800, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 459]
+type = normal
+spriteno = 1, 466
+start = 293440, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 460]
+type = normal
+spriteno = 1, 467
+start = 294080, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG 461]
+type = normal
+spriteno = 1, 467
+start = 294720, 0
+delta = 640, 2
+tile = 0
+tilespacing = 0
+
+[BG Intro]
+type = anim
+actionno = 1
+spriteno = 2, 0
+start = -320, 0
+delta = 0, 0
+layerno = 1
+
+;--------------------------------------------------------Animations
+[Begin Action 1]
+2,0, 0,0, 50
+2,1, 0,0, 3
+2,2, 0,0, 3
+2,3, 0,0, 3
+2,4, 0,0, 3
+2,5, 0,0, 3
+2,6, 0,0, 3
+2,7, 0,0, 3
+2,8, 0,0, 3
+2,9, 0,0, 3
+2,10, 0,0, 3
+2,11, 0,0, 3
+2,12, 0,0, 3
+2,13, 0,0, 3
+2,14, 0,0, 3
+2,15, 0,0, 30
+2,16, 0,0, 3
+2,17, 0,0, 3 
+2,18, 0,0, 3 
+2,19, 0,0, 3 
+2,20, 0,0, 3 
+loopstart
+0,0,0,0,1

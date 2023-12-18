@@ -1,0 +1,31 @@
+; ここにキャラ情報を書いてください
+[Info]
+name = "DuoLon"        ;キャラの名前
+displayname = "DuoLon" ;表示されるキャラの名前
+versiondate = 11,22,2000    ;キャラの更新情報
+mugenversion = 11,22,2000   ;キャラが動くmugenのバージョン
+author = "ahuron"         ;キャラの製作者名
+pal.defaults = 1      ;敵としてでるキャラのパレット
+
+; Files for the player
+[Files]
+cmd     = DuoLon_XI.cmd   ;キャラのコマンド
+cns     = DuoLon_XI.cns   ;キャラのプログラム
+st      = DuoLon_XI.cns   ;基本動作、必殺技、特殊ゲージ、-2、-3
+st2     = DuoLon_XI2.cns  ;超必殺技
+stcommon = common1.cns 
+sprite  = DuoLon_XI.sff   ;キャラの絵
+anim    = DuoLon_XI.air   ;キャラの動き
+sound   = DuoLon_XI.snd   ;キャラの音
+pal1    = DuoLon_XI.act
+pal2    = DuoLon_XI2.act
+pal3    = DuoLon_XI3.act
+pal4    = DuoLon_XI.act
+pal5    = DuoLon_XI2.act
+pal6    = DuoLon_XI3.act
+pal7    = DuoLon_XI.act
+pal8    = DuoLon_XI2.act
+pal9    = DuoLon_XI3.act
+pal10   = DuoLon_XI.act
+pal11   = DuoLon_XI2.act
+pal12   = DuoLon_XI3.act

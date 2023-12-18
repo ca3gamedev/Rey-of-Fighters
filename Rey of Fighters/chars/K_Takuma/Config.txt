@@ -1,0 +1,114 @@
+;Options 
+[Statedef 7650]
+physics=N
+velset=0,0
+anim=1
+
+;----------------------------------------------------
+[State 7650, MODE SELECTION]
+type=parentvarset
+trigger1= 1
+var(1) = 0;CHANGE THIS LINE
+
+;0 = Normal
+;1 = Another
+
+;HITSPARKS AND SOUNDS
+[State 7650, Hitsparks 1 is 2K2 0 is XI ]
+type=parentvarset
+trigger1= 1
+var(31) = 1 ;Change this Line
+[State 7650, Hitsounds 1 is 2K2 0 is XI ]
+type=parentvarset
+trigger1= 1
+var(32) = 1 ;Change this Line
+;----------------------------------------------------
+
+;Don't modify anything below the line
+
+[State 7650, bound]
+type=screenbound
+trigger1= roundstate=1
+trigger1= 1
+value=0
+movecamera=1,1
+
+; Initialize (at the start of the round)
+[Statedef 5900]
+type = S
+
+;----------------------------------------
+;PALETTE CONFIGURATION
+
+[State 5900, 3] ;Change palette
+type = Null
+;---------------------------------------- DO NOT MODIFY THIS BLOCK
+trigger1 = PalNo = 1           
+trigger2 = PalNo = 2           
+trigger3 = PalNo = 3           
+trigger4 = PalNo = 4         
+trigger5 = PalNo = 5           
+trigger6 = PalNo = 6            
+trigger7 = PalNo = 7            
+trigger8 = PalNo = 8            
+trigger9 = PalNo = 9           
+trigger10 = PalNo = 10           
+trigger11 = PalNo = 11          
+trigger12 = PalNo = 12    
+;---------------------------------------- 
+;---------------------------------------- MODIFY VALUES BELOW. ????????????  
+trigger1 = var(45)  := 1     ;Palette 1.  Selected with "X"
+trigger2 = var(45)  := 2   ;Palette 2.  Selected with "Y"
+trigger3 = var(45)  := 3    ;Palette 3.  Selected with "Z"
+trigger4 = var(45)  := 4    ;Palette 4.  Selected with "A"
+trigger5 = var(45)  := 5    ;Palette 5.  Selected with "B"
+trigger6 = var(45)  := 6    ;Palette 6.  Selected with "C"
+trigger7 = var(45)  := 1   ;Palette 7.  Selected with "Start + X"
+trigger8 = var(45)  := 2    ;Palette 8.  Selected with "Start + Y"
+trigger9 = var(45)  := 3    ;Palette 9.  Selected with "Start + Z"
+trigger10 = var(45) := 4    ;Palette 10. Selected with "Start + A"
+trigger11 = var(45) := 5    ;Palette 11. Selected with "Start + B"
+trigger12 = var(45) := 6    ;Palette 12. Selected with "Start + C"
+persistent = 1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;Anything Below Should Be Left Alone.                       ;
+;???????!                                              ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[State 5900, ChangeAnim]
+type = ChangeAnim
+trigger1 = !time
+value = 0
+
+[State 5900, 3] ;Change palette
+type = RemapPal
+trigger1 = 1
+source = 1,1
+dest = 1,var(45)
+
+[State 5900, SUPMAN] ;Mode check
+type = ChangeState
+trigger1 = !time && prevstateno != 5910
+value = 5910
+
+[State 5900, turn]
+type = ChangeState
+trigger1 = TeamMode = Turns
+trigger1 = roundno > 1
+trigger1 = RoundsExisted = 0
+value = 190
+
+[State 5900, 3] ;Intro for first round
+type = ChangeState
+triggerall = roundstate = 0
+triggerall = numenemy
+triggerall = enemynear,roundsexisted <= 0
+triggerall = time = 0
+trigger1 = var(33)
+value = 190
+
+[State 5900, 3] ;Intro
+type = ChangeState
+trigger1 = roundno = 1
+value = 190
+

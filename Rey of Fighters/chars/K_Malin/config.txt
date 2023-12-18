@@ -1,0 +1,27 @@
+;Options 
+[Statedef 7650]
+physics=N
+velset=0,0
+anim=1
+
+[State 7650, Hitsparks 1 is 2K2 0 is XI ]
+type=parentvarset
+trigger1= 1
+var(31) = 0 ;Change this Line
+[State 7650, Hitsounds 1 is 2K2 0 is XI ]
+type=parentvarset
+trigger1= 1
+var(32) = 0 ;Change this Line
+[State 7650, Blood 1 is On 0 is off ]
+type=parentvarset
+trigger1= 1
+var(22) = 1 ;Change this Line
+
+;Don't modify anything below the line
+
+[State 7650, bound]
+type=screenbound
+trigger1= roundstate=1
+trigger1= 1
+value=0
+movecamera=1,1

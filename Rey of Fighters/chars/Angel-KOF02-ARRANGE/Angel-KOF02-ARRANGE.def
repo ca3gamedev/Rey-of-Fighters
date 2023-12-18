@@ -1,0 +1,30 @@
+[Info]
+Name         = "Angel"
+DisplayName  = "Angel-KOF02-ARRANGE"
+VersionDate  = 06,24,2009
+MugenVersion = 06,14,2003
+Author       = "jin"
+Pal.Defaults = 1,2,3,4,5,6
+
+[Files]
+Cmd      = Ptan/Angel.cmd
+Cns      = Ptan/Angel.cns
+St       = Ptan/Angel.cns
+St0      = Angel-N.cns
+St1      = Ptan/Angel-S.cns
+St2      = Ptan/Angel-H.cns
+St3      = Ptan/Angel-2-3.cns
+StCommon = Ptan/angelcommon1.cns
+Sprite   = Angel.sff
+Anim     = Angel.air
+Sound    = Angel.snd
+
+;---カラーパレット---
+
+Pal1 = Ptan/Angel01_Ori.act
+Pal2 = Angel02.act
+Pal3 = Angel03.act
+Pal4 = Angel04.act
+Pal5 = Angel05.act
+Pal6 = Angel06.act
+

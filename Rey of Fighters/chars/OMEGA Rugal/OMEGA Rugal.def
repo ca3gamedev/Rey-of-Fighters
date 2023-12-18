@@ -1,0 +1,38 @@
+[Info]
+name          = "Rugal2nd"
+displayname   = "OMEGA Rugal"
+versiondate   = 2008/10/4 ;fixed 2014/25/10 by luis armando my friend :)
+mugenversion  = 2008/10/4
+author        = "fxm508"
+pal.defaults  = 1,7,5,11,12
+
+
+
+[Files]
+cmd      =Rugal2nd_AI.cmd
+cns      =Rugal2nd_AI.cns
+st       =Rugal2nd_AI.cns
+st1      =Rugal2nd_-2_AI.cns
+st2      =Rugal2nd_-3_AI.txt
+st0      =Rugal2nd_Helper_AI.cns
+stcommon =Rugal2nd_Common1_AI.cns
+sprite   =Rugal2nd.sff
+anim     =Rugal2nd_AI.air
+sound    =Rugal2nd.snd
+pal1     =Rugal2nd_02-1.act
+pal2     =Rugal2nd_02-2.act
+pal3     =Rugal2nd_02-1.act
+pal4     =Rugal2nd_02-2.act
+pal5     =Rugal2nd_98-1.act
+pal6     =Rugal2nd_98-2.act
+pal7     =Rugal2nd_98UM-1(omega).act
+pal8     =Rugal2nd_98UM-2(omega).act
+pal9     =Rugal2nd_98UM-3(omega).act
+pal10    =Rugal2nd_98UM-4(omega).act
+pal11    =Rugal2nd_94-1.act
+pal12    =Rugal2nd_OMEGA.act
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
