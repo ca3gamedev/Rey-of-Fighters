@@ -1,0 +1,59 @@
+
+
+		Iron Andy Bogard
+                Version 100%
+		by David Demianoff ("ironmugen" in forums)
+
+		Mail: webmaster@ryujiryuji-yamazaki.zzn.com
+		Site: http://run.to/ironmugen
+                (you can find my work at http://cutemugen.free.fr too)
+
+
+NOTE ABOUT THE STEROID MODE
+---------------------------
+
+1- The Steroid mode is an original mode. I made it alone.
+
+2- In this mode, all your special attacks do more damages and have some changes.
+
+3- When you are in ST mode, look at Andy 's stance... it will change a bit.
+
+4- I doesn't effect the DM/SDM or the normal attacks.
+
+5- There is a counter at the left (or right) of the screen... it starts with 60.
+
+6- This is only (for now) a beta of the mode... May have some modifications in a near future.
+
+7- Allows you to make the HSDM
+
+
+HOW TO USE
+----------
+
+To switch on the steroid mode, when you have a least 1 power bar, press A+B+X+Y
+
+
+THE CHANGES
+-----------
+
+ In the steroid mode, many moves change, if they don't, they only do more damage.
+
+-------------------------+------------------+---------------------------------------------+
+Name of the special move | Command          | The change                                  |
+-------------------------+------------------+---------------------------------------------+
+Hi shou ken:             | QCB+Weak P       | The power ball become bigger                |
+Geki shi shou ken:       | QCB+Strong P     | The (bigger) ball does 6 hits instead of 4  |
+Zan'ei ken:              | DwnBck, Fwd+P    | The opponent burns                          |
+Shippuu Ouken:           | Zan'ei ken QCF+P | The opponent flies more than in normal mode |
+Shouryuu Dan:            | DPF+P            | On the last hit, the opponent burns         |
+Kuuha dan:               | HCF+K            | On the last hit, the opponent burns         |
+Gekiheki Haisui Shou:    | close HCF+P      | Nothing in particular (except the damages)  |
+Gen'ei Shiranui:         | jump HCF+K       | Opponent burns                              |
+Shimo Agito:             | GE-shira. then P | The opponent falls                          |
+Uwa Agito:               | GE-shira. then K | The opponent flies                          |
+Yami Abise Geri:         | DPB+K            | Makes opponent flying, cancelable at landing|
+-------------------------+------------------+---------------------------------------------+
+
+webmaster@ryuji-yamazaki.zzn.com
+http://run.to/ironmugen
+===================

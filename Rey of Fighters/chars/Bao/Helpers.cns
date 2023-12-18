@@ -1,0 +1,1572 @@
+;=====================================================
+;Max-On (1/4)
+;=====================================================
+[Statedef 70099]
+type = S
+ctrl = 0
+anim = 70099
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 1
+poweradd = -1000
+
+[State 700];
+type = PlaySnd
+trigger1 = animelem = 1
+value = 8,1
+
+[state a]
+type = varset
+trigger1 = time = 0
+v = 6
+value = 900
+
+[State a]
+type = Explod
+trigger1 = animelem = 1
+anim = 7002
+sprpriority = -3
+postype = p1
+pos = -10,-90
+bindtime = 1
+under = 0
+ownpal = 1
+supermovetime = 999
+
+[State 1020, 4]
+type = EnvShake
+trigger1 = animelem = 3
+time = 10
+ampl = -5
+freq = 95
+phase = 95
+
+[State 195, 2]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+;=====================================================
+;Max-On (1/4)
+;=====================================================
+[Statedef 70199]
+type = S
+ctrl = 0
+anim = 70199
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 1
+poweradd = -2000
+
+[State 00];
+type = PlaySnd
+trigger1 = time = 0
+value = 7500,0
+
+[State a]
+type = helper
+trigger1 = time = 0
+stateno = 70091
+sprpriority = -3
+postype = p1
+pos = -15,0
+bindtime = 1
+under = 0
+ownpal = 1
+supermovetime = 999
+
+[state a]
+type = varset
+trigger1 = time = 0
+v = 6
+value = 900
+
+[State 1990, mode]
+type = Changestate
+TRIGGERALL = VAR(56)>0
+trigger1 = command = "holdfwd5"
+value = 100
+ctrl = 1
+
+[State 1990, 4]
+type = ChangeState
+TRIGGERALL = VAR(56)>0
+trigger1 = animtime = 0
+trigger1 = command != "holdfwd5"
+value = 0
+ctrl = 1
+
+[State 1990, mode]
+type = Changestate
+TRIGGERALL = VAR(56)=0
+trigger1 = command = "holdfwd"
+value = 100
+ctrl = 1
+
+[State 1990, 4]
+type = ChangeState
+TRIGGERALL = VAR(56)=0
+trigger1 = animtime = 0
+trigger1 = command != "holdfwd"
+value = 0
+ctrl = 1
+
+;====================================================
+;SOMBRA MAX ON
+;====================================================
+[Statedef 70091]
+type = S
+ctrl = 0
+anim = 70091
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 1
+
+[State a];1
+type = palfx
+trigger1 = gametime % 2 = 0
+time = 1
+add = 100,100,40
+ignorehitpause = 1
+
+[State 7000, DestroySelf]
+type = DestroySelf
+trigger1 = animTime = 0
+
+;----------------------------
+
+;=====================================================
+;Max-On (3/4)
+;=====================================================
+[Statedef 7750]
+type = A
+ctrl = 0
+anim = 10000
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 10
+
+;---------------------[]
+[state a]
+type = varset
+trigger1 = time = 0
+v = 1
+value = 0
+
+[state a]
+type = changestate
+triggerall = root,movetype != H
+trigger1 = root,var(6) = 900
+value = 7751
+
+
+
+
+[state a]
+type = changestate
+triggerall = root,movetype != H
+trigger1 = root,var(6) = 900
+trigger2 = root,stateno = 70199
+value = 7751
+
+
+[state a]
+type = changestate
+triggerall = root,movetype != H
+trigger1 = root,var(6) = 900
+trigger2 = root,stateno = 70099
+value = 7751
+
+;=====================================================
+;Max-On (4/4)
+;=====================================================
+[Statedef 7751]
+type = A
+ctrl = 0
+anim = 1000099
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 10
+
+
+[state a]
+type = null;Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256, 256
+
+;---------------------[]
+[state -2,a];ÉQÅ[ÉWòga
+type = Explod
+triggerall = RoundState <= 2
+trigger1 = Facing = 1
+trigger1 = numexplod(7730) = 0
+anim = 7730
+id = 7730
+postype = back
+bindtime = -1
+pos = 56,221
+sprpriority = 996
+removetime = -1
+ownpal = 1
+;ontop = 1
+IGNOREHITPAUSE = 1
+[state -2,a];ÉQÅ[ÉWòga
+type = Explod
+triggerall = RoundState <= 2
+trigger1 = Facing = -1
+trigger1 = numexplod(7730) = 0
+anim = 7731
+id = 7730
+postype = back
+bindtime = -1
+pos = 56,221
+sprpriority = 996
+removetime = -1
+ownpal = 1
+facing = 1
+;ontop = 1
+IGNOREHITPAUSE = 1
+[state a]
+type = ModifyExplod
+trigger1 = time <= 33
+ID = 7730
+scale = 1,var(1)*0.01
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+id = 7730
+
+;---------------------[]
+[state a]
+type = varset
+trigger1 = time = 0
+v = 1
+value = 0
+
+[state a]
+type = varadd
+trigger1 = time <= 4
+v = 1
+value = 20
+
+[state a]
+type = varset
+trigger1 = time = 5
+v = 1
+value = 100
+
+[state a]
+type = varadd
+trigger1 = time >= 27
+v = 1
+value = -20
+
+[state a]
+type = varset
+trigger1 = time = 32
+v = 1
+value = 100
+
+;---------------------[]
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+;---------------------[ÉQÅ[ÉWó ]
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = RoundState <= 2
+trigger1 = Facing = 1
+trigger1 = time >= 32
+anim = 7732
+id = 7732
+postype = left
+bindtime = -1
+pos = 56,221;5+4
+sprpriority = 997
+;removetime = -1
+ownpal = 1
+;ontop = 1
+IGNOREHITPAUSE = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = RoundState <= 2
+trigger1 = Facing = -1
+trigger1 = time >= 32
+anim = 7732
+id = 7732
+postype = right
+bindtime = -1
+pos = -56,221
+sprpriority = 997
+;removetime = -1
+ownpal = 1
+facing = -1
+;ontop = 1
+IGNOREHITPAUSE = 1
+[state a]
+type = ModifyExplod
+trigger1 = 1
+ID = 7732
+scale = root,var(6) * 0.001112,1
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+id = 7732
+
+;---------------------[]
+[state a]
+type = removeexplod
+trigger1 = root,var(6) = 0
+id = 7730
+
+[state a]
+type = removeexplod
+trigger1 = root,var(6) = 0
+id = 7732
+
+[state a]
+type = changestate
+trigger1 = root,var(6) = 0
+value = 7750
+
+;======================================================
+;     FONDO UM  BY VANS   EDICION 0
+;======================================================
+[Statedef 40001]
+anim = 9999
+
+[STATE 1,0]
+type = AssertSpecial
+trigger1 = 1
+flag = noBG
+flag2 = noFG
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15600)
+trigger1 = !time
+anim = 15600
+ID = 15600
+pos = 0,0
+postype = left
+removetime = 10
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -50
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+persistent = 0
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15601) < 2
+trigger1 = !time
+trigger2 = (time%10) = 0
+anim = 15600
+ID = 15601
+pos = 320,0
+postype = left
+removetime = 20
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -50
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15610)
+trigger1 = !time
+anim = 15601
+ID = 15610
+pos = 0,0
+postype = left
+removetime = 20
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -50
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+bindtime = -1
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15611) < 2
+trigger1 = !time
+trigger2 = (time%20) = 0
+anim = 15601
+ID = 15611
+pos = 320,0
+postype = left
+removetime = 40
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -50
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15620)
+trigger1 = !time
+anim = 15602
+ID = 15620
+pos = 0,0
+postype = left
+removetime = 40
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -50
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+bindtime = -1
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15621) < 2
+trigger1 = !time
+trigger2 = (time%40) = 0
+anim = 15602
+ID = 15621
+pos = 320,0
+postype = left
+removetime = 80
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -50
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15630)
+trigger1 = !time
+anim = 15603
+ID = 15630
+pos = 0,0
+postype = left
+removetime = 80
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -50
+ownpal = 1
+ignorehitpause = 1
+persistent = 0
+bindtime = -1
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15631) < 2
+trigger1 = !time
+trigger2 = (time%80) = 0
+anim = 15603
+ID = 15631
+pos = 320,0
+postype = left
+removetime = 160
+pausemovetime = -1
+supermovetime = -1
+scale = 1,1
+sprpriority = -50
+ownpal = 1
+ignorehitpause = 1
+bindtime = -1
+
+
+
+[State 40001, Glass Break]
+type = ChangeState
+trigger1 = parent, stateno != [3400,3400] ; Aqui La Primera Y Animacion Final Del Ataque
+trigger2 = Parent,Stateno = 2500 && Parent,Time >= 200 ;Aqui Regulas EL Tiempo De La Primera Animacion (Esto Sera Lo Que Demora EL fondo Verde Antes De Convertirse A Broken Glass
+trigger3 = Parent,Stateno = 2510 && Parent,Time >= 90 ;Aqui Regulas El Tiempo Del Broken (Se Paciente No De La Primera Vez Saldra Ve Regulandole Hasta Que El Se Rompa En El Ultimo Hit)
+value = stateno+1
+
+;======================================================
+; FONDO UM BY VANS EDICION 0   - CRISTAL -
+;======================================================
+
+
+[Statedef 40002]
+anim = 9999
+
+[STATE 1,0]
+type = RemoveExplod
+trigger1 = !time
+id = 15600
+[STATE 1,0]
+type = RemoveExplod
+trigger1 = !time
+id = 15601
+[STATE 1,0]
+type = RemoveExplod
+trigger1 = !time
+id = 15610
+[STATE 1,0]
+type = RemoveExplod
+trigger1 = !time
+id = 15611
+[STATE 1,0]
+type = RemoveExplod
+trigger1 = !time
+id = 15620
+[STATE 1,0]
+type = RemoveExplod
+trigger1 = !time
+id = 15621
+[STATE 1,0]
+type = RemoveExplod
+trigger1 = !time
+id = 15630
+[STATE 1,0]
+type = RemoveExplod
+trigger1 = !time
+id = 15631
+
+[STATE 1,0]
+type = PlaySnd
+trigger1 = !time
+value = 8,7
+volume = 255
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15640)
+trigger1 = !time
+anim = 15604
+ID = 15640
+pos = 0,0
+postype = left
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+scale = 1,1
+sprpriority = -50
+ownpal = 1
+bindtime = -1
+ignorehitpause = 1
+
+[STATE 1,0]
+type = DestroySelf
+trigger1 = time = 1
+
+;==========================================================================
+;==========================================================================
+[Statedef 40003]
+anim = 9999
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15650)
+triggerall = teamside = 1
+trigger1 = !time
+anim = 15605
+ID = 15650
+pos = 0,abs((240*var(0))-81)
+postype = left
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+bindtime = -1
+scale = 1,1
+sprpriority = -46
+ownpal = 1
+ignorehitpause = 1
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15651)
+triggerall = teamside = 2
+trigger1 = !time
+anim = 15606
+ID = 15651
+pos = 0,abs((240*var(0))-81)
+postype = right
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+bindtime = -1
+scale = 1,1
+facing = -1
+sprpriority = -46
+ownpal = 1
+ignorehitpause = 1
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15660)
+triggerall = teamside = 1
+trigger1 = !time
+anim = 15607
+ID = 15660
+pos = 0,abs((240*var(0))-81)
+postype = left
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+bindtime = -1
+scale = 1,1
+sprpriority = -45
+ownpal = 1
+ignorehitpause = 1
+
+
+
+[STATE 1,0]
+type = Explod
+triggerall = !numexplod(15661)
+triggerall = teamside = 2
+trigger1 = !time
+anim = 15607
+ID = 15661
+pos = 0,abs((240*var(0))-81)
+postype = right
+pausemovetime = -1
+supermovetime = -1
+removetime = -2
+bindtime = -1
+scale = 1,1
+facing = -1
+sprpriority = -45
+ownpal = 1
+ignorehitpause = 1
+
+
+
+
+
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 2
+ID = 15650
+scale = 1,0.3
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 4
+ID = 15650
+scale = 1,0.54
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 6
+ID = 15650
+scale = 1,0.77
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 8
+ID = 15650
+scale = 1,1
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 56
+ID = 15650
+scale = 1,0.77
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 57
+ID = 15650
+scale = 1,0.54
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 58
+ID = 15650
+scale = 1,0.3
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 59
+ID = 15650
+scale = 1,1
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 2
+ID = 15651
+scale = 1,0.3
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 4
+ID = 15651
+scale = 1,0.54
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 6
+ID = 15651
+scale = 1,0.77
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 8
+ID = 15651
+scale = 1,1
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 56
+ID = 15651
+scale = 1,0.77
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 57
+ID = 15651
+scale = 1,0.54
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 58
+ID = 15651
+scale = 1,0.3
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 59
+ID = 15651
+scale = 1,1
+
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 2
+ID = 15660
+scale = 1,0.3
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 4
+ID = 15660
+scale = 1,0.54
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 6
+ID = 15660
+scale = 1,0.77
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 8
+ID = 15660
+scale = 1,1
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 56
+ID = 15660
+scale = 1,0.77
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 57
+ID = 15660
+scale = 1,0.54
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 58
+ID = 15660
+scale = 1,0.3
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 59
+ID = 15660
+scale = 1,1
+
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 2
+ID = 15661
+scale = 1,0.3
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 4
+ID = 15661
+scale = 1,0.54
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 6
+ID = 15661
+scale = 1,0.77
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 8
+ID = 15661
+scale = 1,1
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 56
+ID = 15661
+scale = 1,0.77
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 57
+ID = 15661
+scale = 1,0.54
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 58
+ID = 15661
+scale = 1,0.3
+[STATE 1,0]
+type = ModifyExplod
+trigger1 = time = 59
+ID = 15661
+scale = 1,1
+
+[STATE 1,0]
+type = DestroySelf
+trigger1 = time = 60
+
+;P2 PARA QUE NO CHOQUEN
+[Statedef 40004]
+anim = 9999
+
+[STATE 1,0]
+type = DestroySelf
+trigger1 = time = 1
+
+;=====================================================
+;Power Bar Code
+;=====================================================
+[Statedef 7500]
+type = A
+ctrl = 0
+anim = 9999
+velset = 0,0
+movetype = I
+physics = N
+sprpriority = 10
+
+[state a]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+flag2 = invisible
+
+[state a]
+type = null;Trans
+trigger1 = 1
+trans = addalpha
+alpha = 256, 256
+
+
+;---------------------[]
+[state -2,a];ÉQÅ[ÉWòga
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7501) = 0
+anim = 7501
+id = 7501
+postype = back
+bindtime = -1
+pos = 36,230
+sprpriority = 98
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWòga
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7501) = 0
+anim = 7501
+id = 7501
+postype = back
+bindtime = -1
+pos = 36,230
+sprpriority = 98
+removetime = -1
+ownpal = 1
+facing = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWògb
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7502) = 0
+anim = 7502
+id = 7502
+postype = back
+bindtime = -1
+pos = 36,230
+sprpriority = 98
+removetime = -1
+ownpal = 1
+ontop = 1
+trans = addalpha
+alpha = 250,130
+
+[state -2,a];ÉQÅ[ÉWògb
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7502) = 0
+anim = 7502
+id = 7502
+postype = back
+bindtime = -1
+pos = 36,230
+sprpriority = 98
+removetime = -1
+ownpal = 1
+facing = 1
+ontop = 1
+trans = addalpha
+alpha = 250,130
+
+;---------------------[ÉQÅ[ÉWó ]
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7520) = 0
+anim = 7520
+id = 7520
+postype = left
+bindtime = -1
+pos = 36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7521) = 0
+anim = 7521
+id = 7521
+postype = left
+bindtime = -1
+pos = 36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7522) = 0
+anim = 7522
+id = 7522
+postype = left
+bindtime = -1
+pos = 36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7523) = 0
+anim = 7523
+id = 7523
+postype = left
+bindtime = -1
+pos = 36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7524) = 0
+anim = 7524
+id = 7524
+postype = left
+bindtime = -1
+pos = 36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7520) = 0
+anim = 7520
+id = 7520
+postype = right
+bindtime = -1
+pos = -36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+facing = -1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7521) = 0
+anim = 7521
+id = 7521
+postype = right
+bindtime = -1
+pos = -36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+facing = -1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7522) = 0
+anim = 7522
+id = 7522
+postype = right
+bindtime = -1
+pos = -36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+facing = -1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7523) = 0
+anim = 7523
+id = 7523
+postype = right
+bindtime = -1
+pos = -36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+facing = -1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWó 
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7524) = 0
+anim = 7524
+id = 7524
+postype = right
+bindtime = -1
+pos = -36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+facing = -1
+ontop = 1
+
+;ÉQÅ[ÉWLV1
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7520)
+ID = 7520;      power***Å`***ÇÃä‘ÇÕXsizeÇïœìÆÅA***à»è„Ç≈Xsize=.52ÅAÇªÇÍà»äOÇÕXsize=0Ç≈è¡Ç∑ÅB
+scale = ifelse((root,Power<1000),(root,Power)/1000.0,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ÉQÅ[ÉWLV2
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7521)
+ID = 7521;      power***Å`***ÇÃä‘ÇÕXsizeÇïœìÆÅA***à»è„Ç≈Xsize=.52ÅAÇªÇÍà»äOÇÕXsize=0Ç≈è¡Ç∑ÅB
+scale = ifelse((root,Power=[1000,1999]),(root,Power-1000)/1000.0,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ÉQÅ[ÉWLV3
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7522)
+ID = 7522;      power***Å`***ÇÃä‘ÇÕXsizeÇïœìÆÅA***à»è„Ç≈Xsize=.52ÅAÇªÇÍà»äOÇÕXsize=0Ç≈è¡Ç∑ÅB
+scale = ifelse((root,Power=[2000,2999]),(root,Power-2000)/1000.0,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ÉQÅ[ÉWLV4
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7523)
+ID = 7523;      power***Å`***ÇÃä‘ÇÕXsizeÇïœìÆÅA***à»è„Ç≈Xsize=.52ÅAÇªÇÍà»äOÇÕXsize=0Ç≈è¡Ç∑ÅB
+scale = ifelse((root,Power=[3000,3999]),(root,Power-3000)/1000.0,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ÉQÅ[ÉWLV5
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7524)
+ID = 7524;      power***Å`***ÇÃä‘ÇÕXsizeÇïœìÆÅA***à»è„Ç≈Xsize=.52ÅAÇªÇÍà»äOÇÕXsize=0Ç≈è¡Ç∑ÅB
+scale = ifelse((root,Power=[4000,4999]),(root,Power-4000)/1000.0,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+
+[state -2,a];MAX
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = power >= 5000
+trigger1 = numexplod(7525) = 0
+anim = 7525
+id = 7525
+postype = left
+bindtime = -1
+pos = 36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];MAX
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = power >= 5000
+trigger1 = numexplod(7525) = 0
+anim = 7526
+id = 7525
+postype = right
+bindtime = -1
+pos = -36,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+facing = -1
+ontop = 1
+
+[state a]
+type = removeexplod
+trigger1 = power < 5000
+id = 7525
+
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7510) = 0
+anim = 7510
+id = 7510
+postype = back
+bindtime = -1
+pos = 17,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7511) = 0
+anim = 7511
+id = 7511
+postype = back
+bindtime = -1
+pos = 17,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7512) = 0
+anim = 7512
+id = 7512
+postype = back
+bindtime = -1
+pos = 17,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7513) = 0
+anim = 7513
+id = 7513
+postype = back
+bindtime = -1
+pos = 17,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7514) = 0
+anim = 7514
+id = 7514
+postype = back
+bindtime = -1
+pos = 17,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = 1
+trigger1 = numexplod(7515) = 0
+anim = 7515
+id = 7515
+postype = back
+bindtime = -1
+pos = 17,230
+sprpriority = 97
+removetime = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7510) = 0
+anim = 7510
+id = 7510
+postype = back
+bindtime = -1
+pos = 16,230
+sprpriority = 97
+removetime = -1
+facing = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7511) = 0
+anim = 7511
+id = 7511
+postype = back
+bindtime = -1
+pos = 16,230
+sprpriority = 97
+removetime = -1
+facing = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7512) = 0
+anim = 7512
+id = 7512
+postype = back
+bindtime = -1
+pos = 16,230
+sprpriority = 97
+removetime = -1
+facing = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7513) = 0
+anim = 7513
+id = 7513
+postype = back
+bindtime = -1
+pos = 16,230
+sprpriority = 97
+removetime = -1
+facing = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7514) = 0
+anim = 7514
+id = 7514
+postype = back
+bindtime = -1
+pos = 16,230
+sprpriority = 97
+removetime = -1
+facing = -1
+ownpal = 1
+ontop = 1
+
+[state -2,a];ÉQÅ[ÉWêî
+type = Explod
+triggerall = root,var(37) = 0
+trigger1 = Facing = -1
+trigger1 = numexplod(7515) = 0
+anim = 7515
+id = 7515
+postype = back
+bindtime = -1
+pos = 16,230
+sprpriority = 97
+removetime = -1
+facing = -1
+ownpal = 1
+ontop = 1
+
+;ÉQÅ[ÉWLV1
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7510)
+ID = 7510
+scale = ifelse((root,Power<1000),1,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ÉQÅ[ÉWLV2
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7511)
+ID = 7511
+scale = ifelse((root,Power=[1000,1999]),1,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ÉQÅ[ÉWLV3
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7512)
+ID = 7512
+scale = ifelse((root,Power=[2000,2999]),1,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ÉQÅ[ÉWLV4
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7513)
+ID = 7513
+scale = ifelse((root,Power=[3000,3999]),1,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ÉQÅ[ÉWLV5
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7514)
+ID = 7514
+scale = ifelse((root,Power=[4000,4999]),1,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+;ÉQÅ[ÉWLV5
+[State 3802]
+type = ModifyExplod
+trigger1 = NumExplod(7515)
+ID = 7515
+scale = ifelse((root,Power>=5000),1,0),1
+ignorehitpause = 1
+supermovetime = 999
+pausemovetime = 999
+
+[State 7500, RemoveExplod]
+type = RemoveExplod
+trigger1 = root,var(37) = 1
+trigger3 = matchover = 1
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7501
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7502
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7510
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7511
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7512
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7513
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7514
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7515
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7520
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7521
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7522
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7523
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7524
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7525
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7526
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7900
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7901
+
+
+[state a]
+type = removeexplod
+trigger1 = RoundState > 2
+trigger2 = matchover = 1
+trigger3 = WinKo
+IgnoreHitPause = 1
+id = 7902
+
+

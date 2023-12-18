@@ -1,0 +1,33 @@
+[Info]
+Name="Sie Kensou"
+DisplayName="Sie Kensou"
+Author="syu takazaki"
+Pal.Defaults=5,9
+versiondate=6/21/2013
+mugenversion=
+
+[Files]
+cmd     =kensou.cmd
+cns     =kensou.cns 
+st      =kensou.cns
+stcommon =common1.cns
+sprite  =kensou.sff
+anim    =kensou.air
+sound   =kensou.snd
+pal1=kensou0.act
+pal2=kensou2.act
+pal3=kensou3.act
+pal4=kensou4.act
+pal5=kensou5.act
+pal6=kensou6.act
+pal7=kensou7.act
+pal8=kensou8.act
+pal9=kensou9.act
+pal10=kensou10.act
+pal11=kensou11.act
+pal12=kensou12.act
+st1=option.txt
+st2=helpers.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

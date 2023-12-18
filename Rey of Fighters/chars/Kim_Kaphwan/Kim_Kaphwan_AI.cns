@@ -1,0 +1,647 @@
+;---------------------------------------------------------------------------
+[Statedef -3]
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+;---------------------------------------------------------------------------
+;---------------------------------------------------------------------------
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52
+trigger2 = stateno = 106
+value = 41, 0
+
+[State -3, 2];ジャンプ音
+type = PlaySnd
+triggerall = time = 1
+trigger1 = stateno = 40
+trigger1 = var(15) <= 0
+value = 40, 0
+channel = 3
+
+[State -3, 2];ジャンプ音
+type = PlaySnd
+triggerall = time = 1
+trigger1 = stateno = 40
+trigger1 = var(15) > 1
+value = 40, 1
+channel = 3
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ハイジャンプ処理
+[State -3, 5];ハイジャンプ判定
+type = varset
+trigger1 = stateno = 10
+trigger1 = time = 0
+trigger2 = stateno = 100
+v = 15
+value = 20
+
+[State -3, 5];ハイジャンプ消去
+type = varset
+trigger1 = stateno = 52
+trigger1 = time = 0
+v = 15
+value = 0
+
+; 小ジャンプ処理
+[State -3, 5];小ジャンプ判定
+type = varset
+trigger1 = stateno = 40
+trigger1 = command != "holdup"
+v = 16
+value = 1
+
+[State -3, 5];小ジャンプ消去
+type = varset
+trigger1 = stateno = 40
+trigger1 = command = "holdup"
+v = 16
+value = 0
+
+[State -3, 5]
+type = velset
+trigger1 = stateno = 50
+trigger1 = anim = 42
+trigger1 = time = 1
+trigger1 = var(15) >= 1
+x = 5
+;y = -9
+
+
+[State -3, 5]
+type = velset
+trigger1 = stateno = 50
+trigger1 = anim = 43
+trigger1 = time = 1
+trigger1 = var(15) >= 1
+x = -5
+;y = -9
+
+[State -3, 5];小ジャンプ
+type = veladd
+trigger1 = stateno = 50
+trigger1 = time = 1
+trigger1 = var(16) = 1
+y = 3
+
+[State -3, 5]
+type = AfterImage
+trigger1 = stateno = 50
+trigger1 = time = 1
+trigger1 = var(15) >= 1
+time = 10
+trans = add1
+timegap = 1
+framegap = 2
+length = 8
+palbright = 12,12,12
+palcontrast = 225,225,225
+palpostbright = 0,0,0
+paladd = 0,0,0
+palmul = 1,1,1
+
+[State -3, BgPalfx]
+type = BgPalfx
+trigger1 = matchover
+trigger1 = winko
+trigger1 = p2movetype = H
+trigger1 = TeamMode = single
+mul = 220,220,220
+ignorehitpause = 1
+time = 900
+color = 0
+
+[State -3, AssertSpecial]
+type = AssertSpecial
+trigger1 = matchover
+trigger1 = winko
+flag = nomusic
+ignorehitpause = 1
+
+;===============================================================================
+;===============================================================================
+
+[State -3]
+Type = VarAdd
+trigger1 = var(59) = 1
+Triggerall = Var(57) = [1,9]
+Trigger1 = stateno = 199 && time = 1
+var(57) = 1
+IgnoreHitPause = 1
+
+[state -3, AILV]
+Type = VarSet
+Trigger1 = !var(57)
+var(57) = 9
+
+[State -3, VarSet]
+Type = VarSet
+Trigger1 = NumEnemy = 1
+Trigger2 = NumEnemy = 2
+Trigger2 = EnemyNear,Life > 0
+var(58) = 0
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -3, VarSet]
+Type = VarSet
+Trigger1 = NumEnemy > 1
+Trigger1 = Enemynear,Life = 0
+var(58) = 1
+IgnoreHitPause = 1
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;  AI optimization code 1: projectile limitter ---------------------------------
+[State -3, AI Hadouken off ]
+type = Varset
+triggerall = var(59) = 1
+triggerall = enemynear(var(58)),numproj >= 1 || (enemynear(var(58)),movetype = A && enemynear(var(58)),numhelper >= 1)
+Trigger1 = !NumProj
+trigger1 = movetype = H && !enemynear(var(58)),moveguarded
+trigger2 = !animtime
+Trigger2 = !NumProj
+Trigger2 = stateno = 1000
+trigger3 = enemynear(var(58)),MoveType != H
+trigger3 =(enemynear(var(58)),stateno = [3000,4999])||(enemynear(var(58)),stateno = [5000,7900])
+Trigger4 = stateno = 52
+Trigger5 = StateType = A
+trigger6 = Stateno = [5100,5210]
+var(19) = 1
+
+[State -3, AI Hadouken on ]
+type = Varset
+triggerall = var(59) = 1
+trigger1 = enemynear(var(58)),moveguarded
+trigger2 = p2bodydist y < -80
+trigger3 = enemynear(var(58)),MoveType = H
+var(19) = 0
+
+;  AI optimization code 3: Enemy Size Detector ---------------------------------
+[State -3, VERY Big Enemy]
+type = Varset
+trigger1 = var(59) = 1
+Trigger1 = var(25) != 4
+trigger1 = Enemy, Const(size.head.pos.y) < -120
+var(25) = 4
+
+[State -3, Big Enemy]
+type = Varset
+triggerAll = var(59) = 1
+TriggerAll = var(25) != 3
+trigger1 = Enemy, Const(size.head.pos.y) = [-120,-110]
+var(25) = 3
+
+[State -3, Medium&Default Enemy]
+type = Varset
+trigger1 = var(59) = 1
+Trigger1 = var(25) != 2
+trigger1 = Enemy, Const(size.head.pos.y) = [-110,-90]
+trigger2 = Enemy, Const(size.head.pos.y) = 0
+var(25) = 2
+
+[State -3, Small Enemy]
+type = Varset
+trigger1 = var(59) = 1
+Trigger1 = var(25) != 1
+trigger1 = Enemy, Const(size.head.pos.y) = [-90,-70]
+var(25) = 1
+
+[State -3, VERY Small Enemy]
+type = Varset
+trigger1 = var(59) = 1
+Trigger1 = var(25) = 1
+trigger1 = Enemy, Const(size.head.pos.y) = [-70,-1]
+var(25) = 0
+
+;AI optimization code 4: "In the Enemy's back" Detector ------------------------
+[State -3, In Enemy's Back]
+type = Varset
+triggerAll = var(59)
+TriggerAll = !var(29)
+trigger1 = Enemy, p2dist x < 0
+trigger2 = enemynear(var(58)),MoveType = H
+var(29) = 1
+
+[State -3, NOT In Enemy's Back]
+type = Varset
+trigger1 = var(59)
+Trigger1 = var(29)
+trigger1 = Enemy, p2dist x > 0
+trigger1 = enemynear(var(58)),MoveType != H
+var(29) = 0
+
+;Out of corner code ------------------------------------------------------------
+[State -3, Safety]
+Type = width
+Trigger1 = enemynear(var(58)),StateType != S
+Trigger1 = enemynear(var(58)),StateType != C
+Trigger1 = enemynear(var(58)),MoveType = H
+Trigger2 = enemynear(var(58)),StateNo = 5120
+edge = 15,0
+ignorehitpause = 1
+
+;Reduce Speed when near to corner ----------------------------------------------
+[State -3, Slow ]
+type = VelSet
+trigger1 = FrontEdgeDist < 10 && Vel x > 0.1
+x = 0.1
+
+;Increase Defensive Power when life < 50% --------------------------------------
+[State -3,def up]
+type = DefenceMulSet
+trigger1 = !var(59)
+trigger1 = Life > const(data.life)/2
+value = 1+.5
+ignorehitpause = 1
+
+[State -3,def up]
+type = DefenceMulSet
+trigger1 = var(59)
+trigger1 = Life > const(data.life)/2
+value = 1-.2
+ignorehitpause = 1
+
+[State -3,def up]
+type = DefenceMulSet
+trigger1 = !var(59)
+trigger1 = Life <= const(data.life)/2
+value = ifelse(life <= const(data.life)/4,.7,.8)+.5
+ignorehitpause = 1
+
+[State -3,def up]
+type = DefenceMulSet
+trigger1 = var(59)
+trigger1 = Life <= const(data.life)/2
+value = ifelse(life <= const(data.life)/4,.7,.8)-.2
+ignorehitpause = 1
+
+; AI Randomizer ----------------------------------------------------------------
+
+[State -3, Random AI]
+type = VarRandom
+trigger1 = gametime%900 = 0
+trigger1 = var(59) = 1
+v = 53
+range = 0,3
+ignorehitpause = 1
+
+;  AI Guard detector --------------------------------------------------------------------
+[State -3, enemy guard]
+type = VarAdd
+trigger1 = var(59)
+trigger1 = var(52) < 60
+trigger1 = EnemyNear, command = "holdback"
+trigger1 = p2Bodydist x < 100
+trigger1 = p2MoveType != H
+var(52) = 1
+ignorehitpause = 1
+
+[State -3, enemy guard]
+type = VarSet
+trigger1 = var(52) > 60
+var(52) = 60
+ignorehitpause = 1
+
+[State -3, enemy guard]
+type = Varadd
+trigger1 = var(52)
+trigger1 = EnemyNear, command != "holdback"
+var(52) = -1
+ignorehitpause = 1
+
+[State -3, enemy guard]
+type = VarSet
+trigger1 = var(52) < 0
+trigger2 = EnemyNear, command = "holdfwd"
+trigger2 = var(52) > 0
+var(52) = 0
+ignorehitpause = 1
+
+; FIX zzzasd throw bug --------------------------------------------------------
+[State -3, zzzasd bugfix]
+type = ChangeAnim
+trigger1 = StateNo = 812
+trigger1 = Anim = 200
+value = 306
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------
+
+[State -3, AI Helper Check]
+type=helper
+trigger1 = !NumHelper(10001)
+trigger1 = !ishelper
+trigger1 = (roundstate = 1 || roundstate = 2 && ctrl)
+trigger1 = alive
+trigger1 = !var(59)
+trigger1 = PrevStateNo = 5900
+trigger1 = stateno=0
+helpertype = normal
+name = "Kim_Kaphwan_AI"
+stateno = 10001
+ID = 10001
+pos = 9999,9999
+keyctrl = 1
+pausemovetime = 2147483647
+supermovetime = 2147483647
+persistent = 0
+
+[State -3,、I Helper Check]
+type=changestate
+trigger1 = ishelper
+trigger1 = ishelper(10001) && (stateno !=10001)
+value = 10001
+
+;===============================================================================
+
+[State -3, AI]
+type = VarSet
+triggerall = !ishelper
+triggerall = var(59) != 1
+Triggerall = RoundState = [1,2]
+trigger1 = Command = "AI0"
+trigger2 = Command = "AI1"
+trigger3 = Command = "AI2"
+trigger4 = Command = "AI3"
+trigger5 = Command = "AI4"
+trigger6 = Command = "AI5"
+trigger7 = Command = "AI6"
+trigger8 = Command = "AI7"
+trigger9 = Command = "AI8"
+trigger10 = Command = "AI9"
+trigger11 = Command = "AI10"
+trigger12 = Command = "AI11"
+trigger13 = Command = "AI12"
+trigger14 = Command = "AI13"
+trigger15 = Command = "AI14"
+trigger16 = Command = "AI15"
+trigger17 = Command = "AI16"
+trigger18 = Command = "AI17"
+trigger19 = Command = "AI18"
+trigger20 = Command = "AI19"
+trigger21 = Command = "AI20"
+trigger22 = Command = "AI21"
+trigger23 = Command = "AI22"
+trigger24 = Command = "AI23"
+trigger25 = Command = "AI24"
+trigger26 = Command = "AI25"
+trigger27 = Command = "AI26"
+trigger28 = Command = "AI27"
+trigger29 = Command = "AI28"
+trigger30 = Command = "AI29"
+trigger31 = Command = "AI30"
+trigger32 = Command = "AI31"
+trigger33 = Command = "AI32"
+trigger34 = Command = "AI33"
+trigger35 = Command = "AI34"
+trigger36 = Command = "AI35"
+trigger37 = Command = "AI36"
+trigger38 = Command = "AI37"
+trigger39 = Command = "AI38"
+trigger40 = Command = "AI39"
+trigger41 = Command = "AI40"
+trigger42 = Command = "AI41"
+trigger43 = Command = "AI42"
+trigger44 = Command = "AI43"
+trigger45 = Command = "AI44"
+trigger46 = Command = "AI45"
+trigger47 = Command = "AI46"
+trigger48 = Command = "AI47"
+trigger49 = Command = "AI48"
+trigger50 = Command = "AI49"
+trigger51 = Command = "AI50"
+trigger52 = numhelper(10001)
+trigger52 = helper(10001),var(59)
+trigger52 = Helper(10001),time > 5
+var(59) = 1
+ignorehitpause = 1
+persistent = 1
+
+[State -3, AI]
+type = null;VarSet
+triggerall =!ishelper
+triggerall = var(59) != 1
+triggerall = RoundState = 2
+trigger1 = (stateno = [2300,2399]) && movehit
+trigger2 = movetype = H
+var(59) = 1
+
+[State -3, AItest]
+type = null;PowerSet
+trigger1 = roundstate = 1
+value = 1000
+
+;===============================================================================
+[Statedef 30000]
+anim = 0
+ctrl = 0
+
+[State 30000, Facing]
+type = Turn
+trigger1 = (var(59):=(Facing != Parent,Facing))
+
+[State 30000, AssertSpecial]
+type = AssertSpecial
+Trigger1 = 1
+flag = NoShadow
+flag2 = invisible
+
+[State 30000, 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA, NA, SA, HA, NP, SP, HP, NT, ST, HT
+ignorehitpause = 1
+
+[State 30000, 2]
+type = LifeSet
+trigger1 = 1
+value = LifeMax
+ignorehitpause = 1
+
+[State 30000, 3]
+type = HitOverride
+trigger1 = 1
+attr = SCA, NA, SA, HA, NP, SP, HP, NT, ST, HT
+stateno = 0
+ignorehitpause = 1
+
+[State 30000, 4]
+type = SelfState
+trigger1 = !ishelper
+value = 0
+
+[State 30000,]
+type = VarSet
+trigger1 = command = "up" && root,command = "up"
+trigger2 = command = "down" && root,command = "down"
+trigger3 = command = "back" && root,command = "back"
+trigger4 = command = "fwd" && root,command = "fwd"
+trigger5 = command = "a" && root,command = "a"
+trigger6 = command = "b" && root,command = "b"
+trigger7 = command = "c" && root,command = "c"
+trigger8 = command = "x" && root,command = "x"
+trigger9 = command = "y" && root,command = "y"
+trigger10 = command = "z" && root,command = "z"
+trigger11 = command = "start" && root,command = "start"
+var(59) = -1
+
+[State 30000, 立ったら消失]
+Type = DestroySelf
+triggerall = isHelper
+Trigger1 = root,var(59) || var(59) = -1
+trigger2 = command = "up" && root,command = "up"
+trigger3 = command = "down" && root,command = "down"
+trigger4 = command = "back" && root,command = "back"
+trigger5 = command = "fwd" && root,command = "fwd"
+trigger6 = command = "a" && root,command ="a"
+trigger7 = command = "b" && root,command ="b"
+trigger8 = command = "c" && root,command ="c"
+trigger9 = command = "x" && root,command = "x"
+trigger10 = command = "y" && root,command = "y"
+trigger11 = command = "z" && root,command = "z"
+trigger12 = command = "start" && root,command = "start"
+
+[State 30000, フラグON]
+type = VarSet
+triggerall = var(59) != -1
+trigger1 = root,command = "up"
+trigger2 = root,command = "down"
+trigger3 = root,command = "back"
+trigger4 = root,command = "fwd"
+trigger5 = root,command = "a"
+trigger6 = root,command = "b"
+trigger7 = root,command = "c"
+trigger8 = root,command = "x"
+trigger9 = root,command = "y"
+trigger10 = root,command = "z"
+trigger11 = root,command = "start"
+var(59) = 1
+
+[State 10000,6];AI起動
+type = varset
+triggerall = var(59)=1
+trigger1 = roundstate=2 && root,ctrl
+var(59) = 2
+
+[State 10000,7]
+type = varset
+triggerall = roundstate = 2
+trigger1 = numenemy <= 1
+trigger2 = numenemy >= 2
+trigger2 = (enemy(0),life <= 0 || enemy(1),life <= 0) && enemynear(0),life > 0
+trigger3 = numenemy >= 2
+trigger3 = enemy(0),life > 0 && enemy(1),life > 0
+trigger3 = abs(root,pos x - enemynear(0),pos x) <= abs(root,pos x - enemynear(1),pos x)
+var(34) = 0
+IgnoreHitpause = 1
+
+[State 10000,8]
+type = varset
+triggerall = roundstate = 2
+triggerall = numenemy >= 2
+trigger1 = enemynear(0),life <= 0
+trigger2 = (enemy(0),life <= 0 || enemy(1),life <= 0) && enemynear(0),life <= 0
+trigger3 = enemy(0),life > 0 && enemy(1),life > 0
+trigger3 = abs(root,pos x - enemynear(0),pos x) > abs(root,pos x - enemynear(1),pos x)
+var(34) = 1
+IgnoreHitpause = 1
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;背後に設置
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[state 10000]
+type = turn
+trigger1 = facing*ifelse((enemynear(var(34)),pos x-pos x)>=0,1,-1) < 0
+IgnoreHitpause = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[state 10000]
+type = varset
+trigger1 = enemynear(var(34)),facing*ifelse((enemynear(var(34)),pos x-root,pos x)>=0,1,-1)<=0
+trigger2 = !enemynear(var(34)),hitdefattr = A,NA,SA,HA
+var(35) = 0
+IgnoreHitpause = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[state 10000]
+type = varset
+trigger1 = enemynear(var(34)),facing*ifelse((enemynear(var(34)),pos x-root,pos x)>=0,1,-1)>0
+trigger1 = enemynear(var(34)),hitdefattr = A,NA,SA,HA
+var(35) = 1
+IgnoreHitpause = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+[state 10000]
+type = posset
+trigger1 = 1
+x = root,pos x+ifelse((enemynear(var(34)),pos y<0&&var(35)=1),(enemynear(var(34)),const(size.attack.dist)),(enemynear(var(34)),const(size.proj.attack.dist)))*(enemynear(var(34)),facing)
+IgnoreHitpause = 1
+supermovetime = 9999
+pausemovetime = 9999
+
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;敵の飛び道具の数を計測
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[State 10000]
+type = varset
+triggerall = roundstate = 2 && numenemy <= 1
+trigger1 = !var(36) || var(36) > enemynear(var(34)),numhelper+1
+var(36) = enemynear(var(34)),numhelper+1
+ignorehitpause = 1
+
+[State 10000]
+type = varset
+trigger1 = roundstate = 2 && numenemy >= 2
+trigger1 = !var(36) || var(36) > (enemy(0),numhelper+enemy(1),numhelper+1)
+var(36) = (enemy(0),numhelper+enemy(1),numhelper+1)
+ignorehitpause = 1
+
+[State 10000]
+type = varset
+triggerall = roundstate = 2 && var(36) > 0
+trigger1 = numenemy <= 1
+var(37) = (enemynear(var(34)),numhelper+1) - var(36)
+ignorehitpause = 1
+
+[State 10000]
+type = varset
+triggerall = roundstate = 2 && var(36) > 0
+trigger1 = numenemy >= 2
+var(37) = (enemy(0),numhelper+enemy(1),numhelper+1)-var(36)
+ignorehitpause = 1
+
+[State 10000]
+type = varset
+triggerall = roundstate = 2 && numenemy <= 1
+trigger1 = !var(38) || var(38) > (enemynear(var(34)),numproj+1)
+var(38) = enemynear(var(34)),numproj+1
+ignorehitpause = 1
+
+[State 10000]
+type = varset
+trigger1 = roundstate = 2 && numenemy >= 2
+trigger1 = !var(38) || var(38) > (enemy(0),numproj+enemy(1),numproj+1)
+var(38) = (enemy(0),numproj+enemy(1),numproj+1)
+ignorehitpause = 1
+
+[State 10000]
+type = varset
+triggerall = roundstate = 2
+trigger1 = numenemy <= 1
+var(39) = (enemynear(var(34)),numproj+1) - var(38)
+ignorehitpause = 1
+
+
+;===============================================================================
+
+;-------------------------------------------------------------------------------
+
+
+

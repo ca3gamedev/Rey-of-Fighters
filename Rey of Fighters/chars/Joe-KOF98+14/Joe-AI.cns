@@ -1,0 +1,3548 @@
+;=========================< 常時監視-3 >=========================
+[Statedef -3]
+
+;--- 画面端ヒットバック ---
+[State -3, VarSet]
+type = varset
+trigger1 = numtarget
+trigger1 = target,statetype = S || target,statetype = C
+trigger1 = movecontact = 1
+trigger1 = hitdefattr = SCA,AA || stateno = 3050
+fv = 6
+value = target,gethitvar(xvel)
+
+[State -3, VarSet]
+type = varset
+trigger1 = numtarget
+trigger1 = fvar(6)
+trigger1 = !numhelper(7000) && !numhelper(7010) && !numhelper(7020)
+trigger1 = target,hitshakeover
+fv = 6
+value = fvar(6)*0.85
+
+[State -3, PosAdd]
+type = posadd
+trigger1 = fvar(6)
+trigger1 = numtarget
+trigger1 = !numhelper(7000) && !numhelper(7010) && !numhelper(7020)
+trigger1 = statetype = S || statetype = C
+trigger1 = target,statetype = S || target,statetype = C
+trigger1 = target,backedgebodydist <= 0 || target,frontedgebodydist <= 0
+trigger1 = target,hitshakeover
+trigger1 = fvar(6)*facing > 0
+x = -fvar(6)*facing
+
+;--- ワイヤーダメージ判定 ---
+[State -3, Wire Var]
+type = varset
+trigger1 = numtarget(var(29))
+trigger1 = target(var(29)),stateno = [950,954]
+v = 16
+value = 1
+
+[State -3, Wire Var]
+type = varset
+trigger1 = p2movetype != H
+v = 16
+value = 0
+
+[State -3, Helper]
+type = helper
+trigger1 = !numhelper(954)
+trigger1 = numtarget(var(29))
+trigger1 = target(var(29)),stateno = 950
+helpertype = normal
+name = "Wire Damage"
+stateno = 954
+ID = 954
+postype = p1
+pos = 0,0
+facing = 1
+
+[State -3, PosAdd]
+type = posset
+triggerall = !numhelper(7000) && !numhelper(7010) && !numhelper(7020)
+triggerall = numhelper(954)
+trigger1 = facing = 1 && helper(954),facing = 1
+trigger1 = pos x > helper(954),pos x
+trigger2 = facing = -1 && helper(954),facing = -1
+trigger2 = pos x < helper(954),pos x
+x = helper(954),pos x
+
+;--- 画面端めくり防止 ---
+[State -3, CornerPush]
+type = width
+triggerall = movetype != H
+trigger1 = enemynear, backedgedist < 10
+trigger2 = enemynear, frontedgedist < 10
+edge = 10
+
+
+[State -3, 行動指定]
+type = null;varset
+;trigger1 = var(59)
+trigger1 = p2movetype != H
+v = 56
+value = 0
+
+[State -3, 確率用変数]
+type = varset
+trigger1 = 1;var(59)
+v = 58
+value = random
+
+;-------------------------< 割り込み >-------------------------
+;タービュランスアッパー
+[State -1, TurbulenceUpper]
+type = changestate
+value = 4000
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*25
+triggerall = p2bodydist x = [-10,100]
+triggerall = p2movetype = A
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(12) = 1
+
+;ダブルサイクロンアッパー
+[State -1, DoubleCycloneUpper]
+type = changestate
+value = 4200
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*25
+triggerall = p2bodydist x = [-10,70]
+triggerall = p2movetype = A
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(12) = 1
+
+;タービュランスアッパー
+[State -1, TurbulenceUpper]
+type = changestate
+value = 4000
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*25
+triggerall = p2bodydist x = [70,100]
+triggerall = p2movetype = A
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(12) = 1
+
+;タービュランスアッパー
+[State -1, TurbulenceUpper]
+type = changestate
+value = 4000
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,499]
+triggerall = random <= var(59)*25
+triggerall = p2bodydist x = [-10,70]
+triggerall = p2movetype = A
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(12) = 1
+
+;ダブルサイクロンアッパー
+[State -1, DoubleCycloneUpper]
+type = changestate
+value = 4200
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [500,999]
+triggerall = random <= var(59)*25
+triggerall = p2bodydist x = [-10,70]
+triggerall = p2movetype = A
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(12) = 1
+
+;--- 2ゲージ ---
+;スライドスクリュー
+[State -3, SlideScrew]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,199]
+triggerall = random <= var(59)*5
+triggerall = p2bodydist x = [-10,80]
+triggerall = p2movetype = A
+triggerall = p2statetype = S || p2statetype = C
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;タイガーキック 強
+[State -3, Tiger Kick]
+type = changestate
+value = 1100+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [200,999]
+triggerall = random <= var(59)*15
+triggerall = p2bodydist x = [-10,40+(enemynear,vel x*5)]
+triggerall = p2movetype = A
+triggerall = p2statetype = S || p2statetype = C
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;--- 0,1ゲージ ---
+;タイガーキック 強
+[State -3, Tiger Kick]
+type = changestate
+value = 1100+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*15
+triggerall = p2bodydist x = [-10,40+(enemynear,vel x*5)]
+triggerall = p2movetype = A
+triggerall = p2statetype = S || p2statetype = C
+triggerall = (fvar(2) = 0 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 緊急回避 >-------------------------
+;ガードキャンセル前転
+[State -1, GC Evasion]
+type = changestate
+value = 710+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*20
+triggerall = p2bodydist x = [30,130]
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2movetype = A
+triggerall = enemynear,animtime < -26
+triggerall = enemynear,ctrl = 0
+triggerall = power >= 1000 || fvar(2)
+triggerall = statetype != A
+trigger1 = stateno = 150 || stateno = 152
+trigger1 = hitshakeover
+
+[State -1, Evasion]
+type = changestate
+value = 700+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*20
+triggerall = p2bodydist x = [-10,80]
+triggerall = p2statetype = S || p2statetype = C
+triggerall = backedgebodydist > 40
+triggerall = inguarddist
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+[State -1, Evasion]
+type = changestate
+value = 700+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*20
+triggerall = p2bodydist x = [-10,40]
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2movetype = A
+triggerall = enemynear,hitdefattr != SCA,AT
+triggerall = enemynear,animtime < -34
+triggerall = inguarddist
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+[State -1, Evasion]
+type = changestate
+value = 700+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*50
+triggerall = p2bodydist x >= 150
+triggerall = inguarddist
+triggerall = statetype != A
+triggerall = (enemy,numhelper > 0 && (enemy,numhelper > helper(21000),var(1))) || enemy,numproj != 0
+triggerall = helper(21100),var(0) = 1 || helper(21101),var(1) = 1
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;-------------------------< 交代 >-------------------------
+[State -2,交代ステートへ]
+type = changestate
+value = 358000
+ctrl = 0
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < 250
+triggerall = numpartner
+triggerall = partner,alive && partner,stateno = 358002
+triggerall = partner,sysfvar(4) = 0
+triggerall = !inguarddist
+triggerall = !numtarget(3350)
+triggerall = p2bodydist x >= 100
+triggerall = statetype != A
+triggerall = partner,life-life > 400
+triggerall = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger1 = var(18) = 1 && partner,var(59)
+
+;-------------------------< 遠距離攻撃潰し >-------------------------
+;スクリューストレート
+[State -1, Screw Straight]
+type = changestate
+value = 3500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*25
+triggerall = p2bodydist x = [150,240]
+triggerall = p2bodydist y = [-150,0]
+triggerall = p2statetype = S || p2statetype = C || (p2statetype = A && enemynear,vel y >= 0)
+triggerall = p2movetype = A
+triggerall = enemynear,ctrl = 0
+triggerall = enemynear,animtime < -20
+triggerall = !inguarddist
+triggerall = power >= 2000 || (fvar(2) && power >= 1000)
+triggerall = statetype != A
+triggerall = p2life < 350
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(12) = 1
+
+;スクリューストレート
+[State -1, Screw Straight]
+type = changestate
+value = 3500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*5
+triggerall = p2bodydist x = [150,240]
+triggerall = p2bodydist y = [-150,0]
+triggerall = p2statetype = S || p2statetype = C || (p2statetype = A && enemynear,vel y >= 0)
+triggerall = p2movetype = A
+triggerall = enemynear,ctrl = 0
+triggerall = enemynear,animtime < -20
+triggerall = !inguarddist
+triggerall = power >= 2000 || (fvar(2) && power >= 1000)
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(12) = 1
+
+;EXハリケーンアッパー
+[State -1, EX Hurricane Upper]
+type = changestate
+value = 1050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*5
+triggerall = p2bodydist x = [120,240]
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2movetype = A
+triggerall = enemynear,ctrl = 0
+triggerall = enemynear,animtime < -30
+triggerall = power >= 1000 || fvar(2)
+triggerall = statetype != A
+triggerall = var(20) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< ガード >-------------------------
+[State -3,立ちガード]
+type = changestate
+value = 120
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = stateno != [120,155]
+triggerall = ctrl || stateno = 1 || stateno = 30
+triggerall = inguarddist || p2movetype = A
+trigger1 = random <= var(59)*60 || var(59) > 9
+trigger2 = p2bodydist x > 90 || enemynear,time > 50
+trigger2 = random <= var(59)*150
+
+;-------------------------< 起き攻め >-------------------------
+;しゃがみ弱キック
+[State -3, Hurricane Upper]
+type = changestate
+value = 430
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*30
+triggerall = !inguarddist
+triggerall = p2statetype = L
+triggerall = p2bodydist x = [-10,50]
+triggerall = statetype != A
+triggerall = enemynear,stateno = 5120
+triggerall = enemynear,animtime = [-3,-1]
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;小ジャンプ
+[State -3, Jump]
+type = changestate
+value = 40+((var(56) := -2)*(var(57) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*30
+triggerall = p2statetype = L
+triggerall = enemynear,stateno = 5120
+triggerall = enemynear,animtime = -12
+triggerall = p2bodydist x = [-10,40]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;ハリケーンアッパー
+[State -3, Hurricane Upper]
+type = changestate
+value = 1000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*30
+triggerall = !inguarddist
+triggerall = p2statetype = L
+triggerall = p2bodydist x = [80,140]
+triggerall = statetype != A
+triggerall = var(20) = 0
+triggerall = enemynear,stateno = 5120
+triggerall = enemynear,animtime = -12-floor((p2bodydist x -50)/4)
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;ハリケーンアッパー
+[State -3, Hurricane Upper]
+type = changestate
+value = 1000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*20
+triggerall = !inguarddist
+triggerall = p2statetype = L
+triggerall = p2bodydist x >= 140
+triggerall = var(20) = 0
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;小ジャンプ
+[State -3, Jump]
+type = changestate
+value = 40+((var(56) := 2)*(var(57) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*10
+triggerall = !inguarddist
+triggerall = p2statetype = L
+triggerall = p2stateno = 5110
+triggerall = p2bodydist x = [-10,120]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;-------------------------< スクリューアッパー 追撃 >-------------------------
+;スクリューストレート
+[State -3, Screw Straight]
+type = changestate
+value = 3500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000) || (fvar(2) && power >= 1000)
+triggerall = var(56) = 3500
+triggerall = p2movetype = H
+triggerall = p2statetype = L
+triggerall = p2bodydist x = [-20,200]
+triggerall = p2bodydist y = [0,20]
+triggerall = p2stateno = 933
+triggerall = enemynear,vel y <= 0
+triggerall = statetype != A
+triggerall = p2life < 200
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;スクリューストレート
+[State -3, Screw Straight]
+type = changestate
+value = 3500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [0,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000) || (fvar(2) && power >= 1000)
+triggerall = var(56) = 3500
+triggerall = p2movetype = H
+triggerall = p2statetype = L
+triggerall = p2bodydist x = [-20,200]
+triggerall = p2bodydist y = [0,20]
+triggerall = p2stateno = 933
+triggerall = enemynear,vel y <= 0
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;-------------------------< EXスラッシュキック 追撃 3ゲージ以上 >-------------------------
+;タービュランスアッパー
+[State -3, Turbulence Upper]
+type = changestate
+value = ifelse(random < 500,4000,4200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;-------------------------< EXスラッシュキック 追撃 2ゲージ >-------------------------
+;スライドスクリュー
+[State -3, Slide Screw]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power < 2000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+triggerall = var(21) = 0
+triggerall = p2life < 250
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スライドスクリュー
+[State -3, Slide Screw]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [0,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power < 2000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スクリューアッパー 弱
+[State -3, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [150,199]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power < 2000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;EXタイガーキック
+[State -3, EX Tiger Kick]
+type = changestate
+value = 1150
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [200,224]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;EXプレッシャーニー
+[State -3, EX Pressure Knee]
+type = changestate
+value = 1550
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [225,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;プレッシャーニー 弱
+[State -3, Pressure Knee]
+type = changestate
+value = 1500+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [250,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power < 2000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< EXスラッシュキック 追撃 1ゲージ >-------------------------
+;スクリューアッパー 弱
+[State -3, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+triggerall = var(21) = 0
+triggerall = p2life < 150
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スクリューアッパー 弱
+[State -3, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [0,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;EXタイガーキック
+[State -3, EX Tiger Kick]
+type = changestate
+value = 1150
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [150,199]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;EXプレッシャーニー
+[State -3, EX Pressure Knee]
+type = changestate
+value = 1550
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [200,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;プレッシャーニー 弱
+[State -3, Pressure Knee]
+type = changestate
+value = 1500+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = var(58) = [250,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-20]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< EXスラッシュキック 追撃 ゲージなし >-------------------------
+;プレッシャーニー 弱
+[State -3, Pressure Knee]
+type = changestate
+value = 1500+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = sysfvar(2) = 0
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = numtarget(1250)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-20,50]
+triggerall = p2bodydist y = [-80,-30]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< EX爆裂拳 追撃 >-------------------------
+;黄金のカカト 弱
+[State -1, Ogon No Kakato]
+type = changestate
+value = 1400+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = numtarget(1350)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,50]
+triggerall = p2bodydist y = [-140,-120]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 爆裂フィニッシュ 強・黄金のカカト 追撃 黄金のカカト >-------------------------
+;黄金のカカト 弱
+[State -1, Ogon No Kakato]
+type = changestate
+value = 1400+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,40]
+triggerall = p2bodydist y = [-140,-120]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 爆裂フィニッシュ 強・黄金のカカト 追撃 4ゲージ以上 >-------------------------
+;EXスラッシュキック 待機
+[State -1, EX Slash Kick]
+type = changestate
+value = 1+((var(56) := 1250)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 4000) || (fvar(2) && power >= 3000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-120]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;EXスラッシュキック
+[State -1, EX Slash Kick]
+type = changestate
+value = 1250
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(56) = 1250
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 4000) || (fvar(2) && power >= 3000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-120,-100]
+triggerall = statetype != A
+trigger1 = stateno = 1
+
+;-------------------------< 爆裂フィニッシュ 強・黄金のカカト 追撃 3ゲージ >-------------------------
+;タービュランスアッパー
+[State -1, Turbulence Upper]
+type = changestate
+value = ifelse(random < 500,4000,4200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 4000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-90]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 爆裂フィニッシュ 強・黄金のカカト 追撃 2ゲージ >-------------------------
+;スライドスクリュー 待機
+[State -1, Slide Screw]
+type = changestate
+value = 1+((var(56) := 3050)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-80]
+triggerall = statetype != A
+triggerall = p2life < 200
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;スライドスクリュー 待機
+[State -1, Slide Screw]
+type = changestate
+value = 1+((var(56) := 3050)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-80]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;スライドスクリュー
+[State -1, Slide Screw]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(56) = 3050
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-80,-50]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = stateno = 1
+
+;スクリューアッパー
+[State -1, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [150,199]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-80]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;EXスラッシュキック 待機
+[State -1, EX Slash Kick]
+type = changestate
+value = 1+((var(56) := 1250)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [200,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-120]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;EXスラッシュキック
+[State -1, EX Slash Kick]
+type = changestate
+value = 1250
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(56) = 1250
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-120,-100]
+triggerall = statetype != A
+trigger1 = stateno = 1
+
+;スラッシュキック
+[State -1, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-120]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スラッシュキック 弱
+[State -1, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-120,-60]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;プレッシャーニー 弱
+[State -1, Pressure Knee]
+type = changestate
+value = 1500+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(56) != 3050
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-50,-35]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 爆裂フィニッシュ 強・黄金のカカト 追撃 1ゲージ >-------------------------
+;スクリューアッパー
+[State -1, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-80]
+triggerall = statetype != A
+triggerall = var(21) = 0
+triggerall = p2life < 100
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スクリューアッパー
+[State -1, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-80]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;EXスラッシュキック 待機
+[State -1, EX Slash Kick]
+type = changestate
+value = 1+((var(56) := 1250)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [150,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-120]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;EXスラッシュキック
+[State -1, EX Slash Kick]
+type = changestate
+value = 1250
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(56) = 1250
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-120,-100]
+triggerall = statetype != A
+trigger1 = stateno = 1
+
+;スラッシュキック 強
+[State -1, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-120]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スラッシュキック 弱
+[State -1, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-120,-60]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;プレッシャーニー 弱
+[State -1, Pressure Knee]
+type = changestate
+value = 1500+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(56) != 3050
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-50,-35]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 爆裂フィニッシュ 強・黄金のカカト 追撃 ゲージなし >-------------------------
+;スラッシュキック
+[State -1, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-140,-120]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スラッシュキック
+[State -1, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-120,-60]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;プレッシャーニー 弱
+[State -1, Pressure Knee]
+type = changestate
+value = 1500+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(56) != 3050
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = numtarget(1311) || numtarget(1400)
+triggerall = p2movetype = H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-25,70]
+triggerall = p2bodydist y = [-50,-35]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 爆裂フィニッシュ 弱 スーパーキャンセル 4ゲージ以上 >-------------------------
+;タービュランスアッパー
+[State -1, Turbulence Upper]
+type = changestate
+value = ifelse(random < 500,4000,4200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 4000) || (fvar(2) && power >= 3000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(12) = 1
+
+;-------------------------< 爆裂フィニッシュ 弱 スーパーキャンセル 3ゲージ >-------------------------
+;スライドスクリュー
+[State -1, Slide Screw]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 2000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+triggerall = var(21) = 0
+triggerall = p2life < 200
+trigger1 = var(12) = 1
+
+;スライドスクリュー
+[State -1, Slide Screw]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,49]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 2000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(12) = 1
+
+;サンダーファイヤー
+[State -1, Thunder Fire]
+type = changestate
+value = 3400
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [50,99]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 2000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+trigger1 = var(12) = 1
+
+;スクリューストレート
+[State -1, Screw Straight]
+type = changestate
+value = 3500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [100,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 2000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+trigger1 = var(12) = 1
+
+;スクリューアッパー 弱
+[State -1, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [150,179]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 2000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(12) = 1
+
+;爆ハリ/爆スラ
+[State -1, BakuHurri/BakuSla]
+type = changestate
+value = ifelse(random < 500,3100,3200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [180,209]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 2000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+trigger1 = var(12) = 1
+
+;史上最強のローキック 強
+[State -1, SuperLowKick]
+type = changestate
+value = 3300+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [210,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 2000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+trigger1 = var(12) = 1
+
+;-------------------------< 爆裂フィニッシュ 弱 スーパーキャンセル 2ゲージ >-------------------------
+;史上最強のローキック 強
+[State -1, SuperLowKick]
+type = changestate
+value = 3300+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+triggerall = p2life < 100
+trigger1 = var(12) = 1
+
+;スクリューアッパー 弱
+[State -1, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,79]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(12) = 1
+
+;爆ハリ/爆スラ
+[State -1, BakuHurri/BakuSla]
+type = changestate
+value = ifelse(random < 500,3100,3200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [80,159]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+trigger1 = var(12) = 1
+
+;史上最強のローキック 強
+[State -1, SuperLowKick]
+type = changestate
+value = 3300+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [160,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 1310 && var(1) = 0 && animelemtime(6) >= 0 && animelemtime(7) < 0
+triggerall = movehit = 1
+triggerall = numtarget(1310)
+triggerall = p2movetype = H
+triggerall = statetype != A
+trigger1 = var(12) = 1
+
+;-------------------------< ふっとばし攻撃通常ヒット時 2ゲージ以上 >-------------------------
+;スクリューストレート
+[State -3, Screw Straight]
+type = changestate
+value = 3500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000) || (fvar(2) && power >= 1000)
+triggerall = stateno = 250
+triggerall = var(0) = 1
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [-10,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;-------------------------< ふっとばし攻撃カウンターヒット時 3ゲージ以上 >-------------------------
+;タービュランスアッパー
+[State -3, Turbulence Upper]
+type = changestate
+value = ifelse(random < 500,4000,4200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000) || (fvar(2) && power >= 2000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [-10,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;-------------------------< ふっとばし攻撃カウンターヒット時 2ゲージ >-------------------------
+;スライドスクリュー
+[State -3, Slide Screw]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [-10,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+triggerall = var(21) = 0
+triggerall = p2life < 300
+trigger1 = var(11) = 1
+
+;黄金のカカト 弱
+[State -3, Ogon No Kakato]
+type = changestate
+value = 1400+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [-10,40]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スライドスクリュー
+[State -3, Slide Screw]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,74]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [40,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;スクリューストレート
+[State -3, Screw Straight]
+type = changestate
+value = 3500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [75,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [40,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スクリューアッパー 弱
+[State -3, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [150,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [40,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;スラッシュキック 強
+[State -3, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [40,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;-------------------------< ふっとばし攻撃カウンターヒット時 1ゲージ >-------------------------
+;スクリューアッパー 弱
+[State -3, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [-10,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+triggerall = var(21) = 0
+triggerall = p2life < 200
+trigger1 = var(11) = 1
+
+;黄金のカカト 弱
+[State -3, Ogon No Kakato]
+type = changestate
+value = 1400+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [-10,40]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スクリューアッパー 弱
+[State -3, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [40,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;スラッシュキック 強
+[State -3, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [40,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;-------------------------< ふっとばし攻撃カウンターヒット時 ゲージなし >-------------------------
+;スラッシュキック 強
+[State -3, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [40,70]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;黄金のカカト 弱
+[State -3, Ogon No Kakato]
+type = changestate
+value = 1400+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = stateno = 250
+triggerall = var(0) = 0
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2bodydist x = [-10,40]
+triggerall = p2bodydist y >= -50
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;-------------------------< ローキックヒット時 4ゲージ以上 >-------------------------
+;EX爆裂拳
+[State -3, EX BakuretsuKen]
+type = changestate
+value = 1500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 4000) || (fvar(2) && power >= 3000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;-------------------------< ローキックヒット時 3ゲージ >-------------------------
+;タービュランスアッパー
+[State -3, Turbulence Upper]
+type = changestate
+value = ifelse(random < 500,4000,4200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 4000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;-------------------------< ローキックヒット時 2ゲージ >-------------------------
+;スライドスクリュー
+[State -3, Slide Screw]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+triggerall = var(21) = 0
+triggerall = p2life < 300
+trigger1 = var(11) = 1
+
+;スライドスクリュー
+[State -3, Slide Screw]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,49]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;サンダーファイヤー
+[State -3, Thunder Fire]
+type = changestate
+value = 3400
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [50,99]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スクリューストレート
+[State -3, Screw Straight]
+type = changestate
+value = 3500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [100,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スクリューアッパー 弱
+[State -3, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [150,174]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;爆ハリ/爆スラ
+[State -3, BakuHurri/BakuSla]
+type = changestate
+value = ifelse(random < 500,3100,3200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [175,199]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;史上最強のローキック 弱
+[State -3, SuperLowKick]
+type = changestate
+value = 3300+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [200,224]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;EX爆裂拳
+[State -3, EX BakuretsuKen]
+type = changestate
+value = 1500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [210,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スラッシュキック 強
+[State -3, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,674]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;プレッシャーニー 強
+[State -3, Pressure Knee]
+type = changestate
+value = 1500+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [675,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;-------------------------< ローキックヒット時 1ゲージ >-------------------------
+;スクリューアッパー 弱
+[State -3, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+triggerall = var(21) = 0
+triggerall = p2life < 200
+trigger1 = var(11) = 1
+
+;スクリューアッパー 弱
+[State -3, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,49]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;爆ハリ/爆スラ
+[State -3, BakuHurri/BakuSla]
+type = changestate
+value = ifelse(random < 500,3100,3200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [50,99]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;史上最強のローキック 弱
+[State -3, LowKick]
+type = changestate
+value = 3300+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [100,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;EX爆裂拳
+[State -3, EX BakuretsuKen]
+type = changestate
+value = 1500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [150,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スラッシュキック 強
+[State -3, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,674]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;プレッシャーニー 強
+[State -3, Pressure Knee]
+type = changestate
+value = 1500+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [675,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;-------------------------< ローキックヒット時 ゲージなし >-------------------------
+;スラッシュキック 強
+[State -3, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,499]
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;プレッシャーニー 強
+[State -3, Pressure Knee]
+type = changestate
+value = 1500+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [500,999]
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = stateno = 300
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;-------------------------< 強攻撃ヒット時 >-------------------------
+;ローキック
+[State -3, LowKick]
+type = changestate
+value = 300
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = stateno = 215 || stateno = 245 || stateno = 410
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = var(10) = 1
+
+;-------------------------< 強攻撃 or ふっとばし攻撃ガード時 >-------------------------
+;ハリケーンアッパー 弱
+[State -3, Hurricane Upper]
+type = changestate
+value = 1000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [500,999]
+triggerall = random < var(59)*100
+triggerall = stateno = 215 || stateno = 245 || stateno = 410 || stateno = 440 || stateno = 250 || stateno = 300
+triggerall = moveguarded = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,50]
+triggerall = statetype != A
+triggerall = var(20) = 0
+trigger1 = var(11) = 1
+
+;-------------------------< しゃがみ弱キックヒット時 4ゲージ以上 >-------------------------
+;EXスラッシュキック
+[State -3, EX SlashKick]
+type = changestate
+value = 1250
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 4000) || (fvar(2) && power >= 3000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;しゃがみ弱パンチ
+[State -1, Crouch Light Punch]
+type = changestate
+value = 400
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 4000) || (fvar(2) && power >= 3000)
+triggerall = stateno = 430
+triggerall = movecontact
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,40]
+triggerall = statetype != A
+trigger1 = stateno = 200 && animelemtime(4) > 0
+trigger2 = stateno = 205 && animelemtime(4) > 0
+trigger3 = stateno = 400 && animelemtime(3) > 0
+trigger4 = stateno = 430 && animelemtime(4) > 0
+
+;-------------------------< しゃがみ弱キックヒット時 3ゲージ >-------------------------
+;タービュランスアッパー
+[State -3, TurbulenceUpper]
+type = changestate
+value = 4000
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 4000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;しゃがみ弱パンチ
+[State -1, Crouch Light Punch]
+type = changestate
+value = 400
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 3000 && power < 4000) || (fvar(2) && power >= 2000 && power < 3000)
+triggerall = stateno = 430
+triggerall = movecontact
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,40]
+triggerall = statetype != A
+trigger1 = stateno = 200 && animelemtime(4) > 0
+trigger2 = stateno = 205 && animelemtime(4) > 0
+trigger3 = stateno = 400 && animelemtime(3) > 0
+trigger4 = stateno = 430 && animelemtime(4) > 0
+
+;-------------------------< しゃがみ弱キックヒット時 2ゲージ >-------------------------
+;スライドスクリュー
+[State -3, SlideScrew]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+triggerall = var(21) = 0
+triggerall = p2life < 350
+trigger1 = var(11) = 1
+
+;スライドスクリュー
+[State -3, SlideScrew]
+type = changestate
+value = 3050
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = var(11) = 1
+
+;爆ハリ/爆スラ
+[State -3, BakuHurri/BakuSla]
+type = changestate
+value = ifelse(random < 500,3100,3200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [150,199]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;EXスラッシュキック
+[State -3, EX SlashKick]
+type = changestate
+value = 1250
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [200,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;プレッシャーニー 弱
+[State -3, PressureKnee]
+type = changestate
+value = 1500+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,624]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スラッシュキック 弱
+[State -3, SlashKick]
+type = changestate
+value = 1200+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [625,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;しゃがみ弱パンチ
+[State -1, Crouch Light Punch]
+type = changestate
+value = 400
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 2000 && power < 3000) || (fvar(2) && power >= 1000 && power < 2000)
+triggerall = stateno = 430
+triggerall = movecontact
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,40]
+triggerall = statetype != A
+trigger1 = stateno = 200 && animelemtime(4) > 0
+trigger2 = stateno = 205 && animelemtime(4) > 0
+trigger3 = stateno = 400 && animelemtime(3) > 0
+trigger4 = stateno = 430 && animelemtime(4) > 0
+
+;-------------------------< しゃがみ弱キックヒット時 1ゲージ >-------------------------
+;爆ハリ/爆スラ
+[State -3, BakuHurri/BakuSla]
+type = changestate
+value = ifelse(random < 500,3100,3200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+triggerall = p2life < 150
+trigger1 = var(11) = 1
+
+;爆ハリ/爆スラ
+[State -3, BakuHurri/BakuSla]
+type = changestate
+value = ifelse(random < 500,3100,3200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+triggerall = p2life < 150
+trigger1 = var(11) = 1
+
+;爆ハリ/爆スラ
+[State -3, BakuHurri/BakuSla]
+type = changestate
+value = ifelse(random < 500,3100,3200)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,149]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;EXスラッシュキック
+[State -3, EX SlashKick]
+type = changestate
+value = 1250
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [150,249]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;プレッシャーニー 弱
+[State -3, PressureKnee]
+type = changestate
+value = 1500+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [250,624]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スラッシュキック 弱
+[State -3, SlashKick]
+type = changestate
+value = 1200+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [625,999]
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;しゃがみ弱パンチ
+[State -1, Crouch Light Punch]
+type = changestate
+value = 400
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = (fvar(2) = 0 && power >= 1000 && power < 2000) || (fvar(2) && power < 1000)
+triggerall = stateno = 430
+triggerall = movecontact
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,40]
+triggerall = statetype != A
+trigger1 = stateno = 200 && animelemtime(4) > 0
+trigger2 = stateno = 205 && animelemtime(4) > 0
+trigger3 = stateno = 400 && animelemtime(3) > 0
+trigger4 = stateno = 430 && animelemtime(4) > 0
+
+;-------------------------< しゃがみ弱キックヒット時 ゲージなし >-------------------------
+;プレッシャーニー 弱
+[State -3, PressureKnee]
+type = changestate
+value = 1500+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,499]
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;スラッシュキック 弱
+[State -3, SlashKick]
+type = changestate
+value = 1200+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [500,999]
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = stateno = 430
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;しゃがみ弱パンチ
+[State -1, Crouch Light Punch]
+type = changestate
+value = 400
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = fvar(2) = 0 && power < 1000
+triggerall = stateno = 430
+triggerall = movecontact
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,40]
+triggerall = statetype != A
+trigger1 = stateno = 200 && animelemtime(4) > 0
+trigger2 = stateno = 205 && animelemtime(4) > 0
+trigger3 = stateno = 400 && animelemtime(3) > 0
+trigger4 = stateno = 430 && animelemtime(4) > 0
+
+;-------------------------< 弱パンチヒット時 >-------------------------
+;爆裂拳
+[State -3, BakuretsuKen]
+type = changestate
+value = 1300
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = stateno = 200 || stateno = 205 || stateno = 400
+triggerall = movehit = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;爆裂拳
+[State -3, BakuretsuKen]
+type = changestate
+value = 1300
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,499]
+triggerall = random < var(59)*100
+triggerall = stateno = 200 || stateno = 205 || stateno = 400
+triggerall = moveguarded = 1
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,70]
+triggerall = statetype != A
+trigger1 = var(11) = 1
+
+;しゃがみ弱パンチ
+[State -1, Crouch Light Punch]
+type = changestate
+value = 400
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = stateno = 200 || stateno = 205 || stateno = 400
+triggerall = movecontact
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,40]
+triggerall = statetype != A
+trigger1 = stateno = 200 && animelemtime(4) > 0
+trigger2 = stateno = 205 && animelemtime(4) > 0
+trigger3 = stateno = 400 && animelemtime(3) > 0
+trigger4 = stateno = 430 && animelemtime(4) > 0
+
+;-------------------------< 飛び込み 繋ぎ >-------------------------
+;近距離立ち強パンチ
+[State -1, Stand Hard Punch]
+type = changestate
+value = 215
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = !inguarddist
+triggerall = numtarget(600)
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,30]
+triggerall = p2stateno != [140,159]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;しゃがみ弱キック
+[State -1, Stand Light Kick]
+type = changestate
+value = 430
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*100
+triggerall = !inguarddist
+triggerall = numtarget(600)
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [30,60]
+triggerall = p2stateno != [140,159]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;しゃがみ弱キック
+[State -1, Stand Light Kick]
+type = changestate
+value = 430
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = var(58) = [0,249]
+triggerall = random < var(59)*100
+triggerall = !inguarddist
+triggerall = numtarget(600)
+triggerall = p2movetype = H
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,30]
+triggerall = p2stateno = [140,159]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;-------------------------< ぶっぱ >-------------------------
+;ダブルサイクロンアッパー
+[State -1, Double Cyclone Upper]
+type = changestate
+value = 4200
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*20
+triggerall = p2bodydist x = [-10,80]
+triggerall = p2movetype != H
+triggerall = p2movetype != A
+triggerall = !inguarddist
+triggerall = p2life < 120
+triggerall = power >= 3000 || (fvar(2) && power >= 2000)
+triggerall = statetype != A
+triggerall = var(21) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スクリューストレート
+[State -1, Screw Straight]
+type = changestate
+value = 3500
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*20
+triggerall = p2bodydist x = [150,240]
+triggerall = p2movetype != H
+triggerall = p2movetype != A
+triggerall = !inguarddist
+triggerall = p2life < 80
+triggerall = power >= 2000 || (fvar(2) && power >= 1000)
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 通常投げ >-------------------------
+;レッグスルー
+[State -3, Throw]
+type = changestate
+value = 850
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*50
+triggerall = backedgebodydist < 80
+triggerall = p2bodydist x <= 10
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2movetype != H
+triggerall = p2stateno != 40
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;膝地獄
+[State -3, Throw]
+type = changestate
+value = 800
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*50
+triggerall = p2bodydist x <= 10
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2movetype != H
+triggerall = p2stateno != 40
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;-------------------------< 移動 >-------------------------
+;バックステップ
+[State -1, Dash]
+type = changestate
+value = 105
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = p2movetype = I
+triggerall = p2bodydist x = [100,150]
+triggerall = backedgebodydist > 50
+triggerall = !inguarddist
+triggerall = random <= var(59)*5
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;バックステップ
+[State -1, Dash]
+type = changestate
+value = 105
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = p2statetype = L
+triggerall = !inguarddist
+triggerall = random <= var(59)*10
+triggerall = p2bodydist x = [-10,20]
+triggerall = backedgebodydist > 50
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;ダッシュ
+[State -1, Dash]
+type = changestate
+value = 100
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = enemynear,movetype != A
+triggerall = !inguarddist
+triggerall = random <= var(59)*5
+triggerall = p2bodydist x = [80,160)
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = [120,139]
+
+;ダッシュ
+[State -1, Dash]
+type = changestate
+value = 100
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = enemynear,movetype != A
+triggerall = !inguarddist
+triggerall = random <= var(59)*10
+triggerall = p2bodydist x >= 160
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = [120,139]
+
+;ダッシュ
+[State -1, Dash]
+type = changestate
+value = 100
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = enemynear,movetype != A
+triggerall = !inguarddist
+triggerall = random <= var(59)*25
+triggerall = p2bodydist x >= 160
+triggerall = statetype != A
+triggerall = prevstateno = 721
+trigger1 = ctrl || stateno = 30 || stateno = [120,139]
+
+;前進
+[State -1, Walk Fwd]
+type = changestate
+value = 30
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = enemynear,movetype = I
+triggerall = !inguarddist
+triggerall = random <= var(59)*20
+triggerall = p2bodydist x = [20,80)
+triggerall = statetype != A
+triggerall = stateno != 30
+trigger1 = ctrl || stateno = [120,139]
+
+;-------------------------< 空対空 >-------------------------
+;空中ふっとばし攻撃
+[State -1, Air Blowoff]
+type = changestate
+value = 650
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*50
+triggerall = p2movetype != H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [80,160]
+triggerall = p2bodydist y = [-120,0]
+triggerall = p2stateno != 105
+triggerall = statetype = A
+trigger1 = ctrl || stateno = [120,139]
+
+;空中弱キック
+[State -1, Air Light Kick]
+type = changestate
+value = ifelse(vel x = 0,630,635)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*50
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-10,80]
+triggerall = p2bodydist y = [-60,60]
+triggerall = p2stateno != 105
+triggerall = pos y = [-40,-35]
+triggerall = statetype = A
+trigger1 = ctrl || stateno = [120,139]
+
+;-------------------------< 地対空 >-------------------------
+;ダブルサイクロンアッパー
+[State -1, Double Cyclone Upper]
+type = changestate
+value = 4200
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*20
+triggerall = power >= 3000 || (fvar(2) && power >= 2000)
+triggerall = p2movetype != H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-100,100]
+triggerall = p2bodydist y = [-150,-60]
+triggerall = p2stateno != 105
+triggerall = !numhelper(3010) && !numhelper(3080)
+triggerall = var(21) = 0
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スクリューアッパー 弱
+[State -1, Screw Upper]
+type = changestate
+value = 3000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*10
+triggerall = power >= 1000 || fvar(2)
+triggerall = p2movetype != H
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [40,100]
+triggerall = p2bodydist y = [-150,-60]
+triggerall = p2stateno != 105
+triggerall = enemynear,vel x >= 0
+triggerall = var(21) = 0
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;タイガーキック
+[State -1, Tiger Kick]
+type = changestate
+value = 1100+((var(1) := ifelse(p2bodydist x < 60,0,1))*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*10
+triggerall = p2movetype != H || !numtarget
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [30,90]
+triggerall = p2bodydist y = [-100,-20]
+triggerall = p2stateno != 105
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< タッグ用いろいろ >-------------------------
+;タイガーキック 強
+[State -1, Tiger Kick]
+type = changestate
+value = 1100+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*50
+triggerall = numpartner
+triggerall = partner,alive
+triggerall = p2movetype = H && !numtarget
+triggerall = p2statetype = A
+triggerall = p2bodydist x = [-60,60]
+triggerall = p2bodydist y = [-200,20]
+triggerall = statetype != A
+triggerall = var(0) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;しゃがみ弱キック
+[State -1, Stand Light Kick]
+type = changestate
+value = 430
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*50
+triggerall = numpartner
+triggerall = partner,alive
+triggerall = p2movetype = H && !numtarget
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,50]
+triggerall = statetype != A
+triggerall = var(0) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;ハリケーンアッパー 強弱ランダム
+[State -1, Hurricane Upper]
+type = changestate
+value = 1000+((var(1) := random%2)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*10
+triggerall = numpartner
+triggerall = partner,alive
+triggerall = p2movetype = H && !numtarget
+triggerall = p2bodydist x >= 150
+triggerall = p2bodydist y = [-150,0]
+triggerall = !inguarddist
+triggerall = p2statetype = S || p2statetype = C || (p2statetype = A && enemynear,vel y > 0)
+triggerall = p2stateno != 40
+triggerall = statetype != A
+triggerall = var(20) = 0
+triggerall = var(0) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 遠距離牽制 >-------------------------
+;ハリケーンアッパー 強弱ランダム
+[State -1, Hurricane Upper]
+type = changestate
+value = 1000+((var(1) := random%2)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*5
+triggerall = p2bodydist x >= 200
+triggerall = p2bodydist y = [-150,0]
+triggerall = !inguarddist || !numtarget
+triggerall = !numtarget(3350)
+triggerall = p2movetype != H
+triggerall = p2statetype = S || p2statetype = C || (p2statetype = A && enemynear,vel y > 0)
+triggerall = p2stateno != 40
+triggerall = statetype != A
+triggerall = var(20) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;ハリケーンアッパー 弱
+[State -1, Hurricane Upper]
+type = changestate
+value = 1000+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*5
+triggerall = p2bodydist x = [150,200)
+triggerall = p2bodydist y = [-150,0]
+triggerall = !inguarddist
+triggerall = p2statetype = S || p2statetype = C || (p2statetype = A && enemynear,vel y > 0)
+triggerall = p2movetype != H || !numtarget
+triggerall = p2stateno != 40
+triggerall = statetype != A
+triggerall = var(20) = 0
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;スラッシュキック 弱
+[State -1, Slash Kick]
+type = changestate
+value = 1200+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*10
+triggerall = p2bodydist x = [150,180]
+triggerall = p2bodydist y = [-80,0]
+triggerall = !inguarddist
+triggerall = p2movetype != H || !numtarget
+triggerall = p2statetype = S || p2statetype = C || (p2statetype = A && enemynear,vel y > 0)
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;-------------------------< 牽制 >-------------------------
+;黄金のカカト 強
+[State -1, Ogon No Kakato]
+type = changestate
+value = 1400+((var(1) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*5
+triggerall = !inguarddist
+triggerall = p2movetype != H
+triggerall = p2bodydist x = [120,160]
+triggerall = p2bodydist y = [-100,0]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;黄金のカカト 弱
+[State -1, Ogon No Kakato]
+type = changestate
+value = 1400+((var(1) := 0)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*5
+triggerall = !inguarddist
+triggerall = p2movetype != H
+triggerall = p2bodydist x = [70,100]
+triggerall = p2bodydist y = [-100,0]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+trigger2 = var(11) = 1
+
+;ふっとばし攻撃
+[State -1, Blow Off]
+type = changestate
+value = 250
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*5
+triggerall = !inguarddist
+triggerall = p2movetype != H
+triggerall = p2statetype = S
+triggerall = p2bodydist x = [90,110]
+triggerall = enemynear,vel x < 5
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;近距離立ち強パンチ
+[State -1, Stand Hard Panch]
+type = changestate
+value = 215
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*25
+triggerall = !inguarddist
+triggerall = p2movetype != H || !numtarget
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,25]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;しゃがみ弱キック
+[State -1, Crouch Light Kick]
+type = changestate
+value = 430
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*40
+triggerall = !inguarddist
+triggerall = p2movetype != H || !numtarget
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,60]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;弱パンチ
+[State -1, Stand Light Panch]
+type = changestate
+value = ifelse(p2bodydist x >= 20,200,205)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*30
+triggerall = !inguarddist
+triggerall = p2movetype != H || !numtarget
+triggerall = p2statetype != L
+triggerall = p2bodydist x = [-10,60]
+triggerall = p2bodydist y = [-60,0]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;遠距離立ち強パンチ
+[State -1, Stand Hard Panch]
+type = changestate
+value = 210
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*10
+triggerall = !inguarddist
+triggerall = p2movetype != H || !numtarget
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [50,75]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;遠距離立ち強キック
+[State -1, Stand Hard Kick]
+type = changestate
+value = 240
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*5
+triggerall = !inguarddist
+triggerall = p2movetype != H || !numtarget
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [60,80]
+triggerall = enemynear,vel x < 5
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;しゃがみ強キック
+[State -1, Crouch Hard Kick]
+type = changestate
+value = 440
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*5
+triggerall = !inguarddist
+triggerall = p2movetype != H || !numtarget
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [70,80]
+triggerall = enemynear,vel x < 5
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;-------------------------< パワーMAX発動 >-------------------------
+[State -1, Power MAX]
+type = null;changestate
+value = 730
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*2
+triggerall = !inguarddist
+triggerall = p2bodydist x >= 30
+triggerall = p2statetype = L
+triggerall = p2movetype = H
+triggerall = p2life > 100
+triggerall = fvar(2) = 0
+triggerall = power >= 4000
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+[State -1, Power MAX]
+type = null;changestate
+value = 730
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*2
+triggerall = !inguarddist
+triggerall = p2bodydist x >= 150
+triggerall = p2statetype != A
+triggerall = p2movetype = I
+triggerall = p2stateno != 100
+triggerall = p2life > 100
+triggerall = fvar(2) = 0
+triggerall = power >= 4000
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+[State -1, Power MAX]
+type = null;changestate
+value = 730
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*1
+triggerall = var(58) = [0,249]
+triggerall = !inguarddist
+triggerall = p2bodydist x >= 30
+triggerall = p2statetype = L
+triggerall = p2movetype = H
+triggerall = p2life > 100
+triggerall = fvar(2) = 0
+triggerall = power >= 1000 && power < 4000
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+[State -1, Power MAX]
+type = null;changestate
+value = 730
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*1
+triggerall = var(58) = [0,249]
+triggerall = !inguarddist
+triggerall = p2bodydist x >= 150
+triggerall = p2statetype != A
+triggerall = p2movetype = I
+triggerall = p2stateno != 100
+triggerall = p2life > 100
+triggerall = fvar(2) = 0
+triggerall = power >= 1000 && power < 4000
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;-------------------------< 飛び込み >-------------------------
+;小ジャンプ
+[State -3, Jump]
+type = changestate
+value = 40+((var(56) := 2)*(var(57) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*10
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2movetype = A
+triggerall = p2bodydist x = [80,120]
+triggerall = enemynear,ctrl = 0
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;中ジャンプ
+[State -3, Jump]
+type = changestate
+value = 40+((var(56) := 3)*(var(57) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*10
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2movetype = A
+triggerall = p2bodydist x = [120,150]
+triggerall = enemynear,ctrl = 0
+triggerall = enemynear,animtime < -20
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;小ジャンプ
+[State -3, Jump]
+type = changestate
+value = 40+((var(56) := -2)*(var(57) := 1)*0)
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random < var(59)*20
+triggerall = p2statetype = S || p2statetype = C
+triggerall = p2bodydist x = [-10,40]
+triggerall = statetype != A
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+;空中強キック 小ジャンプ 飛び込み
+[State -1, Air Hard Kick]
+type = changestate
+value = 645
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*100
+triggerall = p2statetype = S || p2statetype = C || p2stateno = 5120
+triggerall = p2bodydist x = [-10,70]
+triggerall = vel x > 0
+triggerall = vel y > 0
+triggerall = pos y = [-53,-27]
+triggerall = sysvar(2) = 1
+triggerall = statetype = A
+trigger1 = ctrl || stateno = [120,139]
+
+;空中強キック 小ジャンプ 昇り
+[State -1, Air Hard Kick]
+type = changestate
+value = 645
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*100
+triggerall = p2statetype = S || p2statetype = C || p2stateno = 5120
+triggerall = p2bodydist x = [-10,45]
+triggerall = vel x <= 0
+triggerall = vel y < 0
+triggerall = pos y = [-10,-0]
+triggerall = sysvar(2) = 1
+triggerall = statetype = A
+trigger1 = ctrl || stateno = [120,139]
+
+;空中強パンチ 小ジャンプ 早出し
+[State -1, Air Hard Panch]
+type = changestate
+value = 615
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*100
+triggerall = p2statetype = S || p2statetype = C || p2stateno = 5120
+triggerall = p2bodydist x = [-10,70]
+triggerall = enemynear,ctrl = 1
+triggerall = vel x > 0
+triggerall = vel y <= 0
+triggerall = pos y = [-55,-53]
+triggerall = sysvar(2) = 1
+triggerall = statetype = A
+trigger1 = ctrl || stateno = [120,139]
+
+;空中強パンチ 小ジャンプ 早出し
+[State -1, Air Hard Panch]
+type = changestate
+value = 615
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*100
+triggerall = p2statetype = S || p2statetype = C || p2stateno = 5120
+triggerall = p2bodydist x = [-10,70]
+triggerall = enemynear,ctrl = 1
+triggerall = vel x > 0
+triggerall = vel y > 0
+triggerall = pos y = [-55,-53]
+triggerall = sysvar(2) = 1
+triggerall = statetype = A
+trigger1 = ctrl || stateno = [120,139]
+
+;空中強キック 通常ジャンプ
+[State -1, Air Hard Kick]
+type = changestate
+value = 645
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = sysfvar(2) = 0
+triggerall = roundstate = 2
+triggerall = random <= var(59)*100
+triggerall = p2statetype = S || p2statetype = C || p2stateno = 5120
+triggerall = p2bodydist x = [-10,70]
+triggerall = vel x > 0
+triggerall = vel y > 0
+triggerall = pos y = [-60,-40]
+triggerall = sysvar(2) = 0
+triggerall = statetype = A
+trigger1 = ctrl || stateno = [120,139]
+
+;-------------------------< 挑発 >-------------------------
+;炎の指先
+[State -1, Taunt]
+type = changestate
+value = 196
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = statetype != A
+triggerall = random <= var(59)*5
+triggerall = life >= 300
+triggerall = p2statetype = L
+triggerall = p2movetype = H
+triggerall = p2stateno != 5120
+triggerall = !inguarddist
+triggerall = p2bodydist x >= 90
+trigger1 = ctrl || stateno = 30 || stateno = 100 || stateno = [120,139]
+
+[State -1, Taunt]
+type = changestate
+value = 195
+triggerall = !ishelper
+triggerall = var(59) > 0
+triggerall = roundstate = 2
+triggerall = statetype != A
+triggerall = random <= var(59)*1
+triggerall = p2statetype != A
+triggerall = p2movetype != A
+triggerall = !inguarddist
+triggerall = p2bodydist x >= 200
+triggerall = ctrl || stateno = 100
+triggerall = life >= 300
+trigger1 = var(22) = 1 || var(22) = 2 || var(22) = 3
+trigger2 = var(22) = 4 || var(22) = 5 || var(22) = 6
+trigger3 = var(22) = 11

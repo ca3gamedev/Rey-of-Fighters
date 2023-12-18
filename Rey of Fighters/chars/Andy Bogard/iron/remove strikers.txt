@@ -1,0 +1,28 @@
+If you want to remove the strikers from Iron Andy:
+
+Just open the Ironandy.def file with a notepad like program,
+
+then you look for it:
+
+
+cmd      = andy.cmd        ;Config file
+;cmd      = andy_no_striker.cmd        ;Config file, no strikers
+cns      = andy.cns        ;Constants
+st       = andy.cns        ;States
+;st       = andy_no_striker.cns        ;States, no strikers
+
+To change to the no striker version, just change it like this:
+
+;cmd      = andy.cmd        ;Config file
+cmd      = andy_no_striker.cmd        ;Config file, no strikers
+cns      = andy.cns        ;Constants
+;st       = andy.cns        ;States
+st       = andy_no_striker.cns        ;States, no strikers
+
+And that 's it...
+
+WARNING: Don't put both available or one of each version available or it will bug...
+         And don't touch the cns part
+
+David
+http://run.to/ironmugen

@@ -1,0 +1,29 @@
+; Definition file for Iron Andy Bogard
+; http://tgt.shinmugen.net or http://run.to/ironmugen
+
+[Info]
+name 	     = "KOF_Andy EX"
+displayname  = "Andy Bogard"
+versiondate  = 07,02,2008
+mugenversion = 04,01,2001
+author 	     = "David Demianoff" 
+pal.defaults = 2;1,4
+
+[Files]
+cmd      = CNS/Andy.cmd 
+cns      = CNS/Andy.cns 
+st       = CNS/Andy.cns 
+st1      = CNS/Attacks.cns 
+st2      = CNS/Supers.cns
+st3      = CNS/Hypers.cns 
+stcommon = common1.cns 
+sprite   = Files/Andy.sff 
+anim     = Files/Andy.air
+sound    = Files/Andy.snd 
+pal1     = Paletas/Andy3.act
+;pal2     = Paletas/Andy2.act
+;pal3     = Paletas/Andy4.act
+pal4     = Paletas/Andy1.act 
+;pal5     = Paletas/Andy5.act
+;pal6     = Paletas/Andy6.act
+

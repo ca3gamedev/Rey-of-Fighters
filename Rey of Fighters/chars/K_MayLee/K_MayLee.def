@@ -1,0 +1,31 @@
+; Player information
+[Info]
+name ="May Lee"        
+displayname ="May Lee" 
+versiondate =05,05,2008    
+mugenversion =06,14,2003 
+author ="KoopaKoot"         
+pal.defaults =1      
+
+; Files for the player
+[Files]
+cmd     =Maylee.cmd
+cns     =Maylee.cns
+st      =Maylee.cns
+stcommon =common1.cns
+sprite  =sprite.sff
+anim    =Maylee.air
+sound   =sounds.snd   
+pal4=MayDefault.act
+
+
+
+
+pal1=Kiri-Artwork.act
+pal2=OKOF.Act
+pal3=Kiri-Artwork.act
+st1=supermaylee.cns
+st2=config.txt
+[Arcade]
+intro.storyboard=
+ending.storyboard=

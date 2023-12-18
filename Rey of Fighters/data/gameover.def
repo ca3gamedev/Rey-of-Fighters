@@ -1,0 +1,55 @@
+;Game over storyboard.
+
+[Info]
+localcoord = 304,224
+
+[SceneDef]
+spr = system.sff
+
+;------------------------------------
+; Display "game over" animation
+[Scene 0]
+; Fade
+fadein.time = 0
+fadeout.time = 60
+fadeout.col = 0,0,0
+; Screen color
+clearcolor = 0,0,0
+; Overlay Anims (from 0 to 9)
+layerall.pos = 0,0 ;Default position for all layers
+layer0.anim =  0       ;Anim action number
+layer0.starttime = 0  ;Time to start displaying the anim
+; Total time
+end.time = 220
+bgm = gameover.ogg        ;Name of music file to play
+bgm.loop = 0
+
+; Fade from white to black
+[Scene 1]
+fadein.time = 30
+fadein.col = 0,0,0
+; Screen color
+clearcolor = 0,0,0
+; Total time
+end.time = 30
+
+;------------------------------------
+;Animation for game over (shakes the sprite)
+;gameover
+[Begin Action 0]
+9100,  0,  0,  0,  6
+9100,  1,  0,  0,  6
+9100,  2,  0,  0,  5
+9100,  3,  0,  0,  4
+9100,  4,  0,  0,  5
+9100,  5,  0,  0,  6
+9100,  6,  0,  0,  4
+9100,  7,  0,  0,  6
+9100,  8,  0,  0,  5
+9100,  9,  0,  0,  4
+9100, 10,  0,  0,  6
+9100, 11,  0,  0,  5
+9100, 12,  0,  0,  4
+9100,  6,  0,  0, -1
+
+

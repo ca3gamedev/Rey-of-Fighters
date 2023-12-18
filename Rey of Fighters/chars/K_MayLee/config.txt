@@ -1,0 +1,274 @@
+;This may seem small now, but more stuff will be added later. Maybe.
+;
+[Statedef -2]
+
+[state 3000, Explosion Variable]
+type = varset; Leave unchanged
+trigger1 = 1; Leave unchanged
+v = 20; Leave unchanged
+value = 1; CHANGE TO 0 IF YOU WANT THE XI EXPLOSION, 1 IF YOU WANT THE 2K2 EXPLOSION
+
+
+
+
+
+
+
+
+
+
+
+
+; Do not modify anything below.
+
+[State -2, Width]
+type = Width
+trigger1 = stateno != [12012,12013]
+edge = 24,0
+ignorehitpause=1
+
+[State -2, 1] ;Turn if not facing opponent
+type = turn
+triggerall = stateno = [10200,10430]
+triggerall = stateno = [11000,11999]
+trigger1 = p2dist X < -5
+trigger1 != time
+
+;---------------------------------------------------------------------------
+;KOF Juggle system by [E]
+;---------------------------------------------------------------------------
+
+[State -2, ground combos]
+type = AssertSpecial
+triggerall = NumTarget
+trigger1 = Target,StateType != A
+flag = NoJuggleCheck
+
+[State -2, juggle decreasing]
+type = varSet
+trigger1 = var(16)>0
+var(16) = var(16)-1
+ignorehitpause = 0
+
+[State -2, juggle set basics]
+type= varSet
+triggerall= movehit = 1
+trigger1 = stateno = [200,235] 
+trigger2 = stateno = [400,635]
+trigger3 = stateno = [10200,10230] 
+trigger4 = stateno = 10400
+trigger5 = stateno = [10420,10430]
+trigger6 = stateno = [11000,11031]
+var(16)= ifelse(var(56) = 1,6,0)
+
+[State -2, juggle set CD]
+type = varSet
+triggerall = movehit = 1
+trigger1 = stateno = 240
+trigger2 = stateno = 640
+var(16) = ifelse(var(56) = 1,100,0)
+
+[State -2, Launchers]
+type = varSet
+triggerall = movehit = 1 
+trigger1 = stateno = 1025
+trigger2 = stateno = 1041
+trigger3 = stateno = 1000 && animelem = 7
+trigger4 = stateno = 10410
+var(16) = 500
+
+[State -2, juggle checking regular stuff]
+type = AssertSpecial
+triggerall = var(16) > 0 
+trigger1 = stateno = [200,235] 
+trigger2 =  stateno = [400,635]
+trigger3 = stateno = 1025
+trigger4 = stateno = 1041
+trigger5 = stateno = [10200,10230] 
+trigger6 = stateno = 10400
+trigger7 = stateno = 10410
+trigger8 = stateno = [10420,10430]
+trigger9 = stateno = [11000,11031]
+flag = NoJuggleCheck
+
+[State -2, juggle checking always juggle]
+type = AssertSpecial
+trigger1 = stateno = 2021
+trigger2 = stateno = 2022
+trigger3 = stateno = 12002
+trigger4 = stateno = 12003
+trigger5 = stateno = 12012
+trigger6 = stateno = 12021
+flag = NoJuggleCheck
+;---------------------------------------------------------------------
+;================================================================================
+; ------- COUNTER HIT (Vans' Code, Based on Sander's Method) --------
+;===============================================================================
+[State -2, VarSet];Checks if opponent is in attack state
+type = VarSet
+triggerall = numenemy
+trigger1 = enemy, movetype = a
+var(56) = 1
+ignorehitpause = 1
+
+[State -2, VarSet];This resets the condition if counter not succesful and succesful
+type = VarSet
+triggerall = numenemy
+trigger1 = enemy, movetype = i || var(57) >= 1  ;Enemy is Idle | Counter was Succesful
+trigger2 = var(57) > 10 && enemy, movetype = h  ;10 ticks passed & enemy is on gethit state
+var(56) = 0
+ignorehitpause = 1
+
+[State -2, VarSet];Counter Hit Succesful
+type = VarSet
+trigger1 = var(56) = 1 && movehit ;Counter Check Ok, Move Hit Succesfully.
+trigger1 = stateno != [190,199] ;Does not activate during intros.
+trigger1 = stateno != [900,979] ;Does not activate during throws.
+trigger1 = stateno != [3000,3099] ;Don't activate during throws.
+trigger1 = stateno != [3700,3799] ;Don't activate during throws.
+trigger2 = var(56) = 1 && projhit = 1  ;Counter Check Ok, Projectile Hit Succesfully.
+var(57) = 1
+ignorehitpause = 1
+
+[State -2, VarAdd];Counter Hit Timer
+type = VarAdd
+trigger1 = var(57) >= 1 ;Counter was succesful
+var(57) = 1
+ignorehitpause = 1
+
+[State -2, VarSet];Counter Hit Reset
+type = VarSet
+trigger1 = var(57) >= 22 && movehit ;Reset if 22 ticks passed and move hit
+trigger2 = p2movetype != h ;Reset if P2 is no longer in gethit state
+trigger3 = movetype = h ;Reset if P1 is getting hit
+trigger4 = var(57) >= 22 && projhit = 1 ;Reset if 22 ticks passed and projectile hit
+var(57) = 0
+ignorehitpause = 1
+
+[State -2, AssertSpecial];This will award free juggles for Counter Hit.
+type = AssertSpecial
+trigger1 = var(57) > 0
+flag = nojugglecheck
+
+[State -2, EnvColor];This will produce a flash a la KOF2K2
+type = EnvColor
+triggerall = numenemy
+triggerall = stateno != [800,899] ;Does not activate during intros.
+triggerall = stateno != [2000,2999] ;Don't activate during Hyper Moves
+triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
+trigger1 = var(56) = 1 && movehit  ;Move hit, Ok
+trigger2 = var(56) = 1 && projhit = 1 ;Projectile hit, Ok
+value = 255,255,255
+time = 1
+under = 1
+ignorehitpause = 1
+persistent = 0
+
+[State -2, Damage based on hits]
+type=varset
+trigger1= numenemy
+fvar(12)= ifelse(enemynear,gethitvar(hitcount)<3, 24, ifelse(enemynear,gethitvar(hitcount)>=24, 2, 26-enemynear,gethitvar(hitcount))) / 24.0
+ignorehitpause=1
+
+[State -2, Reset var when the opponent recovers]
+type=varset
+trigger1= numenemy
+trigger1= (enemynear,movetype!=H)
+trigger2= !numenemy
+fvar(12)=1
+
+[State -2, Dampener itself]
+type=attackmulset
+trigger1= 1
+value=fvar(12)
+ignorehitpause=1
+
+;================================================================================
+; ------- KOF Cornerpush System by Vans --------
+;===============================================================================
+[State -2, Superpause Check]
+type = VarAdd
+trigger1 = Var(6)
+var(6) = -1
+
+[State -2, Reset Time counter]
+type = VarSet
+trigger1 = movecontact = 1
+var(12) = 0
+
+[State -2, Accel]
+type = VarSet
+triggerall = roundstate = 2
+triggerall = Var(6) <= 0
+triggerall = numtarget >= 1
+trigger1 = target, hitshakeover
+fvar(6) = (target, gethitvar(xvel)*exp((-0.2116)*((var(12)))))
+
+[State -2, Push]
+type = PosAdd
+triggerall = roundstate = 2
+triggerall = !var(6)
+triggerall = numtarget >= 1
+triggerall = (target, BackEdgeBodyDist <= 0) || (target, FrontEdgeBodyDist <= 0)
+triggerall = ProjContact = 0, < 50
+triggerall = stateno != [800,899]
+triggerall = enemynear,statetype != A
+trigger1 = Statetype != A
+x = ifelse(facing = -1 && target, BackEdgeBodyDist <= 0,fvar(6),-fvar(6))
+
+[State -2, Increase]
+type = VarSet
+triggerall = numtarget >= 1
+triggerall = target, hitshakeover
+trigger1 = Var(6) <= 0
+trigger1 = var(12)
+var(12) = var(12)+1
+
+[State -2, Time counter]
+type = VarSet
+trigger1 = !var(12)
+trigger1 = fvar(6)
+var(12) = 1
+
+[State -2, Freeze Pos During Superpause]
+type = PosFreeze
+trigger1 = Var(6)
+value = 1
+
+[State -2, Drop]
+type = VarSet
+triggerall = fvar(6)
+trigger1 = !numtarget
+trigger2 = projcontact = 1
+trigger3 = movecontact = 1
+fvar(6) = 0
+ignorehitpause = 1
+
+[State -2, Drop]
+type = VarSet
+triggerall = fvar(8)
+trigger1 = !numtarget
+trigger2 = projcontact = 1
+trigger3 = numtarget >= 1 && target, gethitvar(xvel) = 0
+var(17) = 0
+
+[Statedef 5900]
+type = S
+
+[State 5900, 1] ;Clear all int variables
+type = VarRangeSet
+trigger1 = roundsexisted = 0
+value = 0
+
+[State 5900, 2] ;Clear all float variables
+type = VarRangeSet
+trigger1 = roundsexisted = 0
+fvalue = 0
+
+[State 5900, 3] ;Intro for first round
+type = ChangeState
+trigger1 = roundsexisted = 0
+trigger2 = roundno = 1
+value = 190
+
+

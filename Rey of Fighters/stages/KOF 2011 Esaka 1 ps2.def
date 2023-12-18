@@ -1,0 +1,468 @@
+;Author:Aiglat/PandoraSM
+;
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Info]
+name = "KOF 2011 Esaka 1 ps2"
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -118
+boundright = 118
+boundhigh = -14
+boundlow = 0
+verticalfollow = 0.2
+floortension = 50
+tension = 60
+
+
+[PlayerInfo]
+;--- Player 1 ---
+ 
+p1startx = -70          
+p1starty = 0            
+p1startz = 0           
+p1facing = 1            
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2  
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Bound]
+screenleft = 25  
+screenright = 25  
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[StageInfo]
+;localcoord= 298
+zoffset = 221
+autoturn = 1
+resetBG = 0
+HIRES = 1
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = -.18
+fade.range = -100,-10
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Reflection]
+intensity = 0
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Music]
+bgmusic   = sound/KOF 2011 Esaka 1 ps2.mp3
+bgmvolume = 110
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[BGdef]
+spr       = KOF 2011 Esaka 1 ps2.sff
+debugbg   = 0
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+[BG 1]
+type = normal
+spriteno = 0,0
+start = 0,-60
+delta = .9,2
+mask = 1
+
+[BG 2]
+type = normal
+spriteno = 0,4
+start = -250, 0
+	delta=.3,2
+	start=0,0
+	;---
+	scalestart=1.35,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[BG 2]
+type  = parallax
+spriteno = 0,1
+start = -56, 0
+	delta=1.7,2
+	start=0,0
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[BG 2]
+type  = parallax
+spriteno = 0,11
+start = -56, 0
+	delta=.3,2
+	start=0,0
+	;---
+	scalestart=1.15,1
+	scaledelta=-0.0017,0
+	zoomdelta=0.5
+
+[BG 2]
+type = normal
+spriteno = 0,4
+start = -810, 2
+	delta=.3,2
+	start=0,0
+	;---
+	scalestart=1.15,1
+	scaledelta=-0.0017,0
+	zoomdelta=0.5
+
+
+[BG 2]
+type  = parallax
+spriteno = 0,3
+start = -70, 0
+	delta=.3,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[BG 2]
+type  = parallax
+spriteno = 0,13
+start = -70, 0
+	delta=.3,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[BG 2]
+type  = parallax
+spriteno = 0,17
+start = -70, 0
+	delta=.3,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[BG 2]
+type  = parallax
+spriteno = 0,8
+start = -70, 0
+	delta=.3,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[BG 0]
+type  = anim
+actionno = 29
+start = -280, 0
+	delta=.32,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 29]
+loopstart
+4,0, 0,0, 40,,,
+4,1, 0,0, 40,,,
+[BG 0]
+type  = anim
+actionno = 28
+start = -210, 0
+	delta=.32,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 28]
+loopstart
+4,0, 0,0, 40,,,
+4,1, 0,0, 44,,,
+[BG 0]
+type  = anim
+actionno = 27
+start = -140, 0
+	delta=.32,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 27]
+loopstart
+4,0, 0,0, 40,,,
+4,1, 0,0, 37,,,
+
+[BG 0]
+type  = anim
+actionno = 20
+start = -70, 0
+	delta=.32,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 20]
+loopstart
+4,0, 0,0, 40,,,
+4,1, 0,0, 32,,,
+
+
+
+
+[BG 0]
+type  = anim
+actionno = 21
+start = -70, 0
+	delta=.32,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 21]
+loopstart
+5,0, 0,0, 40,,,
+5,1, 0,0, 44,,,
+[BG 0]
+type  = anim
+actionno = 22
+start = -70, 0
+	delta=.32,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 22]
+loopstart
+6,0, 0,0, 40,,,
+6,1, 0,0, 40,,,
+
+[BG 0]
+type  = anim
+actionno = 12
+start = 0, 152
+tile = 1,0
+mask = 1
+	delta=1.7,2
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 12]
+loopstart
+0,12, -1824.5,-232, 400,,,1.8,1.8
+0,12, 160,0, 264,,,.55,.55
+Interpolate scale
+interpolate offset
+0,12, -1824.5,-352, 4,,,1.77,1.77
+
+[BG 0]
+type  = anim
+actionno = 0
+start = 0, 145
+tile = 1,0
+mask = 1
+	delta=1.7,2
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 0]
+loopstart
+0,9, 160,0, 264,,,.55,.55
+Interpolate scale
+interpolate offset
+0,9, -1824.5,-332, 4,,,2,2
+0,9, -1824.5,-352, 500,,,2,2
+
+[BG 0]
+type  = anim
+actionno = 1
+start = 0, 140
+tile = 1,0
+mask = 1
+	delta=1.7,2
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 1]
+loopstart
+0,10, -1824.5,-232, 500,,,1.8,1.8
+0,10, 160,0, 264,,,.55,.55
+Interpolate scale
+interpolate offset
+0,10, -1824.5,-282, 4,,,1.8,1.8
+
+
+
+
+
+[BG 2]
+type  = parallax
+spriteno = 0,2
+start = -34, 0
+	delta=1.7,2
+	start=0,0
+	;---
+	scalestart=0.85,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+
+
+
+
+
+
+[BG 2]
+type = normal
+spriteno = 0,5
+	delta=1.7,2
+	start=0,-1
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[BG 2]
+type = normal
+spriteno = 0,6
+	delta=1.7,2
+	start=-40,-4
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[BG 2]
+type = normal
+spriteno = 0,7
+	delta=1.7,2
+	start=0,0
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[BG 0]
+type  = anim
+actionno = 2
+start = -223, 18
+tile = 1,0
+mask = 1
+	delta=1.7,2
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+[Begin action 2]
+loopstart
+1,0,0,0,20
+1,1,0,0, 20
+1,0,0,0,20
+1,1,0,0, 20
+1,0,0,0,20
+1,1,0,0, 20
+1,0,0,0,20
+1,1,0,0, 20
+1,2,0,0, 40
+
+[BG 0]
+type  = anim
+actionno = 3
+start = -188, 18
+tile = 1,0
+mask = 1
+	delta=1.7,2
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 3]
+loopstart
+2,1,0,0,32
+2,2,0,0, 32
+2,1,0,0,32
+2,2,0,0, 32
+2,1,0,0,32
+2,2,0,0, 32
+2,0,0,0, 12
+2,3,0,0, 40
+2,1,0,0,12
+2,0,0,0, 12
+2,3,0,0, 40
+
+[BG 0]
+type  = anim
+actionno = 4
+start = -180, 18
+tile = 1,0
+mask = 1
+	delta=1.7,2
+	;---
+	scalestart=1.15,1
+	scaledelta=0.0017,0
+	zoomdelta=0.5
+
+[Begin action 4]
+loopstart
+3,0,0,0,32
+3,1,0,0, 32
+3,2,0,0,62
+3,1,0,0, 32

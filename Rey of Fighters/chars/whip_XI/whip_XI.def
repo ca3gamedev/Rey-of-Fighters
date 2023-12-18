@@ -1,0 +1,44 @@
+; Definition file for Whip
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Whip"
+displayname ="Whip"
+versiondate =04,14,2001
+mugenversion =04,14,2001
+author ="Yatenkou"
+pal.defaults =6,3,4,2,1,5,7,9,8,10,11,12
+
+; Files for the player
+[Files]
+cmd     =whip.cmd
+cns     =whip.cns
+st      =whip.cns
+;st4      = HelperISM2.cns   ;States
+stcommon =common@.cns
+sprite  =whip.sff
+anim    =whip.air
+sound   =whip.snd
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+pal7=7.act
+pal8=8.act
+pal9=9.act
+pal10=10.act
+pal11=11.act
+pal12=12.act
+st1=Helper@.cns
+st2=Especiales.cns
+st3=Supers.cns
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=whipend.def

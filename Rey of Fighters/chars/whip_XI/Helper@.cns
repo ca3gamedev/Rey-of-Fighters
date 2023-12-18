@@ -1,0 +1,209 @@
+
+;---------------------------------------------------------------------------
+;88888888888888888888888 HELPER GAME PISO 88888888888888888888888888
+;-----------------------------------------------------------------
+[Statedef 9966]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+juggle  = 1                      ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 9999                       ;Change animation (Def: no change)                  ;Power to add (Def: 0)
+sprpriority = 2                  ;Set layering priority to 2 (in front
+
+[State 3000,Explod]
+type = turn
+trigger1 = parent,facing = -1
+
+
+[State 3000,Explod]
+type = Explod
+trigger1 = p2stateno = 15775
+anim = 61
+ID = 2
+pos = 0,3
+postype = P2
+sprpriority = -1
+supermove = 1
+ownpal = 1
+
+[State 3000,Explod]
+type = Explod
+trigger1 = p2stateno = 131414||p2stateno = 131416
+anim = 72
+ID = 2
+pos = 10,0
+postype = P2
+sprpriority = 3
+supermove = 1
+ownpal = 1
+facing = -1
+
+[State 3000,Explod]
+type = Explod
+trigger1 = p2stateno = 15885||p2stateno = 25775
+anim = 62
+ID = 2
+pos = 0,3
+postype = P2
+sprpriority = 4
+supermove = 1
+ownpal = 1
+
+
+
+[State 3000,Explod]
+type = Explod
+trigger1 = p2stateno = 15885||p2stateno = 25775
+anim = 70
+ID = 2
+pos = 0,3
+postype = P2
+sprpriority = -1
+supermove = 1
+ownpal = 1
+
+
+;=========================
+;======= sounds ==========
+;=========================
+
+[State 9523, Super B]
+type = PlaySnd
+trigger1 = p2stateno = 131414||p2stateno = 131416
+value = s1,9
+volume = 100
+pan = 100
+
+[State 9523, Super B]
+type = PlaySnd
+trigger1 = p2stateno = 15775||p2stateno = 15885||p2stateno = 25775
+value = s7,2
+volume = 100
+
+[State 3704, 2]
+type = EnvShake
+trigger1 = p2stateno = 15775||p2stateno = 15885||p2stateno = 25775
+time = 18
+ampl = 3
+freq = 140
+phase = 3
+
+[State 3000,Explod]
+type = posset
+trigger1 = 1
+y= 0
+
+[State 200, 7]
+type = Destroyself
+trigger1 = time=999999999999999999999999999999999999999999999999999999999999
+
+
+
+
+;---------------------------------------------------------------------------
+;88888888888888888888888 HELPER GAME PISO 88888888888888888888888888
+;-----------------------------------------------------------------
+[Statedef 9999]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+juggle  = 1                      ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 9999                       ;Change animation (Def: no change)                  ;Power to add (Def: 0)
+sprpriority = 2                  ;Set layering priority to 2 (in front)
+
+
+[State 3000,Explod]
+type = Explod
+trigger1 = time = 0
+anim = 70
+ID = 2
+pos = 0,3
+postype = P1
+sprpriority = -2
+supermove = 1
+ownpal = 1
+bindtime = 1
+
+[State 3000,Explod]
+type = Explod
+trigger1 = time = 0
+anim = 62
+ID = 2
+pos = 0,3
+postype = P1
+sprpriority = 2
+supermove = 1
+ownpal = 1
+bindtime = 1
+
+
+[State 3000,Explod]
+type = posset
+trigger1 = 1
+y= 0
+
+[State 200, 7]
+type = Destroyself
+trigger1 = animtime=0
+
+;---------------------------------------------------------------------------
+;88888888888888888888888 HELPER GAME selector KOF 88888888888888888888888888
+;-----------------------------------------------------------------
+[Statedef 20000]
+ctrl = 0                       ;Set ctrl (Def: no change)
+anim= 22
+sprpriority = 2                  ;Set layering priority to 2 (in front)
+
+[State 10000, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+
+[State 9523, Super B]
+type = PlaySnd
+trigger1 = time = 01
+value = s15,2
+volume = 99
+
+[STate 190, e]
+type = destroyself
+trigger1= time = 9999999999999999999999999999999999
+
+
+;---------------------------------------------------------------------------
+;88888888888888888888888 HELPER GAME death888888888888888888888
+;-----------------------------------------------------------------
+[Statedef 222]
+type    = S                      ;State-type: S-stand, C-crouch, A-air, L-liedown
+movetype= I                      ;Move-type: A-attack, I-idle, H-gethit
+physics = S                      ;Physics: S-stand, C-crouch, A-air
+juggle  = 1                      ;Number of air juggle points move takes
+;Commonly-used controllers:
+velset = 0,0                     ;Set velocity (x,y) (Def: no change)
+ctrl = 0                         ;Set ctrl (Def: no change)
+anim = 9966                       ;Change animation (Def: no change)                  ;Power to add (Def: 0)
+sprpriority = 2                  ;Set layering priority to 2 (in front)
+
+[State 100, death]
+type = PlaySnd
+triggerall = parent, stateno != 15800
+trigger1 = time =0
+value = 11,9
+channel = 5
+
+
+
+
+
+[State 100, 3]
+type = Destroyself
+trigger1 = time=9999999999999999999999999
+
+
+

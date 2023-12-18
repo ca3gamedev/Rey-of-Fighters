@@ -1,0 +1,138 @@
+[SceneDef]
+spr = whipend.sff
+
+[Scene 0]
+bgm = crystal_(staff_roll).mp3
+fadein.time = 40
+fadein.col = 0,0,0
+fadeout.time = 20
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 153,90
+layer0.offset = 0,0
+layer0.anim =  0
+layer0.starttime = 0
+end.time = 1200
+
+[Scene 1]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 20
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 153,90
+layer0.offset = 0,0
+layer0.anim =  1
+layer0.starttime = 0
+end.time = 600
+
+[Scene 2]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 20
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 153,90
+layer0.offset = 0,0
+layer0.anim =  2
+layer0.starttime = 0
+end.time = 240
+
+[Scene 3]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 20
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 153,90
+layer0.offset = 0,0
+layer0.anim =  3
+layer0.starttime = 0
+end.time = 240
+
+[Scene 4]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 20
+fadeout.col = 255,255,255
+clearcolor = 0,0,0
+layerall.pos = 153,90
+layer0.offset = 0,0
+layer0.anim =  4
+layer0.starttime = 0
+end.time = 720
+
+[Scene 5]
+fadein.time = 20
+fadein.col = 255,255,255
+fadeout.time = 20
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 153,90
+layer0.offset = 0,0
+layer0.anim =  5
+layer0.starttime = 0
+end.time = 480
+
+[Scene 6]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 40
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 153,90
+layer0.offset = 0,0
+layer0.anim =  6
+layer0.starttime = 0
+end.time = 720
+
+[Scene 7]
+fadein.time = 20
+fadein.col = 0,0,0
+fadeout.time = 100
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+layerall.pos = 153,90
+layer0.offset = 0,0
+layer0.anim =  7
+layer0.starttime = 0
+end.time = 540
+
+
+[Begin Action 0]
+0,0, 0,0, 240
+0,1, 0,0, 240
+0,2, 0,0, 240
+0,3, 0,0, 240
+0,4, 0,0, 240
+
+[Begin Action 1]
+0,5, 0,0, 120
+0,6, 0,0, 120
+0,7, 0,0, 120
+0,8, 0,0, 120
+0,9, 0,0, 120
+
+[Begin Action 2]
+0,10, 0,0, 240
+
+[Begin Action 3]
+0,11, 0,0, 240
+
+[Begin Action 4]
+0,12, 0,0, 240
+0,13, 0,0, 240
+0,14, 0,0, 240
+
+[Begin Action 5]
+0,15, 0,0, 240
+0,16, 0,0, 240
+
+[Begin Action 6]
+0,17, 0,0, 240
+0,18, 0,0, 240
+0,19, 0,0, 240
+
+[Begin Action 7]
+0,20, 0,0, 240
+0,21, 0,0, 300

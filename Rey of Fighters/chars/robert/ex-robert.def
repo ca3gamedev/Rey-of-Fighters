@@ -1,0 +1,27 @@
+
+[Info]
+name = "Robert Garcia"
+displayname = "Robert"
+versiondate = 25,12,2009
+mugenversion = 14,04,2002
+author = "CIRIO, Jerzy"
+pal.defaults = 1
+
+[Files]
+sprite = robert.sff
+anim = robert.air
+sound = robert.snd
+cmd = robert.cmd
+cns = ex-robert.cns
+stcommon = common1.cns
+st = ex-robert.cns
+pal1 = 1.act
+pal2 = 2.act
+pal3 = 3.act
+pal4 = 4.act
+pal5 = 5.act
+pal6 = 6.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

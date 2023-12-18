@@ -1,0 +1,67 @@
+;===========================================================================
+; Initialize (at the start of the round)
+[Statedef 5900]
+type = S
+
+[State 5900, 1] ;Clear all int variables
+type = VarRangeSet
+trigger1 = roundno = 1
+value = 0
+
+[State 5900, 2] ;Clear all float variables
+type = VarRangeSet
+trigger1 = roundno = 1
+fvalue = 0
+
+;===========================================================================
+; ↑変更不可
+;===========================================================================
+;システム設定
+[State 5900, VarSet(38)]
+type = VarSet
+trigger1 = Time = 0
+var(38) = 1;{0:KOF2K  1:KOF2K2}
+; 数値部分を変更することでシステムの変更をすることが出来ます。
+
+;銃器の表示設定
+[State 5900, VarSet(34)]
+type = VarSet
+trigger1 = Time = 0
+var(34) = 1;{0:日本版(有り) 1:ヨーロッパ版(無し)}
+; 数値部分を変更することでシステムの変更をすることが出来ます。
+
+;===========================================================================
+; ↓変更不可
+;===========================================================================
+[State 5900, VarSet(38)]
+type = VarSet
+trigger1 = Time = 0
+var(19) = 6
+
+[State 5900, VarSet(13)]
+type = VarSet
+triggerall = var(13) = 0
+trigger1 = P2Name = "k9999" || P4Name = "k9999"
+trigger2 = P2Name = "angel" || P4Name = "angel"
+trigger3 = P2Name = "Kula" || P4Name = "Kula" || P2Name = "Kula Diamond" || P4Name = "Kula Diamond"
+trigger4 = P2Name = "Foxy" || P4Name = "Foxy"
+trigger5 = P2Name = "Igniz By Third" || P4Name = "Igniz By Third" || P2Name = "Igniz" || P4Name = "Igniz"
+trigger6 = P2Name = "Zero By Third" || P4Name = "Zero By Third" || P2Name = "Zero0 By Third" || P4Name = "Zero0 By Third" || P2Name = "Zero" || P4Name = "Zero" || P2Name = "ORIGINAL ZERO" || P4Name = "ORIGINAL ZERO"
+trigger7 = P2Name = "Krizalid" || P4Name = "Krizalid" 
+var(13) = 1
+
+[State 5900, VarSet(13)]
+type = VarSet
+triggerall = var(13) = 0
+trigger1 = P2Name = "K'" || P4Name = "K'" || P2Name = "K'" || P4Name = "K'"
+trigger2 = P2Name = "Elisabeth Branctorche" || P4Name = "Elisabeth Branctorche" || P2Name = "Elisabeth Branctorche" || P4Name = "Elisabeth Branctorche"
+trigger3 = P2Name = "Athena Asamiya" || P4Name = "Athena Asamiya" || P2Name = "Athena Asamiya" || P4Name = "Athena Asamiya" || P2Name = "Athena Asamiya" || P4Name = "Athena Asamiya" 
+trigger4 = P2Name = "Shion" || P4Name = "Shion" || P2Name = "Shion" || P4Name = "Shion"
+var(13) = 2
+
+[State 5900, 3] ;Intro
+type = ChangeState
+trigger1 = roundno = 1
+value = 190
+
+;===========================================================================

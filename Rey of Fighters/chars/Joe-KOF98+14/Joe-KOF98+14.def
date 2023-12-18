@@ -1,0 +1,30 @@
+[Info]
+Name         = "Joe-KOF98+14"
+DisplayName  = "Joe"
+VersionDate  = 11,04,2019
+MugenVersion = 04,14,2002
+Author       = "Soy Sauce"
+Pal.Defaults = 1,2
+
+[Files]
+Cmd     = Joe.cmd
+Cns     = Joe.cns
+St      = Joe.cns
+St2     = Joe-N.cns
+St3     = Joe-S.cns
+St4     = Joe-EX.cns
+St5     = Joe-H.cns
+St6     = Joe-2.cns
+St7     = Joe-AI.cns
+St8     = Config.cns
+StCommon = common1.cns
+Sprite  = Joe.sff
+Anim    = Joe.air
+Sound   = Joe.snd
+
+Pal1 = act/01.act
+Pal2 = act/02.act
+Pal3 = act/03.act
+Pal4 = act/04.act
+Pal5 = act/05.act
+Pal6 = act/06.act

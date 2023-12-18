@@ -1,0 +1,35 @@
+
+
+[Info]
+name = "Mai Shiranui"
+displayname = "Mai-KOF02UM"
+versiondate = 08,04,2014
+author = "Mondregon"
+pal.defaults = 4
+mugenversion =1.0
+
+
+
+[Files]
+sprite = Mai.sff
+anim = Mai.air
+sound = Mai.snd
+cmd = Mai.cmd
+cns = Mai-N.cns
+stcommon = common1.cns
+st = Mai-N.cns
+st1 = Mai-S.cns
+st2 = Mai-H.cns
+st3 = Helpers.cns
+st4 = HSDM.cns
+
+pal1 = Mai02.act
+pal2 = Mai04.act
+pal3 = Mai06.act
+pal4 = Mai01.act
+pal5 = Mai03.act
+pal6 = Mai05.act
+
+[Arcade]
+;intro.storyboard = 
+;ending.storyboard = 

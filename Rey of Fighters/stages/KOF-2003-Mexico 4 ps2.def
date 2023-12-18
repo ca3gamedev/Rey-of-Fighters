@@ -1,0 +1,1042 @@
+;Author:Aiglat/PandoraSM
+;Create Date: 31/7/15
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Info]
+name = "KOF-2003-Mexico 4 ps2"
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -188
+boundright = 188
+boundhigh = -14
+boundlow = 0
+verticalfollow = 0.2
+floortension = 50
+tension = 60
+
+
+[PlayerInfo]
+;--- Player 1 ---
+ 
+p1startx = -70          
+p1starty = 0            
+p1startz = 0           
+p1facing = 1            
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000
+rightbound =  1000 
+topbound  =  0     
+botbound  =  0     
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Scaling]
+topz     = 0       
+botz     = 50      
+topscale = 1       
+botscale = 1.2  
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Bound]
+screenleft = 25  
+screenright = 25  
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 0
+HIRES = 1
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = -.18
+fade.range = -100,-10
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Reflection]
+intensity = 0
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[Music]
+bgmusic   = sound/KOF-2003-Mexico 4 ps2.mp3
+bgmvolume = 110
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[BGdef]
+spr      = KOF-2003-Mexico 4 ps2.sff
+debugbg  = 0
+
+;---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[BG 1]
+type = normal
+spriteno = 5,0
+start = 0,312
+scalestart= 1.35,1
+delta = 0.1,2
+tile= 1,0
+;mask = 1
+
+
+[BG 1]
+type = normal
+spriteno = 6,0
+start = 0,312
+delta = .8,2
+tile= 1,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 9,0
+start = 0,312
+delta = .8,2
+tile= 1,0
+;mask = 1
+
+
+[BG 1]
+type  = anim
+actionno = 71
+start = -270,312
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type  = anim
+actionno = 71
+start = -350,312
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type  = anim
+actionno = 71
+start = -180,312
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type  = anim
+actionno = 71
+start = -90,312
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+
+[BG 1]
+type  = anim
+actionno = 71
+start = 0,312
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type  = anim
+actionno = 71
+start = 90,312
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type  = anim
+actionno = 71
+start = 180,312
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type  = anim
+actionno = 71
+start = 270,312
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type  = anim
+actionno = 71
+start = 350,312
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 0]
+type  = anim
+actionno = 26
+start = 0, 0
+	delta=0.1,2
+	start=0,0
+
+[BG 0]
+type  = parallax
+spriteno = 3,0
+start = 0, 312
+	delta=1,2
+	start=0,0
+	scalestart=1.2,1
+	scaledelta=0.0007,0
+	zoomdelta=0.5
+
+
+[Begin action 71]
+loopstart
+7,1, 0,0, 4,,AS156D256
+
+[BG 1]
+type = normal
+spriteno = 5,1
+start = 0,312
+scalestart= 1,1.3
+delta = .9,2
+tile= 1,0
+velocity = .5,0
+;mask = 1
+trans= add
+
+
+
+
+[Begin action 25]
+loopstart
+11,0, 0,0, -1,,AS111D256
+
+[Begin action 26]
+loopstart
+11,1, 0,0, -1,,AS256D256
+
+
+[BG 1]
+type = normal
+spriteno = 7,1
+start = -390,312
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 7,1
+start = 390,312
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 7,0
+start = 0,312
+delta = .7,2
+tile= 1,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,3
+start = 0,312
+delta = .7,2
+tile= 1,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 7,0
+start = -30,312
+delta = .7,2
+tile= 1,0
+;mask = 1
+
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -60,312
+scalestart=1.10,1
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -90,312
+scalestart=1.12,1
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -120,315
+scalestart=1.20,1.20
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -150,315
+scalestart=1.11,1.13
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -180,322
+scalestart=1.05,1.10
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -210,322
+scalestart=1.08,1.12
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -240,313
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -270,313
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.02,1.08
+start = -300,320
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.12,1.08
+start = -330,320
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.05,1.10
+start = -360,313
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.12,1.20
+start = -390,321
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.20,1.20
+start = -420,321
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -450,318
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = -480,318
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.11,1.03
+start = 0,315
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.91,1.13
+start = 30,315
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = 60,312
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = 90,312
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.11,1.03
+start = 120,315
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.15,1.04
+start = 150,315
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = 180,322
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = 210,322
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.15,1.07
+start = 240,313
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.12,1.07
+start = 270,313
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.9,1.07
+start = 300,320
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.3,1.07
+start = 330,320
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+scalestart=1.11,1.03
+start = 360,313
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = 390,321
+delta = .7,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 8,0
+start = 420,321
+delta = .7,2
+tile= 0,0
+;mask = 1
+[BG 1]
+type = normal
+scalestart=1.06,1.06
+spriteno = 8,0
+start = 450,318
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+scalestart=1.11,1.03
+spriteno = 8,0
+start = 480,318
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+scalestart=1,1
+spriteno = 8,1
+start = 460,318
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+scalestart=1,1
+spriteno = 8,1
+start = -460,318
+delta = .8,2
+tile= 0,0
+;mask = 1
+
+[bg 0] ; floor
+	type=parallax
+	spriteno=0,13
+	start=3,342
+	scalestart=2.5,2.9
+	delta=0.68,2
+	mask=0
+	tile=0,0
+	tilespacing=0,0
+	width=220,980
+	yscalestart=300 ;;(100%)
+	yscaledelta=1.1
+
+
+
+
+
+[BG 2]
+type  = anim
+actionno = 2
+start = 125, 342
+	delta=1.06,2
+	start=0,0
+
+[BG 2]
+type  = anim
+actionno = 2
+start = -32, 342
+	delta=1.06,2
+	start=0,0
+
+[BG 2]
+type  = anim
+actionno = 2
+start = 428, 342
+	delta=1.06,2
+	start=0,0
+
+[BG 2]
+type  = anim
+actionno = 2
+start = 582, 342
+	delta=1.06,2
+	start=0,0
+
+[Begin action 2]
+loopstart
+2,0, 0,0, 130,,
+2,0, 0,0, 120,,
+interpolate offset
+2,0, 0,100, 7,,
+interpolate offset
+2,0, 0,90, 7,,
+interpolate offset
+2,0, 0,100, 7,,
+2,0, 0,100, 120,,
+2,0, 0,100, 120,,
+interpolate offset
+2,0, 0,0, 7,,
+interpolate offset
+2,0, 0,10, 7,,
+interpolate offset
+2,0, 0,0, 7,,
+
+
+[bg 0] ; floor
+	type=parallax
+	spriteno=0,10
+	start=3,342
+	scalestart=2.5,2.9
+	delta=0.68,2
+	mask=0
+	tile=0,0
+	tilespacing=0,0
+	width=220,980
+	yscalestart=300 ;;(100%)
+	yscaledelta=1.1
+
+
+
+[bg 0] ; floor
+	type=parallax
+	spriteno=0,12
+	start=3,342
+	scalestart=2.5,2.9
+	delta=0.68,2
+	mask=0
+	tile=0,0
+	tilespacing=0,0
+	width=220,980
+	yscalestart=300 ;;(100%)
+	yscaledelta=1.1
+
+[BG 2]
+	type=parallax
+	spriteno=0,15
+	start=3,342
+	scalestart=2.5,2.9
+	delta=0.68,2
+	mask=0
+	tile=0,0
+	tilespacing=0,0
+	width=220,980
+        xscale = 1, 1.75
+	yscalestart=300 ;;(100%)
+	yscaledelta=1.1
+
+[BG 2]
+type  = parallax
+spriteno = 4,0
+start = 70, 342
+	delta=1.06,2
+	start=0,0
+
+[BG 2]
+type  = parallax
+spriteno = 4,0
+start = -160, 342
+	delta=1.06,2
+	start=0,0
+
+[BG 2]
+type  = parallax
+spriteno = 4,0
+start = -310, 342
+	delta=1.06,2
+	start=0,0
+
+
+
+[BG 2]
+type  = parallax
+spriteno = 4,0
+start = 300, 342
+	delta=1.06,2
+	start=0,0
+
+[BG 2]
+type  = parallax
+spriteno = 4,0
+start = 450, 342
+	delta=1.06,2
+	start=0,0
+
+[BG 0]
+type  = anim
+actionno = 24
+start = 0, 0
+
+	delta=0.05,2
+	scalestart=3,3
+
+[Begin action 24]
+loopstart
+11,3, 0,0, -1,,AS131D256
+
+[BG 0]
+type  = anim
+actionno = 25
+start = -152, 0
+	delta=0.1,2
+	start=0,0
+
+[BG 3];;character
+type  = anim
+actionno = 50
+	delta=1.15,2
+	start=-22,283
+scalestart= 1.2,1.2
+[BG 3];;character
+type  = anim
+actionno = 44
+	delta=1.2,2
+	start=-50,268
+scalestart= 1.55,1.55
+[BG 3];;character
+type  = anim
+actionno = 45
+	delta=1.1,2
+	start=-237,272
+scalestart= 1.2,1.2
+
+[BG 3];;character
+type  = anim
+actionno = 47
+	delta=1.06,2
+	start=232,277
+scalestart= 1.07,1.07
+[BG 3];;character
+type  = anim
+actionno = 48
+	delta=1.06,2
+	start=53,308
+
+[BG 3];;character
+type  = anim
+actionno = 49
+	delta=1.25,2
+	start=103,290
+scalestart= 1.5,1.5
+
+
+[Begin action 44]
+10,0, 0,0, 8
+10,1, 0,0, 8
+10,2, 0,0, 8
+10,3, 0,0, 8
+10,4, 0,0, 8
+10,5, 0,0, 8
+10,6, 0,0, 8
+10,7, 0,0, 8
+
+[Begin Action 45]
+11,4, 0,0, 10
+11,5, 0,0, 10
+11,6, 0,0, 10
+11,7, 0,0, 10
+11,8, 0,0, 10
+11,9, 0,0, 10
+11,10, 0,0, 10
+11,11, 0,0, 10
+
+[Begin Action 47]
+13,0, 0,0, 10
+13,1, 0,0, 10
+13,2, 0,0, 10
+13,3, 0,0, 10
+[Begin Action 48]
+34,0, 0,0, 10
+34,1, 0,0, 10
+34,2, 0,0, 10
+34,3, 0,0, 10
+34,4, 0,0, 10
+34,5, 0,0, 10
+34,6, 0,0, 10
+34,7, 0,0, 10
+
+[Begin Action 49]
+33,0, 0,0, 10
+33,1, 0,0, 10
+33,2, 0,0, 10
+33,3, 0,0, 10
+33,4, 0,0, 10
+33,5, 0,0, 10
+33,6, 0,0, 10
+33,7, 0,0, 10
+
+[Begin Action 50]
+12,5, 0,0, 10
+12,6, 0,0, 10
+12,7, 0,0, 10
+12,8, 0,0, 10
+12,9, 0,0, 10
+12,10, 0,0, 10
+12,11, 0,0, 10
+12,12, 0,0, 10
+
+
+[BG 1]
+type = normal
+spriteno = 12,1
+scalestart=1,1
+start = 320,373
+delta = 1.4,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 12,2
+scalestart=1.3,1.5
+start = 30,382
+delta = 1.6,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 12,2
+scalestart=1,1
+start = 345,352
+delta = 1.2,2
+tile= 0,0
+;mask = 1
+
+[BG 2]
+type  = anim
+actionno = 1
+start = 0, 342
+	delta=1.8,2.69
+	start=0,0
+
+[BG 2]
+type  = anim
+actionno = 1
+start = 384, 342
+	delta=1.8,2.69
+	start=0,0
+
+[BG 2]
+type  = anim
+actionno = 1
+start = -384, 342
+	delta=1.8,2.69
+	start=0,0
+
+[Begin action 1]
+loopstart
+1,0, 0,0, 100,,
+1,0, 0,0, 100,,
+interpolate offset
+1,0, 0,200, 7,,
+interpolate offset
+1,0, 0,190, 7,,
+interpolate offset
+1,0, 0,200, 7,,
+1,0, 0,200, 100,,
+1,0, 0,200, 100,,
+interpolate offset
+1,0, 0,0, 7,,
+interpolate offset
+1,0, 0,10, 7,,
+interpolate offset
+1,0, 0,0, 7,,
+[bg 0] ; floor
+	type=parallax
+	spriteno=0,11
+	start=3,342
+	scalestart=2.5,2.9
+	delta=0.68,2
+	mask=0
+	tile=0,0
+	tilespacing=0,0
+	width=220,980
+	yscalestart=300 ;;(100%)
+	yscaledelta=1.1
+
+[BG 0]
+type  = anim
+actionno = 29
+start = -152, 0
+	delta=0.15,2
+	start=0,0
+trans= add
+[Begin action 29]
+loopstart
+11,2, 0,0, -1,,AS256D256
+
+
+[BG 1]
+type = normal
+spriteno = 12,0
+scalestart=1,1
+start = -60,437
+delta = 2.8,2
+tile= 0,0
+;mask = 1
+
+
+[BG 1]
+type = normal
+spriteno = 12,0
+scalestart=0.6,1
+start = -435,442
+delta = 2.8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 12,0
+scalestart=0.7,1
+start = 480,442
+delta = 2.8,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 12,1
+scalestart=1.5,1.2
+start = -150,402
+delta = 1.8,2
+tile= 0,0
+;mask = 1
+
+
+[BG 1]
+type = normal
+spriteno = 12,2
+scalestart=1.5,1.7
+start = -260,412
+delta = 2,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 12,3
+scalestart=1,1
+start = -631,321
+delta = 2,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 12,3
+scalestart=1.3,1.4
+start = -731,212
+delta = 2,2
+tile= 0,0
+;mask = 1
+
+
+[BG 1]
+type = normal
+spriteno = 12,3
+scalestart=.8,1
+start = -715,355
+delta = 2,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 12,4
+scalestart=1,1
+start = 631,321
+delta = 2,2
+tile= 0,0
+;mask = 1
+[BG 1]
+type = normal
+spriteno = 12,4
+scalestart=1.3,1.4
+start = 731,212
+delta = 2,2
+tile= 0,0
+;mask = 1
+
+[BG 1]
+type = normal
+spriteno = 12,4
+scalestart=.8,1
+start = 715,355
+delta = 2,2
+tile= 0,0
+;mask = 1
+
+
+
+
+[BG 2]
+type  = anim
+actionno = 134
+start = 0, 0
+delta=2,2
+tile=1,1
+scalestart= 6,6
+mask=1
+layerno=1
+
+[Begin action 134]
+loopstart
+220,0, 0,0, -1,,AS111D256
+
